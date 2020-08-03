@@ -1,5 +1,8 @@
-### Hi there 👋
+Hello!
+I am a Brazilian student fascinated by people, knowledge, technology and good music.
+Currently working with web development and UX-Designer
 
+eMail me: michelcamargo@outlook.com
 <!--
 **michelcamargo/michelcamargo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
