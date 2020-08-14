@@ -1,23 +1,20 @@
 import React from 'react';
-import styled from 'styled-components';
 
+import { PageWrapper } from './styles';
 import Menu from '../Menu';
 import Footer from '../Footer';
 
-const PageWrapper = styled.div`
-  background: #383838;
-  color: #ffffff;
-  text-align: center;
-`;
-
-function PageDefault ({children}) {
-    return(
-        <PageWrapper>
-            <Menu />
-            {children}
-            <Footer />
-        </PageWrapper>
-    )
+// eslint-disable-next-line react/prop-types
+function PageDefault({ children }) {
+  return (
+    <>
+      <Menu />
+      <PageWrapper>
+        {children}
+      </PageWrapper>
+      <Footer />
+    </>
+  );
 }
 
 export default PageDefault;

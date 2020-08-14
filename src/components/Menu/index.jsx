@@ -1,15 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const baseMenu = styled.div`
-  background: #383838;
-  color: #ffffff;
-`;
+import Logo from '../../assets/logo.png';
 
-export default function Menu(){
-    return(
-        <baseMenu>
-            Menuuu
-        </baseMenu>
-    )
+import { MenuWrapper, LogoImage } from './styles';
+
+export default function Menu() {
+  return (
+    <MenuWrapper className="Menu">
+      <Link to="/">
+        <LogoImage src={Logo} alt="Logo aplicação" />
+      </Link>
+    </MenuWrapper>
+  );
 }

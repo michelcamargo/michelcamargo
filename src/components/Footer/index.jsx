@@ -1,15 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
+import { BaseFooter, LabelFooter } from './styles';
 
-const baseFooter = styled.div`
-  background: #383838;
-  color: #ffffff;
-`;
-
-export default function Footer(){
-    return(
-        <baseFooter>
-            footerrrr
-        </baseFooter>
-    )
+export default function Footer() {
+  return (
+    <BaseFooter>
+      <LabelFooter>
+        Rodapé
+      </LabelFooter>
+    </BaseFooter>
+  );
 }
