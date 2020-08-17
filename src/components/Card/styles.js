@@ -15,7 +15,7 @@ const BaseCard = styled.div`
 
 `;
 
-BaseCard.Label = styled.span`
+BaseCard.Top = styled.span`
   color: black;
   padding: 3px;
   margin-bottom: 2px;
@@ -28,7 +28,7 @@ BaseCard.Content = styled.div`
 
 BaseCard.Bottom = styled.div`
   background-color: red;
-  padding: 10px;
+  padding: 5px;
 `;
 
 export default BaseCard;

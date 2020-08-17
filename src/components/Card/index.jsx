@@ -8,16 +8,16 @@ function Card({
 }) {
   return (
     <>
-      <BaseCard
-        name={name}
-        width={width}
-      >
-        <BaseCard.Label>
-          {label}
-        </BaseCard.Label>
+      <BaseCard width={width}>
+        <BaseCard.Top>
+          {name}
+        </BaseCard.Top>
         <BaseCard.Content>
           {children}
         </BaseCard.Content>
+        <BaseCard.Bottom>
+          {label}
+        </BaseCard.Bottom>
       </BaseCard>
 
     </>
@@ -28,8 +28,8 @@ export default Card;
 
 // Inicialização de props não obrigatórias
 Card.defaultProps = {
-  name: '',
-  label: 'No label',
+  name: undefined,
+  label: undefined,
   width: '20vh',
 };
 
