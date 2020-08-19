@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const BaseCard = styled.div`
   text-align: center;
   background-color: white;
 
-  border: solid green 5px;
+  border: solid gray 5px;
   
   margin: 5px;
 
@@ -15,20 +15,25 @@ const BaseCard = styled.div`
 
 `;
 
-BaseCard.Top = styled.span`
-  color: black;
-  padding: 3px;
-  margin-bottom: 2px;
-`;
+BaseCard.Top = styled.div`
+  /* Se houver valor em 'name' aplica o estilo */
+  ${({ hasName }) => hasName && css`
+      background-color: blue;
+      color: black;
+      padding: 5px;
+    `
+}`;
 
 BaseCard.Content = styled.div`
-  background-color: grey;
   padding: 10px;
 `;
 
 BaseCard.Bottom = styled.div`
-  background-color: red;
-  padding: 5px;
-`;
+/* Se houver valor em 'label' aplica o estilo */
+  ${({ hasLabel }) => hasLabel && css`
+      background-color: blue;
+      padding: 5px;
+    `
+}`;
 
 export default BaseCard;

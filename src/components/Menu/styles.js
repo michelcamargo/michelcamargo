@@ -13,4 +13,26 @@ export const LogoImage = styled.img`
 export const MenuWrapper = styled.div`
   background: #383838;
   color: #ffffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const HeadTitle = styled.div`
+  color: white;
+  padding: 10px;
+  font-size: 75px;
+
+  @media (max-width: 800px){
+    font-size: 40px;
+  }
+`;
+
+HeadTitle.Description = styled.span`
+  
+  font-size: 40px;
+
+  @media (max-width: 800px){
+    font-size: 25px;
+  }
 `;

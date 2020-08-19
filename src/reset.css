@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box; /* define o tamanho da caixa como width e height reais */
-  font-family: 'Epilogue', sans-serif; /*  */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 :root { /* variáveis globais */
@@ -24,6 +25,7 @@ html, body {
 /* inherit herda do pai */
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 #root{

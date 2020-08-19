@@ -21,9 +21,9 @@ export default Image;
 
 Image.defaultProps = {
   link: '',
-}
+};
 
 Image.propTypes = {
-  src: propTypes.element.isRequired,
+  src: propTypes.string.isRequired,
   link: propTypes.string,
-}
+};
