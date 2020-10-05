@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import './reset.css';
+
 import Home from './pages/home';
 import Counter from './pages/counter';
 import Page404 from './pages/page404';

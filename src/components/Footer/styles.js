@@ -1,16 +1,34 @@
 import styled from 'styled-components';
 
-const BaseFooter = styled.div`
-  text-align: center;
-  margin: 0 auto;
-  position: relative;
+const Foot = styled.footer`
+  display: flex;
+  flex-direction: column;
+  background-color: #191919;
+  padding: 50px 0;
 
+  align-items: center;
 `;
 
-BaseFooter.Label = styled.span`
-  background: red;
-  color: black;
-  
+Foot.List = styled.ul`
+  display: flex;
+  margin-bottom: 25px;
 `;
 
-export default BaseFooter;
+Foot.ListItem = styled.ul`
+  margin-right: 10px;
+`;
+
+/* footer ul li:last-child {
+  margin-right: 0;
+} */
+
+Foot.Link = styled.a`
+  color: #07f3f3;
+  font-size: 2rem;
+`;
+
+Foot.Description = styled.p`
+  color: #07f3f3;
+`;
+
+export default Foot;

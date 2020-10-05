@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import Logo from '../../assets/logo.png';
+import Logo from '../../assets/logo.png';
 
 import { MenuWrapper } from './styles';
 
@@ -9,9 +9,16 @@ export default function Menu() {
   return (
     <MenuWrapper className="Menu">
       <Link to="/">
-        {/* <LogoImage src={Logo} alt="Logo aplicação" /> */}
-        <h1>Michel Camargo</h1>
-        <h2>Developer & UX-UI enthusiast</h2>
+        <header>
+          <Link to="/">
+            <img src={Logo} alt="Primeira Imagem" />
+          </Link>
+
+          <nav>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/">Sobre</Link></li>
+          </nav>
+        </header>
       </Link>
     </MenuWrapper>
   );
