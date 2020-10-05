@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 // import Logo from '../../assets/logo.png';
 
-import { MenuWrapper, HeadTitle } from './styles';
+import { MenuWrapper } from './styles';
 
 export default function Menu() {
   return (
     <MenuWrapper className="Menu">
       <Link to="/">
         {/* <LogoImage src={Logo} alt="Logo aplicação" /> */}
-        <HeadTitle>
-          Michel Camargo
-        </HeadTitle>
-
-        <HeadTitle.Description>
-          Developer & UX-UI enthusiast
-        </HeadTitle.Description>
+        <h1>Michel Camargo</h1>
+        <h2>Developer & UX-UI enthusiast</h2>
       </Link>
     </MenuWrapper>
   );

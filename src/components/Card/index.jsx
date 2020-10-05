@@ -15,13 +15,13 @@ function Card({
     <>
       <BaseCard width={width}>
         <BaseCard.Top hasName={hasName}>
-          { hasName && name }
+          { name }
         </BaseCard.Top>
         <BaseCard.Content>
           {children}
         </BaseCard.Content>
         <BaseCard.Bottom hasLabel={hasLabel}>
-          { hasLabel && label }
+          { label }
         </BaseCard.Bottom>
       </BaseCard>
 

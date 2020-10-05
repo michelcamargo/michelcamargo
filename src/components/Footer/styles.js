@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-export const BaseFooter = styled.div`
-  background: #4cd2f9;
+const BaseFooter = styled.div`
   text-align: center;
-  margin: 95vh;
-  position: fixed;
+  margin: 0 auto;
+  position: relative;
+
 `;
 
-export const LabelFooter = styled.span`
+BaseFooter.Label = styled.span`
   background: red;
   color: black;
   
 `;
+
+export default BaseFooter;

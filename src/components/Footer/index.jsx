@@ -1,12 +1,12 @@
 import React from 'react';
-import { BaseFooter, LabelFooter } from './styles';
+import BaseFooter from './styles';
 
 export default function Footer() {
   return (
     <BaseFooter>
-      <LabelFooter>
+      <BaseFooter.Label>
         Rodapé
-      </LabelFooter>
+      </BaseFooter.Label>
     </BaseFooter>
   );
 }

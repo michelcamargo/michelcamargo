@@ -5,15 +5,10 @@
 }
 
 :root { /* variáveis globais */
-  --primary: #14D6DB;
-  --black: #000000;
-  --blackLighter: #9E9E9E;
-  --grayLight: #F5F5F5;
-  --grayMedium: #e5e5e5; 
-  --grayDark: #141414;
-  --white: #FFFFFF;
-  --frontEnd: #6BD1FF;
-  --backEnd: #00C86F;
+  --primary: #ff3737;
+  --secondary: #2ecdda;
+  --black: #111111;
+  --white: #ffffff;
 }
 
 html, body {
@@ -36,7 +31,6 @@ a {
 
 @media (max-width: 800px) {
   body {
-      --bodyPaddingTop: 20px;
       padding-top: var(--bodyPaddingTop);
   }
 }

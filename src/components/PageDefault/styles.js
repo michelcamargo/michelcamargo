@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const PageWrapper = styled.div`
-  background: #000000;
-  color: #ffffff;
+const PageContent = styled.div`
+  text-align: center;
+  margin: 0 auto;
+  background: url( ${({ background }) => background} );
+  width: 100%;
+
+  color: var(--white);
   display: flex;
+  
 
   padding: 10px;
 `;
 
-export default PageWrapper;
+export default PageContent;

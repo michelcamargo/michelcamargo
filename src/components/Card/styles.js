@@ -18,10 +18,10 @@ const BaseCard = styled.div`
 BaseCard.Top = styled.div`
   /* Se houver valor em 'name' aplica o estilo */
   ${({ hasName }) => hasName && css`
-      background-color: blue;
-      color: black;
-      padding: 5px;
-    `
+    background-color: ${({ color }) => color};
+    color: black;
+    padding: 5px;
+  `
 }`;
 
 BaseCard.Content = styled.div`
@@ -31,9 +31,9 @@ BaseCard.Content = styled.div`
 BaseCard.Bottom = styled.div`
 /* Se houver valor em 'label' aplica o estilo */
   ${({ hasLabel }) => hasLabel && css`
-      background-color: blue;
-      padding: 5px;
-    `
+    background-color: blue;
+    padding: 5px;
+  `
 }`;
 
 export default BaseCard;
