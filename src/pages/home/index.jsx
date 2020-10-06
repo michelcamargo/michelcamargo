@@ -30,11 +30,8 @@ export default function Home() {
         <Hero.Subtitle>Student, developer & UX/UI enthusiast</Hero.Subtitle>
 
         <Social>
-          <Linkedin className="svg" fill="white" />
-          <Github className="svg" fill="white" />
-          {/* <Facebook className="svg" fill="white" /> */}
-          {/* <Instagram className="svg" fill="white" /> */}
-          {/* <Whatsapp className="svg" fill="white" /> */}
+          <Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} />
+          <Github fill="white" style={{ width: '30px', margin: '0 10px' }} />
         </Social>
 
         {/* <Buttons link="#">Saiba mais</Buttons> */}

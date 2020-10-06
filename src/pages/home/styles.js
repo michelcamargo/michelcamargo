@@ -43,7 +43,7 @@ export const Work = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* padding: 100px 50px; */
+  padding: 50px auto
 `;
 
 export const Social = styled.div`

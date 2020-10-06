@@ -4,25 +4,17 @@ const Foot = styled.footer`
   display: flex;
   flex-direction: column;
   background-color: #191919;
-  padding: 30px 0;
+  padding: 25px 0;
 
   align-items: center;
 `;
 
 Foot.List = styled.ul`
   display: flex;
-  margin-bottom: 25px;
+  flex-direction: row;
 `;
 
-Foot.ListItem = styled.ul`
-  margin-right: 10px;
-`;
-
-/* footer ul li:last-child {
-  margin-right: 0;
-} */
-
-Foot.Link = styled.a`
+Foot.Link = styled.ul`
   color: #07f3f3;
   font-size: 2rem;
 `;

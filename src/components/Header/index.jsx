@@ -10,15 +10,10 @@ function Header() {
     <Head>
       <Logo link="/" src={pngLogo} alt="Primeira Imagem" />
       <Head.Nav>
-
-        <List.Item>
+        <List>
           <Link to="/">Home</Link>
-        </List.Item>
-
-        <List.Item>
           <Link to="/">Sobre</Link>
-        </List.Item>
-
+        </List>
       </Head.Nav>
     </Head>
   );
