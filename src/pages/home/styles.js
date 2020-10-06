@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 import bgImage from '../../assets/manuel-sardo.jpg';
 
+// export const Wpp = styled.Whatsapp`
+//   width: 60px;
+// `;
+
 export const HomeWrapper = styled.div`
 
 `;
@@ -35,11 +39,16 @@ Hero.Subtitle = styled.h3`
 `;
 
 export const Work = styled.section`
-  background: #191919;
+  background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   /* padding: 100px 50px; */
+`;
+
+export const Social = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Resume = styled.section`
@@ -49,7 +58,7 @@ export const Resume = styled.section`
 Resume.Title = styled.h3`
   font-size: 2rem;
   margin-bottom: 35px;
-  color: #e3e7ee;
+  color: #282828;
 
   text-align: center;
 `;
@@ -57,7 +66,7 @@ Resume.Title = styled.h3`
 Resume.Description = styled.p`
   max-width: 800px;
   margin-bottom: 35px;
-  color: #e3e7ee;
+  color: #282828;
 
   text-align: center;
 `;
@@ -65,8 +74,8 @@ Resume.Description = styled.p`
 export const Separator = styled.hr`
   width: 200px;
   height: 2px;
-  background-color: #e3e7ee;
-  margin-bottom: 70px;
+  background-color: #282828;
+  margin: 15px 0;
 
   border: none; /* Tira borda transparente */
 `;
@@ -78,7 +87,7 @@ export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; */
-  
+  margin: 50px 0;
 `;
 
 Grid.Item = styled.div`
@@ -118,18 +127,18 @@ Grid.SmallItem = styled(Grid.Item)`
 `;
 
 export const Newsletter = styled.div`
-  background: #fff;
+  background: #222;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 100px 50px;
+  padding: 30px 25px;
 `;
 
 Newsletter.Title = styled.h3`
   font-size: 2rem;
   margin-bottom: 35px;
   
-  color: #191919;
+  color: #f0f0f0;
 
   text-align: center;
 `;
@@ -137,7 +146,7 @@ Newsletter.Title = styled.h3`
 Newsletter.Description = styled.p`
   max-width: 800px;
   margin-bottom: 35px;
-  color: #191919;
+  color: #f0f0f0;
 
   text-align: center;
 `;

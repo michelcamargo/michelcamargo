@@ -9,6 +9,7 @@ import Home from './pages/home';
 import Counter from './pages/counter';
 import Page404 from './pages/page404';
 
+/* Raíz DOM */
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

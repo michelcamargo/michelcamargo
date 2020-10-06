@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Logo from '../../assets/logo.png';
+import pngLogo from '../../assets/logo.png';
 
-import Head, { List } from './styles';
+import { Head, List, Logo } from './styles';
 
 function Header() {
   return (
     <Head>
-      <Head.Logo link="/" src={Logo} alt="Primeira Imagem" />
-
+      <Logo link="/" src={pngLogo} alt="Primeira Imagem" />
       <Head.Nav>
 
         <List.Item>

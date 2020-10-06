@@ -4,7 +4,7 @@ const Foot = styled.footer`
   display: flex;
   flex-direction: column;
   background-color: #191919;
-  padding: 50px 0;
+  padding: 30px 0;
 
   align-items: center;
 `;

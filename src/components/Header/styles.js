@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-const Head = styled.header`
-  background-color: #fff;
-  width: 100%;
-  /* position: absolute; /* Posicionar-se sobre */
+export const Head = styled.header`
+  position: absolute; /* Posicionar-se sobre */
   top: 0;
   left: 0;
   
@@ -12,10 +10,10 @@ const Head = styled.header`
   justify-content: space-between; /* espaçando o logo e o nav */
 
   align-items: center;
-  padding: 20px 50px;
+  /* padding: 20px 50px; */
 `;
 
-Head.Logo = styled.img`
+export const Logo = styled.img`
   width: 130px;
 `;
 
@@ -30,14 +28,12 @@ export const List = styled.ul`
 List.Item = styled.li`
   margin: 0 15px; /* separando itens da lista em header */
   list-style: none;
+
+  &:first-child{
+    margin-left: 0; /* selecionando primeiro item e tirando margin */
+  }
+
+  &:last-child{
+    margin-right: 0; /* selecionando último item e tirando margin */
+  }
 `;
-
-// header li:first-child {
-//   margin-left: 0; /* selecionando primeiro item e tirando margin */
-// }
-
-// header li:last-child {
-//   margin-right: 0; /* selecionando último item e tirando margin */
-// }
-
-export default Head;

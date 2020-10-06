@@ -27,6 +27,11 @@ a, ul, li {
   min-height: calc(100vh - var(--bodyPaddingTop));
 }
 
+.svg{
+  width: 50px;
+  margin: 0 15px;
+}
+
 @media (max-width: 800px) {
   body {
       background-color: #000
@@ -35,4 +40,11 @@ a, ul, li {
   p {
     color: green;
   }
+
+  .svg{
+    width: 30px;
+    color: #fff;
+    margin: 0 10px;
+  }
 }
+

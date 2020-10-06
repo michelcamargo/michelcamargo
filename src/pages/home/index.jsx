@@ -2,14 +2,20 @@
 import React from 'react';
 
 import PageDefault from '../../components/PageDefault';
-import Buttons from '../../components/Buttons';
+// import Buttons from '../../components/Buttons';
 import Image from '../../components/Image';
 
 import imgMesaPgto from '../../assets/work_ex/mesa_pagamento.jpg';
 import imgMesaDetail from '../../assets/work_ex/mesa_detalhe.jpg';
 import avatar from '../../assets/avatar.jpg';
 
-import { Hero, Work, Resume, Separator, Grid, Newsletter } from './styles';
+// import { ReactComponent as Instagram } from '../../assets/svg/ig.svg';
+// import { ReactComponent as Facebook } from '../../assets/svg/fb.svg';
+import { ReactComponent as Github } from '../../assets/svg/gh.svg';
+import { ReactComponent as Linkedin } from '../../assets/svg/li.svg';
+// import { ReactComponent as Whatsapp } from '../../assets/svg/wa.svg';
+
+import { Hero, Work, Social, Resume, Separator, Grid, Newsletter } from './styles';
 
 export default function Home() {
   const title = 'Michel Camargo';
@@ -18,17 +24,29 @@ export default function Home() {
     <PageDefault>
 
       <Hero>
+
         <Image src={avatar} alt="Avatar Michel" width="250px" radius="300px" />
         <Hero.Title>{title}</Hero.Title>
-        <Hero.Subtitle>Student, Developer & UX/UI Enthusiast</Hero.Subtitle>
-        <Buttons link="#">Saiba mais</Buttons>
+        <Hero.Subtitle>Student, developer & UX/UI enthusiast</Hero.Subtitle>
+
+        <Social>
+          <Linkedin className="svg" fill="white" />
+          <Github className="svg" fill="white" />
+          {/* <Facebook className="svg" fill="white" /> */}
+          {/* <Instagram className="svg" fill="white" /> */}
+          {/* <Whatsapp className="svg" fill="white" /> */}
+        </Social>
+
+        {/* <Buttons link="#">Saiba mais</Buttons> */}
       </Hero>
 
       <Work>
         <Resume>
-          <Resume.Title>Meu trabalho</Resume.Title>
+          <Resume.Title>Sobre mim / About me</Resume.Title>
           <Resume.Description>
-            Estudante de tecnologia em busca de desenvolvimento profissional, atuando na área de desenvolvimento de aplicações multiplataforma e interfaces Front-End, fortemente motivado pelo estudo e análise comportamental humano-computador, embasado por design de produto e interação humano-computador, a fim de absorver conhecimento e propor soluções claras e objetivas de forma síncrona e engajada junto à uma ou mais equipes.
+            <p>Estudante de tecnologia e desenvolvedor de aplicações</p>
+            <p>Motivado por design de interação humano-computador, fotografia e música</p>
+            <p>Em busca de conhecimento e seus desafios</p>
           </Resume.Description>
         </Resume>
 
@@ -49,14 +67,15 @@ export default function Home() {
       </Work>
 
       <Newsletter>
-        <Newsletter.Title>Fale comigo!</Newsletter.Title>
-        <Newsletter.Description>Deixe seu endereço de e-mail e entrarei em contato</Newsletter.Description>
-        <Separator />
+        <Newsletter.Title>Por onde entro em contato?</Newsletter.Title>
+        <Newsletter.Description>Deixe seu endereço de e-mail abaixo:</Newsletter.Description>
 
         <Newsletter.Form>
           <Newsletter.Input type="text" name="user_email" placeholder="Email para contato" />
           <Newsletter.Button>Enviar</Newsletter.Button>
         </Newsletter.Form>
+
+        <Separator />
 
       </Newsletter>
 
