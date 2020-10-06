@@ -37,7 +37,7 @@ Hero.Subtitle = styled.h3`
 export const Work = styled.section`
   background: #191919;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
   /* padding: 100px 50px; */
 `;
@@ -71,10 +71,14 @@ export const Separator = styled.hr`
   border: none; /* Tira borda transparente */
 `;
 
+/* REDESENHAR O GRID PARA APRESENTAR SCREENSHOTS */
+
 export const Grid = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: column; */
+  
 `;
 
 Grid.Item = styled.div`
@@ -82,8 +86,8 @@ Grid.Item = styled.div`
     ? css`background: url(${props.img})`
     : css`background: ${props.color}`)
 };
-
-  height: 350px;
+  /* margin: 5px; */
+  height: 30vh;
   padding: 20px;
   border-radius: 4px;
   background-size: cover;
@@ -91,12 +95,26 @@ Grid.Item = styled.div`
   position: center;
 `;
 
+// Grid.Item = styled.div`
+//   ${(props) => (props.img
+//     ? css`background: url(${props.img})`
+//     : css`background: ${props.color}`)
+// };
+//   margin: 2px;
+//   height: 350px;
+//   padding: 20px;
+//   border-radius: 4px;
+//   background-size: cover;
+//   background-clip: padding-box;
+//   position: center;
+// `;
+
 Grid.LargeItem = styled(Grid.Item)`
-  flex-basis: 60%;
+  flex-basis: 30%;
 `;
 
 Grid.SmallItem = styled(Grid.Item)`
-  flex-basis: 40%;
+  flex-basis: 20%;
 `;
 
 export const Newsletter = styled.div`

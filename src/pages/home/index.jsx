@@ -12,7 +12,7 @@ import avatar from '../../assets/avatar.jpg';
 import { Hero, Work, Resume, Separator, Grid, Newsletter } from './styles';
 
 export default function Home() {
-  const title = 'Michel de Souza Camargo';
+  const title = 'Michel Camargo';
 
   return (
     <PageDefault>
@@ -28,7 +28,7 @@ export default function Home() {
         <Resume>
           <Resume.Title>Meu trabalho</Resume.Title>
           <Resume.Description>
-            Estudante e profissional da área tecnológica buscando por oportunidades de colaboração e desenvolvimento profissional, atuando na área de desenvolvimento de aplicações multiplataforma e interfaces Front-End, fortemente motivado pelo estudo e análise comportamental humano-computador, embasado por design de produto e interação humano-computador, a fim de absorver conhecimento e propor soluções claras e objetivas de forma síncrona e engajada junto à uma ou mais equipes.
+            Estudante de tecnologia em busca de desenvolvimento profissional, atuando na área de desenvolvimento de aplicações multiplataforma e interfaces Front-End, fortemente motivado pelo estudo e análise comportamental humano-computador, embasado por design de produto e interação humano-computador, a fim de absorver conhecimento e propor soluções claras e objetivas de forma síncrona e engajada junto à uma ou mais equipes.
           </Resume.Description>
         </Resume>
 
