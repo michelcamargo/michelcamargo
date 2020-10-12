@@ -29,11 +29,8 @@ a, ul, li {
 
 @media (max-width: 800px) {
   body {
-      background-color: #000
+      background-color: var(--black);
   }
 
-  p {
-    color: green;
-  }
 }
 

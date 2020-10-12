@@ -1,39 +1,33 @@
 import styled from 'styled-components';
 
 export const Head = styled.header`
-  position: absolute; /* Posicionar-se sobre */
-  top: 0;
-  left: 0;
-  
   display: flex;
-
-  justify-content: space-between; /* espaçando o logo e o nav */
-
+  justify-content: space-between;
   align-items: center;
-  /* padding: 20px 50px; */
+  position: absolute; /* Posicionar-se sobre */
 `;
 
 export const Logo = styled.img`
   width: 130px;
-`;
+  position: absolute;
+  top: 0;
+  left: 0;
 
-Head.Nav = styled.nav`
-  display: flex;
-`;
+  opacity: .6;
 
-export const List = styled.ul`
-  text-decoration: none;
-`;
+  transition: 500ms;
 
-List.Item = styled.li`
-  margin: 0 15px; /* separando itens da lista em header */
-  list-style: none;
-
-  &:first-child{
-    margin-left: 0; /* selecionando primeiro item e tirando margin */
+  &:hover{
+    opacity: 1;
+    width: 131px;
+    text-align: center;
   }
 
-  &:last-child{
-    margin-right: 0; /* selecionando último item e tirando margin */
-  }
 `;
+
+// Head.Nav = styled.nav`
+//   display: flex;
+//   align-items: center;
+//   text-decoration: none;
+//   justify-content: space-between;
+// `;

@@ -30,12 +30,12 @@ export const Hero = styled.section`
 
 Hero.Title = styled.h1`
   font-size: 3.2rem;
-  margin-bottom: 0;
+  margin: 30px 5px 0 5px;
 `;
 
 Hero.Subtitle = styled.h3`
   font-size: 2rem;
-  margin-bottom: 25px;
+  margin: 5px 5px 0 5px;
 `;
 
 export const Work = styled.section`
@@ -46,9 +46,11 @@ export const Work = styled.section`
   padding: 50px auto
 `;
 
-export const Social = styled.div`
+export const Hotlinks = styled.div`
   display: flex;
   flex-direction: row;
+  margin: 35px 5px; 
+
 `;
 
 export const Resume = styled.section`
@@ -83,11 +85,11 @@ export const Separator = styled.hr`
 /* REDESENHAR O GRID PARA APRESENTAR SCREENSHOTS */
 
 export const Grid = styled.div`
-  width: 90%;
+  width: 95%;
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; */
-  margin: 50px 0;
+  margin: 0 0 20px 0;
 `;
 
 Grid.Item = styled.div`
@@ -96,7 +98,7 @@ Grid.Item = styled.div`
     : css`background: ${props.color}`)
 };
   /* margin: 5px; */
-  height: 30vh;
+  height: 35vh;
   padding: 20px;
   border-radius: 4px;
   background-size: cover;

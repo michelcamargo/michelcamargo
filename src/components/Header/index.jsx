@@ -3,18 +3,20 @@ import { Link } from 'react-router-dom';
 
 import pngLogo from '../../assets/logo.png';
 
-import { Head, List, Logo } from './styles';
+import Linked from '../Linked';
+
+import { Head, Logo } from './styles';
 
 function Header() {
   return (
     <Head>
-      <Logo link="/" src={pngLogo} alt="Primeira Imagem" />
-      <Head.Nav>
-        <List>
-          <Link to="/">Home</Link>
-          <Link to="/">Sobre</Link>
-        </List>
-      </Head.Nav>
+      <Link to="/">
+        <Logo src={pngLogo} alt="Primeira Imagem" />
+      </Link>
+
+      <Linked to="/about">
+        Sobre
+      </Linked>
     </Head>
   );
 }

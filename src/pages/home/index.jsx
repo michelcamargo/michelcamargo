@@ -2,7 +2,6 @@
 import React from 'react';
 
 import PageDefault from '../../components/PageDefault';
-// import Buttons from '../../components/Buttons';
 import Image from '../../components/Image';
 
 import imgMesaPgto from '../../assets/work_ex/mesa_pagamento.jpg';
@@ -15,31 +14,28 @@ import { ReactComponent as Github } from '../../assets/svg/gh.svg';
 import { ReactComponent as Linkedin } from '../../assets/svg/li.svg';
 // import { ReactComponent as Whatsapp } from '../../assets/svg/wa.svg';
 
-import { Hero, Work, Social, Resume, Separator, Grid, Newsletter } from './styles';
+import { Hero, Work, Hotlinks, Resume, Separator, Grid, Newsletter } from './styles';
 
 export default function Home() {
   const title = 'Michel Camargo';
 
   return (
     <PageDefault>
-
       <Hero>
-
         <Image src={avatar} alt="Avatar Michel" width="250px" radius="300px" />
         <Hero.Title>{title}</Hero.Title>
         <Hero.Subtitle>Student, developer & UX/UI enthusiast</Hero.Subtitle>
 
-        <Social>
+        <Hotlinks>
           <Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} />
           <Github fill="white" style={{ width: '30px', margin: '0 10px' }} />
-        </Social>
+        </Hotlinks>
 
-        {/* <Buttons link="#">Saiba mais</Buttons> */}
       </Hero>
 
       <Work>
         <Resume>
-          <Resume.Title>Sobre mim / About me</Resume.Title>
+          <Resume.Title>Sobre mim</Resume.Title>
           <Resume.Description>
             <p>Estudante de tecnologia e desenvolvedor de aplicações</p>
             <p>Motivado por design de interação humano-computador, fotografia e música</p>
@@ -50,29 +46,21 @@ export default function Home() {
         <Separator />
         <Grid>
           <Grid.SmallItem img={imgMesaPgto} />
+          <Grid.SmallItem img={imgMesaDetail} />
           <Grid.LargeItem color="yellow" />
-          <Grid.LargeItem img={imgMesaDetail} />
-          <Grid.SmallItem color="blue" />
+          <Grid.LargeItem color="blue" />
         </Grid>
-
-        {/* <Buttons
-          link="https://play.google.com/store/apps/details?id=br.com.myse.comandaApp"
-        >
-          Foodi Comanda
-        </Buttons> */}
 
       </Work>
 
       <Newsletter>
-        <Newsletter.Title>Por onde entro em contato?</Newsletter.Title>
-        <Newsletter.Description>Deixe seu endereço de e-mail abaixo:</Newsletter.Description>
+        <Newsletter.Title><h4>seu e-mail</h4></Newsletter.Title>
+        <Newsletter.Description><p>(ou diga qualquer coisa)</p></Newsletter.Description>
 
         <Newsletter.Form>
           <Newsletter.Input type="text" name="user_email" placeholder="Email para contato" />
           <Newsletter.Button>Enviar</Newsletter.Button>
         </Newsletter.Form>
-
-        <Separator />
 
       </Newsletter>
 
