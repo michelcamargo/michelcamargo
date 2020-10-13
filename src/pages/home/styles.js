@@ -50,7 +50,7 @@ export const Hotlinks = styled.div`
   display: flex;
   flex-direction: row;
   margin: 35px 5px; 
-
+  
 `;
 
 export const Resume = styled.section`
