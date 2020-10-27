@@ -29,12 +29,12 @@ export const Hero = styled.section`
 `;
 
 Hero.Title = styled.h1`
-  font-size: 3.2rem;
+  font-size: 2.2rem;
   margin: 30px 5px 0 5px;
 `;
 
 Hero.Subtitle = styled.h3`
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 5px 5px 0 5px;
 `;
 
@@ -133,7 +133,7 @@ export const Newsletter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 25px;
+  padding: 15px 15px;
 `;
 
 Newsletter.Title = styled.h3`

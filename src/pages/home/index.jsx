@@ -18,13 +18,15 @@ import { Hero, Work, Hotlinks, Resume, Separator, Grid, Newsletter } from './sty
 
 export default function Home() {
   const title = 'Michel Camargo';
+  const subtitle = 'Student, developer & UX/UI enthusiast';
+  
 
   return (
     <PageDefault>
       <Hero>
-        <Image src={avatar} alt="Avatar Michel" width="250px" radius="300px" />
+        <Image src={avatar} alt="Avatar Michel" width="150px" radius="100px" />
         <Hero.Title>{title}</Hero.Title>
-        <Hero.Subtitle>Student, developer & UX/UI enthusiast</Hero.Subtitle>
+        <Hero.Subtitle>{subtitle}</Hero.Subtitle>
 
         <Hotlinks>
           <Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} />
@@ -37,7 +39,7 @@ export default function Home() {
         <Resume>
           <Resume.Title>Sobre mim</Resume.Title>
           <Resume.Description>
-            <p>Estudante de tecnologia e desenvolvedor de aplicações</p>
+            <p>Estudante de tecnologia e desenvolvedor de aplicações Web e Mobile</p>
             <p>Motivado por design de interação humano-computador, fotografia e música</p>
             <p>Em busca de conhecimento e seus desafios</p>
           </Resume.Description>
@@ -53,7 +55,7 @@ export default function Home() {
 
       </Work>
 
-      <Newsletter>
+      {/* <Newsletter>
         <Newsletter.Title><h4>seu e-mail</h4></Newsletter.Title>
         <Newsletter.Description><p>(ou diga qualquer coisa)</p></Newsletter.Description>
 
@@ -62,7 +64,7 @@ export default function Home() {
           <Newsletter.Button>Enviar</Newsletter.Button>
         </Newsletter.Form>
 
-      </Newsletter>
+      </Newsletter> */}
 
     </PageDefault>
   );

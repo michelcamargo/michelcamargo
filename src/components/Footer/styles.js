@@ -6,12 +6,14 @@ const Foot = styled.footer`
   background-color: #191919;
   padding: 25px 0;
 
+  text-align: center;
   align-items: center;
 `;
 
 Foot.List = styled.ul`
   display: flex;
   flex-direction: row;
+  text-align: center;
 `;
 
 Foot.Link = styled.ul`
