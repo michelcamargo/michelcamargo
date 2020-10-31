@@ -19,7 +19,6 @@ import { Hero, Work, Hotlinks, Resume, Separator, Grid, Newsletter } from './sty
 export default function Home() {
   const title = 'Michel Camargo';
   const subtitle = 'Student, developer & UX/UI enthusiast';
-  
 
   return (
     <PageDefault>
@@ -29,8 +28,8 @@ export default function Home() {
         <Hero.Subtitle>{subtitle}</Hero.Subtitle>
 
         <Hotlinks>
-          <Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} />
-          <Github fill="white" style={{ width: '30px', margin: '0 10px' }} />
+          <a href="https://www.linkedin.com/in/michelscamargo" target="_blank" rel="noreferrer"><Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} /></a>
+          <a href="https://github.com/michelcamargo" target="_blank" rel="noreferrer"><Github fill="white" style={{ width: '30px', margin: '0 10px' }} /></a>
         </Hotlinks>
 
       </Hero>

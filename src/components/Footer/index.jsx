@@ -22,8 +22,12 @@ export default function Footer() {
 
       </Foot.List>
 
-      <Foot.Description>Todos os direitos reservados. <br/> Michel Camargo 2020</Foot.Description>
-      
+      <Foot.Description>
+        Todos os direitos reservados.
+        <br />
+        Michel Camargo 2020
+      </Foot.Description>
+
     </Foot>
   );
 }
