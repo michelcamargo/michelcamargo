@@ -8,24 +8,23 @@ export default function Footer() {
   return (
     <Foot>
       <Foot.List>
-        <Foot.Link>
+
+        <Foot.Link href="https://www.facebook.com/camargomichels">
           <Instagram fill="#2ecdda" style={{ width: '20px' }} />
         </Foot.Link>
 
-        <Foot.Link>
+        <Foot.Link href="https://www.instagram.com/michelscamargo/">
           <Facebook fill="#2ecdda" style={{ width: '20px' }} />
         </Foot.Link>
 
-        <Foot.Link>
+        <Foot.Link href="https://api.whatsapp.com/send?phone=5544984470159">
           <Whatsapp fill="#2ecdda" style={{ width: '20px' }} />
         </Foot.Link>
 
       </Foot.List>
 
       <Foot.Description>
-        Todos os direitos reservados.
-        <br />
-        Michel Camargo 2020
+        Direitos reservados, Michel Camargo ©
       </Foot.Description>
 
     </Foot>

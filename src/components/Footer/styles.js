@@ -10,15 +10,16 @@ const Foot = styled.footer`
   align-items: center;
 `;
 
-Foot.List = styled.ul`
+Foot.List = styled.div`
   display: flex;
   flex-direction: row;
   text-align: center;
 `;
 
-Foot.Link = styled.ul`
+Foot.Link = styled.a`
   color: #07f3f3;
   font-size: 2rem;
+  margin: 2px 15px;
 `;
 
 Foot.Description = styled.p`

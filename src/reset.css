@@ -17,6 +17,11 @@ html, body {
   background-color: var(--black);
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
 /* inherit herda do pai */
 a, ul, li {
   color: inherit;
@@ -29,7 +34,7 @@ a, ul, li {
 
 @media (max-width: 800px) {
   body {
-      background-color: var(--black);
+      background-color: var(--white);
   }
 
 }

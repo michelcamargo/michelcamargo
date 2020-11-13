@@ -6,7 +6,7 @@ export const Head = styled.header`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  position: absolute; /* Posicionar-se sobre */
+  position: fixed; /* Posicionar-se sobre */
   align-content: space-between;
   width: 100%;
 `;
@@ -31,4 +31,5 @@ export const Nav = styled.nav`
 
 Nav.Item = styled.div`
   margin: 10px;
+  text-shadow: 0 0 15px #FFFFFF;
 `;

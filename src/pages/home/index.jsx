@@ -6,6 +6,10 @@ import Image from '../../components/Image';
 
 import imgMesaPgto from '../../assets/work_ex/mesa_pagamento.jpg';
 import imgMesaDetail from '../../assets/work_ex/mesa_detalhe.jpg';
+import imgEletro1 from '../../assets/work_ex/eletro_1.png';
+import imgEletro2 from '../../assets/work_ex/eletro_2.png';
+
+
 import avatar from '../../assets/avatar.jpg';
 
 // import { ReactComponent as Instagram } from '../../assets/svg/ig.svg';
@@ -18,7 +22,7 @@ import { Hero, Work, Hotlinks, Resume, Separator, Grid, Newsletter } from './sty
 
 export default function Home() {
   const title = 'Michel Camargo';
-  const subtitle = 'Student, developer & UX/UI enthusiast';
+  const subtitle = 'Developer, UX/UI enthusiast and student';
 
   return (
     <PageDefault>
@@ -28,8 +32,13 @@ export default function Home() {
         <Hero.Subtitle>{subtitle}</Hero.Subtitle>
 
         <Hotlinks>
-          <a href="https://www.linkedin.com/in/michelscamargo" target="_blank" rel="noreferrer"><Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} /></a>
-          <a href="https://github.com/michelcamargo" target="_blank" rel="noreferrer"><Github fill="white" style={{ width: '30px', margin: '0 10px' }} /></a>
+          <a href="https://www.linkedin.com/in/michelscamargo" rel="LinkedIn de Michel Camargo">
+            <Linkedin fill="white" style={{ width: '30px', margin: '0 10px' }} />
+          </a>
+
+          <a href="https://github.com/michelcamargo" rel="GitHub de Michel Camargo">
+            <Github fill="white" style={{ width: '30px', margin: '0 10px' }} />
+          </a>
         </Hotlinks>
 
       </Hero>
@@ -38,18 +47,17 @@ export default function Home() {
         <Resume>
           <Resume.Title>Sobre mim</Resume.Title>
           <Resume.Description>
-            <p>Estudante de tecnologia e desenvolvedor de aplicações Web e Mobile</p>
-            <p>Motivado por design de interação humano-computador, fotografia e música</p>
-            <p>Em busca de conhecimento e seus desafios</p>
+            <p>Acadêmico de Tecnologia em Sistemas para Internet pela Universidade Tecnológica Federal do Paraná </p>
+            <p>Desenvolvedor de aplicações Web com foco na experiência do usuário e facilitação do uso e aprendizado</p>
+            <p>Aficionado por tecnologia e design de interação, além de entusiasta do audiovisual e apreciador de boas artes</p>
           </Resume.Description>
         </Resume>
 
-        <Separator />
         <Grid>
           <Grid.SmallItem img={imgMesaPgto} />
           <Grid.SmallItem img={imgMesaDetail} />
-          <Grid.LargeItem color="yellow" />
-          <Grid.LargeItem color="blue" />
+          <Grid.LargeItem img={imgEletro1} />
+          <Grid.LargeItem img={imgEletro2} />
         </Grid>
 
       </Work>

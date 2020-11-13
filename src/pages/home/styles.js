@@ -29,13 +29,17 @@ export const Hero = styled.section`
 `;
 
 Hero.Title = styled.h1`
-  font-size: 2.2rem;
+  font-size: 2.6rem;
   margin: 30px 5px 0 5px;
+
+  text-shadow: 0 0 20px #000;
 `;
 
 Hero.Subtitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin: 5px 5px 0 5px;
+
+  text-shadow: 0 0 20px #000;
 `;
 
 export const Work = styled.section`
@@ -43,31 +47,37 @@ export const Work = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px auto
+  padding: 50px auto;
 `;
 
 export const Hotlinks = styled.div`
   display: flex;
   flex-direction: row;
   margin: 35px 5px; 
-  
 `;
 
 export const Resume = styled.section`
+  margin: 4vh 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
 
 `;
 
 Resume.Title = styled.h3`
   font-size: 2rem;
-  margin-bottom: 35px;
+  margin: 4vh 0 2vh 0;
   color: #282828;
 
   text-align: center;
 `;
 
 Resume.Description = styled.p`
+  margin: 0;
+
   max-width: 800px;
-  margin-bottom: 35px;
+  margin-bottom: 5vh;
   color: #282828;
 
   text-align: center;
