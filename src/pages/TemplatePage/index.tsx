@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Template, Headbar, Footbar, Nav } from './styles';
+import { Template, Headbar, Nav } from './styles';
 
 import Image from "../../components/Image";
 
@@ -16,7 +16,8 @@ const TemplatePage = ({ children }: Props) => {
   return (
     <Template>
       <Headbar>
-        <Image src={path_Logo} width="60px" />
+        <Image src={path_Logo} width="60px" link="/" />
+        {/* <Logo src={path_Logo} /> */}
 
         <Nav>
             <Nav.Item>Em obras :)</Nav.Item>

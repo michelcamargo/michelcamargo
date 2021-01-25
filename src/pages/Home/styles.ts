@@ -10,10 +10,12 @@ export const Content = styled.section`
 export const Resume = styled.div`
   padding: 10vh 0;
   display: flex;
+  align-content: center;
+  vertical-align: middle;
 `;
 
 export const Picturebox = styled.div`
-  
+  padding-top: 3px; /* Ajuste de offset */
 `;
 
 export const Textbox = styled.div`

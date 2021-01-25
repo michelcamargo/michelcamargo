@@ -49,7 +49,9 @@ table {
 }
 
 #root{
-	--white: #cae8f9;
+	--white: #FFFFFF;
+	--black: #222222;
+	--lighterGreen: #cae8f9;
 	--darkerGreen: #011017;
 	--secondary: #55b666;
 	--darkGreen: #0A1D24;
