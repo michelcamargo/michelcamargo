@@ -1,0 +1,29 @@
+import styled from 'styled-components';
+
+export const Content = styled.section`
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Resume = styled.div`
+  padding: 10vh 0;
+  display: flex;
+`;
+
+export const Picturebox = styled.div`
+  
+`;
+
+export const Textbox = styled.div`
+  margin-left: 25px;
+  width: 550px;
+  height: 200px;
+`;
+
+export const Skills = styled.section`
+  padding-top: 10vh; 
+  display: flex;
+  flex-direction: row;
+`;
