@@ -24,7 +24,7 @@ const TemplatePage = ({ children }: Props) => {
 
         <Nav>
             <Nav.Item onClick={() => (setSidebarVisible(!sidebarVisible))}>
-              Disclaimer
+              Sobre o site
             </Nav.Item>
         </Nav>
         

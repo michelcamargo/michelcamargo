@@ -32,7 +32,7 @@ export const IntBtn2 = styled(Link)<Theme>`
 
   &:hover{
     background-color: var(--otherDark) !important;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--white);
   }
 

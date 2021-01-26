@@ -1,7 +1,7 @@
-import react, { useState } from 'react';
+// import react, { useState } from 'react';
 import { Content, Resume, Textbox, Picturebox, Skills } from './styles';
 
-import { MainTitle, H2, H3, H4 } from '../../components/Typography';
+import { H1, H2, H3, Paragraph } from '../../components/Typography';
 import { Card } from '../../components/Card';
 import Image from '../../components/Image';
 // import { IntButton2 } from '../../components/IntButton';
@@ -22,10 +22,10 @@ function Home(){
                     <Image src={path_ProfilePicture} width="200px"></Image>
                 </Picturebox>
                 <Textbox>
-                    <MainTitle color="var(--white)" margin="0 0 5px 0">Michel Camargo</MainTitle>
-                    <H2 color="var(--white)" inactive opacity=".8" margin="0 0 8px 0">Estudante, desenvolvedor & UX-UI designer</H2>
-                    {/* <H3 color="var(--white)" inactive opacity=".8">Desenvolvedor & designer adaptivo e meticuloso</H3> */}
-                    <H3 color="var(--white)" inactive opacity=".8">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</H3>
+                    <Textbox.MainTitle color="var(--white)">Michel Camargo</Textbox.MainTitle>
+                    <Textbox.Title color="var(--white)">Estudante, desenvolvedor & UX-UI designer</Textbox.Title>
+                    {/* <H3 color="var(--white)">Desenvolvedor & designer adaptivo e meticuloso</H3> */}
+                    <Textbox.Subtitle color="var(--white)">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</Textbox.Subtitle>
                 </Textbox>
                 
             </Resume>
@@ -36,18 +36,19 @@ function Home(){
 
 
             <Skills>
-                <Card color="var(--otherDark)" title="Desenvolvimento de sistemas" srcImage={path_SkillJS} marginTitle="20px 0">
-                    <H4>
-                        Implementação e suporte a interfaces multiplataforma utilizando JavaScript e React.js ao lado de Node.js, Java ou Python.
-                        Além disso, procuro estudar e implementar elementos tipados com TypeScript.
-                    </H4>
+                <Card title="Web Development" textColor="var(--white)" bgColor="var(--otherDark)" srcImage={path_SkillJS} >
+                    <Paragraph>
+                        Implementação e suporte a aplicações multiplataforma utilizando JavaScript e React.js ao lado de Node.js, Java ou Python.
+                        Além disso estudo a implementação de objetos e elementos tipados com TypeScript.
+                    </Paragraph>
                 </Card>
                 
-                <Card color="var(--otherDark)" title="Design de Interação" srcImage={path_SkillIHC} marginTitle="20px 0">
-                    <H4>
-                        Fornecer uma experiência positiva ao usuário garante a alavancagem natural do produto e o mapeamento de pontos focais,
-                        dispondo da ótica de usabilidade no desenvolvimento e definição  dos objetivos.            
-                    </H4>
+                <Card title="UI & UX Design" textColor="var(--white)" bgColor="var(--otherDark)" srcImage={path_SkillIHC} >
+                    
+                    <Paragraph>
+                        Manter uma experiência positiva ao usuário possibilita o mapeamento de pontos focais e a priorização de recursos, garantindo a alavancagem 
+                        natural do produto expandindo a ótica de solução e definição dos objetivos.
+                    </Paragraph>
                 </Card>
             </Skills>
             
