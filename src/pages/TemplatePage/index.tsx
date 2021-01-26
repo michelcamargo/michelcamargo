@@ -20,7 +20,7 @@ const TemplatePage = ({ children }: Props) => {
         {/* <Logo src={path_Logo} /> */}
 
         <Nav>
-            <Nav.Item>Em obras :)</Nav.Item>
+            <Nav.Item>Em construção</Nav.Item>
         </Nav>
         
       </Headbar>

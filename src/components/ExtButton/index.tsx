@@ -8,19 +8,20 @@ interface ButtonProps {
   bgColor?: string;
   width?: string;
   to?: string;
+  target?: string;
 }
 
-export function ExtButton1({children, color, bgColor, width, to}: ButtonProps){
+export function ExtButton1({children, color, bgColor, width, to, target}: ButtonProps){
   return (
-    <ExtBtn1 color={color} bgColor={bgColor} width={width} href={to}>
+    <ExtBtn1 color={color} bgColor={bgColor} width={width} href={to} target={target}>
       {children}
     </ExtBtn1>
   );
 }
 
-export function ExtButton2({children, color, bgColor, width, to}: ButtonProps){
+export function ExtButton2({children, color, bgColor, width, to, target}: ButtonProps){
   return (
-    <ExtBtn2 color={color} bgColor={bgColor} width={width} href={to}>
+    <ExtBtn2 color={color} bgColor={bgColor} width={width} href={to} target={target}>
       {children}
     </ExtBtn2>
   );

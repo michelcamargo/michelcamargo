@@ -8,7 +8,8 @@ export const Content = styled.section`
 `;
 
 export const Resume = styled.div`
-  padding: 10vh 0;
+  margin: 9vh 0;
+  /* padding: 8vh 0; */
   display: flex;
   align-content: center;
   vertical-align: middle;

@@ -11,7 +11,7 @@ export const Template = styled.main`
   background-image: url(${Background});
   background-repeat: no-repeat;
   /* background-position: 200px 70px;  */
-  height: 100%;
+  height: 100vh;
 `;
 
 export const Headbar = styled.div`
