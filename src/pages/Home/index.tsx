@@ -1,7 +1,7 @@
 // import react, { useState } from 'react';
 import { Content, Resume, Textbox, Picturebox, Skills } from './styles';
+import { Paragraph } from '../../components/Typography/styles';
 
-import { H1, H2, H3, Paragraph } from '../../components/Typography';
 import { Card } from '../../components/Card';
 import Image from '../../components/Image';
 // import { IntButton2 } from '../../components/IntButton';
@@ -11,6 +11,7 @@ import { ExtButton2 } from '../../components/ExtButton';
 import path_ProfilePicture from "../../assets/images/profile-pic.png";
 import path_SkillJS from "../../assets/images/JS.png";
 import path_SkillIHC from "../../assets/images/IHC.png";
+
 
 function Home(){
 
@@ -23,9 +24,9 @@ function Home(){
                 </Picturebox>
                 <Textbox>
                     <Textbox.MainTitle color="var(--white)">Michel Camargo</Textbox.MainTitle>
-                    <Textbox.Title color="var(--white)">Estudante, desenvolvedor & UX-UI designer</Textbox.Title>
+                    <Textbox.Title color="var(--whiteInactive)">Estudante, desenvolvedor & UX-UI designer</Textbox.Title>
                     {/* <H3 color="var(--white)">Desenvolvedor & designer adaptivo e meticuloso</H3> */}
-                    <Textbox.Subtitle color="var(--white)">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</Textbox.Subtitle>
+                    <Textbox.Subtitle color="var(--whiteInactive)">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</Textbox.Subtitle>
                 </Textbox>
                 
             </Resume>
@@ -45,10 +46,10 @@ function Home(){
                 
                 <Card title="UI & UX Design" textColor="var(--white)" bgColor="var(--otherDark)" srcImage={path_SkillIHC} >
                     
-                    <Paragraph>
+                    <p>
                         Manter uma experiência positiva ao usuário possibilita o mapeamento de pontos focais e a priorização de recursos, garantindo a alavancagem 
                         natural do produto expandindo a ótica de solução e definição dos objetivos.
-                    </Paragraph>
+                    </p>
                 </Card>
             </Skills>
             

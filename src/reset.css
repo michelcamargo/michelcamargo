@@ -1,5 +1,6 @@
 #root{
 	--white: #FFFFFF;
+	--whiteInactive: rgb(255, 255, 255, .8);
 	--black: #222222;
 	--lighterGreen: #cae8f9;
 	--darkerGreen: #011017;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H1, H2, H3 } from '../../components/Typography';
+import { H1, H2, H3 } from '../../components/Typography/styles';
 
 interface Props{
   
@@ -31,15 +31,14 @@ export const Textbox = styled.div`
 `;
 
 Textbox.MainTitle = styled(H1)<Props>`
-  margin: 50px;
 `;
 
 Textbox.Title = styled(H2)<Props>`
-  margin: 50px;
+  margin-top: 5px;
 `;
 
 Textbox.Subtitle = styled(H3)<Props>`
-  margin: 50px;
+  margin-top: 10px;
 `;
 
 export const Skills = styled.section`
