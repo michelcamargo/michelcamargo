@@ -16,7 +16,7 @@ export const Resume = styled.div`
 `;
 
 export const Picturebox = styled.div`
-  padding-top: 3px; /* Ajuste de offset */
+  /* padding-top: 3px; Ajuste de offset */
 `;
 
 export const Textbox = styled.div`

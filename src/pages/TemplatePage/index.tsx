@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Template, Headbar, Nav } from './styles';
 
 import Image from "../../components/Image";
+import Sidebar from "../../components/Sidebar";
 
 // import path_Logo from "../../assets/images/logo.svg";
 const path_Logo = require("../../assets/images/logo.svg") as string;
@@ -13,6 +14,8 @@ type Props = {
 
 const TemplatePage = ({ children }: Props) => {
 
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+
   return (
     <Template>
       <Headbar>
@@ -20,10 +23,16 @@ const TemplatePage = ({ children }: Props) => {
         {/* <Logo src={path_Logo} /> */}
 
         <Nav>
-            <Nav.Item>Em construção</Nav.Item>
+            <Nav.Item onClick={() => (setSidebarVisible(!sidebarVisible))}>
+              Disclaimer
+            </Nav.Item>
         </Nav>
         
       </Headbar>
+
+      {/* Otimizar renderização */}
+
+      <Sidebar visible={sidebarVisible} />
 
       {children}
 

@@ -1,4 +1,4 @@
-// import react from 'react';
+import react, { useState } from 'react';
 import { Content, Resume, Textbox, Picturebox, Skills } from './styles';
 
 import { MainTitle, H2, H3, H4 } from '../../components/Typography';
@@ -13,6 +13,7 @@ import path_SkillJS from "../../assets/images/JS.png";
 import path_SkillIHC from "../../assets/images/IHC.png";
 
 function Home(){
+
     return(
         <Content>
 
@@ -21,17 +22,17 @@ function Home(){
                     <Image src={path_ProfilePicture} width="200px"></Image>
                 </Picturebox>
                 <Textbox>
-                    <MainTitle color="var(--white)">Michel Camargo</MainTitle>
-                    <H2 color="var(--white)" inactive opacity=".8" margin="0 0 5px 0">Estudante, desenvolvedor & UX-UI designer</H2>
-                    <H3 color="var(--white)" inactive opacity=".8">Desenvolvedor & designer adaptivo e meticuloso</H3>
-                    <H3 color="var(--white)" inactive opacity=".8">Meu objetivo é apresentar belas soluções com foco na experiência do usuário.</H3>
+                    <MainTitle color="var(--white)" margin="0 0 5px 0">Michel Camargo</MainTitle>
+                    <H2 color="var(--white)" inactive opacity=".8" margin="0 0 8px 0">Estudante, desenvolvedor & UX-UI designer</H2>
+                    {/* <H3 color="var(--white)" inactive opacity=".8">Desenvolvedor & designer adaptivo e meticuloso</H3> */}
+                    <H3 color="var(--white)" inactive opacity=".8">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</H3>
                 </Textbox>
                 
             </Resume>
             
             {/* <Separator color="#000000" width="500px"/> */}
             {/* <IntButton2 width='150px' to='/contato' bgColor='var(--white)' color='var(--darkGreen)'>Contato</IntButton2> */}
-            <ExtButton2 width='150px' to='https://www.linkedin.com/in/michelscamargo/' bgColor='var(--white)' color='var(--darkGreen)' target="_blank">Contato</ExtButton2>
+            <ExtButton2 width='150px' to='https://www.linkedin.com/in/michelscamargo/' bgColor='var(--white)' color='var(--darkGreen)' target="_blank">LinkedIn</ExtButton2>
 
 
             <Skills>

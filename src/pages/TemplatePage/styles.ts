@@ -49,9 +49,13 @@ Nav.Item = styled(Link)`
 
   transition-duration: 300ms;
 
-  &:hover{
+  /* Definir ativo */
+
+  &:hover,
+  &:active{
     background-color: #ffffff;
     font-weight: 800;
     color: #000000;
   }
+  
 `;
