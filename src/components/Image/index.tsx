@@ -12,11 +12,19 @@ interface Props {
 }
 
 function Image({src, alt, width, radius, link}: Props) {
-  return (
-    <Link to={link}>
+  if(link){
+    return (
+      <Link to={link}>
+        <Img src={src} alt={alt} width={width} radius={radius} />
+      </Link>
+    );
+  }
+
+  else{
+    return (
       <Img src={src} alt={alt} width={width} radius={radius} />
-    </Link>
-  );
+    );
+  }
 }
 
 export default Image;
