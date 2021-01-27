@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { H1, H2, H3 } from '../../components/Typography/styles';
 
 interface Props{
-  
+  color: string;
+  fontSize: string;
 }
 
 export const Content = styled.section`
@@ -31,6 +32,8 @@ export const Textbox = styled.div`
 `;
 
 Textbox.MainTitle = styled(H1)<Props>`
+  color: ${props => props.color};
+  font-size: ${props => props.fontSize};
 `;
 
 Textbox.Title = styled(H2)<Props>`

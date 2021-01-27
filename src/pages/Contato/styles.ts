@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  
+export const Content = styled.section`
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
 `;

@@ -46,10 +46,10 @@ function Home(){
                 
                 <Card title="UI & UX Design" textColor="var(--white)" bgColor="var(--otherDark)" srcImage={path_SkillIHC} >
                     
-                    <p>
+                    <Paragraph>
                         Manter uma experiência positiva ao usuário possibilita o mapeamento de pontos focais e a priorização de recursos, garantindo a alavancagem 
                         natural do produto expandindo a ótica de solução e definição dos objetivos.
-                    </p>
+                    </Paragraph>
                 </Card>
             </Skills>
             
