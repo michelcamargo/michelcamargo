@@ -1,2 +1,2 @@
-A Brazilian student fascinated by people, knowledge, technology and good music.
-Currently working with Web/App Development and UX-Design.
+Estudante, desenvolvedor e designer meticuloso e adaptivo que adora participar de todas as etapas do ciclo de vida do produto.
+Meu principal objetivo é desenvolver produtos fornecendo uma experiência intuitiva e agradável ao usuário.
