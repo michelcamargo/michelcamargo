@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="97826f10-0201-4b3c-89e4-73a49425a84d" name="Changes" comment="Ajustes e atualizações" />
+    <list default="true" id="97826f10-0201-4b3c-89e4-73a49425a84d" name="Changes" comment="testes layout" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,7 +51,7 @@
       <workItem from="1628129786798" duration="2793000" />
       <workItem from="1630199588211" duration="252000" />
       <workItem from="1630255642324" duration="1618000" />
-      <workItem from="1630272081609" duration="2249000" />
+      <workItem from="1630272081609" duration="2559000" />
     </task>
     <task id="LOCAL-00001" summary="Ajustes e atualizações">
       <created>1628131908027</created>
@@ -74,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630273651898</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="testes layout">
+      <created>1630275186149</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630275186149</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +101,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Ajustes e atualizações" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajustes e atualizações" />
+    <MESSAGE value="testes layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="testes layout" />
   </component>
 </project>
