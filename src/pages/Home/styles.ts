@@ -6,11 +6,43 @@ interface Props{
   fontSize: string;
 }
 
-export const Content = styled.section`
+export const Content = styled.section<Props>`
+  width: 100%;
+  max-width: ${
+    props => { 
+      const isFullWidth = props.isFullWidth;
+      
+      if(isFullWidth === true) {
+        return ("100%");
+      }
+      
+      else {
+        return ("1130px");
+      }
+    }
+  };
   align-items: center;
+  
 
   display: flex;
   flex-direction: column;
+
+  @media(max-width: 768px) {
+    width: 100%;
+    padding: 1rem 0;
+  }
+`;
+
+export const FlexRow = styled.section<Props>`
+  display: flex;
+  flex-direction: row;
+  justify-content: ${props => props.isCenter};
+  width: 100%;
+  padding: 1rem 0;
+  
+  @media(max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const Resume = styled.div`

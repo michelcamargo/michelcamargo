@@ -16,9 +16,9 @@ import path_SkillIHC from "../../assets/images/IHC.png";
 function Home(){
 
     return(
-        <Content>
+        <Content isFullWidth={true}>
 
-            <Resume>
+            <Resume >
                 <Picturebox>
                     <Image src={path_ProfilePicture} width="200px"></Image>
                 </Picturebox>
