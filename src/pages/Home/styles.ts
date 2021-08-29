@@ -36,7 +36,7 @@ export const Content = styled.section<Props>`
 export const FlexRow = styled.section<Props>`
   display: flex;
   flex-direction: row;
-  justify-content: ${props => props.isCenter};
+  justify-content: center;
   width: 100%;
   background: #f1f1f1;
   
@@ -47,6 +47,7 @@ export const FlexRow = styled.section<Props>`
 
 export const Container = styled.div<Props>`
   max-width: ${props => props.containerWidth}px;
+  width: 100%;
   padding: 1rem 0;
   background: blue;
 `;

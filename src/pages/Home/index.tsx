@@ -60,11 +60,9 @@ function Home(){
 
 
         <FlexRow fullWidth={false} background={"#f1f1f1"}>
-            <p>flexRow aqui</p>
             <Container containerWidth={containerWidth}>
-                <p>container aqui</p>
                 <FlexRowContent>
-                    <p>flexRowContent aqui</p>
+                    <p>Conteúdo</p>
                 </FlexRowContent>
 
             </Container>
