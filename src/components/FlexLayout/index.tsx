@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import {FlexContainer, FlexRow, FlexRowContent} from './styles';
+import {FlexRow, FlexContainer, FlexRowContent} from './styles';
 
 interface Props {
     children?: React.ReactNode | React.ReactNode[];
@@ -12,19 +12,24 @@ interface Props {
 export function FlexLayoutRow({children, isFullWidth, containerWidth}: Props) {
     if(isFullWidth) {
         return (
-            <FlexRowContent>
-                {children}
-            </FlexRowContent>
+            <FlexRow>
+                <FlexRowContent>
+                    {children}
+                </FlexRowContent>
+            </FlexRow>
         )
     }
 
     else {
         return (
-            <FlexContainer containerWidth={containerWidth}>
-                <FlexRowContent>
-                    {children}
-                </FlexRowContent>
-            </FlexContainer>
+            <FlexRow>
+                <FlexContainer containerWidth={containerWidth}>
+                    <FlexRowContent>
+                        {children}
+                    </FlexRowContent>
+                </FlexContainer>
+            </FlexRow>
+
         )
     }
 }

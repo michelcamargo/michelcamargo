@@ -10,7 +10,8 @@ export const FlexRow = styled.section<Props>`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  background: #f1f1f1;
+  background: blue;
+  opacity: .5;
   
   @media(max-width: 768px) {
     width: 100%;
@@ -20,6 +21,8 @@ export const FlexRow = styled.section<Props>`
 export const FlexContainer = styled.div<Props>`
   max-width: ${props => props.containerWidth}px;
   width: 100%;
+  background: red;
+  opacity: .5;
 
   padding: ${
       (props) => {
@@ -27,14 +30,12 @@ export const FlexContainer = styled.div<Props>`
         // isFullWidth ? (return 1) : (return 0);
 
         if(isFullWidth) {
-          return "1rem 0";
+          return "0 1rem";
         } else {
           return 0;
         }
       }
   };
-  
-  background: blue;
 `;
 
 export const FlexRowContent = styled.div<Props>`
@@ -42,7 +43,8 @@ export const FlexRowContent = styled.div<Props>`
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
-  background: green;
+  background: #fff;
+  opacity: .5;
   height: max-content;
   
   @media(max-width: 768px) {
