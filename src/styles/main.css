@@ -1,4 +1,16 @@
 #root{
+    --background-primary: #FFFFFF;
+    --background-secondary: #F1F1F1;
+    --text-heading-primary: #222222;
+    --text-heading-secondary: #444444;
+    --text-base-primary: #242424;
+    --text-base-secondary: #666666;
+    --action-primary: #0A1D24;
+    --action-primary--muted: #0A1D24;
+    --action-secondary: #0A1D24;
+    --action-secondary--muted: #0A1D24;
+    --inactive: rgb(255, 255, 255, .8);
+
     --white: #FFFFFF;
     --whiteInactive: rgb(255, 255, 255, .8);
     --black: #222222;
@@ -9,6 +21,10 @@
     --greyGreen: #323B42;
     --otherTone: #28353D;
     --otherDark: #12232B;
+}
+
+* {
+    font-family: 'Atkinson', 'Arial', sans-serif;
 }
 
 @font-face {
