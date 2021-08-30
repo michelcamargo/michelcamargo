@@ -7,10 +7,10 @@ import Home from './pages/Home';
 import Contato from './pages/Contato';
 
 import './reset.css';
-import './assets/fonts/Atkinson-Hyperlegible-Regular.ttf';
-import './assets/fonts/Atkinson-Hyperlegible-Bold.ttf';
-import './assets/fonts/Atkinson-Hyperlegible-Italic.ttf';
-import './assets/fonts/Atkinson-Hyperlegible-BoldItalic.ttf';
+import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.ttf';
+import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold.ttf';
+import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic.ttf';
+import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic.ttf';
 
 ReactDOM.render(
   <React.StrictMode>
