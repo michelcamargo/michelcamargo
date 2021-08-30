@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { Link } from "react-router-dom";
 
-import Background from "../../assets/images/elijah-odonnell.jpg";
+import Background from "../../assets/images/oleg-laptev.jpg";
 
 export const Template = styled.main`
   display: flex;

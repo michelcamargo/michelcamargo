@@ -10,8 +10,6 @@ export const FlexRow = styled.section<Props>`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  background: blue;
-  opacity: .5;
   
   @media(max-width: 768px) {
     width: 100%;
@@ -43,8 +41,6 @@ export const FlexRowContent = styled.div<Props>`
   flex-direction: row;
   justify-content: flex-start;
   width: 100%;
-  background: #fff;
-  opacity: .5;
   height: max-content;
   
   @media(max-width: 768px) {
