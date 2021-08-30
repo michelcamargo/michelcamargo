@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import {FlexRow, FlexContainer, FlexRowContent} from './styles';
 
@@ -12,8 +12,8 @@ interface Props {
 export function FlexLayoutRow({children, isFullWidth, containerWidth}: Props) {
     if(isFullWidth) {
         return (
-            <FlexRow>
-                <FlexRowContent>
+            <FlexRow className={"flexRow"}>
+                <FlexRowContent classname={"flexRowContent"}>
                     {children}
                 </FlexRowContent>
             </FlexRow>
@@ -23,7 +23,7 @@ export function FlexLayoutRow({children, isFullWidth, containerWidth}: Props) {
     else {
         return (
             <FlexRow>
-                <FlexContainer containerWidth={containerWidth}>
+                <FlexContainer containerWidth={containerWidth} classname={"flexContainer"}>
                     <FlexRowContent>
                         {children}
                     </FlexRowContent>
