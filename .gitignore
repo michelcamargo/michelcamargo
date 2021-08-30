@@ -21,4 +21,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # workspace WebStorm
+./idea/
 workspace.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+
+discord.xml

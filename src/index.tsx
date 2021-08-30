@@ -6,7 +6,7 @@ import TemplatePage from './pages/TemplatePage';
 import Home from './pages/Home';
 import Contato from './pages/Contato';
 
-import './reset.css';
+import './styles/main.css';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.ttf';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold.ttf';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic.ttf';
