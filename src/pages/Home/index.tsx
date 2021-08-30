@@ -27,10 +27,10 @@ function Home(){
                         <Image src={path_ProfilePicture} width="200px"></Image>
                     </Picturebox>
                     <Textbox>
-                        <Textbox.MainTitle color="var(--white)">Michel Camargo</Textbox.MainTitle>
-                        <Textbox.Title color="var(--whiteInactive)">Estudante, desenvolvedor & UX-UI designer</Textbox.Title>
+                        <Textbox.MainTitle color="var(--black)">Michel Camargo</Textbox.MainTitle>
+                        <Textbox.Title color="var(--black)">Estudante, desenvolvedor & UX-UI designer</Textbox.Title>
                         {/* <H3 color="var(--white)">Desenvolvedor & designer adaptivo e meticuloso</H3> */}
-                        <Textbox.Subtitle color="var(--whiteInactive)">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</Textbox.Subtitle>
+                        <Textbox.Subtitle color="var(--black)">Meu principal objetivo é oferecer belos produtos com experiência agradável e intuitiva ao usuário.</Textbox.Subtitle>
                     </Textbox>
                 </Resume>
 

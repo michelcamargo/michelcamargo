@@ -19,21 +19,6 @@ export const FlexRow = styled.section<Props>`
 export const FlexContainer = styled.div<Props>`
   max-width: ${props => props.containerWidth}px;
   width: 100%;
-  background: red;
-  opacity: .5;
-
-  padding: ${
-      (props) => {
-        const isFullWidth = props.isFullWidth;
-        // isFullWidth ? (return 1) : (return 0);
-
-        if(isFullWidth) {
-          return "0 1rem";
-        } else {
-          return 0;
-        }
-      }
-  };
 `;
 
 export const FlexRowContent = styled.div<Props>`
@@ -42,6 +27,7 @@ export const FlexRowContent = styled.div<Props>`
   justify-content: flex-start;
   width: 100%;
   height: max-content;
+  padding: 0 1rem;
   
   @media(max-width: 768px) {
     width: 100%;
