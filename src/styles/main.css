@@ -14,13 +14,13 @@
 @font-face {
     font-family: "Atkinson";
     src: local("Atkinson-Hyperlegible"),
-    url('./assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.ttf') format("truetype");
+    url('../assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.ttf') format("truetype");
     font-weight: normal;
 }
 
 @font-face {
     font-family: "Atkinson";
     src: local("Atkinson-Hyperlegible"),
-    url("./assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold.ttf") format("truetype");
+    url("../assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold.ttf") format("truetype");
     font-weight: bold;
 }
