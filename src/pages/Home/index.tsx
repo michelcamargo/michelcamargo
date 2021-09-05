@@ -1,7 +1,11 @@
 // import react, { useState } from 'react';
-import { Content, Resume, Textbox, Picturebox, Skills } from './styles';
 import { Paragraph } from '../../components/Typography/styles';
-import { MainResume } from '../../components/Section/MainResume/styles';
+
+import { Skills } from "./styles";
+
+import MainResume from '../../components/Sections/MainResume';
+
+
 
 import { FlexLayoutRow } from "../../components/FlexLayout";
 

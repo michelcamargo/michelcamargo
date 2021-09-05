@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Resume, Textbox, ImageElement, Skills } from './styles';
+import { Textbox, ImageElement } from './styles';
 import Image from '../../Image';
 import path_ProfilePicture from "../../../assets/images/profile-pic.png";
 

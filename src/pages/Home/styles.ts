@@ -45,6 +45,12 @@ export const FlexRow = styled.section<Props>`
   }
 `;
 
+export const Skills = styled.section`
+  padding-top: 10vh; 
+  display: flex;
+  flex-direction: row;
+`;
+
 export const Container = styled.div<Props>`
   max-width: ${props => props.containerWidth}px;
   width: 100%;

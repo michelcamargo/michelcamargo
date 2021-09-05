@@ -43,8 +43,3 @@ Textbox.Subtitle = styled(H3)<Styles>`
   margin-top: 10px;
 `;
 
-export const Skills = styled.section`
-  padding-top: 10vh; 
-  display: flex;
-  flex-direction: row;
-`;
