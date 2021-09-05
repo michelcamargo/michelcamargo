@@ -1,16 +1,17 @@
 // import react, { useState } from 'react';
 import { Content, Resume, Textbox, Picturebox, Skills } from './styles';
 import { Paragraph } from '../../components/Typography/styles';
+import { MainResume } from '../../components/Section/MainResume/styles';
 
 import { FlexLayoutRow } from "../../components/FlexLayout";
 
 import { Card } from '../../components/Card';
-import Image from '../../components/Image';
+
 // import { IntButton2 } from '../../components/IntButton';
 import { ExtButton2 } from '../../components/ExtButton';
 // import Separator from '../../components/Separator';
 
-import path_ProfilePicture from "../../assets/images/profile-pic.png";
+
 import path_SkillJS from "../../assets/images/JS.png";
 import path_SkillIHC from "../../assets/images/IHC.png";
 
@@ -22,17 +23,7 @@ function Home(){
     return(
         <>
             <FlexLayoutRow isFullWidth={false} containerWidth={containerWidth}>
-                <Resume>
-                    <Picturebox>
-                        <Image src={path_ProfilePicture} width="200px"></Image>
-                    </Picturebox>
-                    <Textbox>
-                        <Textbox.MainTitle color="var(--text-base-primary)">Michel Camargo</Textbox.MainTitle>
-                        <Textbox.Title color="var(--text-base-primary)">Estudante, desenvolvedor & UX-UI designer</Textbox.Title>
-                        <Textbox.Subtitle color="var(--text-base-primary)">Vamo levantar esse site.</Textbox.Subtitle>
-                    </Textbox>
-                </Resume>
-
+                <MainResume />
             </FlexLayoutRow>
 
             <FlexLayoutRow isFullWidth={false} containerWidth={containerWidth}>
