@@ -10,6 +10,7 @@ export const FlexRow = styled.section<Props>`
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  height: max-content;
   
   @media(max-width: 768px) {
     width: 100%;

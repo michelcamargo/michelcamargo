@@ -6,25 +6,27 @@ interface Theme{
   width?: string;
 }
 
-export const ExtBtn1 = styled.a<Theme>`
+export const StyledLinkElement = styled.a<Theme>`
   color: ${props => props.color || "var(--white)"};
-  background-color: ${props => props.bgColor || "var(--black)"};
-  width: ${props => props.width};
-
-`;
-
-export const ExtBtn2 = styled.a<Theme>`
-  color: ${props => props.color || "var(--white)"};
-  background-color: ${props => props.bgColor};
-  width: ${props => props.width};
+  width: ${props => props.width || "fit-content"};
 
   font-size: 1.2rem;
 
   text-decoration: none;
-  text-shadow: none;
-  font-weight: 600;
+`;
 
-  padding: 10px;
+export const StyledButtonElement = styled.button<Theme>`
+  color: ${props => props.color || "var(--white)"};
+  background-color: ${props => props.bgColor};
+  width: ${props => props.width || "fit-content"};
+
+  
+  text-shadow: none;
+  font-weight: 500;
+
+  border: none;
+  
+  padding: 4px 8px;
 
   text-align: center;
 
@@ -33,7 +35,7 @@ export const ExtBtn2 = styled.a<Theme>`
   &:hover{
     background-color: var(--otherDark) !important;
     font-weight: 800;
-    color: var(--white);
+    
   }
 
   border-radius: 4px;
