@@ -24,8 +24,8 @@
     --otherDark: #12232B;
 
     /*typography*/
-    --font-family-heading: '';
-    --font-family-base: '';
+    --font-family-heading: 'Atkinson';
+    --font-family-base: 'IstokWeb';
 
     --font-size-smallest: 11px;
     --font-size-smaller: 12px;
@@ -38,7 +38,7 @@
 }
 
 * {
-    font-family: 'Jost', 'Arial', sans-serif;
+    font-family: 'IstokWeb', 'Arial', sans-serif;
 }
 
 /*JOST*/
@@ -103,5 +103,20 @@
     font-family: "Atkinson";
     src: local("Atkinson-Hyperlegible"),
     url("../assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+/*ISTOKWEB*/
+@font-face {
+    font-family: "IstokWeb";
+    src: local("IstokWeb"),
+    url("../assets/fonts/IstokWeb/IstokWeb-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "IstokWeb";
+    src: local("IstokWeb"),
+    url("../assets/fonts/IstokWeb/IstokWeb-Bold.ttf") format("truetype");
     font-weight: bold;
 }
