@@ -26,18 +26,18 @@ function Home(){
 
     return(
         <>
-            <FlexLayoutRow fullWidth={false} containerWidth={containerWidth}>
+            <FlexLayoutRow containerWidth={containerWidth}>
                 <MainResume className="michelcamargo"/>
             </FlexLayoutRow>
 
-            <FlexLayoutRow fullWidth={false} containerWidth={containerWidth}>
+            <FlexLayoutRow containerWidth={containerWidth}>
                 <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} color={"var(--color-text-light-primary)"} bgColor={"#0A66C2"} target={"_blank"}>
                     LinkedIn
                 </StyledLink>
             </FlexLayoutRow>
 
 
-            <FlexLayoutRow fullWidth={false} containerWidth={containerWidth}>
+            <FlexLayoutRow containerWidth={containerWidth}>
 
                 {/*<ExtButton2 width='150px' to='https://www.linkedin.com/in/michelscamargo/' bgColor='var(--white)' color='var(--darkGreen)' target="_blank">LinkedIn</ExtButton2>*/}
 
