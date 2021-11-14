@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 interface Props {
-    containerWidth: number;
-    isFullWidth: boolean;
+    maxWidth: number;
+    fullWidth: boolean;
 }
 
 export const FlexRow = styled.section<Props>`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   width: 100%;
   height: max-content;
   
@@ -18,19 +16,24 @@ export const FlexRow = styled.section<Props>`
 `;
 
 export const FlexContainer = styled.div<Props>`
-  max-width: ${props => props.containerWidth}px;
+  max-width: ${props => props.maxWidth}px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
 `;
 
 export const FlexRowContent = styled.div<Props>`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
   width: 100%;
-  height: max-content;
-  padding: 0 1rem;
+  padding: ${props => props.fullWidth ? "1rem" : undefined};
   
   @media(max-width: 768px) {
     width: 100%;
   }
 `;
+
+export const FlexCol = styled.div<Props>``;
+
+export const FlexColContent = styled.div<Props>``;
