@@ -1,5 +1,6 @@
 export default {
     title: "light",
+    containerWidth: "1170px",
     colors: {
         mono: {
             white: "#FAFAFA",
@@ -28,5 +29,13 @@ export default {
         large: "20px",
         larger: "24px",
         largest: "28px"
+    },
+    spacing: {
+        smaller: ".25rem",
+        small: ".5rem",
+        medium: "1rem",
+        large: "2rem",
+        larger: "3rem",
+        largest: "4rem"
     }
 };

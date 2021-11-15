@@ -2,14 +2,13 @@ import React from 'react';
 
 import { FlexRow, FlexContainer, FlexRowContent, FlexCol, FlexColContent } from './styles';
 
-interface Props {
+interface FlexLayoutProps {
     children?: React.ReactNode | React.ReactNode[];
     fullWidth?: boolean;
-    containerWidth?: number | "1170px";
     center?: boolean;
 }
 
-export function FlexLayoutRow({ children, fullWidth, containerWidth }: Props) {
+export function FlexLayoutRow({ children, fullWidth }: FlexLayoutProps) {
     if (fullWidth) {
         return (
             <FlexRow className={"flexRow"}>
@@ -23,7 +22,7 @@ export function FlexLayoutRow({ children, fullWidth, containerWidth }: Props) {
     else {
         return (
             <FlexRow className={"flexRow"}>
-                <FlexContainer maxWidth={containerWidth} className={"flexContainer"}>
+                <FlexContainer className={"flexContainer"}>
                     <FlexRowContent className={"flexRowContent"}>
                         {children}
                     </FlexRowContent>
@@ -34,7 +33,7 @@ export function FlexLayoutRow({ children, fullWidth, containerWidth }: Props) {
     }
 }
 
-export function FlexLayoutCol({children, containerWidth}: Props) {
+export function FlexLayoutCol({ children }: FlexLayoutProps) {
     return (
         <FlexCol className={"flexCol"}>
             <FlexColContent className={"flexColContent"}>

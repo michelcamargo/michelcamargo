@@ -3,6 +3,7 @@ import 'styled-components';
 declare module 'styled-components' {
     export interface DefaultTheme {
         title: string,
+        containerWidth: string,
         colors: {
             mono: {
                 white: string,
@@ -32,7 +33,14 @@ declare module 'styled-components' {
             larger: string,
             largest: string
         },
-        border: {}
+        spacing: {
+            smaller: string,
+            small: string,
+            medium: string,
+            large: string,
+            larger: string,
+            largest: string
+        }
     }
 }
 

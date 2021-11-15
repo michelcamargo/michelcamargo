@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Img from './styles';
 
 interface Props {
+  className?: string;
   src: string;
   link?: string;
   alt?: string;

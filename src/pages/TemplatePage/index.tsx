@@ -5,16 +5,17 @@ import { Template } from './styles';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-type Props = {
-    children?: JSX.Element | JSX.Element[],
+interface TemplateProps {
+    children?: JSX.Element | JSX.Element[];
+    toggleTheme(): void;
 };
 
-const TemplatePage = ({ children }: Props) => {
+const TemplatePage = ({ children, toggleTheme }: TemplateProps) => {
 
 
   return (
     <Template>
-        <Header />
+        <Header toggleTheme={toggleTheme} />
 
         {children}
 

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 interface Props {
-    maxWidth: number;
     fullWidth: boolean;
 }
 
@@ -16,18 +15,17 @@ export const FlexRow = styled.section<Props>`
 `;
 
 export const FlexContainer = styled.div<Props>`
-  max-width: ${props => props.maxWidth}px;
+  max-width: ${props => props.theme.containerWidth};
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 1rem;
 `;
 
 export const FlexRowContent = styled.div<Props>`
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: ${props => props.fullWidth ? "1rem" : undefined};
+  padding: ${props => props.fullWidth ? `0 ${props.theme.spacing.large}` : `0 ${props.theme.spacing.medium}`};
   
   @media(max-width: 768px) {
     width: 100%;

@@ -1,6 +1,6 @@
 export default {
     title: "dark",
-
+    containerWidth: "1170px",
     colors: {
         mono: {
             white: "#FAFAFA",
@@ -9,16 +9,16 @@ export default {
             dark: "#393939",
             black: "#020202"
         },
-        basePrimary: "#FFC700",
+        basePrimary: "#FF5900",
         basePrimary__inverted: "#401F00",
         baseSecondary: "#FF3B0D",
-        baseSecondary__inverted: "#FFBA0D",
-        backgroundPrimary: "#F9F9F9",
+        baseSecondary__inverted: "#6c6c6c",
+        backgroundPrimary: "#2F2F2F",
         backgroundSecondary: "#E3CCD8",
-        textPrimary: "#222222",
-        textPrimary__inverted: "#F9F9F9",
-        textSecondary: "#F9F9F9",
-        textSecondary__inverted: "#222222",
+        textPrimary: "#F9F9F9",
+        textPrimary__inverted: "#222222",
+        textSecondary: "#222222",
+        textSecondary__inverted: "#F9F9F9",
         textLink: "#FF3B0D"
     },
     fontSize: {
@@ -30,6 +30,12 @@ export default {
         larger: "24px",
         largest: "28px"
     },
-    border: {}
-
+    spacing: {
+        smaller: ".25rem",
+        small: ".5rem",
+        medium: "1rem",
+        large: "2rem",
+        larger: "3rem",
+        largest: "4rem"
+    }
 }
