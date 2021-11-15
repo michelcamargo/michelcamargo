@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { H3 } from '../Typography/styles';
 interface CardProps{
   bgColor?: string;
   color?: string;
@@ -32,7 +31,7 @@ export const Basecard = styled.div<CardProps>`
 
 /* Permitir mudar características de fonte no card ( atual: Não alterando ) */
 
-Basecard.Header = styled(H3)<CardProps>`
+Basecard.Header = styled.h3<CardProps>`
   color: ${props => props.color};
   margin: 10px 0;
   font-weight: 600;

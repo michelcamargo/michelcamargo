@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { ThemeProvider } from 'styled-components';
+import {DefaultTheme, ThemeProvider} from 'styled-components';
 
 import GlobalStyle from './styles/global';
-
 import lightTheme from './styles/themes/light';
 import darkTheme from './styles/themes/dark';
 
+import usePersistedState from "./utils/usePersistedState";
 import TemplatePage from './pages/TemplatePage';
 import Home from './pages/Home';
 import Contato from './pages/Contato';
@@ -20,7 +20,7 @@ import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic.tt
 
 
 const App = () => {
-    const [theme, setTheme] = useState(lightTheme);
+    const [theme, setTheme] = usePersistedState<DefaultTheme>("theme", lightTheme);
 
     const toggleTheme = () => {
         setTheme(theme.title === 'light' ? darkTheme : lightTheme);

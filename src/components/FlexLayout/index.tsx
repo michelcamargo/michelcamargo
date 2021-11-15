@@ -28,7 +28,6 @@ export function FlexLayoutRow({ children, fullWidth }: FlexLayoutProps) {
                     </FlexRowContent>
                 </FlexContainer>
             </FlexRow>
-
         )
     }
 }
