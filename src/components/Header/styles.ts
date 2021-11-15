@@ -7,6 +7,8 @@ interface HeaderProps {
 export const HeaderWrapper = styled.div<HeaderProps>`
   width: 100%;
   position: fixed;
+  
+  background: yellow;
 `;
 
 export const HeaderContainer = styled.div<HeaderProps>`

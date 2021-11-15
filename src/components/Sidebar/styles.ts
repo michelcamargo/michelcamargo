@@ -38,7 +38,7 @@ export const Disclaimer = styled.div<Props>`
 Disclaimer.Title = styled.h3<Props>`
   margin: 30px 0;
   text-align: center;
-  color: var(--white);
+  color: #FFF;
 
   font-size: 1.4rem;
   font-weight: 600;
@@ -48,5 +48,5 @@ Disclaimer.Content = styled.p<Props>`
   font-size: 1.15rem;
   font-weight: 300;
 
-  color: var(--white);
+  color: #FFF;
 `;

@@ -7,7 +7,7 @@ interface Theme{
 }
 
 export const StyledLinkElement = styled.a<Theme>`
-  color: ${props => props.color || "var(--white)"};
+  color: ${props => props.color || "#FFF"};
   width: ${props => props.width || "fit-content"};
 
   font-size: 1.2rem;
@@ -16,7 +16,7 @@ export const StyledLinkElement = styled.a<Theme>`
 `;
 
 export const StyledButtonElement = styled.button<Theme>`
-  color: ${props => props.color || "var(--white)"};
+  color: ${props => props.color || "#FFF"};
   background-color: ${props => props.bgColor};
   width: ${props => props.width || "fit-content"};
 
@@ -33,7 +33,7 @@ export const StyledButtonElement = styled.button<Theme>`
   transition-duration: 300ms;
 
   &:hover{
-    background-color: var(--otherDark) !important;
+    background-color: #444 !important;
     font-weight: 800;
     
   }

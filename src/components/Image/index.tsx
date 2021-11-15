@@ -14,15 +14,15 @@ interface Props {
 function Image({src, alt, width, radius, link}: Props) {
   if(link){
     return (
-      <Link to={link}>
-        <Img src={src} alt={alt} width={width} radius={radius} />
+      <Link className="image-link" to={link}>
+        <Img className="image" src={src} alt={alt} width={width} radius={radius} />
       </Link>
     );
   }
 
   else{
     return (
-      <Img src={src} alt={alt} width={width} radius={radius} />
+      <Img className="image" src={src} alt={alt} width={width} radius={radius} />
     );
   }
 }

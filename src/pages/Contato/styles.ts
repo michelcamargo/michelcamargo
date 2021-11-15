@@ -12,13 +12,13 @@ export const Content = styled.section`
 `;
 
 export const FormSection = styled.section`
-  background-color: var(--darkGreen);
+  background-color: #555;
   border-radius: 4px;
 
 `;
 
 export const FieldGroup = styled.fieldset<Props>`
-  color: var(--white);
+  color: #FFF;
   display: flex;
   flex-direction: ${props => props.flex};
 `;

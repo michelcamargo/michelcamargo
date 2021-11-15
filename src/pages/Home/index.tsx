@@ -31,7 +31,7 @@ function Home(){
             </FlexLayoutRow>
 
             <FlexLayoutRow containerWidth={containerWidth}>
-                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} color={"var(--color-text-light-primary)"} bgColor={"#0A66C2"} target={"_blank"}>
+                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} color="#FFF" bgColor={"#0A66C2"} target={"_blank"}>
                     LinkedIn
                 </StyledLink>
             </FlexLayoutRow>
@@ -39,16 +39,16 @@ function Home(){
 
             <FlexLayoutRow containerWidth={containerWidth}>
 
-                {/*<ExtButton2 width='150px' to='https://www.linkedin.com/in/michelscamargo/' bgColor='var(--white)' color='var(--darkGreen)' target="_blank">LinkedIn</ExtButton2>*/}
+                {/*<ExtButton2 width='150px' to='https://www.linkedin.com/in/michelscamargo/' bgColor='var(--white)' color='#555' target="_blank">LinkedIn</ExtButton2>*/}
 
                 <Skills>
-                    <Card title="Web Development" textColor="var(--color-text-light-secondary)" bgColor="var(--color-background-primary)" srcImage={path_SkillJS} >
+                    <Card title="Web Development" textColor="#222" bgColor="#FFF" srcImage={path_SkillJS} >
                         <Paragraph>
                             Implementação e suporte a aplicações multiplataforma utilizando JavaScript e React.js ao lado de Node.js, Java ou Python.
                             Além disso estudo a implementação de objetos e elementos tipados com TypeScript.
                         </Paragraph>
                     </Card>
-                    <Card title="UI & UX Design" textColor="var(--color-text-light-secondary)" bgColor="var(--color-background-primary)" srcImage={path_SkillIHC} >
+                    <Card title="UI & UX Design" textColor="#222" bgColor="#FFF" srcImage={path_SkillIHC} >
                         <Paragraph>
                             Manter uma experiência positiva ao usuário possibilita o mapeamento de pontos focais e a priorização de recursos, garantindo a alavancagem
                             natural do produto expandindo a ótica de solução e definição dos objetivos.

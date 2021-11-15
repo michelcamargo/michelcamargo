@@ -34,6 +34,9 @@ export const FlexRowContent = styled.div<Props>`
   }
 `;
 
-export const FlexCol = styled.div<Props>``;
+export const FlexCol = styled.div<Props>`
+`;
 
-export const FlexColContent = styled.div<Props>``;
+export const FlexColContent = styled.div<Props>`
+
+`;

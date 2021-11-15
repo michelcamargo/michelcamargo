@@ -14,8 +14,8 @@ export const TextInput1 = styled.input<Props>`
   padding: 5px 10px;
   margin: 5px 10px;
 
-  background-color: var(--darkerGreen);
-  color: var(--white);
+  background-color: #555;
+  color: #FFF;
   border: none;
   border-radius: 4px;
 
@@ -29,8 +29,8 @@ export const EmailInput = styled.input<Props>`
   padding: 5px 10px;
   margin: 5px 10px;
 
-  background-color: var(--darkerGreen);
-  color: var(--white);
+  background-color: #555;
+  color: #FFF;
   border: none;
   border-radius: 4px;
 
@@ -40,8 +40,8 @@ export const TextAreaInput = styled.textarea<Props>`
   height: 100px;
   width: 590px;
 
-  background-color: var(--darkerGreen);
-  color: var(--white);
+  background-color: #555;
+  color: #FFF;
   border: none;
   border-radius: 4px;
 

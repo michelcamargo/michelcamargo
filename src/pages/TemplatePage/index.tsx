@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Template, Headbar, Nav } from './styles';
+import { Template } from './styles';
 
-import Image from "../../components/Image";
-import Sidebar from "../../components/Sidebar";
-
-// import path_Logo from "../../assets/images/logo.svg";
-const path_Logo = require("../../assets/images/logo.svg") as string;
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 type Props = {
     children?: JSX.Element | JSX.Element[],
@@ -14,28 +11,14 @@ type Props = {
 
 const TemplatePage = ({ children }: Props) => {
 
-  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   return (
     <Template>
-      <Headbar>
-        <Image src={path_Logo} width="60px" link="/" />
-        {/* <Logo src={path_Logo} /> */}
+        <Header />
 
-        <Nav>
-            <Nav.Item onClick={() => (setSidebarVisible(!sidebarVisible))}>
-              Sobre o site
-            </Nav.Item>
-        </Nav>
-        
-      </Headbar>
+        {children}
 
-      {/* Otimizar renderização */}
-
-      <Sidebar visible={sidebarVisible} />
-
-      {children}
-
+        <Footer />
     </Template>
   );
 }

@@ -8,13 +8,13 @@ interface Theme{
 }
 
 export const IntBtn1 = styled(Link)<Theme>`
-  color: ${props => props.color || "var(--white)"};
-  background-color: ${props => props.bgColor || "var(--black)"};
+  color: ${props => props.color || "#FFF"};
+  background-color: ${props => props.bgColor || "#222"};
   width: ${props => props.width};
 `;
 
 export const IntBtn2 = styled(Link)<Theme>`
-  color: ${props => props.color || "var(--white)"};
+  color: ${props => props.color || "#FFF"};
   background-color: ${props => props.bgColor};
   width: ${props => props.width};
 
@@ -31,9 +31,9 @@ export const IntBtn2 = styled(Link)<Theme>`
   transition-duration: 300ms;
 
   &:hover{
-    background-color: var(--otherDark) !important;
+    background-color: #444 !important;
     font-weight: 700;
-    color: var(--white);
+    color: "#FFF";
   }
 
   border-radius: 4px;

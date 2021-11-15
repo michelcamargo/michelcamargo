@@ -24,5 +24,8 @@
   "include": [
     "src",
     "src/components", "custom.d.ts"
+  ],
+  "files": [
+    "src/styles/styled.d.ts"
   ]
 }

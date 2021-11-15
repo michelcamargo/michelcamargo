@@ -13,8 +13,8 @@ interface Props{
 function Contato({children}: Props) {
   return(
     <Content>
-      <Button1 bgColor="var(--darkGreen)" color="var(--white)">Botão 1</Button1>
-      <Button2 bgColor="var(--darkGreen)" color="var(--white)">Botão 2</Button2>
+      <Button1 bgColor="#555" color="#FFF">Botão 1</Button1>
+      <Button2 bgColor="#555" color="#FFF">Botão 2</Button2>
 
 
       <FormSection>
