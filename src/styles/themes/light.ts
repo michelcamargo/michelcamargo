@@ -17,7 +17,7 @@ export default {
         backgroundSecondary: "#E3CCD8",
         textPrimary: "#222222",
         textPrimary__inverted: "#F9F9F9",
-        textSecondary: "#F9F9F9",
+        textSecondary: "#444444",
         textSecondary__inverted: "#222222",
         textLink: "#FF3B0D"
     },

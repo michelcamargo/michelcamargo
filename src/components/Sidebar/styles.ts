@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-interface Props{
+interface SidebarProps{
   visible: boolean;
 }
 
-export const Disclaimer = styled.div<Props>`
+export const Disclaimer = styled.div<SidebarProps>`
   position: fixed;
   top: 5.4%;
   right: 0;
@@ -13,13 +13,15 @@ export const Disclaimer = styled.div<Props>`
   display: flex;
   flex-direction: column;
 
-  padding: 25px;
+  background: ${props => props.theme.colors.backgroundPrimary};
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,.2);
 
+  padding: 25px;
   height: 100%;
   width: 450px;
 
-  background-color: rgba(0, 0, 0, 0.7);
 
+  
   &:focus {
     outline: none;
   }
@@ -35,18 +37,17 @@ export const Disclaimer = styled.div<Props>`
 
 `;
 
-Disclaimer.Title = styled.h3<Props>`
-  margin: 30px 0;
-  text-align: center;
-  color: #FFF;
+Disclaimer.Title = styled.h3<SidebarProps>`
+  margin: ${props => props.theme.spacing.large};
+  color: ${props => props.theme.colors.textPrimary};
 
   font-size: 1.4rem;
   font-weight: 600;
 `;
 
-Disclaimer.Content = styled.p<Props>`
+Disclaimer.Content = styled.p<SidebarProps>`
   font-size: 1.15rem;
   font-weight: 300;
 
-  color: #FFF;
+  color: ${props => props.theme.colors.textSecondary};
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Template } from './styles';
+import { Template, ContentWrapper } from './styles';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -16,9 +16,9 @@ const TemplatePage = ({ children, toggleTheme }: TemplateProps) => {
   return (
     <Template>
         <Header toggleTheme={toggleTheme} />
-
-        {children}
-
+        <ContentWrapper>
+            {children}
+        </ContentWrapper>
         <Footer />
     </Template>
   );

@@ -4,11 +4,12 @@ import { StyledLinkElement, StyledButtonElement } from './styles';
 
 interface StyledLinkProps {
   children?: ReactNode;
+  className?: string;
   color?: string;
   bgColor?: string;
   isButton?: boolean;
   width?: string;
-  to?: string;
+  to?: string | "#";
   target?: string;
 }
 
