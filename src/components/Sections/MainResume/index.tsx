@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Resume, ImageElement } from './styles';
-import {ReactComponent as MainLogo} from "../../../assets/svg/logo/michelcamargo.svg";
+const MainLogo = require("../../../assets/svg/logo/michelcamargo.svg") as string;
 
 interface Props {
     className?: string;
@@ -16,7 +16,7 @@ function MainResume({className}: Props) {
 
     return (
         <>
-
+            <ImageElement src={MainLogo} fill={"red"} width={"200px"} />
             <Resume className={`ResumeContainer${blockClass}`}>
                 <Resume.Title className={`resumeTitle${blockClass}`}>Michel Camargo</Resume.Title>
                 <Resume.Subtitle className={`resumeSubtitle${blockClass}`}>Estudante, desenvolvedor & UX-UI designer</Resume.Subtitle>

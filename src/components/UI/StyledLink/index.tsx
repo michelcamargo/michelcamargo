@@ -1,12 +1,12 @@
 import React, {ReactNode} from 'react';
 
-import { StyledAnchor, StyledLinkContainer, StyledButton, StyledLinkIcon} from './styles';
+import { StyledAnchor, StyledLinkContainer, StyledButton} from './styles';
 
 interface StyledLinkProps {
   children?: ReactNode;
   className?: string;
   color?: string;
-  bgColor?: string;
+  background?: string;
   width?: string;
   to?: string | "#";
   target?: string;
@@ -14,10 +14,10 @@ interface StyledLinkProps {
   icon?: React.FC;
 }
 
-function StyledLink({children, color, bgColor, width, to, target, rounded, icon}: StyledLinkProps){
-  if(bgColor) {
+function StyledLink({children, color, background, width, to, target, rounded, icon}: StyledLinkProps){
+  if(background) {
     return(
-        <StyledButton bgColor={bgColor} rounded={rounded}>
+        <StyledButton background={background} rounded={rounded}>
           <StyledLinkContainer className={"styledLinkContainer"}>
             {icon && icon}
             <StyledAnchor className={"styledAnchor"} color={color} href={to} target={target}>

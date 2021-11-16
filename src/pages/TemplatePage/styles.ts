@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
 interface TemplateProps {
-    bgColor?: string;
+    background?: string;
 }
 
 export const Template = styled.div<TemplateProps>`
   display: flex;
   flex-direction: column;
   
-  background-color: ${props => props.bgColor ? undefined : props.theme.colors.backgroundPrimary};
+  background-color: ${props => props.background ? undefined : props.theme.colors.backgroundPrimary};
   height: 100vh;
 `;
 

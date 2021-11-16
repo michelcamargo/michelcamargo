@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface CardProps{
-  bgColor?: string;
+  background?: string;
   color?: string;
   margin?: string;
 }
@@ -14,7 +14,7 @@ export const Basecard = styled.div<CardProps>`
   flex-direction: column;
   align-items: center;
 
-  background-color: ${props => props.bgColor};
+  background-color: ${props => props.background};
   
   border-radius: 8px;
 

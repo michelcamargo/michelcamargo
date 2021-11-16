@@ -4,7 +4,7 @@ import Icon from '../Icon';
 
 interface LinkProps{
   color?: string;
-  bgColor?: string;
+  background?: string;
   width?: string;
   fontSize?: string;
   fontWeight?: string;
@@ -41,10 +41,11 @@ export const StyledLinkIcon = styled(Icon)<LinkProps>`
 
 export const StyledButton = styled.button<LinkProps>`
   // color: ${props => props.color ? props.color : props.theme.colors.textLink__inverted};
-  background-color: ${props => props.bgColor};
-  width: ${props => props.width || "fit-content"};
+  background-color: ${props => props.background};
   border: none;
+  padding: ${props => `${props.theme.spacing.smaller} ${props.theme.spacing.medium}`};
   border-radius: ${props => props.rounded ? "100%" : props.borderRadius ? props.borderRadius : props.theme.borderRadius.small};
+  cursor: pointer;
   
   font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.medium};
   font-weight: ${props => props.fontWeight ? props.fontWeight : 400};
@@ -54,7 +55,7 @@ export const StyledButton = styled.button<LinkProps>`
   transition: ${props => props.theme.transition};
 
   &:hover{
-    background-color: ${props => shade(0.2, props.bgColor)};
+    background-color: ${props => shade(0.2, props.background)};
 
     a {
       text-decoration: none !important;

@@ -6,7 +6,7 @@ interface NavbarProps {
     children?: ReactNode;
     className?: string;
     color?: string;
-    bgColor?: string;
+    background?: string;
     isButton?: boolean;
     width?: string;
     to?: string | "#";

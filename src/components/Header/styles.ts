@@ -5,7 +5,7 @@ interface HeaderProps {
     sticky?: boolean;
     color?: string;
     fontSize?: string;
-    bgColor?: string;
+    background?: string;
 }
 
 export const HeaderWrapper = styled.div<HeaderProps>`
@@ -15,7 +15,8 @@ export const HeaderWrapper = styled.div<HeaderProps>`
   padding-top: ${props => props.theme.spacing.medium};
   padding-bottom: ${props => props.theme.spacing.medium};
   
-  background: ${props => props.bgColor ? props.bgColor : props.theme.colors.backgroundPrimary};
+  background: ${props => props.background ? props.background : props.theme.colors.backgroundPrimary};
+  box-shadow: ${props => props.theme.shadow};
 `;
 
 export const HeaderContainer = styled.div<HeaderProps>`
@@ -23,7 +24,8 @@ export const HeaderContainer = styled.div<HeaderProps>`
   flex-direction: row;
   justify-content: space-between;
 
-  padding: ${props => props.fullWidth ? `0 ${props.theme.spacing.large}` : `0 ${props.theme.spacing.medium}`};
+  padding-left: ${props => props.fullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
+  padding-right: ${props => props.fullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
   margin: ${props => props.fullWidth ? undefined : "0 auto"};
   max-width: ${props => props.fullWidth ? undefined : props.theme.containerWidth};
 `;

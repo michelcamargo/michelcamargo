@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MainResume from '../../components/Sections/MainResume';
-import { FlexLayoutRow } from "../../components/FlexLayout";
+import { FlexLayoutRow } from "../../components/UI/FlexLayout";
 
 import StyledLink  from '../../components/UI/StyledLink';
 import IconLinkedin from "../../styles/iconpack";
@@ -9,12 +9,12 @@ import IconLinkedin from "../../styles/iconpack";
 function Home(){
     return(
         <>
-            <FlexLayoutRow>
+            <FlexLayoutRow background={"linear-gradient(98.17deg, #FFC700 17.02%, #FF7A00 95.22%)"}>
                 <MainResume className="michelcamargo"/>
             </FlexLayoutRow>
 
-            <FlexLayoutRow>
-                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} bgColor={"#0A66C2"} color={"#FFFFFF"} icon={IconLinkedin} target={"_blank"}>
+            <FlexLayoutRow background={`${props => props.theme.colors.backgroundSecondary}`}>
+                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} background={"#0A66C2"} color={"#FFFFFF"} icon={IconLinkedin} target={"_blank"}>
                     LinkedIn
                 </StyledLink>
             </FlexLayoutRow>

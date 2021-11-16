@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
 import {HeaderWrapper, HeaderContainer} from './styles';
-import Image from "../Image";
-import Sidebar from "../Sidebar";
+import Image from "../UI/Image";
+import Sidebar from "../UI/Sidebar";
 import Navbar from "../UI/Navbar";
 
-const path_Logo = require("../../assets/images/logo.svg") as string;
+const path_Logo = require("../../assets/svg/logo/michelcamargo.svg") as string;
 
 interface HeaderProps {
     sticky?: boolean;

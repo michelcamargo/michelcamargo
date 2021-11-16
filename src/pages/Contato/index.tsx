@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 
 import { Content, FormSection, FieldGroup } from './styles';
 
-import { InputText, InputTextArea, InputEmail } from '../../components/Input';
+import { InputText, InputTextArea, InputEmail } from '../../components/UI/Input';
 
 
 interface Props{

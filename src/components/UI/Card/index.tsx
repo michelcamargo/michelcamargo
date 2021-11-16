@@ -2,20 +2,20 @@ import React, { ReactNode } from 'react';
 
 import { Basecard } from './styles';
 
-import Image from '../../components/Image';
+import Image from '../Image';
 interface CardProps{
   children?: ReactNode;
   srcImage?: string;
   title: string;
-  bgColor?: string;
+  background?: string;
   textColor?: string;
 }
 
-export function Card({children, srcImage, title, bgColor, textColor }: CardProps){
+export function Card({children, srcImage, title, background, textColor }: CardProps){
 
   if(srcImage){
     return (
-      <Basecard bgColor={bgColor}>
+      <Basecard background={background}>
         <Image src={srcImage} width="100px" />
         
         <Basecard.Header color={textColor}>{title}</Basecard.Header>
@@ -29,7 +29,7 @@ export function Card({children, srcImage, title, bgColor, textColor }: CardProps
 
   else{
     return (
-      <Basecard bgColor={bgColor}>
+      <Basecard background={background}>
         <Basecard.Header color={textColor}>{title}</Basecard.Header>
         <Basecard.Content color={textColor}>{children}</Basecard.Content>
 

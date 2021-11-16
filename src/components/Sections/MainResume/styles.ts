@@ -29,5 +29,6 @@ Resume.Subtitle = styled.h3<ResumeProps>`
 Resume.Description = styled.p<ResumeProps>`
   color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
   font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.medium};
+  margin-bottom: ${props => props.theme.spacing.large};
 `;
 

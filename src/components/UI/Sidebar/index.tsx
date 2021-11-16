@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Disclaimer } from './styles';
-import StyledLink from "../UI/StyledLink";
+import StyledLink from "../StyledLink";
 
 interface Props{
   visible: boolean;

@@ -2,15 +2,17 @@ import styled from 'styled-components';
 
 interface FlexProps {
     fullWidth: boolean;
-    bgColor: string;
+    background: string;
 }
 
 export const FlexRow = styled.section<FlexProps>`
   display: flex;
   width: 100%;
   height: max-content;
+  padding-top: ${props => props.theme.spacing.largest};
+  padding-bottom: ${props => props.theme.spacing.largest};
   
-  background-color: ${props => props.bgColor ? props.bgColor : "none"};
+  background: ${props => props.background ? props.background : "none"};
   
   @media(max-width: 768px) {
     width: 100%;
