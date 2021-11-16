@@ -13,6 +13,7 @@ export default {
         basePrimary__inverted: "#401F00",
         baseSecondary: "#FF3B0D",
         baseSecondary__inverted: "#6c6c6c",
+        accent: "#FDB750",
         backgroundPrimary: "#2F2F2F",
         backgroundSecondary: "#E3CCD8",
         textPrimary: "#F9F9F9",

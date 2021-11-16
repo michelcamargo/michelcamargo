@@ -16,6 +16,7 @@ declare module 'styled-components' {
             basePrimary__inverted: string,
             baseSecondary: string,
             baseSecondary__inverted: string,
+            accent: string,
             backgroundPrimary: string,
             backgroundSecondary: string,
             textPrimary: string,

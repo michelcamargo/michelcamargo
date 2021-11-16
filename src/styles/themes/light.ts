@@ -7,19 +7,20 @@ export default {
             light: "#C9C9C9",
             medium: "#707070",
             dark: "#393939",
-            black: "#020202"
+            black: "#010100"
         },
-        basePrimary: "#FFC700",
+        basePrimary: "#FD7F20",
         basePrimary__inverted: "#401F00",
-        baseSecondary: "#FF3B0D",
+        baseSecondary: "#FC2E20",
         baseSecondary__inverted: "#FFBA0D",
+        accent: "#FDB750",
         backgroundPrimary: "#F9F9F9",
         backgroundSecondary: "#E3CCD8",
-        textPrimary: "#222222",
+        textPrimary: "#010100",
         textPrimary__inverted: "#F9F9F9",
         textSecondary: "#444444",
         textSecondary__inverted: "#222222",
-        textLink: "#FF3B0D"
+        textLink: "#FDB750"
     },
     fontSize: {
         smallest: "12px",

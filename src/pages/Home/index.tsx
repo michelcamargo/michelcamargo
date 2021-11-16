@@ -8,7 +8,7 @@ import { StyledLink } from '../../components/ButtonLink';
 function Home(){
     return(
         <>
-            <FlexLayoutRow>
+            <FlexLayoutRow bgColor={"red"}>
                 <MainResume className="michelcamargo"/>
             </FlexLayoutRow>
 

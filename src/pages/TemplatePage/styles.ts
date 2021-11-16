@@ -5,7 +5,7 @@ interface TemplateProps {
 
 }
 
-export const Template = styled.main<TemplateProps>`
+export const Template = styled.div<TemplateProps>`
   display: flex;
   flex-direction: column;
   
@@ -13,7 +13,7 @@ export const Template = styled.main<TemplateProps>`
   height: 100vh;
 `;
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.main`
   display: flex;
   flex-direction: column;
   

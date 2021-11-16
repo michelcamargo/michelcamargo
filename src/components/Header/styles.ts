@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export const HeaderWrapper = styled.div<HeaderProps>`
   width: 100%;
-  position: fixed;
+  position: relative;
   
   padding-top: ${props => props.theme.spacing.medium};
   padding-bottom: ${props => props.theme.spacing.medium};

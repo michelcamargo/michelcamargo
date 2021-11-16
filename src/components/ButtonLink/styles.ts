@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-interface Theme{
+interface LinkProps{
   color?: string;
   bgColor?: string;
   width?: string;
 }
 
-export const StyledLinkElement = styled.a<Theme>`
-  color: ${props => props.color || "#FFF"};
+export const StyledLinkElement = styled.a<LinkProps>`
+  color: ${props => props.color ? props.color : props.theme.colors.textLink};
   width: ${props => props.width || "fit-content"};
 
   font-size: 1.2rem;
@@ -15,7 +15,7 @@ export const StyledLinkElement = styled.a<Theme>`
   text-decoration: none;
 `;
 
-export const StyledButtonElement = styled.button<Theme>`
+export const StyledButtonElement = styled.button<LinkProps>`
   color: ${props => props.color || "#FFF"};
   background-color: ${props => props.bgColor};
   width: ${props => props.width || "fit-content"};

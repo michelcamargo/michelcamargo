@@ -6,12 +6,13 @@ interface FlexLayoutProps {
     children?: React.ReactNode | React.ReactNode[];
     fullWidth?: boolean;
     center?: boolean;
+    bgColor?: string;
 }
 
-export function FlexLayoutRow({ children, fullWidth }: FlexLayoutProps) {
+export function FlexLayoutRow({ children, fullWidth, bgColor }: FlexLayoutProps) {
     if (fullWidth) {
         return (
-            <FlexRow className={"flexRow"}>
+            <FlexRow className={"flexRow"} bgColor={bgColor}>
                 <FlexRowContent className={"flexRowContent"}>
                     {children}
                 </FlexRowContent>
