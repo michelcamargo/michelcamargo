@@ -25,7 +25,13 @@ declare module 'styled-components' {
             textPrimary__inverted: string,
             textSecondary: string,
             textSecondary__inverted: string,
-            textLink: string
+            textLink: string,
+            textLink__inverted: string
+        },
+        fontFamily: {
+            base: string,
+            heading: string,
+            aux: string
         },
         fontSize: {
             smallest: string,

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { shade } from 'polished';
+import Icon from '../Icon';
 
 interface LinkProps{
   color?: string;
@@ -7,9 +8,10 @@ interface LinkProps{
   width?: string;
   fontSize?: string;
   fontWeight?: string;
+  rounded?: boolean;
 }
 
-export const StyledLinkElement = styled.a<LinkProps>`
+export const StyledAnchor = styled.a<LinkProps>`
   color: ${props => props.color ? props.color : props.theme.colors.textLink};
   width: ${props => props.width || "fit-content"};
   cursor: pointer;
@@ -27,24 +29,38 @@ export const StyledLinkElement = styled.a<LinkProps>`
   }
 `;
 
-export const StyledButtonElement = styled.button<LinkProps>`
-  color: ${props => props.color || "#FFF"};
+export const StyledLinkContainer = styled.div<LinkProps>`
+  display: flex;
+  column-gap: ${props => props.theme.spacing.medium};
+  align-items: center;
+`;
+
+export const StyledLinkIcon = styled(Icon)<LinkProps>`
+  
+`;
+
+export const StyledButton = styled.button<LinkProps>`
+  // color: ${props => props.color ? props.color : props.theme.colors.textLink__inverted};
   background-color: ${props => props.bgColor};
   width: ${props => props.width || "fit-content"};
-
+  border: none;
+  border-radius: ${props => props.rounded ? "100%" : props.borderRadius ? props.borderRadius : props.theme.borderRadius.small};
+  
   font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.medium};
   font-weight: ${props => props.fontWeight ? props.fontWeight : 400};
-  
-  text-shadow: none;
-
-  border: none;
-  border-radius: ${props => props.rounded ? "100%" : props.theme.borderRadius.small}
-
   text-align: center;
+  text-shadow: none;
 
   transition: ${props => props.theme.transition};
 
-  &:hover{}
+  &:hover{
+    background-color: ${props => shade(0.2, props.bgColor)};
+
+    a {
+      text-decoration: none !important;
+      color: ${props => props.color ? props.color : props.theme.colors.textLink__inverted} !important;
+    }
+  }
 
 `;
 

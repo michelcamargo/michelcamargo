@@ -22,7 +22,13 @@ export default {
         textPrimary__inverted: "#222222",
         textSecondary: "#848484",
         textSecondary__inverted: "#F9F9F9",
-        textLink: "#FF3B0D"
+        textLink: "#FF3B0D",
+        textLink__inverted: "#FAFAFA"
+    },
+    fontFamily: {
+        base: "'Atkinson', 'Arial'",
+        heading: "'Atkinson', 'Arial'",
+        aux: "'Atkinson', 'Arial'"
     },
     fontSize: {
         smallest: "12px",

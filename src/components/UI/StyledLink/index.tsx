@@ -1,32 +1,39 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode} from 'react';
 
-import { StyledLinkElement, StyledButtonElement } from './styles';
+import { StyledAnchor, StyledLinkContainer, StyledButton, StyledLinkIcon} from './styles';
 
 interface StyledLinkProps {
   children?: ReactNode;
   className?: string;
   color?: string;
   bgColor?: string;
-  isButton?: boolean;
   width?: string;
   to?: string | "#";
   target?: string;
+  rounded?: boolean;
+  icon?: React.FC;
 }
 
-function StyledLink({children, color, bgColor, width, to, target}: StyledLinkProps){
+function StyledLink({children, color, bgColor, width, to, target, rounded, icon}: StyledLinkProps){
   if(bgColor) {
     return(
-        <StyledButtonElement bgColor={bgColor}>
-          <StyledLinkElement color={color} href={to} target={target}>
-            {children}
-          </StyledLinkElement>
-        </StyledButtonElement>
+        <StyledButton bgColor={bgColor} rounded={rounded}>
+          <StyledLinkContainer className={"styledLinkContainer"}>
+            {icon && icon}
+            <StyledAnchor className={"styledAnchor"} color={color} href={to} target={target}>
+              {children}
+            </StyledAnchor>
+          </StyledLinkContainer>
+        </StyledButton>
     )
   } else {
     return(
-      <StyledLinkElement color={color} width={width} href={to} target={target}>
-        {children}
-      </StyledLinkElement>
+      <StyledLinkContainer className={"styledLinkContainer"}>
+        <StyledAnchor className={"styledAnchor"} color={color} width={width} href={to} target={target}>
+          {children}
+        </StyledAnchor>
+      </StyledLinkContainer>
+
     )
   }
 }

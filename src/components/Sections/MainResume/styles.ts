@@ -17,12 +17,13 @@ export const Resume = styled.div`
 
 Resume.Title = styled.h2<ResumeProps>`
   color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
-  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.larger};
+  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.largest};
+  font-weight: 600;
 `;
 
 Resume.Subtitle = styled.h3<ResumeProps>`
   color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
-  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.large};
+  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.larger};
 `;
 
 Resume.Description = styled.p<ResumeProps>`

@@ -4,6 +4,7 @@ import MainResume from '../../components/Sections/MainResume';
 import { FlexLayoutRow } from "../../components/FlexLayout";
 
 import StyledLink  from '../../components/UI/StyledLink';
+import IconLinkedin from "../../styles/iconpack";
 
 function Home(){
     return(
@@ -13,7 +14,7 @@ function Home(){
             </FlexLayoutRow>
 
             <FlexLayoutRow>
-                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} color="#FFF" bgColor={"#0A66C2"} target={"_blank"}>
+                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} bgColor={"#0A66C2"} color={"#FFFFFF"} icon={IconLinkedin} target={"_blank"}>
                     LinkedIn
                 </StyledLink>
             </FlexLayoutRow>
