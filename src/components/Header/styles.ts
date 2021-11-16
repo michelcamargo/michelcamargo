@@ -15,7 +15,7 @@ export const HeaderWrapper = styled.div<HeaderProps>`
   padding-top: ${props => props.theme.spacing.medium};
   padding-bottom: ${props => props.theme.spacing.medium};
   
-  background: ${props => props.bgColor ? props.bgColor : props.theme.colors.backgroundSecondary};
+  background: ${props => props.bgColor ? props.bgColor : props.theme.colors.backgroundPrimary};
 `;
 
 export const HeaderContainer = styled.div<HeaderProps>`
@@ -28,20 +28,4 @@ export const HeaderContainer = styled.div<HeaderProps>`
   max-width: ${props => props.fullWidth ? undefined : props.theme.containerWidth};
 `;
 
-export const HeaderNavigation = styled.nav<HeaderProps>`
-`;
 
-export const NavList = styled.ul<HeaderProps>`
-  display: flex;
-  column-gap: ${props => props.theme.spacing.medium};
-  align-items: center;
-`;
-
-export const NavItem = styled.li<HeaderProps>`
-  color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
-  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.small};
-`;
-
-export const HeaderLogoLink = styled.a<HeaderProps>``;
-
-export const HeaderLogo = styled.img<HeaderProps>``;

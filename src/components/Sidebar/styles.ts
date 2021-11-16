@@ -25,20 +25,12 @@ export const Disclaimer = styled.div<SidebarProps>`
   &:focus {
     outline: none;
   }
-
-  /* div {
-    width: 2rem;
-    height: 0.25rem;
-    border-radius: 10px;
-    transition: all 0.3s linear;
-    position: relative;
-    transform-origin: 1px;
-  } */
-
 `;
 
 Disclaimer.Title = styled.h3<SidebarProps>`
-  margin: ${props => props.theme.spacing.large};
+  margin-top: ${props => props.theme.spacing.large};
+  margin-bottom: ${props => props.theme.spacing.medium};
+  
   color: ${props => props.theme.colors.textPrimary};
 
   font-size: 1.4rem;

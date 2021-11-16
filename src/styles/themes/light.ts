@@ -1,6 +1,8 @@
 export default {
     title: "light",
     containerWidth: "1170px",
+    shadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)",
+    transition: ".2s ease-in",
     colors: {
         mono: {
             white: "#FAFAFA",
@@ -24,12 +26,12 @@ export default {
     },
     fontSize: {
         smallest: "12px",
-        smaller: "13px",
-        small: "14px",
-        medium: "16px",
-        large: "20px",
-        larger: "24px",
-        largest: "28px"
+        smaller: "14px",
+        small: "16px",
+        medium: "20px",
+        large: "28px",
+        larger: "32px",
+        largest: "38px"
     },
     spacing: {
         smaller: ".25rem",
@@ -38,5 +40,11 @@ export default {
         large: "2rem",
         larger: "3rem",
         largest: "4rem"
+    },
+    borderRadius: {
+        small: "4px",
+        medium: "8px",
+        large: "12px",
+        rounded: "100%"
     }
 };

@@ -4,6 +4,8 @@ declare module 'styled-components' {
     export interface DefaultTheme {
         title: string,
         containerWidth: string,
+        shadow: string,
+        transition: string,
         colors: {
             mono: {
                 white: string,
@@ -41,6 +43,12 @@ declare module 'styled-components' {
             large: string,
             larger: string,
             largest: string
+        }
+        borderRadius: {
+            small: string,
+            medium: string,
+            large: string,
+            rounded: string
         }
     }
 }

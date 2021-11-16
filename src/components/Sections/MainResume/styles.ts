@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import {H1, H2, Paragraph} from "../../Typography/styles";
 
-interface Styles {
-    fontSize: "1rem",
+interface ResumeProps {
+    fontSize?: string;
     color?: string
 }
 
@@ -11,23 +10,23 @@ export const ImageElement = styled.div`
 `;
 
 export const Resume = styled.div`
-  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  row-gap: ${props => props.theme.spacing.small};
 `;
 
-Resume.Title = styled(H1)<Styles>`
-  color: ${props => props.color};
-  font-size: ${props => props.fontSize};
+Resume.Title = styled.h2<ResumeProps>`
+  color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
+  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.larger};
 `;
 
-Resume.Subtitle = styled(H2)<Styles>`
-  padding: .5rem 0;
-  color: ${props => props.color};
-  font-size: ${props => props.fontSize};
+Resume.Subtitle = styled.h3<ResumeProps>`
+  color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
+  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.large};
 `;
 
-Resume.Description = styled(Paragraph)<Styles>`
-  margin-top: 10px;
-  color: ${props => props.color};
-  font-size: ${props => props.fontSize};
+Resume.Description = styled.p<ResumeProps>`
+  color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
+  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.medium};
 `;
 

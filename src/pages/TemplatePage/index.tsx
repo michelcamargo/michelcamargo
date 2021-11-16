@@ -12,7 +12,6 @@ interface TemplateProps {
 
 const TemplatePage = ({ children, toggleTheme }: TemplateProps) => {
 
-
   return (
     <Template>
         <Header toggleTheme={toggleTheme} />

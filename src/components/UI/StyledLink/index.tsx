@@ -13,8 +13,7 @@ interface StyledLinkProps {
   target?: string;
 }
 
-export function StyledLink({children, color, bgColor, width, to, target}: StyledLinkProps){
-
+function StyledLink({children, color, bgColor, width, to, target}: StyledLinkProps){
   if(bgColor) {
     return(
         <StyledButtonElement bgColor={bgColor}>
@@ -23,9 +22,7 @@ export function StyledLink({children, color, bgColor, width, to, target}: Styled
           </StyledLinkElement>
         </StyledButtonElement>
     )
-  }
-
-  else {
+  } else {
     return(
       <StyledLinkElement color={color} width={width} href={to} target={target}>
         {children}
@@ -33,3 +30,5 @@ export function StyledLink({children, color, bgColor, width, to, target}: Styled
     )
   }
 }
+
+export default StyledLink;

@@ -22,7 +22,7 @@ export function FlexLayoutRow({ children, fullWidth, bgColor }: FlexLayoutProps)
 
     else {
         return (
-            <FlexRow className={"flexRow"}>
+            <FlexRow className={"flexRow"} bgColor={bgColor}>
                 <FlexContainer className={"flexContainer"}>
                     <FlexRowContent className={"flexRowContent"}>
                         {children}

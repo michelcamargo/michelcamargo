@@ -3,12 +3,12 @@ import React from 'react';
 import MainResume from '../../components/Sections/MainResume';
 import { FlexLayoutRow } from "../../components/FlexLayout";
 
-import { StyledLink } from '../../components/ButtonLink';
+import StyledLink  from '../../components/UI/StyledLink';
 
 function Home(){
     return(
         <>
-            <FlexLayoutRow bgColor={"red"}>
+            <FlexLayoutRow>
                 <MainResume className="michelcamargo"/>
             </FlexLayoutRow>
 

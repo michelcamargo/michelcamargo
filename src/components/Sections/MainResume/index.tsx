@@ -25,9 +25,9 @@ function MainResume({className}: Props) {
                 <Image src={MainLogo} width="200px"/>
             </ImageElement>
             <Resume className={`ResumeContainer${blockClass}`}>
-                <Resume.Title color="#222" className={`resumeTitle${blockClass}`}>Michel Camargo</Resume.Title>
-                <Resume.Subtitle color="#222" className={`resumeSubtitle${blockClass}`}>Estudante, desenvolvedor & UX-UI designer</Resume.Subtitle>
-                <Resume.Description color="#222" className={`resumeDescription${blockClass}`}>Vamo levantar esse site.</Resume.Description>
+                <Resume.Title className={`resumeTitle${blockClass}`}>Michel Camargo</Resume.Title>
+                <Resume.Subtitle className={`resumeSubtitle${blockClass}`}>Estudante, desenvolvedor & UX-UI designer</Resume.Subtitle>
+                <Resume.Description className={`resumeDescription${blockClass}`}>Levantando esse site.</Resume.Description>
             </Resume>
         </>
     )

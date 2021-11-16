@@ -10,7 +10,7 @@ export const FlexRow = styled.section<FlexProps>`
   width: 100%;
   height: max-content;
   
-  background-color: ${props => props.bgColor ? props.bgColor : undefined};
+  background-color: ${props => props.bgColor ? props.bgColor : "none"};
   
   @media(max-width: 768px) {
     width: 100%;

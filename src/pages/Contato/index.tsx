@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 
 import { Content, FormSection, FieldGroup } from './styles';
 
-import { Button1, Button2 } from '../../components/Button';
 import { InputText, InputTextArea, InputEmail } from '../../components/Input';
 
 
@@ -13,9 +12,6 @@ interface Props{
 function Contato({children}: Props) {
   return(
     <Content>
-      <Button1 bgColor="#555" color="#FFF">Botão 1</Button1>
-      <Button2 bgColor="#555" color="#FFF">Botão 2</Button2>
-
 
       <FormSection>
         <form>
