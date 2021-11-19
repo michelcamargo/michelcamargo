@@ -27,7 +27,7 @@ export const NavItem = styled.li<NavbarProps>`
 `;
 
 export const NavLink = styled(StyledLink)<NavbarProps>`
-  color: ${props => props.color ? props.color : props.theme.colors.textPrimary};
+  color: ${props => props.color ? props.color : props.theme.colors.anchor__inverted};
   font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.smaller};
 
   cursor: pointer;

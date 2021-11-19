@@ -12,7 +12,7 @@ interface LinkProps{
 }
 
 export const StyledAnchor = styled.a<LinkProps>`
-  color: ${props => props.color ? props.color : props.theme.colors.textLink};
+  color: ${props => props.color ? props.color : props.theme.colors.anchor};
   width: ${props => props.width || "fit-content"};
   cursor: pointer;
 
@@ -24,7 +24,7 @@ export const StyledAnchor = styled.a<LinkProps>`
   transition: ${props => props.theme.transition};
   
   &:hover {
-    color: ${props => props.color ? (shade(0.1, props.color)) : (shade(0.1, props.theme.colors.textLink))};
+    color: ${props => props.color ? (shade(0.1, props.color)) : (shade(0.1, props.theme.colors.anchor))};
     text-decoration: underline;
   }
 `;

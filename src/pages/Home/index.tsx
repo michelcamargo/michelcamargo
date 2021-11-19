@@ -14,7 +14,7 @@ function Home(){
             </FlexLayoutRow>
 
             <FlexLayoutRow background={`${props => props.theme.colors.backgroundSecondary}`}>
-                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} background={"#0A66C2"} color={"#FFFFFF"} icon={IconLinkedin} target={"_blank"}>
+                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} background={"#0A66C2"} color={"#eaeaea"} icon={IconLinkedin} target={"_blank"}>
                     LinkedIn
                 </StyledLink>
             </FlexLayoutRow>

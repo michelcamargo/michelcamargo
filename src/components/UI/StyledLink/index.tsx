@@ -12,11 +12,12 @@ interface StyledLinkProps {
   target?: string;
   rounded?: boolean;
   icon?: React.FC;
+  // onClick(status: )?: void;
 }
 
-function StyledLink({children, color, background, width, to, target, rounded, icon}: StyledLinkProps){
+function StyledLink ({children, color, background, width, to, target, rounded, icon}: StyledLinkProps) {
   if(background) {
-    return(
+    return (
         <StyledButton background={background} rounded={rounded}>
           <StyledLinkContainer className={"styledLinkContainer"}>
             {icon && icon}
@@ -27,13 +28,12 @@ function StyledLink({children, color, background, width, to, target, rounded, ic
         </StyledButton>
     )
   } else {
-    return(
+    return (
       <StyledLinkContainer className={"styledLinkContainer"}>
         <StyledAnchor className={"styledAnchor"} color={color} width={width} href={to} target={target}>
           {children}
         </StyledAnchor>
       </StyledLinkContainer>
-
     )
   }
 }

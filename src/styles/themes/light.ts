@@ -18,12 +18,12 @@ export default {
         accent: "#FDB750",
         backgroundPrimary: "#F9F9F9",
         backgroundSecondary: "#E3CCD8",
-        textPrimary: "#010100",
+        textPrimary: "#1A1A1A",
         textPrimary__inverted: "#F9F9F9",
         textSecondary: "#444444",
         textSecondary__inverted: "#222222",
-        textLink: "#FDB750",
-        textLink__inverted: "#FAFAFA"
+        anchor: "#FF8A00",
+        anchor__inverted: "#FAFAFA"
     },
     fontFamily: {
         base: "'Atkinson', 'Arial'",

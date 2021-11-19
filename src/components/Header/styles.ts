@@ -17,6 +17,8 @@ export const HeaderWrapper = styled.div<HeaderProps>`
   
   background: ${props => props.background ? props.background : props.theme.colors.backgroundPrimary};
   box-shadow: ${props => props.theme.shadow};
+
+  transition: ${props => props.theme.transition};
 `;
 
 export const HeaderContainer = styled.div<HeaderProps>`

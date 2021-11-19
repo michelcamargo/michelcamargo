@@ -1,33 +1,36 @@
 import React from 'react';
 
-import { Disclaimer } from './styles';
+import {Disclaimer, SidebarCloseButton, SidebarHeader} from './styles';
 import StyledLink from "../StyledLink";
 
 interface Props{
   visible: boolean;
+  setSidebarVisible(status: boolean): void;
 }
 
-function Sidebar({visible}: Props){
+function Sidebar ({visible, setSidebarVisible}: Props) {
   if(visible){
     return (
       <Disclaimer>
         {/*trazer de BD*/}
+        <SidebarHeader>
+          <Disclaimer.Title>Em progresso</Disclaimer.Title>
+          <SidebarCloseButton onClick={() => (setSidebarVisible(!visible))}>X</SidebarCloseButton>
+        </SidebarHeader>
 
-        <Disclaimer.Title>Espaço em progresso</Disclaimer.Title>
-  
         <Disclaimer.Content>
-          A interface atual tem como intuito a aplicação das boas práticas de uso e padrões de projeto e desenvolvimento<br />
-          Sua composição toma forma utilizando React, TypeScript, Node.js e Express<br />
-          Gosto muito de design e sou 'do rock', arte e música podem ser minhas maiores fontes de inspiração
-          Obrigado por vir, tenho muito mais a dizer! basta <StyledLink to="#">clicar aqui</StyledLink> e mande um olá :)
+          A interface atual tem como intuito a aplicação das boas práticas de uso e padrões de projeto e desenvolvimento.<br />
+          Sua composição toma forma utilizando React, TypeScript, Node.js e Express.<br />
+          Gosto muito de design e sou 'do rock', arte e música podem ser minhas maiores fontes de inspiração.
+          Obrigado por vir, tenho muito mais a dizer! <StyledLink to="#">clique aqui</StyledLink> e mande um olá :)
         </Disclaimer.Content>
 
       </Disclaimer>
     );
   }
   
-  else{
-    return(
+  else {
+    return (
       <div />
     );
   }

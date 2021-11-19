@@ -11,19 +11,19 @@ export default {
             dark: "#393939",
             black: "#020202"
         },
-        basePrimary: "#FF5900",
+        basePrimary: "#F9F9F9",
         basePrimary__inverted: "#401F00",
         baseSecondary: "#FF3B0D",
         baseSecondary__inverted: "#6c6c6c",
         accent: "#FDB750",
-        backgroundPrimary: "#2F2F2F",
-        backgroundSecondary: "#E3CCD8",
+        backgroundPrimary: "#262626",
+        backgroundSecondary: "#212121",
         textPrimary: "#F9F9F9",
         textPrimary__inverted: "#222222",
         textSecondary: "#848484",
         textSecondary__inverted: "#F9F9F9",
-        textLink: "#FF3B0D",
-        textLink__inverted: "#FAFAFA"
+        anchor: "#ffbf85",
+        anchor__inverted: "#FF3B0D"
     },
     fontFamily: {
         base: "'Atkinson', 'Arial'",

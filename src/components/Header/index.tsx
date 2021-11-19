@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme }) => {
 
     return (
         <HeaderWrapper>
-            <Sidebar visible={sidebarVisible} />
+            <Sidebar visible={sidebarVisible} setSidebarVisible={setSidebarVisible} />
 
             <HeaderContainer className="headerContainer">
                 <Image className="logoImage" src={path_Logo} width="60px" link="/" />

@@ -10,6 +10,8 @@ export const Template = styled.div<TemplateProps>`
   
   background-color: ${props => props.background ? undefined : props.theme.colors.backgroundPrimary};
   height: 100vh;
+  
+  transition: ${props => props.theme.transition};
 `;
 
 export const ContentWrapper = styled.main`

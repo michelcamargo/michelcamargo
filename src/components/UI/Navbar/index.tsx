@@ -35,8 +35,9 @@ const Navbar: React.FC<NavigationProps> = ({sidebarHandler, sidebarStatus, theme
                         height={20}
                         width={40}
                         handleDiameter={25}
-                        offColor={shade(0.15, colors.basePrimary)}
-                        onColor={colors.baseSecondary}
+                        offColor={"#8f8f8f"}
+                        onColor={"#3be536"}
+                        boxShadow={"0 0 4px 3px rgba(0,0,0,.1)"}
                     />
 
                 </NavItem>
