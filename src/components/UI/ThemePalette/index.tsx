@@ -13,7 +13,7 @@ const ThemePalette: React.FC<ThemePaletteProps> = ({rounded}) => {
 
     for(const themeColor in colors) {
         if(themeColor){
-            colorList.push(<PaletteColor paletteColor={colors[themeColor]} />);
+            colorList.push(<PaletteColor hex={colors[themeColor]} paletteColor={themeColor}/>);
         }
     }
 

@@ -25,6 +25,7 @@ export const HeaderContainer = styled.div<HeaderProps>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
   padding-left: ${props => props.fullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
   padding-right: ${props => props.fullWidth ? props.theme.spacing.large : props.theme.spacing.medium};

@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {NavigationWrapper, NavItem, NavLink, NavList} from "./styles";
 import Switch from "react-switch";
-import {shade} from "polished";
 import {ThemeContext} from "styled-components";
 
 interface NavigationProps {
@@ -12,7 +11,7 @@ interface NavigationProps {
 }
 
 const Navbar: React.FC<NavigationProps> = ({sidebarHandler, sidebarStatus, themeHandler}) => {
-    const { title, colors } = useContext(ThemeContext);
+    const { title } = useContext(ThemeContext);
 
     return (
         <NavigationWrapper className="headerNavWrapper">

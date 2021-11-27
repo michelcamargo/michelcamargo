@@ -1,6 +1,6 @@
 import React from 'react';
 
-import MainResume from '../../components/Sections/MainResume';
+import Presentation from '../../components/Sections/Presentation';
 import { FlexLayoutRow } from "../../components/UI/FlexLayout";
 
 import StyledLink  from '../../components/UI/StyledLink';
@@ -11,7 +11,7 @@ function Home(){
     return(
         <>
             <FlexLayoutRow background={"linear-gradient(98.17deg, #FFC700 17.02%, #FF7A00 95.22%)"}>
-                <MainResume className="michelcamargo"/>
+                <Presentation className="michelcamargo"/>
             </FlexLayoutRow>
 
             <FlexLayoutRow>

@@ -4,6 +4,7 @@ type ThemePaletteProps = {
     rounded?: boolean;
     colorBg?: string;
     paletteColor: string;
+    hex: string;
 }
 
 export const PaletteLabel = styled.h6<ThemePaletteProps>`
@@ -18,22 +19,26 @@ export const PaletteList = styled.li<ThemePaletteProps>`
 `;
 
 export const PaletteColor = styled.div`
-  background: ${props => props.paletteColor};
+  background: ${props => props.hex};
   box-shadow: ${props => props.theme.shadow};
   border: 2px rgba(0,0,0, .2) solid;
   border-radius: ${props => props.theme.borderRadius.medium};
   width: 45px;
   height: 45px;
   opacity: .85;
+
+  filter: blur(1px);
   
-  transition: 200ms ease-out;
+  transition: 300ms ease-out;
   
   &:hover {
     transform: scale(1.1);
     opacity: 1;
+    filter: blur(0);
+    border-radius: 100%;
     
     &::after { 
-      content: "${props => props.paletteColor}";
+      content: "${props => props.hex} ${props => props.paletteColor}";
       font-size: ${props => props.theme.fontSize.smaller};
       color: ${props => props.theme.colors.textPrimary};
       background: ${props => props.theme.colors.backgroundPrimary};
@@ -42,7 +47,7 @@ export const PaletteColor = styled.div`
       padding: 4px;
       position: absolute;
       display: block; 
-      bottom: -50%;
+      bottom: -40px;
       left: 0;
     }
   }

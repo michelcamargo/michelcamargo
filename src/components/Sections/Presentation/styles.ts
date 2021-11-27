@@ -9,6 +9,12 @@ export const ImageElement = styled.div`
   /* padding-top: 3px; Ajuste de offset */
 `;
 
+export const MainResume = styled.div`
+  display: flex;
+  flex-direction: row;
+  column-gap: ${props => props.theme.spacing.medium};
+`;
+
 export const Resume = styled.div`
   display: flex;
   flex-direction: column;

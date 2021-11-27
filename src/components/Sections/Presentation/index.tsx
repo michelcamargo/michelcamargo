@@ -1,29 +1,31 @@
 import React from 'react';
 
-import { Resume, ImageElement } from './styles';
-const MainLogo = require("../../../assets/svg/logo/michelcamargo.svg") as string;
+import { Resume, MainResume } from './styles';
+import { ReactComponent as MainLogo } from "../../../assets/svg/logo/michelcamargo.svg";
 
-interface Props {
+interface PresentationProps {
     className?: string;
     color?: string;
     width?: string;
     radius?: string;
 }
 
-function MainResume({className}: Props) {
+function Presentation ({className}: PresentationProps) {
 
     let blockClass = className ? `--${className}` : "";
 
     return (
-        <>
-            <ImageElement src={MainLogo} width={"200px"} />
+        <MainResume>
+            {/*<ImageElement src={MainLogo} width={"200px"} />*/}
+            <MainLogo width={200} fill={"black"} height={"fit-content"}/>
+
             <Resume className={`ResumeContainer${blockClass}`}>
                 <Resume.Title className={`resumeTitle${blockClass}`} color={"#101010"}>Michel Camargo</Resume.Title>
                 <Resume.Subtitle className={`resumeSubtitle${blockClass}`} color={"#101010"}>Estudante, desenvolvedor & UX-UI</Resume.Subtitle>
                 <Resume.Description className={`resumeDescription${blockClass}`} color={"#101010"}>Levantando esse site.</Resume.Description>
             </Resume>
-        </>
+        </MainResume>
     )
 }
 
-export default MainResume;
+export default Presentation;
