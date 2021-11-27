@@ -32,9 +32,9 @@ export const PaletteColor = styled.div`
     transform: scale(1.1);
     opacity: 1;
     
-    &::after {
-      //content: ${props => props.theme.title};
-      content: "tooltip teste";
+    &::after { 
+      content: "${props => props.paletteColor}";
+      font-size: ${props => props.theme.fontSize.smaller};
       color: ${props => props.theme.colors.textPrimary};
       background: ${props => props.theme.colors.backgroundPrimary};
       box-shadow: ${props => props.theme.shadow};
