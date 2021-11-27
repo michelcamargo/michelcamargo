@@ -1,7 +1,7 @@
 export default {
     title: "dark",
     containerWidth: "1170px",
-    shadow: "0px 0px 8px 1px rgba(0, 0, 0, 0.2)",
+    shadow: "0px 0px 4px 2px rgba(0, 0, 0, 0.1)",
     transition: ".2s ease-in",
     colors: {
         mono: {
