@@ -9,7 +9,7 @@ export default {
             light: "#C9C9C9",
             medium: "#707070",
             dark: "#393939",
-            black: "#020202"
+            black: "#1A1A1A"
         },
         basePrimary: "#F9F9F9",
         basePrimary__inverted: "#401F00",

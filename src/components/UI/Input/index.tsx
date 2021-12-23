@@ -1,35 +1,20 @@
 import React from 'react';
 
-import { TextInput1, TextAreaInput, EmailInput } from './styles';
+import { InputElement } from './styles';
 
-interface Props{
-  name: string;
-  value?: string;
-  min?: number;
-  max?: number;
-  label?: string;
+type Props = {
+  name: string,
+  value?: string,
+  min?: number,
+  max?: number,
+  label?: string,
+  type: string,
+  width?: string,
+  height?: string
 }
 
-export function InputText({name, value, label}: Props){
-  
+export function Input({name, value, label, width, type}: Props){
   return (
-    <TextInput1 type={"text"} name={name} value={value} placeholder={label} />
+    <InputElement type={type} width={width} name={name} value={value} placeholder={label} />
   );
-
-}
-
-export function InputEmail({name, value, label}: Props){
-  
-  return (
-    <EmailInput type={"email"} name={name} value={value} placeholder={label} />
-  );
-
-}
-
-export function InputTextArea({name, value, label}: Props){
-  
-  return (
-    <TextAreaInput type={"textarea"} name={name} value={value} placeholder={label} />
-  );
-  
 }

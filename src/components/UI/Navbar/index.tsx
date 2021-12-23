@@ -17,13 +17,16 @@ const Navbar: React.FC<NavigationProps> = ({sidebarHandler, sidebarStatus, theme
         <NavigationWrapper className="headerNavWrapper">
             <NavList className="headerNav">
                 <NavItem className="navItem" onClick={() => undefined}>
-                    <NavLink>Início</NavLink>
+                    <NavLink href={"/"}>Início</NavLink>
                 </NavItem>
                 <NavItem className="navItem" onClick={() => undefined}>
-                    <NavLink>Contato</NavLink>
+                    <NavLink href={"/contato"}>Contato</NavLink>
+                </NavItem>
+                <NavItem className="navItem" onClick={() => undefined}>
+                    <NavLink href={"/portifolio"}>Portifolio</NavLink>
                 </NavItem>
                 <NavItem className="navItem" onClick={() => (sidebarHandler(!sidebarStatus))}>
-                    <NavLink>Disclaimer</NavLink>
+                    <NavLink href={"/disclaimer"}>Disclaimer</NavLink>
                 </NavItem>
                 <NavItem className="navItem themeSwitcher">
                     <Switch

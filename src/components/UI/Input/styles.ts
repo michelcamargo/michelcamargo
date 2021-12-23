@@ -1,51 +1,22 @@
 import styled from 'styled-components';
 
-interface Props{
+interface InputProps{
   type: string;
   name: string;
   value?: string;
   placeholder?: string;
+  width?: string;
+  height?: string;
 }
 
-export const TextInput1 = styled.input<Props>`
-  height: 25px;
-  width: 200px;
+export const InputElement = styled.input<InputProps>`
+  width: ${props => props.width || "max-content"};
+  height: ${props => props.height || "max-content"};
+  
+  padding: ${props => props.theme.spacing.small} ${props => props.theme.spacing.medium};
 
-  padding: 5px 10px;
-  margin: 5px 10px;
-
-  background-color: #555;
-  color: #FFF;
+  background-color: ${props => props.theme.colors.backgroundSecondary};
+  color: ${props => props.theme.colors.textPrimary};
   border: none;
-  border-radius: 4px;
-
-
-`;
-
-export const EmailInput = styled.input<Props>`
-  height: 25px;
-  width: 350px;
-
-  padding: 5px 10px;
-  margin: 5px 10px;
-
-  background-color: #555;
-  color: #FFF;
-  border: none;
-  border-radius: 4px;
-
-`;
-
-export const TextAreaInput = styled.textarea<Props>`
-  height: 100px;
-  width: 590px;
-
-  background-color: #555;
-  color: #FFF;
-  border: none;
-  border-radius: 4px;
-
-  margin: 5px 10px;
-  padding: 5px 10px;
-
+  border-radius: ${props => props.theme.borderRadius.small};
 `;
