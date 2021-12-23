@@ -7,9 +7,10 @@ import lightTheme from './styles/themes/light';
 import darkTheme from './styles/themes/dark';
 
 import usePersistedState from "./utils/usePersistedState";
-import TemplatePage from './pages/TemplatePage';
-import Home from './pages/Home';
-import Contato from './pages/Contato';
+import TemplatePage from './views/TemplatePage';
+import Home from './views/Home';
+import Contato from './views/Contato';
+import PortifolioComponent from './views/Portfolio';
 
 import './styles/main.css';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.ttf';
@@ -32,6 +33,13 @@ const App = () => {
                         <GlobalStyle />
                         <TemplatePage toggleTheme={toggleTheme}>
                             <Home />
+                        </TemplatePage>
+                    </Route>
+
+                    <Route path="/portifolio" exact>
+                        <GlobalStyle />
+                        <TemplatePage toggleTheme={toggleTheme}>
+                            <Contato />
                         </TemplatePage>
                     </Route>
 
