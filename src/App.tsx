@@ -10,7 +10,7 @@ import usePersistedState from "./utils/usePersistedState";
 import TemplatePage from './views/TemplatePage';
 import Home from './views/Home';
 import Contato from './views/Contato';
-import PortifolioComponent from './views/Portfolio';
+import Portfolio from './views/Portfolio';
 
 import './styles/main.css';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Regular.ttf';
@@ -39,7 +39,7 @@ const App = () => {
                     <Route path="/portifolio" exact>
                         <GlobalStyle />
                         <TemplatePage toggleTheme={toggleTheme}>
-                            <Contato />
+                            <Portfolio />
                         </TemplatePage>
                     </Route>
 

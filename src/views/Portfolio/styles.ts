@@ -1,10 +1,14 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 
-type PortifolioProps = {
+type PortfolioProps = {
     width: string;
     height: string;
 }
 
-export const PortifolioCase = styled.div<PortifolioProps>`
+export const PortfolioCase = styled.div<PortfolioProps>`
   
+`;
+
+export const ScreenGroup = styled.div<PortfolioProps>`
+
 `;

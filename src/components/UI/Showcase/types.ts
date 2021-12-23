@@ -6,7 +6,6 @@ export type Showcase = {
     linkLabel: string,
     images: [
         {
-            model: string,
             src: string,
             alt: string
         }

@@ -1,5 +1,11 @@
-import {styled} from 'styled-components';
+import styled from 'styled-components';
 
-export const HighlightScreenshotContainer = styled.div``;
+export const ShowcaseContent = styled.div``;
 
-export const HighlightScreenshot = styled.div``;
+export const HighlightScreenshot = styled.img``;
+
+export const ShowcaseScreenshot = styled.img``;
+
+export const ShowcaseText = styled.div``;
+
+export const MobileScreenshot = styled.img``;
