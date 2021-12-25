@@ -12,10 +12,11 @@ export const PaletteLabel = styled.h6<ThemePaletteProps>`
   color: ${props => props.theme.colors.textPrimary};
 `;
 
-export const PaletteList = styled.li<ThemePaletteProps>`
+export const PaletteContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  column-gap: ${props => props.theme.spacing.medium};
+  flex-direction: column;
+  row-gap: ${props => props.theme.spacing.medium};
+  padding: ${props => props.theme.spacing.medium} 0;
 `;
 
 export const PaletteColor = styled.div`
@@ -53,9 +54,3 @@ export const PaletteColor = styled.div`
   }
 `;
 
-export const PaletteContainer = styled.ul`
-  display: flex;
-  flex-direction: column;
-  row-gap: ${props => props.theme.spacing.medium};
-  padding: ${props => props.theme.spacing.medium} 0;
-`;

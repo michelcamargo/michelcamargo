@@ -18,10 +18,13 @@ export default {
         accent: "#FDB750",
         backgroundPrimary: "#262626",
         backgroundSecondary: "#212121",
+        backgroundAlternative: "#131313",
         textPrimary: "#F9F9F9",
         textPrimary__inverted: "#222222",
         textSecondary: "#848484",
         textSecondary__inverted: "#F9F9F9",
+        textAuxiliar: "#FAFAFA",
+        textAuxiliar__inverted: "#0E0E0E",
         anchor: "#ffbf85",
         anchor__inverted: "#FF3B0D"
     },

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 interface HeaderProps {
-    fullWidth?: boolean;
-    sticky?: boolean;
+    isFullWidth?: boolean;
+    isSticky?: boolean;
     color?: string;
     fontSize?: string;
     background?: string;
@@ -21,16 +21,22 @@ export const HeaderWrapper = styled.div<HeaderProps>`
   transition: ${props => props.theme.transition};
 `;
 
-export const HeaderContainer = styled.div<HeaderProps>`
+export const HeaderContent = styled.div<HeaderProps>`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+`;
 
-  padding-left: ${props => props.fullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
-  padding-right: ${props => props.fullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
-  margin: ${props => props.fullWidth ? undefined : "0 auto"};
-  max-width: ${props => props.fullWidth ? undefined : props.theme.containerWidth};
+export const HeaderContainer = styled.div<HeaderProps>`
+  padding-left: ${props => props.isFullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
+  padding-right: ${props => props.isFullWidth ? props.theme.spacing.large : props.theme.spacing.medium};
+  margin: ${props => props.isFullWidth ? undefined : "0 auto"};
+  max-width: ${props => props.isFullWidth ? undefined : props.theme.containerWidth};
+`;
+
+export const HeaderLogo = styled.a<HeaderProps>`
+    
 `;
 
 

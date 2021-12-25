@@ -1,6 +1,7 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components'
-import {PaletteColor, PaletteContainer, PaletteLabel, PaletteList} from "./styles";
+import { PaletteColor, PaletteContainer, PaletteLabel } from "./styles";
+import Gallery from "../Gallery";
 
 type ThemePaletteProps = {
     rounded?: boolean;
@@ -21,9 +22,9 @@ const ThemePalette: React.FC<ThemePaletteProps> = ({rounded}) => {
         <PaletteContainer>
             <PaletteLabel>Paleta {title}:</PaletteLabel>
 
-            <PaletteList>
+            <Gallery>
                 {colorList}
-            </PaletteList>
+            </Gallery>
         </PaletteContainer>
     );
 }

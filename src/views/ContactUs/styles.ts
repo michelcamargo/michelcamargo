@@ -11,22 +11,26 @@ export const Content = styled.section<ContactProps>`
   flex-direction: column;
 `;
 
-
 export const Form = styled.form<ContactProps>`
-  background-color: ${props => props.theme.colors.mono.black};
-  border-radius: ${props => props.theme.borderRadius.small};
+  display: flex;
+  flex-direction: column;
+  
+  background-color: ${ props => props.theme.colors.backgroundAlternative };
+  border-radius: ${ props => props.theme.borderRadius.small };
 
-  padding: ${props => props.theme.spacing.medium};
+  row-gap: ${ props => props.theme.spacing.medium };
+  padding: ${ props => props.theme.spacing.medium };
 
-  margin-top: ${props => props.theme.spacing.largest};
+  margin-top: ${ props => props.theme.spacing.largest };
 `;
 
 export const FormLabel = styled.legend<ContactProps>`
+  color: ${props => props.theme.colors.textPrimary__inverted};
   font-size: ${props => props.theme.fontSize.large};
+  margin-bottom: ${props => props.theme.spacing.medium};
 `;
 
 export const FieldGroup = styled.fieldset<ContactProps>`
-  color: ${props => props.theme.colors.textPrimary};
   display: flex;
   flex-direction: ${props => props.flex};
 `;

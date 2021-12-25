@@ -9,7 +9,7 @@ import darkTheme from './styles/themes/dark';
 import usePersistedState from "./utils/usePersistedState";
 import TemplatePage from './views/TemplatePage';
 import Home from './views/Home';
-import Contato from './views/Contato';
+import ContactUs from './views/ContactUs';
 import Portfolio from './views/Portfolio';
 
 import './styles/main.css';
@@ -46,7 +46,7 @@ const App = () => {
                     <Route path="/contato" exact>
                         <GlobalStyle />
                         <TemplatePage toggleTheme={toggleTheme}>
-                            <Contato />
+                            <ContactUs />
                         </TemplatePage>
                     </Route>
 

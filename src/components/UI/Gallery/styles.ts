@@ -1,8 +1,20 @@
 import styled from 'styled-components';
 
-export const GalleryWrapper = styled.div``;
+type GalleryViewProps = {
 
-export const GalleryContainer = styled.div``;
+}
 
-export const GalleryItem = styled.div``;
+export const GalleryView = styled.div<GalleryViewProps>``;
+
+GalleryView.Container = styled.div<GalleryViewProps>``;
+
+GalleryView.CardItem = styled.div<GalleryViewProps>``;
+
+GalleryView.List = styled.ul<GalleryViewProps>`
+  display: flex;
+  flex-direction: row;
+  column-gap: ${props => props.theme.spacing.medium};
+`;
+
+GalleryView.ListItem = styled.li<GalleryViewProps>``;
 

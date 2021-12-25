@@ -1,21 +1,47 @@
 import React from 'react';
-import {GalleryContainer, GalleryItem, GalleryWrapper} from "./styles";
+import { GalleryView } from "./styles";
 
 type GalleryProps = {
-    children?: HTMLCollection;
+    children: Array<React.ReactNode>;
+    layout?: string;
 }
 
-const Gallery: React.FC<GalleryProps> = ({children}) => {
+const Gallery: React.FC<GalleryProps> = ({children, layout}) => {
 
-    // responsive gallery
+    children.forEach((child) => {
+        console.log(child);
+    });
 
-    return (
-        <GalleryWrapper>
-            <GalleryContainer>
-                <GalleryItem>TESTE</GalleryItem>
-            </GalleryContainer>
-        </GalleryWrapper>
-    );
+
+    let galleryClass = "gallery";
+    let galleryContainerClass = "galleryContainer";
+    let galleryItemClass = "galleryItem";
+
+    if(layout === "card") {
+        galleryItemClass += " galleryCard";
+
+        return (
+            <GalleryView className={galleryClass}>
+                <GalleryView.Container className={galleryContainerClass}>
+                    <GalleryView.CardItem className={galleryItemClass}>
+                        {children}
+                    </GalleryView.CardItem>
+                </GalleryView.Container>
+            </GalleryView>
+        )
+    } else {
+        galleryItemClass += " galleryListItem";
+
+        return (
+            <GalleryView className={galleryClass}>
+                <GalleryView.List className={galleryContainerClass}>
+                    <GalleryView.ListItem className={galleryItemClass}>
+                        {children}
+                    </GalleryView.ListItem>
+                </GalleryView.List>
+            </GalleryView>
+        );
+    }
 }
 
 export default Gallery;

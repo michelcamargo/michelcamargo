@@ -1,4 +1,3 @@
-import StyledLink from "../../UI/StyledLink";
 import styled from "styled-components";
 import {ReactNode} from "react";
 
@@ -26,16 +25,12 @@ export const NavItem = styled.li<NavbarProps>`
   
 `;
 
-// export const NavLink = styled(StyledLink)<NavbarProps>`
-//   color: ${props => props.color ? props.color : props.theme.colors.anchor__inverted};
-//   font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.smaller};
-//
-//   cursor: pointer;
-// `;
-
 export const NavLink = styled.a<NavbarProps>`
-  color: ${props => props.color ? props.color : props.theme.colors.anchor__inverted};
-  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.smaller};
+  color: ${props => props.color ? props.color : props.theme.colors.anchor};
+  font-size: ${props => props.fontSize ? props.fontSize : props.theme.fontSize.small};
+  
+  text-decoration: none;
+  
 
   cursor: pointer;
 `;
