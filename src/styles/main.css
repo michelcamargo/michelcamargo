@@ -77,3 +77,28 @@
     url("../assets/fonts/IstokWeb/IstokWeb-Bold.ttf") format("truetype");
     font-weight: bold;
 }
+
+
+
+/*CANSEI DOS STYLED COMPONENTS*/
+
+.home__landing {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.home__centerTextContainer {
+    display: flex;
+    width: 100%;
+    height: 85%;
+    justify-content: center;
+    align-items: center;
+}
+
+.home__centerText {
+    font-size: 96px;
+    color: #FFFFFF;
+}

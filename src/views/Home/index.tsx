@@ -1,24 +1,40 @@
 import React from 'react';
 
-import Presentation from '../../components/Sections/Presentation';
-import { FlexLayoutRow } from "../../components/UI/FlexLayout";
-
-import StyledLink  from '../../components/UI/StyledLink';
-import IconLinkedin from "../../styles/iconpack";
+import Landing from "../../components/Sections/Landing";
 
 function Home(){
     return(
-        <>
-            <FlexLayoutRow background={"linear-gradient(98.17deg, #FFC700 17.02%, #FF7A00 95.22%)"}>
-                <Presentation className="michelcamargo"/>
-            </FlexLayoutRow>
+            <Landing>
+            <div className={"home__landing"}>
+                <div className={"home__centerTextContainer"}>
+                    <h2 className={"home__centerText"}>Desenvolvimento Web & UX/UI</h2>
+                </div>
 
-            <FlexLayoutRow background={`${props => props.theme.colors.backgroundSecondary}`}>
-                <StyledLink to={'https://www.linkedin.com/in/michelscamargo/'} background={"#0A66C2"} color={"#eaeaea"} icon={IconLinkedin} target={"_blank"}>
-                    LinkedIn
-                </StyledLink>
-            </FlexLayoutRow>
-        </>
+                <div className={"home__bottomContainer"}>
+                    <div className={"home__bottomDate-"}>25/12</div>
+                    <div className={"home__socialContainer"}>
+                        <a className="home__socialAnchor" href={"#"}><span className={"home__socialItem"}>Instagram</span></a>
+                        <a className="home__socialAnchor" href={"#"}><span className={"home__socialItem"}>Linkedin</span></a>
+                        <a className="home__socialAnchor" href={"#"}><span className={"home__socialItem"}>GitHub</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div className={"home__content"}>
+
+                <div className={"home__actionButtonGroup"}>
+                    <div className={"home__actionButton"}>Water.</div>
+                    <div className={"home__actionButton"}>Air.</div>
+                    <div className={"home__actionButton"}>Wood.</div>
+                    <div className={"home__actionButton"}>Sand.</div>
+                </div>
+
+                <div className={"home__actionGroupText"}>
+                    <p>Lorem ipsão</p>
+                </div>
+
+            </div>
+        </Landing>
     );
 }
 
