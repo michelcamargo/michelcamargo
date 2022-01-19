@@ -18,6 +18,8 @@ import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Bold.ttf';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-Italic.ttf';
 import './assets/fonts/Atkinson-Hyperlegible/Atkinson-Hyperlegible-BoldItalic.ttf';
 
+import "./utils/Factory/FactoryExample";
+
 const App = () => {
     const [theme, setTheme] = usePersistedState<DefaultTheme>("theme", lightTheme);
 

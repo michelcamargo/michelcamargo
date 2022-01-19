@@ -4,7 +4,7 @@ import Landing from "../../components/Sections/Landing";
 
 function Home(){
     return(
-            <Landing>
+        <Landing>
             <div className={"home__landing"}>
                 <div className={"home__centerTextContainer"}>
                     <h2 className={"home__centerText"}>Desenvolvimento Web & UX/UI</h2>

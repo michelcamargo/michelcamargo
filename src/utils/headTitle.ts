@@ -6,13 +6,8 @@ export default function GetHeaderName() {
   const path: string = location.pathname;
 
   const headTitles: any = {
-    '/hello-world': 'Início'
-  //   '/map': 'Mapa de camadas',
-  //   '/manage': 'Gestão',
-  //   '/quotation': 'Cotações',
-  //   '/services': 'Serviços',
-  //   '/news': 'Notícias',
-  //   '/about': 'Sobre',
+    '/': 'Início'
+  //   '/mapa': 'Mapa de camadas'
   }
 
   if(headTitles[path]){

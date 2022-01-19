@@ -13,6 +13,11 @@ import IconLinkedin from "../../styles/iconpack";
 type PortfolioProps = {}
 
 const Portfolio: React.FC<PortfolioProps> = () => {
+
+
+
+
+
     return (
         <>
             <FlexLayoutRow background={"linear-gradient(98.17deg, #FFC700 17.02%, #FF7A00 95.22%)"}>

@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components'
+import React, { useContext } from "react";
+import { ThemeContext } from "styled-components";
 import { PaletteColor, PaletteContainer, PaletteLabel } from "./styles";
 import Gallery from "../Gallery";
 

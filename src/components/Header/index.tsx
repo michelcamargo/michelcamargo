@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import { ThemeContext } from 'styled-components'
 
 import { HeaderWrapper, HeaderContainer, HeaderContent, HeaderLogo } from './styles';
 import Sidebar from "../UI/Sidebar";
@@ -19,6 +20,8 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, isFullWidth }) => {
     let headerContainerClass = "headerContainer";
     let headerContentClass = "headerContent";
 
+    const { colors } = useContext(ThemeContext);
+
     if(isFullWidth) {
         return (
             <HeaderWrapper className={headerWrapperClass}>
@@ -38,7 +41,9 @@ const Header: React.FC<HeaderProps> = ({ toggleTheme, isFullWidth }) => {
 
                 <HeaderContainer className={headerContainerClass}>
                     <HeaderContent className={headerContentClass}>
-                        <HeaderLogo href={"/"}><MainLogo width={40} height={40} /></HeaderLogo>
+                        <HeaderLogo href={"/"}>
+                            <MainLogo width={40} height={40} color={colors.primary} />
+                        </HeaderLogo>
                         <Navbar sidebarStatus={sidebarVisible} sidebarHandler={setSidebarVisible} themeHandler={toggleTheme}/>
                     </HeaderContent>
                 </HeaderContainer>
