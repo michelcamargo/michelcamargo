@@ -5,8 +5,8 @@ type HomeProps = {
 export default ({children}: HomeProps): JSX.Element => {
     return (
         <div>
-            <p>Hello World!</p>
-            <span>{children}</span>
+            <h2 className={"home__mainTitle"}>Michel Camargo</h2>
+            <div className={"home__mainContent"}>{children}</div>
         </div>
     )
 }
