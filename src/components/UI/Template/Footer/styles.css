@@ -16,12 +16,4 @@
   .section:last-child {
     padding-bottom: 1rem; }
 
-.view__content {
-  margin-top: 75px;
-  height: 100%;
-  background: #f3f3f3; }
-  @media screen and (max-width: 768px) {
-    .view__content {
-      margin-top: 60px; } }
-
 /*# sourceMappingURL=styles.css.map */

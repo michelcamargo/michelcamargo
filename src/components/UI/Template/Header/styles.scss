@@ -1,18 +1,41 @@
 @import "../../../../styles";
 
 .header__wrapper {
-  height: 40px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  display: flex;
+  overflow: auto;
+
+  width: 100%;
+  height: $header-height-desktop;
   background: $color-background-primary;
+  box-shadow: $shadow-bottom-light;
 
   .header__container {
-    padding: $spacing-small $spacing-medium;
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
-    .header__mainLogo {
+    height: 100%;
+    width: 100%;
 
+    .header__mainLogo {
+      position: relative;
+      height: 80%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: $header-height-mobile;
+
+    .header__container {
+      .header__mainLogo {
+
+      }
     }
   }
 }

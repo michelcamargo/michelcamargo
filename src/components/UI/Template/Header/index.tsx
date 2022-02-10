@@ -1,13 +1,23 @@
 import React from 'react';
 
+import NavigationComponent from "../Navigation";
+
+import { ReactComponent as MainLogo } from "../../../../assets/svg/common/logo.svg"
 import './styles.css';
 
-export default (): JSX.Element => {
-    return (
-        <div className={"header__wrapper"}>
-            <div className={"container header__container"}>
-                <img className={"header__mainLogo"} alt={"Michel Camargo"} src={"assets/svg/common/logo.svg"} />
+class HeaderComponent extends React.Component {
+
+    render() {
+        return(
+            <div className={"header__wrapper"}>
+                <div className={"container header__container"}>
+                    <MainLogo className={"header__mainLogo"} />
+                    <NavigationComponent />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
 }
+
+export default HeaderComponent;

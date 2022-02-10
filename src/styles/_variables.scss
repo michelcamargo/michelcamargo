@@ -1,11 +1,37 @@
 $color-background-primary: #f3f3f3;
+$color-text-primary: #101010;
+$color-text-primary__inverted: #F9F9F9;
+$color-action-primary: #FF970C;
 $color-text-action-primary: #303030;
 
-$container-width: 1130px;
+$font-size-smallest: 12px;
+$font-size-smaller: 13px;
+$font-size-small: 14px;
+$font-size-medium: 16px;
+$font-size-midlarge: 18px;
+$font-size-large: 22px;
+$font-size-larger: 28px;
+$font-size-largest: 34px;
 
-$spacing-small: 1rem;
+$shadow-bottom-light: 0 2px 5px 1px rgba(0,0,0, .08);
+$shadow-medium: 0 0 5px 3px rgba(0,0,0, .1);
+
+$container-width: 1080px;
+$header-height-desktop: 75px;
+$header-height-mobile: 60px;
+
+$transition-ease-out: .3s ease-out;
+
+$spacing-smallest: 4px;
+$spacing-smaller: .25rem;
+$spacing-small: .5rem;
 $spacing-medium: 1rem;
 $spacing-md-large: 1.5rem;
 $spacing-large: 3rem;
 $spacing-larger: 4rem;
 $spacing-largest: 6rem;
+
+$border-radius-small: 4px;
+$border-radius-medium: 8px;
+$border-radius-large: 16px;
+$border-rounded: 100%;

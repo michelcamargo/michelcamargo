@@ -1,3 +1,10 @@
-@import 'global';
 @import 'variables';
 @import 'mixins';
+
+.container {
+  @include containerStyle();
+}
+
+.section {
+  @include sectionStyle($color-background-primary);
+}

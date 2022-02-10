@@ -28,6 +28,16 @@ main {
 }
 
 /**
+ * Render lists without margin and decoration
+ */
+ul, ol {
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+/**
  * Correct the font size and margin on `h1` elements within `section` and
  * `article` contexts in Chrome, Firefox, and Safari.
  */

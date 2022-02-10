@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAEA,UAAW;ECCT,MAAM,EAAE,MAAM;EACd,YAAY,ECEG,IAAI;EDDnB,aAAa,ECCE,IAAI;;ACJrB,cAAe;EACb,UAAU,EDHe,OAAO",
-"sources": ["../../../styles/_global.scss","../../../styles/_mixins.scss","../../../styles/_variables.scss","styles.scss"],
+"mappings": "AAGA,UAAW;ECCT,MAAM,EAAE,MAAM;EACd,SAAS,ECaO,MAAM;EDZtB,YAAY,ECqBG,IAAI;EDpBnB,aAAa,ECoBE,IAAI;EDlBnB,oCAAqC;IDNvC,UAAW;MCOP,SAAS,EAAE,KAAK;;ADHpB,QAAS;ECUP,UAAU,ECjBe,OAAO;EDkBhC,WAAW,ECWG,IAAI;EDVlB,cAAc,ECUA,IAAI;EDRlB,oBAAc;IACZ,WAAW,ECKE,IAAI;EDFnB,mBAAa;IACX,cAAc,ECCD,IAAI;;ACzBrB,cAAe;EACb,UAAU,EDgBY,IAAI;ECf1B,MAAM,EAAE,IAAI;EAKZ,UAAU,EDTe,OAAO;ECMhC,oCAAqC;IAJvC,cAAe;MAKX,UAAU,EDaS,IAAI",
+"sources": ["../../../styles/_index.scss","../../../styles/_mixins.scss","../../../styles/_variables.scss","styles.scss"],
 "names": [],
 "file": "styles.css"
 }

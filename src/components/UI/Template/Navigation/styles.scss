@@ -1,0 +1,15 @@
+@import "../../../../styles";
+
+.header-nav__container {
+  .header-nav__list {
+    display: flex;
+    flex-direction: row;
+    column-gap: $spacing-small;
+
+    .header-nav__item {
+      a {
+        @include linkStyle($color-text-primary, $font-size-medium);
+      }
+    }
+  }
+}

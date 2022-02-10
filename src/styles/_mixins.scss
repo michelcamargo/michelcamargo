@@ -1,7 +1,95 @@
 @import "./variables";
 
+//region container
 @mixin containerStyle {
   margin: 0 auto;
+  max-width: $container-width;
   padding-left: $spacing-medium;
   padding-right: $spacing-medium;
+
+  @media screen and (max-width: 768px) {
+    max-width: unset;
+  }
 }
+//endregion container
+
+//region section
+@mixin sectionStyle($background) {
+  background: $background;
+  padding-top: $spacing-large;
+  padding-bottom: $spacing-large;
+
+  &:first-child {
+    padding-top: $spacing-medium;
+  }
+
+  &:last-child {
+    padding-bottom: $spacing-medium;
+  }
+
+}
+//endregion section
+
+//region button
+@mixin buttonStyle($color, $fontSize, $textColor) {
+  background-color: $color;
+  font-size: $fontSize;
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+  border-radius: $border-radius-small;
+  border: 2px solid darken($color, 5%);
+
+  transition: $transition-ease-out;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: $textColor;
+    font-size: $fontSize;
+
+    padding-left: $spacing-medium;
+    padding-top: $spacing-smallest;
+    padding-right: $spacing-medium;
+    padding-bottom: $spacing-smallest;
+  }
+
+  &:hover {
+    background-color: darken($color, 5%);
+    border: 2px solid darken($color, 8%);
+    box-shadow: $shadow-bottom-light;
+  }
+
+  &:active {
+    background-color: darken($color, 12%);
+    border: 2px solid darken($color, 14%);
+  }
+
+  &:focus, &:focus-visible {
+    background-color: darken($color, 5%);
+    border: 2px solid darken($color, 8%);
+    box-shadow: $shadow-medium;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding-left: $spacing-small;
+    padding-right: $spacing-small;
+  }
+}
+//endregion button
+
+//region link
+@mixin linkStyle($textColor, $fontSize) {
+  color: $textColor;
+  font-size: $fontSize;
+  text-decoration: none;
+
+  transition: ease-out;
+
+  &:hover {
+    color: darken($textColor, 15%);
+    text-decoration: underline;
+    text-underline-color: lighten($textColor, 50%);
+  }
+}
+//endregion link

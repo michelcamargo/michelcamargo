@@ -1,3 +1,24 @@
+@import "../../styles";
+
 .home__wrapper {
+  height: 100%;
+
+  .home__presentation {
+    .home__mainTitle {}
+    .home__mainDescription {}
+    .home__socialContainer {
+      display: flex;
+      flex-direction: row;
+      column-gap: $spacing-medium;
+
+      @media screen and (max-width: 768px) {
+        column-gap: $spacing-small;
+      }
+
+      .social__button {
+        @include buttonStyle($color-action-primary, $font-size-medium, $color-text-primary__inverted);
+      }
+    }
+  }
 
 }
