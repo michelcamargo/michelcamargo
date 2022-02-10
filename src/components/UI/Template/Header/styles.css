@@ -1,0 +1,16 @@
+.container {
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem; }
+
+.header__wrapper {
+  height: 40px;
+  background: #f3f3f3; }
+  .header__wrapper .header__container {
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+
+/*# sourceMappingURL=styles.css.map */

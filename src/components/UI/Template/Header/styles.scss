@@ -1,0 +1,18 @@
+@import "../../../../styles";
+
+.header__wrapper {
+  height: 40px;
+  background: $color-background-primary;
+
+  .header__container {
+    padding: $spacing-small $spacing-medium;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .header__mainLogo {
+
+    }
+  }
+}

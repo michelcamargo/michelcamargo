@@ -1,6 +1,9 @@
 import React from "react";
+
 import HeaderTemplate from "./Header";
 import FooterTemplate from "./Footer";
+
+import "./styles.css";
 
 type TemplateProps = {
     children?: JSX.Element | JSX.Element[];
@@ -8,10 +11,10 @@ type TemplateProps = {
 
 export default ({children}:TemplateProps): JSX.Element => {
     return (
-            <div className={"base"}>
-                <HeaderTemplate/>
-                <div className={"container"}>{children}</div>
-                <FooterTemplate/>
-            </div>
+        <>
+            <HeaderTemplate/>
+            <div className={"view__content"}>{children}</div>
+            <FooterTemplate/>
+        </>
     );
 }

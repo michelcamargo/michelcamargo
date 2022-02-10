@@ -1,0 +1,7 @@
+@import "./variables";
+
+@mixin containerStyle {
+  margin: 0 auto;
+  padding-left: $spacing-medium;
+  padding-right: $spacing-medium;
+}
