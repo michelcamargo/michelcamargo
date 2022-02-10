@@ -1,33 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import TemplateComponent from './components/UI/Template';
-
-function Home() {
-    return null;
-}
+import Home from "./views/Home";
+import NotFound from "./views/404";
 
 function App(): JSX.Element {
   return (
-      <Router>
-          <Route path="/">
-            <TemplateComponent>
-              <Home />
-            </TemplateComponent>
-          </Route>
-
-          <Route path="/work">
-            <TemplateComponent>
-              {/*<Portfolio />*/}
-            </TemplateComponent>
-          </Route>
-
-          <Route path="">
-            <TemplateComponent>
-              {/*<ContactUs />*/}
-            </TemplateComponent>
-          </Route>
-      </Router>
+      <BrowserRouter>
+          <Routes>
+              <Route index element={<TemplateComponent><Home /></TemplateComponent>} />
+              <Route path="*" element={<TemplateComponent><NotFound /></TemplateComponent>} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 

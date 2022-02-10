@@ -1,11 +1,13 @@
-type HomeProps = {
+import React from 'react';
+
+type NotFoundProps = {
     children?: JSX.Element | JSX.Element[];
 }
 
-export default ({children}: HomeProps): JSX.Element => {
+export default ({children}: NotFoundProps): JSX.Element => {
     return (
         <div>
-            <p>Hello World!</p>
+            <p>Opa!? Tá perdido, amigo?</p>
             <span>{children}</span>
         </div>
     )

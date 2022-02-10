@@ -8,9 +8,9 @@ type TemplateProps = {
 
 export default ({children}:TemplateProps): JSX.Element => {
     return (
-            <div>
+            <div className={"base"}>
                 <HeaderTemplate/>
-                <div className={""}>{children}</div>
+                <div className={"container"}>{children}</div>
                 <FooterTemplate/>
             </div>
     );
