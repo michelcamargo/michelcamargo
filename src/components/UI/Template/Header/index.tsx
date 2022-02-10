@@ -4,6 +4,7 @@ import NavigationComponent from "../Navigation";
 
 import { ReactComponent as MainLogo } from "../../../../assets/svg/common/logo.svg"
 import './styles.css';
+import {Link} from "react-router-dom";
 
 class HeaderComponent extends React.Component {
 
@@ -11,7 +12,7 @@ class HeaderComponent extends React.Component {
         return(
             <div className={"header__wrapper"}>
                 <div className={"container header__container"}>
-                    <MainLogo className={"header__mainLogo"} />
+                    <Link className={"header__logoLink"} to={"/"}><MainLogo className={"header__mainLogo"} /></Link>
                     <NavigationComponent />
                 </div>
             </div>
