@@ -10,7 +10,7 @@
 
   width: 100%;
   height: $header-height-desktop;
-  background: $color-background-primary;
+  background: linear-gradient(96.06deg, #FFC700 16.12%, #FF7A00 85.99%);
   box-shadow: $shadow-bottom-light;
 
   .header__container {
@@ -30,7 +30,7 @@
       .header__mainLogo {
         position: relative;
         height: 80%;
-        color: $color-action-primary;
+        color: $color-text-primary__inverted;
         border-radius: $border-rounded;
         transition: $transition-ease-out;
 

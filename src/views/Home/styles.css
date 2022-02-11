@@ -1,5 +1,6 @@
 .container {
   margin: 0 auto;
+  width: 100%;
   max-width: 1080px;
   padding-left: 1rem;
   padding-right: 1rem; }
@@ -11,52 +12,11 @@
   background: #f3f3f3;
   padding-top: 3rem;
   padding-bottom: 3rem; }
-  .section:first-child {
-    padding-top: 1rem; }
-  .section:last-child {
-    padding-bottom: 1rem; }
 
 .home__wrapper {
-  height: 100%; }
-  .home__wrapper .home__presentation .home__socialContainer {
-    display: flex;
-    flex-direction: row;
-    column-gap: 1rem; }
-    @media screen and (max-width: 768px) {
-      .home__wrapper .home__presentation .home__socialContainer {
-        column-gap: 0.5rem; } }
-    .home__wrapper .home__presentation .home__socialContainer .social__button {
-      background-color: #FF970C;
-      font-size: 16px;
-      height: fit-content;
-      width: fit-content;
-      padding: 0;
-      border-radius: 4px;
-      border: 2px solid #f28a00;
-      transition: 0.3s ease-out; }
-      .home__wrapper .home__presentation .home__socialContainer .social__button a {
-        display: block;
-        text-decoration: none;
-        color: #F9F9F9;
-        font-size: 16px;
-        padding-left: 1rem;
-        padding-top: 4px;
-        padding-right: 1rem;
-        padding-bottom: 4px; }
-      .home__wrapper .home__presentation .home__socialContainer .social__button:hover {
-        background-color: #f28a00;
-        border: 2px solid #e28100;
-        box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.08); }
-      .home__wrapper .home__presentation .home__socialContainer .social__button:active {
-        background-color: #ce7600;
-        border: 2px solid #c47000; }
-      .home__wrapper .home__presentation .home__socialContainer .social__button:focus, .home__wrapper .home__presentation .home__socialContainer .social__button:focus-visible {
-        background-color: #f28a00;
-        border: 2px solid #e28100;
-        box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1); }
-      @media screen and (max-width: 768px) {
-        .home__wrapper .home__presentation .home__socialContainer .social__button {
-          padding-left: 0.5rem;
-          padding-right: 0.5rem; } }
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column; }
 
 /*# sourceMappingURL=styles.css.map */

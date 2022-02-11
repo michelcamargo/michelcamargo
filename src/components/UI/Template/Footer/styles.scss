@@ -1,2 +1,45 @@
 @import "../../../../styles";
 
+.footer__wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  padding: $spacing-medium 0;
+  background: linear-gradient(96.06deg, #FF7A00 16.12%, #FFC700 85.99%);
+
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+
+    .footer__menuContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .footer__menuContent {
+        display: flex;
+        flex-direction: column;
+
+        .footer__menuHeading {
+          font-size: $font-size-medium;
+          font-weight: 600;
+          color: $color-text-primary__inverted;
+          margin-bottom: $spacing-smaller;
+        }
+
+        .footer__menuList {
+          display: flex;
+          flex-direction: column;
+
+          .footer__menuItem {
+            font-size: $font-size-small;
+            font-weight: 300;
+            color: $color-text-primary__inverted;
+            padding: $spacing-smaller 0;
+          }
+        }
+      }
+    }
+
+  }
+}

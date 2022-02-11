@@ -4,11 +4,15 @@
   .header-nav__list {
     display: flex;
     flex-direction: row;
-    column-gap: $spacing-small;
+    column-gap: $spacing-medium;
+
+    @media screen and (max-width: 768px) {
+      column-gap: $spacing-small;
+    }
 
     .header-nav__item {
       a {
-        @include linkStyle($color-text-primary, $font-size-medium);
+        @include linkStyle($color-text-primary__inverted, $font-size-medium);
       }
     }
   }

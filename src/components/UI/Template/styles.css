@@ -1,5 +1,6 @@
 .container {
   margin: 0 auto;
+  width: 100%;
   max-width: 1080px;
   padding-left: 1rem;
   padding-right: 1rem; }
@@ -11,10 +12,6 @@
   background: #f3f3f3;
   padding-top: 3rem;
   padding-bottom: 3rem; }
-  .section:first-child {
-    padding-top: 1rem; }
-  .section:last-child {
-    padding-bottom: 1rem; }
 
 .view__content {
   margin-top: 75px;

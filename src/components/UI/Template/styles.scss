@@ -3,9 +3,10 @@
 .view__content {
   margin-top: $header-height-desktop;
   height: 100%;
+  background: $color-background-primary;
 
   @media screen and (max-width: 768px) {
     margin-top: $header-height-mobile;
   }
-  background: $color-background-primary;
+
 }

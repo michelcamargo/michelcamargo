@@ -1,0 +1,38 @@
+@import "../../../../styles";
+
+.goals__content {
+  display: flex;
+  flex-direction: row;
+  column-gap: $spacing-larger;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    width: 75% !important;
+  }
+
+  .goals__imageContainer {
+
+    .goals__imageElement {
+      border-radius: $border-rounded;
+      width: 250px;
+    }
+  }
+
+  .goals__callToAction {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-medium;
+    border-radius: $border-radius-medium;
+    box-shadow: $shadow-bottom-light;
+
+    .goals__heading {
+      font-size: $font-size-midlarge;
+      margin: 0 0 $spacing-small 0;
+    }
+
+    .goals__description {
+      font-size: $font-size-medium;
+      margin: $spacing-small 0;
+    }
+  }
+}

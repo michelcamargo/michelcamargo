@@ -1,5 +1,6 @@
 .container {
   margin: 0 auto;
+  width: 100%;
   max-width: 1080px;
   padding-left: 1rem;
   padding-right: 1rem; }
@@ -11,10 +12,6 @@
   background: #f3f3f3;
   padding-top: 3rem;
   padding-bottom: 3rem; }
-  .section:first-child {
-    padding-top: 1rem; }
-  .section:last-child {
-    padding-bottom: 1rem; }
 
 .header__wrapper {
   position: fixed;
@@ -25,7 +22,7 @@
   overflow: auto;
   width: 100%;
   height: 75px;
-  background: #f3f3f3;
+  background: linear-gradient(96.06deg, #FFC700 16.12%, #FF7A00 85.99%);
   box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.08); }
   .header__wrapper .header__container {
     position: relative;
@@ -41,7 +38,7 @@
       .header__wrapper .header__container .header__logoLink .header__mainLogo {
         position: relative;
         height: 80%;
-        color: #FF970C;
+        color: #F9F9F9;
         border-radius: 100%;
         transition: 0.3s ease-out; }
         .header__wrapper .header__container .header__logoLink .header__mainLogo:hover {
