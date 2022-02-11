@@ -2,19 +2,57 @@
 
 .portfolio__wrapper {
   position: relative;
+  //background: $color-background-primary;
 
   .portfolio__container {
     display: flex;
     flex-direction: row;
     column-gap: $spacing-large;
     width: 100%;
+    margin-bottom: $spacing-large;
+
+    &:nth-child(1n) {}
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+
+      .portfolio__caseImagesContainer {
+        flex-direction: row-reverse;
+
+        .portfolio__caseContainerMobile {
+          .portfolio__casePreviewImage {
+            //desktop-only
+            @media screen and (min-width: 768px) {
+              transform: translate3d(-30px, 40px, 0) !important;
+            }
+          }
+        }
+
+        .portfolio__caseContainerDesktop {
+
+          .portfolio__casePreviewImage {
+            //desktop-only
+            @media screen and (min-width: 768px) {
+              &:first-child {
+                transform: translate3d(-30px, 0, 0) !important;
+              }
+              &:last-child {
+                transform: translate3d(40px, 0, 0) !important;
+              }
+            }
+          }
+        }
+      }
+    }
 
     .portfolio__caseInformation {
       display: flex;
       flex-direction: column;
       width: 30%;
-      background: $color-background-secondary;
+      background: $color-mono-white;
       padding: $spacing-medium;
+      box-shadow: $shadow-light;
+      border-radius: $border-radius-medium;
 
       .portfolio__caseTitle {
         margin-bottom: $spacing-small;
@@ -29,13 +67,45 @@
     .portfolio__caseImagesContainer {
       display: flex;
       position: relative;
-      flex-direction: row;
       width: 70%;
 
-      .portfolio__casePreviewImage {
+      flex-direction: row;
+
+      .portfolio__caseContainerMobile {
         display: block;
-        width: 100%;
+        z-index: 2;
+
+        .portfolio__casePreviewImage {
+          // desktop-only
+          @media screen and (min-width: 768px) {
+            transform: translate3d(30px, 50px, 0);
+          }
+
+          display: block;
+        }
       }
+
+      .portfolio__caseContainerDesktop {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+
+        .portfolio__casePreviewImage {
+          display: block;
+
+          // desktop-only
+          @media screen and (min-width: 768px) {
+            &:first-child {
+              transform: translate3d(31px, 0px, 0px);
+            }
+
+            &:last-child {
+              transform: translate3d(-30px, 0px, 0px);
+            }
+          }
+        }
+      }
+
     }
   }
 }

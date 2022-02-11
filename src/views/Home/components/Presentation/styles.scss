@@ -21,7 +21,7 @@
     .social__button {
       //@include buttonStyle($color-action-secondary, $font-size-medium, $color-text-primary__inverted);
 
-      @include buttonLightStyle($color-background-primary, $color-action-secondary, $font-size-medium, $color-text-primary);
+      @include buttonLightStyle($color-mono-white, $color-action-secondary, $font-size-medium, $color-text-primary);
     }
   }
 }

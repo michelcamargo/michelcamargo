@@ -13,6 +13,20 @@
   padding-top: 3rem;
   padding-bottom: 3rem; }
 
+.input {
+  padding: 0.5rem;
+  background: #ffa24d;
+  border: 2px solid #cc6200;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.08);
+  opacity: 7; }
+  .input:hover {
+    opacity: 0.85; }
+  .input:active, .input:focus, .input:focus-visible {
+    opacity: 1;
+    outline: none;
+    box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1); }
+
 .header__wrapper {
   position: fixed;
   left: 0;
@@ -38,8 +52,8 @@
       display: contents; }
       .header__wrapper .header__container .header__logoLink .header__mainLogo {
         position: relative;
-        height: 80%;
-        color: #F9F9F9;
+        height: 75%;
+        color: #FFFFFF;
         border-radius: 100%;
         transition: 0.3s ease-out; }
         .header__wrapper .header__container .header__logoLink .header__mainLogo:hover {

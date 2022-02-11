@@ -15,6 +15,12 @@
     .goals__imageElement {
       border-radius: $border-rounded;
       width: 250px;
+      box-shadow: $shadow-light;
+      transition: $transition-ease-out;
+
+      &:hover {
+        box-shadow: $shadow-medium;
+      }
     }
   }
 
@@ -24,6 +30,7 @@
     padding: $spacing-medium;
     border-radius: $border-radius-medium;
     box-shadow: $shadow-bottom-light;
+    background: $color-mono-white;
 
     .goals__heading {
       font-size: $font-size-midlarge;

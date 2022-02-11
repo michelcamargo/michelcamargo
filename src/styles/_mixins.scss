@@ -154,3 +154,24 @@
   }
 }
 //endregion link
+
+//region defaultInput
+@mixin defaultInputStyle() {
+  padding: $spacing-small;
+  background: lighten($color-action-secondary, 15%);
+  border: 2px solid darken($color-action-secondary, 10%);
+  border-radius: $border-radius-small;
+  box-shadow: $shadow-light;
+  opacity: 7;
+
+  &:hover {
+   opacity: .85
+  }
+
+  &:active, &:focus, &:focus-visible {
+    opacity: 1;
+    outline: none;
+    box-shadow: $shadow-medium;
+  }
+}
+//endregion defaultInput

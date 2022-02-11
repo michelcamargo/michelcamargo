@@ -1,0 +1,14 @@
+@import "mixins";
+@import "variables";
+
+.container {
+  @include containerStyle();
+}
+
+.section {
+  @include sectionStyle($color-background-primary);
+}
+
+.input {
+  @include defaultInputStyle();
+}
