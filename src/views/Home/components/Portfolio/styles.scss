@@ -1,0 +1,41 @@
+@import "../../../../styles";
+
+.portfolio__wrapper {
+  position: relative;
+
+  .portfolio__container {
+    display: flex;
+    flex-direction: row;
+    column-gap: $spacing-large;
+    width: 100%;
+
+    .portfolio__caseInformation {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      background: $color-background-secondary;
+      padding: $spacing-medium;
+
+      .portfolio__caseTitle {
+        margin-bottom: $spacing-small;
+        font-size: $font-size-midlarge;
+      }
+
+      .portfolio__caseDescription {
+        font-size: $font-size-small;
+      }
+    }
+
+    .portfolio__caseImagesContainer {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      width: 70%;
+
+      .portfolio__casePreviewImage {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}

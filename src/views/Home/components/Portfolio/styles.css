@@ -1,0 +1,43 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1080px;
+  padding-left: 1rem;
+  padding-right: 1rem; }
+  @media screen and (max-width: 768px) {
+    .container {
+      max-width: unset; } }
+
+.section {
+  background: #F9F9F9;
+  padding-top: 3rem;
+  padding-bottom: 3rem; }
+
+.portfolio__wrapper {
+  position: relative; }
+  .portfolio__wrapper .portfolio__container {
+    display: flex;
+    flex-direction: row;
+    column-gap: 3rem;
+    width: 100%; }
+    .portfolio__wrapper .portfolio__container .portfolio__caseInformation {
+      display: flex;
+      flex-direction: column;
+      width: 30%;
+      background: #F3F3F3;
+      padding: 1rem; }
+      .portfolio__wrapper .portfolio__container .portfolio__caseInformation .portfolio__caseTitle {
+        margin-bottom: 0.5rem;
+        font-size: 18px; }
+      .portfolio__wrapper .portfolio__container .portfolio__caseInformation .portfolio__caseDescription {
+        font-size: 14px; }
+    .portfolio__wrapper .portfolio__container .portfolio__caseImagesContainer {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      width: 70%; }
+      .portfolio__wrapper .portfolio__container .portfolio__caseImagesContainer .portfolio__casePreviewImage {
+        display: block;
+        width: 100%; }
+
+/*# sourceMappingURL=styles.css.map */

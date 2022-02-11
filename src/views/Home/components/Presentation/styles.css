@@ -9,7 +9,7 @@
       max-width: unset; } }
 
 .section {
-  background: #f3f3f3;
+  background: #F9F9F9;
   padding-top: 3rem;
   padding-bottom: 3rem; }
 
@@ -27,13 +27,13 @@
     .presentation__container .presentation__socialContainer {
       column-gap: 0.5rem; } }
   .presentation__container .presentation__socialContainer .social__button {
-    background-color: #f3f3f3;
+    background-color: #F9F9F9;
     font-size: 16px;
     height: fit-content;
     width: fit-content;
     padding: 0;
     border-radius: 4px;
-    border: 2px solid #e6e6e6;
+    border: 2px solid #ececec;
     transition: 0.3s ease-out; }
     .presentation__container .presentation__socialContainer .social__button a {
       display: block;
@@ -49,18 +49,18 @@
       border: 2px solid #d66600;
       box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.08); }
       .presentation__container .presentation__socialContainer .social__button:hover a {
-        color: #f3f3f3; }
+        color: #F9F9F9; }
     .presentation__container .presentation__socialContainer .social__button:active {
       background-color: #c25d00;
       border: 2px solid #b85800; }
       .presentation__container .presentation__socialContainer .social__button:active a {
-        color: #f3f3f3; }
+        color: #F9F9F9; }
     .presentation__container .presentation__socialContainer .social__button:focus, .presentation__container .presentation__socialContainer .social__button:focus-visible {
       background-color: #e66e00;
       border: 2px solid #d66600;
       box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1); }
       .presentation__container .presentation__socialContainer .social__button:focus a, .presentation__container .presentation__socialContainer .social__button:focus-visible a {
-        color: #f3f3f3; }
+        color: #F9F9F9; }
     @media screen and (max-width: 768px) {
       .presentation__container .presentation__socialContainer .social__button {
         padding-left: 0.5rem;
