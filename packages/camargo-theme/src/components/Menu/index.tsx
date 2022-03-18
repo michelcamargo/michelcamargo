@@ -6,11 +6,11 @@ import { Packages } from "../../../types";
 import { MenuToggle, } from "./styles";
 
 /**
- * The menu that should be displayed on mobile devices displaying links to
- * various categories and pages. This component contains mostly logic and
- * renders the {@link MenuModal} component.
+ * Menu mobile, mostra links para categorias e páginas.
+ * Componente responsável pela lógica de renderização do
+ * {@link MenuModal}.
  *
- * @returns A React component.
+ * @returns um componente.
  */
 function MobileMenu() {
   const { state, actions } = useConnect<Packages>();
@@ -62,7 +62,6 @@ function MobileMenu() {
           <HamburgerIcon color="white" size="24px" />
         )}
       </MenuToggle>
-      {/* If the menu is open, render the menu modal */}
       {isMobileMenuOpen && <MenuModal />}
     </>
   );

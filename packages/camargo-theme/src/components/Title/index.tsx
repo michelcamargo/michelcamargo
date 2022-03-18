@@ -4,8 +4,7 @@ import { Packages } from "../../../types";
 
 /**
  * Popula a tag `<title>` de acordo com a página.
- *
- * @returns The `<title>` tag.
+ * @returns tag `<title>`.
  */
 const Title = (): JSX.Element => {
   const { state } = useConnect<Packages>();
@@ -15,30 +14,25 @@ const Title = (): JSX.Element => {
   let title = state.frontity.title;
 
   if (isTerm(data)) {
-    // Add titles to taxonomies, like "Category: Nature - Blog Name" or "Tag: Japan - Blog Name".
-    // 1. Get the taxonomy entity from the state to get its taxonomy term and name.
+    // Adiciona títulos dinâmicos por taxonomia.
     const { taxonomy, name } = state.source[data.taxonomy][data.id];
-    // 2. Uppercase first letter of the taxonomy term (from "category" to "Category").
     const taxonomyCapitalized =
       taxonomy.charAt(0).toUpperCase() + taxonomy.slice(1);
-    // 3. Render the proper title.
     title = `${taxonomyCapitalized}: ${decode(name)} - ${state.frontity.title}`;
+
   } else if (isAuthor(data)) {
-    // Add titles to authors, like "Author: Jon Snow - Blog Name".
-    // 1. Get the author entity from the state to get its name.
+    // Busca autor da publicação e insere no título.
     const { name } = state.source.author[data.id];
-    // 2. Render the proper title.
     title = `Autor: ${decode(name)} - ${state.frontity.title}`;
+
   } else if (isPostType(data)) {
-    // Add titles to posts and pages, using the title and ending with the Blog Name.
-    // 1. Get the post entity from the state and get its title.
+    // Adiciona títulos para publicações e páginas (Título - Nome blog).
     const postTitle = state.source[data.type][data.id].title.rendered;
-    // 2. Remove any HTML tags found in the title.
+    // Remove tags HTML do título.
     const cleanTitle = decode(postTitle);
-    // 3. Render the proper title.
     title = `${cleanTitle} - ${state.frontity.title}`;
+
   } else if (isError(data) && data.is404) {
-    // Add titles to 404's.
     title = `404 Not Found - ${state.frontity.title}`;
   }
 

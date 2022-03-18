@@ -1,4 +1,4 @@
-import {styled} from "frontity";
+import { styled } from "frontity";
 import Link from "../TemplateUi/Link";
 
 export const MenuOverlay = styled.div`

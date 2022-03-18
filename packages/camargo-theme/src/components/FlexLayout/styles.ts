@@ -6,12 +6,14 @@ type FlexProps = {
     background?: string,
     children?: ReactNode | ReactNode[],
     className?: string
+    topSpaced?: boolean,
+    bottomSpaced?: boolean
 }
 
 export const FlexRow = styled.div<FlexProps>`
-  background: ${props => props.background}
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  background: ${props => props.background};
+  padding-top: ${props => props.topSpaced && '2rem'};
+  padding-bottom: ${props => props.bottomSpaced && '2rem'};
 `;
 
 export const FlexRowContainer = styled.div<FlexProps>`
@@ -20,7 +22,7 @@ export const FlexRowContainer = styled.div<FlexProps>`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: ${props => props.containerWidth};
+  max-width: ${props => props.containerWidth && props.containerWidth};
 `;
 
 export const FlexRowContent = styled.div<FlexProps>`
@@ -31,3 +33,5 @@ export const FlexRowContent = styled.div<FlexProps>`
 export const FlexCol = styled.div<FlexProps>``;
 
 export const FlexColContent = styled.div<FlexProps>``;
+
+export const FlexColItem = styled.div<FlexProps>``;

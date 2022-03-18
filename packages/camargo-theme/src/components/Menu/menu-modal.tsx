@@ -4,10 +4,10 @@ import { Packages } from "../../../types";
 import { MenuContent, MenuOverlay, MenuLink } from "./styles";
 
 /**
- * Modal de meu mobile.
+ * Modal de menu mobile.
  *
- * @param props - The props passed to the component from parent.
- * @returns A React component.
+ * @param props - Propriedades vindas do elemento pai.
+ * @returns componente react.
  */
 const MenuModal = ({ ...props }) => {
   const { state } = useConnect<Packages>();

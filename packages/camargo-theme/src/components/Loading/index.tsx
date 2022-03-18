@@ -2,11 +2,12 @@ import { keyframes, css } from "frontity";
 
 import { Container } from "./styles";
 /**
- * The props of the {@link Loading} component.
+ * Propriedades do componente {@link Loading}.
  */
 interface LoadingProps {
     /**
-     * When this component should be loaded. Used by the `<Switch>` component.
+     * Quando o componente deve ser renderizado.
+     * Usado pelo `<Switch>`.
      */
     when?: boolean;
 }
@@ -18,10 +19,10 @@ const scale = keyframes`
 `;
 
 /**
- * Returns the CSS required for each of the bars.
+ * Retorna CSS requerida por cada barra.
  *
- * @param index - The position of the bar.
- * @returns A css style.
+ * @param index - Posição da barra.
+ * @returns estilo css.
  */
 const bar = (index: number) => css`
   background-color: rgba(12, 17, 43, 0.3);
@@ -36,10 +37,10 @@ const bar = (index: number) => css`
 `;
 
 /**
- * Shows a loader. Useful to indicate the user that something is loading.
+ * Mostra um loader.
  *
- * @param _props - Defined in {@link LoadingProps}.
- * @returns The loading animation.
+ * @param _props - Definido em {@link LoadingProps}.
+ * @returns Animação de carregamento.
  */
 const Loading = (_props: LoadingProps): JSX.Element => (
     <Container>

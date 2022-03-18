@@ -1,5 +1,5 @@
 import React from "react";
-import {Package, Connect as BaseConnect, MergePackages, Frontity} from "frontity/types";
+import { Package, Connect as BaseConnect, MergePackages, Frontity } from "frontity/types";
 import Router from "@frontity/router/types";
 import Source from "@frontity/source/types";
 import Html2React from "@frontity/html2react/types";

@@ -3,23 +3,21 @@ import { ErrorData } from "@frontity/source/types";
 import { Container, Title, Description } from "./styles";
 
 /**
- * The props of the {@link PageError} component.
+ * Propriedades do componente {@link PageError}.
  */
 type PageErrorProps = {
-  /**
-   * The data stored in the state for this URL.
-   */
   data: ErrorData,
 
   /**
-   * Whether or not to render this component. Used by the `<Switch>` component.
+   * Quando este componente deve ser renderizado.
+   * Usado pelo componente `<Switch>`.
    */
   when?: boolean
 }
 
 const description404 = (
   <>
-    That page can’t be found{" "}
+    A página não foi encontrada {" "}
     <span role="img" aria-label="confused face">
       😕
     </span>
@@ -42,7 +40,7 @@ const description = (
  * @returns The error screen.
  */
 const PageError = ({ data }: PageErrorProps): JSX.Element => {
-  const title = "Oops! Something went wrong";
+  const title = "Oops! Algo deu errado.";
   const title404 = "Oops! 404";
 
   return (

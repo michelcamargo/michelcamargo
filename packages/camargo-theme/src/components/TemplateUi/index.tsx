@@ -12,7 +12,7 @@ class TemplateUi extends React.Component<TemplateUiProps> {
     public render() {
         return (
             <Wrapper>
-                <Header />
+                <Header containerWidth={"1130px"} />
                 <Content>
                     {this.props.children}
                 </Content>

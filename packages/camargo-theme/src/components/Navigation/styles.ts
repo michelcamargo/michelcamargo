@@ -3,10 +3,8 @@ import {styled} from "frontity";
 export const NavContainer = styled.nav`
   list-style: none;
   display: flex;
-  width: 848px;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 0 24px;
   margin: 0;
   overflow-x: auto;
 

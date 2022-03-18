@@ -1,12 +1,28 @@
 import React from 'react';
 
-import { Wrapper } from "./styles";
+import { Wrapper, Container, Content } from "./styles";
+import Nav from "../../Navigation";
 
-class Header extends React.Component {
+type HeaderProps = {
+    containerWidth?: string
+}
+
+class Header extends React.Component<HeaderProps> {
     public render() {
         return(
-            <Wrapper>
-                <p>Header</p>
+            <Wrapper background={"#2840de"}>
+                { this.props.containerWidth ?
+                    <Container containerWidth={this.props.containerWidth}>
+                        <Content>
+                            <img className={""} src={"./assets/svg/logo-mono.svg"} alt={"Logo Principal"} />
+                            <Nav />
+                        </Content>
+                    </Container> :
+                    <Content>
+                        <img className={""} src={"./assets/svg/logo-mono.svg"} alt={"Logo Principal"} />
+                        <Nav />
+                    </Content>
+                }
             </Wrapper>
         )
     }

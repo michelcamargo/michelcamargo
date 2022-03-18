@@ -1,8 +1,8 @@
 /**
- * A "hamburger" icon used for opening the mobile menu.
+ * Ícone "hamburger".
  *
- * @param props - Props used to customize this element.
- * @returns A React component.
+ * @param props - Propriedades do ícone.
+ * @returns componente react.
  */
 export const HamburgerIcon = ({ size, color, ...props }) => {
   return (
