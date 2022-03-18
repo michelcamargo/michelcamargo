@@ -1,0 +1,16 @@
+{
+  "name": "camargo-theme",
+  "version": "1.0.0",
+  "description": "Tema de interface integrada com wordpress.",
+  "keywords": [
+    "portifolio",
+    "dev",
+    "ui-ux",
+    "developer",
+    "professional"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "frontity": "^1.17.2"
+  }
+}

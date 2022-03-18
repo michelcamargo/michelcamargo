@@ -54,5 +54,8 @@ macOS .DS_Store files
 .yarn/install-state.gz
 .pnp.*
 
-# Frontity
+# Build
 build
+
+# WebStorm
+.idea

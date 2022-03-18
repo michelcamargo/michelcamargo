@@ -7,35 +7,27 @@ const settings: Settings<Theme | WpSource> = {
   "state": {
     "frontity": {
       "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "title": "Michel Camargo",
+      "description": "Portifolio"
     }
   },
   "packages": [
     {
-      "name": "@frontity/mars-theme-typescript",
+      "name": "camargo-theme",
       "state": {
         "theme": {
           "menu": [
             [
-              "Home",
+              "Início",
               "/"
             ],
             [
-              "Nature",
-              "/category/nature/"
+              "Blog",
+              "/blog"
             ],
             [
-              "Travel",
-              "/category/travel/"
-            ],
-            [
-              "Japan",
-              "/tag/japan/"
-            ],
-            [
-              "About Us",
-              "/about-us/"
+              "Contato",
+              "/contato"
             ]
           ],
           "featured": {
