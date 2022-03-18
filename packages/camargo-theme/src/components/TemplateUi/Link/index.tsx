@@ -22,12 +22,12 @@ const CustomLink = ({ children, ...props }: LinkProps): JSX.Element => {
   const { state, actions } = useConnect<Packages>();
 
   const onClick = () => {
-    // if (state.theme.isMobileMenuOpen) {
-    //   actions.theme.closeMobileMenu();
-    // }
-    if(state.theme.counter) {
-      actions.theme.increaseCounter();
+    if (state.theme.isMobileMenuOpen) {
+      actions.theme.closeMobileMenu();
     }
+    // if(state.theme.counter) {
+    //   actions.theme.increaseCounter();
+    // }
   };
 
   return (

@@ -30,14 +30,11 @@ interface PostProps {
 }
 
 /**
- * The Post component that Mars uses to render any kind of "post type", like
- * posts, pages, attachments, etc.
+ * Renderiza qualquer tipo e publicação, como posts, páginas, attachments, etc.
  *
- * It doesn't receive any prop but the Frontity store, which it receives from
- * {@link connect}. The current Frontity state is used to know which post type
- * should be rendered.
+ * {@link connect}. O estado atual gerido pelo Frontity é utilizado para distinguir qual o tipo de publicação.
  *
- * @param props - The Frontity store (state, actions, and libraries).
+ * @param props - State, actions, e libraries).
  *
  * @example
  * ```js
@@ -46,68 +43,64 @@ interface PostProps {
  * </Switch>
  * ```
  *
- * @returns The {@link Post} element rendered.
+ * @returns um elemento {@link Post} renderizado.
  */
 const Post = ({ data }: PostProps): JSX.Element => {
   const { state, actions, libraries } = useConnect<Packages>();
-  // Get the data of the post.
+
   const post: PostTypeEntity = state.source[data.type][data.id];
-  // Get the data of the author.
   const author = state.source.author[post.author];
 
-  // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
   /**
-   * Once the post has loaded in the DOM, prefetch both the
-   * home posts and the list component so if the user visits
-   * the home page, everything is ready and it loads instantly.
+   * Uma vez que a publicação está no DOM, pré-requisita toda a lista e posts
+   * para quando o início seja acessado, tudo esteja pronto e carregue instantâneamente.
    */
   useEffect(() => {
     actions.source.fetch("/");
+    // @ts-ignore
     List.preload();
   }, [actions.source]);
 
-  // Load the post, but only if the data is ready.
+  // Carrega a publicação quando os dados estiverem prontos.
   return data.isReady ? (
     <Container>
       <div>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
-        {/* Only display author and date on posts */}
+        {/* Mostra apenas autor e data de publicação */}
         {isPostEntity(post) && (
           <div>
             {author && (
               <StyledLink link={author.link}>
                 <Author>
-                  By <b>{author.name}</b>
+                  por <b>{author.name}</b>
                 </Author>
               </StyledLink>
             )}
             <DateWrapper>
               {" "}
-              on <b>{new Date(post.date).toDateString()}</b>
+              em <b>{new Date(post.date).toDateString()}</b>
             </DateWrapper>
           </div>
         )}
       </div>
 
-      {/* Look at the settings to see if we should include the featured image */}
+      {/* Busca em opções se o conteúdo em destaque deve ser exibido */}
       {state.theme.featured.showOnPost &&
         (isPostEntity(post) || isPageEntity(post)) && (
           <FeaturedMedia id={post.featured_media} />
         )}
 
       {isAttachmentEntity(post) && (
-        // If the post is an attachment, just render the description property,
-        // which already contains the thumbnail.
+        // Se a publicação é um attachment, renderiza a descrição junto da thumbnail.
         <div dangerouslySetInnerHTML={{ __html: post.description?.rendered }} />
       )}
 
       {(isPostEntity(post) || isPageEntity(post)) && (
-        // Render the content using the Html2React component so the HTML is
-        // processed by the processors we included in the
-        // libraries.html2react.processors array.
+        // Renderiza o conteúdo Html2React para que o HTML seja processado
+        // por libraries.html2react.processors.
         <Content>
           <Html2React html={post.content?.rendered} />
         </Content>

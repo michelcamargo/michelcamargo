@@ -10,13 +10,18 @@ const camargoTheme: CamargoTheme = {
         theme: Theme,
     },
     state: {
-        /**
-         * State is where the packages store their default settings and other
-         * relevant state. It is scoped to the `theme` namespace.
-         */
         theme: {
             autoPrefetch: "in-view",
-            menu: [],
+            menu: [
+                {
+                    name: "Início",
+                    link: "/"
+                },
+                {
+                    name: "Contato",
+                    link: "/contato"
+                }
+            ],
             isMobileMenuOpen: false,
             featured: {
                 showOnList: false,
@@ -31,13 +36,13 @@ const camargoTheme: CamargoTheme = {
      */
     actions: {
         theme: {
-            toggleMobileMenu: ({ state }) => {
+            toggleMobileMenu: ({ state }): void => {
                 state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
             },
-            closeMobileMenu: ({ state }) => {
+            closeMobileMenu: ({ state }): void => {
                 state.theme.isMobileMenuOpen = false;
             },
-            increaseCounter: ({ state }) => {
+            increaseCounter: ({ state }): void => {
                 state.theme.counter++;
                 console.log("counter: ", state.theme.counter);
             }

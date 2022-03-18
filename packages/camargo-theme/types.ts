@@ -3,7 +3,6 @@ import {Package, Connect as BaseConnect, MergePackages, Frontity} from "frontity
 import Router from "@frontity/router/types";
 import Source from "@frontity/source/types";
 import Html2React from "@frontity/html2react/types";
-// import MarsThemeTypeScript from "@frontity/mars-theme-typescript/types";
 
 interface CamargoTheme extends Package {
     name: "camargo-theme";
@@ -11,10 +10,23 @@ interface CamargoTheme extends Package {
         theme: React.FC;
     };
     state: {
-        theme: {};
+        theme: {
+            autoPrefetch: string,
+            menu: Array<{name: string, link: string}>,
+            isMobileMenuOpen: boolean,
+            featured: {
+                showOnList: boolean,
+                showOnPost: boolean
+            },
+            counter: number
+        };
     };
     actions: {
-        theme: {};
+        theme: {
+            toggleMobileMenu: ({state}) => void,
+            closeMobileMenu: ({state}) => void,
+            increaseCounter: ({state}) => void
+        };
     };
 }
 

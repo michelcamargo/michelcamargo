@@ -40,7 +40,7 @@ const Item = ({ item }: ItemProps): JSX.Element => {
       </Link>
 
       <div>
-        {/* If the post has an author, we render a clickable author text. */}
+        {/* Se a postagem tem autor, gera link clicável. */}
         {author && (
           <StyledLink link={author.link}>
             <AuthorName>
@@ -55,8 +55,7 @@ const Item = ({ item }: ItemProps): JSX.Element => {
       </div>
 
       {/*
-       * If the want to show featured media in the
-       * list of featured posts, we render the media.
+       * Se habilitado, mostra conteúdo em destaque
        */}
       {state.theme.featured.showOnList && (
         <FeaturedMedia id={item.featured_media} />

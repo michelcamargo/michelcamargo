@@ -1,6 +1,6 @@
 import { Settings } from "frontity/types";
 import WpSource from "@frontity/wp-source/types";
-import Theme from "@frontity/mars-theme-typescript/types";
+import Theme from "./packages/camargo-theme/types";
 
 const settings: Settings<Theme | WpSource> = {
   "name": "michelcamargo",

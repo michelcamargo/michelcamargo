@@ -19,13 +19,13 @@ const MenuModal = ({ ...props }) => {
       {state.frontity.mode !== "amp" && <MenuOverlay />}
       <MenuContent as="nav">
         {isThereLinks &&
-          menu.map(([name, link]) => (
+          menu.map((navItem) => (
             <MenuLink
-              key={name}
-              link={link}
-              aria-current={state.router.link === link ? "page" : undefined}
+              key={navItem[0]}
+              link={navItem[1]}
+              aria-current={state.router.link === navItem[1] ? "page" : undefined}
             >
-              {name}
+              {navItem[0]}
             </MenuLink>
           ))}
       </MenuContent>

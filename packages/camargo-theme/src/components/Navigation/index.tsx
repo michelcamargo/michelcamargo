@@ -4,6 +4,11 @@ import { Packages } from "../../../types";
 
 import { NavContainer, NavItem } from "./styles";
 
+type NavLink = {
+  name: string,
+  link: string
+}
+
 /**
  * Componente de navegação, retorna links de navegação.
  *
@@ -14,16 +19,16 @@ const Nav = (): JSX.Element => {
 
   return (
     <NavContainer>
-      {state.theme.menu.map(([name, link]) => {
-        // Check if the link matched the current page url.
+      {state.theme.menu.map((navItem: NavLink) => {
+        // Verifica se o link combina com rota atual.
         const data = state.source.get(state.router.link);
-        const isCurrentPage = data.route === link;
+        const isCurrentPage = data.route === navItem[1];
 
         return (
-          <NavItem key={name}>
-            {/* If link url is the current page, add `aria-current` for a11y */}
-            <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
-              {name}
+          <NavItem key={navItem[0]}>
+            {/* Se o link do menu combina com a página atual, adiciona atributo `aria-current` */}
+            <Link link={navItem[1]} aria-current={isCurrentPage ? "page" : undefined}>
+              {navItem[0]}
             </Link>
           </NavItem>
         );
