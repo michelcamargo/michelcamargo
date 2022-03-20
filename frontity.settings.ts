@@ -41,7 +41,7 @@ const settings: Settings<Theme | WpSource> = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "https://michelcamargodev.wordpress.com/"
         }
       }
     },

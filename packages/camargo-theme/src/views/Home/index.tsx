@@ -11,6 +11,7 @@ class HomeView extends React.Component {
                 <FlexLayout containerWidth={"1130px"} className={"teste"}>
                     <h2>Michel Camargo</h2>
                     <h3>Student & UI Developer</h3>
+                    <p>I design and develop experiences that make people's lives <strong>simpler</strong></p>
                 </FlexLayout>
             </MainSection>
         )

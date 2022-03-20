@@ -12,16 +12,7 @@ const camargoTheme: CamargoTheme = {
     state: {
         theme: {
             autoPrefetch: "in-view",
-            menu: [
-                {
-                    name: "Início",
-                    link: "/"
-                },
-                {
-                    name: "Contato",
-                    link: "/contato"
-                }
-            ],
+            menu: [],
             isMobileMenuOpen: false,
             featured: {
                 showOnList: false,
@@ -30,10 +21,6 @@ const camargoTheme: CamargoTheme = {
             counter: 0
         },
     },
-
-    /**
-     * Actions are functions that modify the state or deal with other parts of theme.
-     */
     actions: {
         theme: {
             toggleMobileMenu: ({ state }): void => {
@@ -50,11 +37,6 @@ const camargoTheme: CamargoTheme = {
     },
     libraries: {
         html2react: {
-            /**
-             * Add a processor to `html2react` so it processes the `<img>` tags
-             * and internal link inside the content HTML.
-             * You can add your own processors too.
-             */
             processors: [image, iframe, link],
         },
     },
