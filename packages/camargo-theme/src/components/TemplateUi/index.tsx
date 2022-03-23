@@ -1,18 +1,22 @@
-import React, {ReactNode} from "react";
+import React, { ReactNode } from "react";
 
 import { Wrapper, Content } from "./styles";
 import Header from "./Header";
 import Footer from "./Footer";
 
 type TemplateUiProps = {
-    children?: ReactNode | ReactNode[]
+    children?: ReactNode
 }
 
-class TemplateUi extends React.Component<TemplateUiProps> {
+type TemplateUiState = {
+
+}
+
+class TemplateUi extends React.Component<TemplateUiProps, TemplateUiState> {
     public render() {
         return (
             <Wrapper>
-                <Header containerWidth={"1130px"} />
+                <Header />
                 <Content>
                     {this.props.children}
                 </Content>

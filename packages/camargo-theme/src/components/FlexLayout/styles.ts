@@ -11,9 +11,9 @@ type FlexProps = {
 }
 
 export const FlexRow = styled.div<FlexProps>`
-  background: ${props => props.background};
-  padding-top: ${props => props.topSpaced && '2rem'};
-  padding-bottom: ${props => props.bottomSpaced && '2rem'};
+  background: ${({background}) => background };
+  padding-top: ${({ topSpaced }) => topSpaced && '2rem'};
+  padding-bottom: ${({ bottomSpaced }) => bottomSpaced && '2rem'};
 `;
 
 export const FlexRowContainer = styled.div<FlexProps>`
@@ -22,7 +22,8 @@ export const FlexRowContainer = styled.div<FlexProps>`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: ${props => props.containerWidth && props.containerWidth};
+  max-width: ${({ containerWidth }) => containerWidth};
+  background: ${({ background }) => background};
 `;
 
 export const FlexRowContent = styled.div<FlexProps>`

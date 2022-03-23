@@ -5,7 +5,7 @@ interface IconProps {
     fill?: string | "#FFFFFF";
 }
 
-const IconLinkedin: React.FC<IconProps> = ({color, fill}) =>{
+export const i_linkedIn: React.FC<IconProps> = ({color, fill}) =>{
     return (
         <svg className="icon icon_linkedin" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" aria-labelledby="title">
             <title id="title">LinkedIn</title>
@@ -18,5 +18,3 @@ const IconLinkedin: React.FC<IconProps> = ({color, fill}) =>{
         </svg>
     )
 };
-
-export default IconLinkedin;

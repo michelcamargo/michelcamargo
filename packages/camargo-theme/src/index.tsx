@@ -1,13 +1,16 @@
-import CamargoTheme from "../types";
-import Theme from "./components";
+import Theme from "../types";
+import App from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
 import link from "@frontity/html2react/processors/link";
 
-const camargoTheme: CamargoTheme = {
+import darkTheme from "./styles/themes/dark"
+import lightTheme from "./styles/themes/light"
+
+const camargoTheme: Theme = {
     name: "camargo-theme",
     roots: {
-        theme: Theme,
+        theme: App,
     },
     state: {
         theme: {
@@ -18,8 +21,9 @@ const camargoTheme: CamargoTheme = {
                 showOnList: false,
                 showOnPost: false,
             },
-            counter: 0
+            isDarkTheme: false
         },
+        styles: lightTheme
     },
     actions: {
         theme: {
@@ -29,9 +33,8 @@ const camargoTheme: CamargoTheme = {
             closeMobileMenu: ({ state }): void => {
                 state.theme.isMobileMenuOpen = false;
             },
-            increaseCounter: ({ state }): void => {
-                state.theme.counter++;
-                console.log("counter: ", state.theme.counter);
+            toggleTheme: ({ state }): void => {
+                state.styles = state.styles.title === 'light' ? darkTheme : lightTheme;
             }
         },
     },

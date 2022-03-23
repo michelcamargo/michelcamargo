@@ -1,8 +1,8 @@
 import { Global, css, connect, Head, useConnect } from "frontity";
 import Switch from "@frontity/components/switch";
 import { isArchive, isPostType, isError } from "@frontity/source";
-// import List from "./list";
-// import Post from "./post";
+import List from "./Blog/list";
+import Post from "./Post";
 import TemplateUi from "./TemplateUi";
 import Loading from "./Loading";
 import Title from "./Title";
@@ -15,9 +15,11 @@ import HomeView from "../views/Home";
  *
  * @returns Componente principal do tema.
  */
-const Theme = () => {
+const App = () => {
   const { state } = useConnect<Packages>();
   const data = state.source.get(state.router.link);
+
+  console.table(data);
 
   return (
     <>
@@ -32,17 +34,17 @@ const Theme = () => {
       <TemplateUi>
         <Switch>
           <Loading when={data.isFetching} />
-            <PageError when={isError(data)} data={isError(data) && data} />
-            <HomeView />
-          {/*<List when={isArchive(data)} data={isArchive(data) && data} />*/}
-          {/*<Post when={isPostType(data)} data={isPostType(data) && data} />*/}
+          <HomeView />
+          <PageError when={isError(data)} data={isError(data) && data} />
+          <List when={isArchive(data)} data={isArchive(data) && data} />
+          <Post when={isPostType(data)} data={isPostType(data) && data} />
         </Switch>
       </TemplateUi>
     </>
   );
 };
 
-export default connect(Theme);
+export default connect(App);
 
 const globalStyles = css`
   body {

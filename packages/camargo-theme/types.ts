@@ -3,8 +3,9 @@ import { Package, Connect as BaseConnect, MergePackages, Frontity } from "fronti
 import Router from "@frontity/router/types";
 import Source from "@frontity/source/types";
 import Html2React from "@frontity/html2react/types";
+import type Schema from "./src/styles/schema"
 
-interface CamargoTheme extends Package {
+interface Theme extends Package {
     name: "camargo-theme";
     roots: {
         theme: React.FC;
@@ -18,26 +19,27 @@ interface CamargoTheme extends Package {
                 showOnList: boolean,
                 showOnPost: boolean
             },
-            counter: number
+            isDarkTheme: boolean
         };
+        styles: Schema
     };
     actions: {
         theme: {
             toggleMobileMenu: ({state}) => void,
             closeMobileMenu: ({state}) => void,
-            increaseCounter: ({state}) => void
+            toggleTheme: ({state}) => void
         };
     };
 }
 
-export default CamargoTheme;
+export default Theme;
 
 export type Packages = MergePackages<
     Frontity,
     Router,
     Source,
     Html2React,
-    CamargoTheme
+    Theme
     >;
 
 type Connect<Props extends object = {}> = BaseConnect<Packages, Props>;
