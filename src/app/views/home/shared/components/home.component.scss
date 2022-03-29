@@ -1,0 +1,26 @@
+@import "../../../../../theme";
+
+.home__wrapper {
+  background: $color-background-primary;
+
+  .home__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .home__intro {
+      .home__headingName {
+        font-size: $font-size-larger;
+        font-weight: 700;
+        color: $color-text-primary;
+      }
+
+      .home__headingDescription {
+        font-size: $font-size-largest;
+        font-weight: 700;
+        color: $color-text-primary;
+      }
+    }
+
+  }
+}

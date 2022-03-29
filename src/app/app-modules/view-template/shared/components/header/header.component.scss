@@ -1,0 +1,43 @@
+@import "../../../../../../theme";
+
+.header__wrapper {
+  width: 100%;
+  display: flex;
+  background: $color-background-secondary;
+  height: 64px;
+
+  .header__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    align-items: center;
+
+    .header__logoLink {
+      display: inline-block;
+      position: relative;
+      height: 75%;
+
+      .header__logo {
+        display: inline-block;
+        position: relative;
+        height: 100%;
+      }
+    }
+
+    .header-nav__wrapper {
+      .header-nav__list {
+
+
+        .header-nav__listItem {
+
+
+          .header-nav__link {
+            color: $color-text-primary;
+          }
+        }
+      }
+    }
+  }
+}

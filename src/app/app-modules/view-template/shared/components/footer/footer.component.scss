@@ -1,0 +1,56 @@
+@import '../../../../../../theme';
+
+.footer {
+  width: 100%;
+  background: $color-background-secondary;
+  padding-top: $spacing-medium;
+  padding-bottom: $spacing-medium;
+
+  .footer__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    .footer__menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+
+      .footer__menuList {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
+        .footer__menuHeading {
+          font-size: $font-size-medium;
+          color: $color-text-primary;
+          margin-bottom: $spacing-small;
+        }
+
+        .footer__menuItem {
+          &:not(&:last-child) {
+            margin-bottom: $spacing-smaller;
+          }
+
+          .footer__menuLink {
+            color: $color-text-primary;
+
+            &:hover {
+
+            }
+
+            &:focus, &:active {}
+
+            &:focus-visible {}
+
+            &:visited {}
+          }
+        }
+      }
+    }
+  }
+}
