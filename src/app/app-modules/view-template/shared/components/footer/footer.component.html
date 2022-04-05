@@ -1,23 +1,16 @@
 <footer class="footer">
   <div class="footer__container container">
     <div class="footer__menu">
-      <ul class="footer__menuList">
-        <h6 class="footer__menuHeading">Primeiro menu</h6>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">AA</a></li>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">AB</a></li>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">AC</a></li>
-      </ul>
-      <ul class="footer__menuList">
-        <h6 class="footer__menuHeading">Segundo menu</h6>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">BA</a></li>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">BB</a></li>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">BC</a></li>
-      </ul>
-      <ul class="footer__menuList">
-        <h6 class="footer__menuHeading">Terceiro menu</h6>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">CA</a></li>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">CB</a></li>
-        <li class="footer__menuItem"><a class="footer__menuLink link" href="#">CC</a></li>
+      <ul class="footer__menuList" *ngFor="let menu of footerContent">
+        <h6 class="footer__menuHeading">{{menu.title}}</h6>
+        <li class="footer__menuItem" *ngFor="let item of menu.items">
+          <a class="footer__menuLink link" href="{{item.link}}" target="{{item.external && '_blank'}}">
+            <ng-container *ngIf="item.icon">
+              <img class="footer__menuIcon" alt="{{item.label}}" src="{{item.icon}}" />
+            </ng-container>
+            {{item.label}}
+          </a>
+        </li>
       </ul>
     </div>
   </div>

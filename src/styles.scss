@@ -1,6 +1,4 @@
 @import './theme';
-@import './reset.scss';
-@import './font-faces.scss';
 
 body {
   background: $color-background-primary;
@@ -400,4 +398,9 @@ template {
 
 ul, ol {
   list-style: none;
+  padding-left: 0 !important;
+  margin-bottom: 0 !important;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

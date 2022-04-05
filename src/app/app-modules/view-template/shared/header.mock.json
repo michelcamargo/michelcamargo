@@ -1,0 +1,16 @@
+{
+  "logo": "/assets/svg/header/michelcamargo.svg",
+  "navigation": [
+    {
+      "label": "Portfolio",
+      "link": "/work",
+      "external": false
+    },
+    {
+      "label": "Let's work together",
+      "link": "/contact",
+      "external": false,
+      "highlighted": true
+    }
+  ]
+}

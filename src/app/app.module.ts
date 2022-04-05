@@ -9,6 +9,7 @@ import { AboutComponent } from './views/about/about.component';
 // import { HeaderComponent } from './app-modules/UIComponents/shared/components/header/header.component';
 // import { FooterComponent } from './app-modules/UIComponents/shared/components/footer/footer.component';
 import { ViewTemplateModule } from "./app-modules/view-template/shared/view-template.module";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ViewTemplateModule } from "./app-modules/view-template/shared/view-temp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ViewTemplateModule
+    ViewTemplateModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

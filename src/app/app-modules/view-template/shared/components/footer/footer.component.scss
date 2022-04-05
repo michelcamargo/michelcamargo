@@ -38,9 +38,10 @@
 
           .footer__menuLink {
             color: $color-text-primary;
+            text-decoration: none;
 
             &:hover {
-
+              color: $color-action-accent;
             }
 
             &:focus, &:active {}

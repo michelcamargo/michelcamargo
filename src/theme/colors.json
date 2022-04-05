@@ -1,0 +1,45 @@
+[
+  {
+    "name": "text-primary",
+    "hex": "#1C0A31"
+  },
+  {
+    "name": "text-primary__inverted",
+    "hex": "#f4f4f4"
+  },
+  {
+    "name": "text-secondary",
+    "hex": "#d9d9d9"
+  },{
+    "name": "text-secondary__inverted",
+    "hex": "#f4f4f4"
+  },
+  {
+    "name": "action-primary",
+    "hex": "#00A6FF"
+  },
+  {
+    "name": "action-secondary",
+    "hex": "#00A6FF"
+  },
+  {
+    "name": "primary__inverted",
+    "hex": "#00A6FF"
+  },
+  {
+    "name": "secondary",
+    "hex": "#00A6FF"
+  },
+  {
+    "name": "secondary__inverted",
+    "hex": "#00A6FF"
+  },
+  {
+    "name": "background",
+    "hex": "#f4f4f4"
+  },
+  {
+    "name": "background__inverted",
+    "hex": "#00A6FF"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Informações",
+    "items": [
+      {
+        "label": "Portifolio",
+        "link": "/work"
+      },
+      {
+        "label": "Sobre",
+        "link": "/about"
+      },
+      {
+        "label": "Plano de fundo criado por starline",
+        "link": "https://br.freepik.com/starline",
+        "external": true
+      }
+    ]
+  },
+  {
+    "title": "Trabalho",
+    "items": [
+      {
+        "label": "Villa Mercato"
+      }
+    ]
+  },
+  {
+    "title": "Contato",
+    "items": [
+      {
+        "label": "LinkedIn",
+        "link": "https://www.linkedin.com/in/michelcamargo/"
+      },
+      {
+        "label": "GitHub",
+        "link": "https://www.github.com/michelcamargo"
+      },
+      {
+        "label": "E-mail",
+        "link": "mailto:michelcamargo@outlook.com"
+      }
+    ]
+  }
+]

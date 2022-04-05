@@ -31,6 +31,8 @@
               "src/assets"
             ],
             "styles": [
+              "src/reset.scss",
+              "src/font-faces.scss",
               "src/styles.scss"
             ],
             "scripts": []

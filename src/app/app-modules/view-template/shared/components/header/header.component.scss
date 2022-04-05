@@ -23,18 +23,38 @@
         display: inline-block;
         position: relative;
         height: 100%;
+        fill: red;
+        color: blue;
       }
     }
 
-    .header-nav__wrapper {
-      .header-nav__list {
+    .header__navWrapper {
+      .nav__list {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
+        .nav__listItem {
+          &:not(&:last-child) {
+            margin-right: 1rem;
+          }
 
-        .header-nav__listItem {
+          .nav__link {
+            color: $color-action-primary;
+            font-size: $font-size-small;
+          }
 
+          .nav__ctaLink {
+            height: fit-content;
+            width: fit-content;
 
-          .header-nav__link {
-            color: $color-text-primary;
+            .nav__ctaButton {
+              border-radius: $border-radius-small;
+              background: $color-action-primary;
+              color: $color-text-primary__inverted;
+              padding: $spacing-small $spacing-large;
+              font-size: $font-size-small;
+            }
           }
         }
       }

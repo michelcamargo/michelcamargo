@@ -4,12 +4,21 @@
       <img class="header__logo" src="assets/svg/header/michelcamargo.svg" alt="Michel Camargo">
     </a>
 
-    <nav class="header-nav__wrapper">
-      <ul class="header-nav__list">
-        <li class="header-nav__listItem">
-          <a class="header-nav__link link" href="#">
-            Início
-          </a>
+    <nav class="header__navWrapper">
+      <ul class="nav__list">
+        <li class="nav__listItem" *ngFor="let item of headerContent.navigation">
+          <ng-container *ngIf="item.highlighted">
+            <a class="nav__ctaLink link" href="{{item.link}}">
+              <button class="nav__ctaButton btn" >
+                {{item.label}}
+              </button>
+            </a>
+          </ng-container>
+          <ng-container *ngIf="!item.highlighted">
+            <a class="nav__link link" href="{{item.link}}">
+              {{item.label}}
+            </a>
+          </ng-container>
         </li>
       </ul>
     </nav>
