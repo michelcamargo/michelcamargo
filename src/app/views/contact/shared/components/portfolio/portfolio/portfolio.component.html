@@ -1,0 +1,17 @@
+<div class="portfolio__wrapper">
+  <div *ngFor="let portfolio of workGallery">
+    <div>
+      <picture *ngFor="let picture of portfolio.imageArray">
+        <source media="(max-width: 768px)" [srcset]="picture.lowUrl">
+        <img [src]="picture.url" [alt]="picture.alt">
+      </picture>
+    </div>
+    <div>
+      <div class="portfolio__headingContainer" >
+        <h6 class="portfolio__title">
+          {{portfolio.title}}
+        </h6>
+      </div>
+    </div>
+  </div>
+</div>

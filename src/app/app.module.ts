@@ -1,29 +1,34 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/shared/components/home.component';
 import { NotFoundComponent } from './views/notfound/shared/components/not-found.component';
 import { AboutComponent } from './views/about/about.component';
-// import { HeaderComponent } from './app-modules/UIComponents/shared/components/header/header.component';
-// import { FooterComponent } from './app-modules/UIComponents/shared/components/footer/footer.component';
 import { ViewTemplateModule } from "./app-modules/view-template/shared/view-template.module";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from "@angular/common/http";
+import { ContactComponent } from './views/contact/shared/components/contact.component';
+import { PortfolioComponent } from './views/contact/shared/components/portfolio/portfolio/portfolio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ContactComponent,
+    PortfolioComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ViewTemplateModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ViewTemplateModule,
+        NgbModule,
+        HttpClientModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

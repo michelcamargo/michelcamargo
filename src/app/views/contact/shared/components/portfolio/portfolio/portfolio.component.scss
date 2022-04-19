@@ -1,0 +1,6 @@
+@use './src/theme';
+
+.portfolio__wrapper {
+  //background: theme.$asset-background-primary;
+  background: url("/assets/img/background/starline.jpg") no-repeat center center;
+}

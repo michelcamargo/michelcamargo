@@ -1,8 +1,7 @@
-@import "../../../../../theme";
+@use "./src/theme";
 
 .home__wrapper {
-  //background: $color-background-primary;
-  background: url("/assets/img/background/starline.jpg") no-repeat center center;
+  background: theme.$asset-background-primary;
 
   .home__container {
     display: flex;
@@ -10,22 +9,24 @@
     position: relative;
 
     .home__intro {
-      .home__headingTitle {
-        font-size: $font-size-larger;
-        font-weight: 700;
-        color: $color-text-action;
-      }
+      .intro__contentContainer {
+        .intro__title {
+          font-size: theme.$font-size-x-large;
+          font-weight: 700;
+          color: theme.$color-text-action;
+        }
 
-      .home__headingSubtitle {
-        font-size: $font-size-largest;
-        font-weight: 700;
-        color: $color-action-primary;
-      }
+        .intro__subtitle {
+          font-size: theme.$font-size-largest;
+          font-weight: 700;
+          color: theme.$color-action-primary;
+        }
 
-      .home__headingDescription {
-        font-size: $font-size-large;
-        font-weight: 700;
-        color: $color-action-accent;
+        .intro__description {
+          font-size: theme.$font-size-larger;
+          font-weight: 700;
+          color: theme.$color-action-accent;
+        }
       }
     }
 

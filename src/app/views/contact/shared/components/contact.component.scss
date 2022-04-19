@@ -1,0 +1,42 @@
+.content__wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .contact__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      max-width: 30%;
+    }
+
+    .contact__header {
+      display: flex;
+      flex-direction: column;
+
+      .contact__title {
+
+        .contact__subtitle {
+
+        }
+      }
+    }
+
+    .contact__body {
+
+
+      .form__inputContainer {
+        display: flex;
+        flex-direction: column;
+
+        .inputLabel {
+
+
+          .inputElement {}
+        }
+      }
+    }
+
+  }
+}

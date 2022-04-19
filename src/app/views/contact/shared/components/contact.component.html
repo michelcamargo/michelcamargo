@@ -1,0 +1,61 @@
+<div class="content__wrapper container">
+  <aside class="contact__container">
+    <div class="contact__header">
+      <h3 class="contact__title">Give me a call!</h3>
+      <p class="contact__subtitle">
+        asnokanxlan;alcnaklnasaskjbsdhasbkejbljnsjclnsd.cnsacjn;a.
+      </p>
+    </div>
+    <div class="contact__body">
+      <label class="form__inputContainer">
+        <span class="form__inputLabel">
+          First Name
+        </span>
+        <input
+          class="form__inputElement"
+          name="firstName"
+          type="text"
+          [(ngModel)]="userFormData.firstName"
+          placeholder="Seu primeiro nome"
+        />
+      </label>
+      <label class="form__inputContainer">
+        <span class="form__inputLabel">
+          Last Name
+        </span>
+        <input
+          class="form__inputElement"
+          name="lastName"
+          type="text"
+          [(ngModel)]="userFormData.lastName"
+          placeholder="Seu último nome"
+        />
+      </label>
+        <label class="form__inputContainer">
+          <span class="form__inputLabel">
+            Last Name
+          </span>
+          <input
+            class="form__inputElement"
+            name="email"
+            type="text"
+            [(ngModel)]="userFormData.email"
+            placeholder="Seu melhor email"
+          />
+        </label>
+        <label class="form__inputContainer">
+          <span class="form__inputLabel">
+            Message
+          </span>
+          <textarea
+            class="form__inputElement"
+            name="message"
+            type="text"
+            [(ngModel)]="userFormData.message"
+            placeholder="Escreva uma mensagem legal"
+          ></textarea>
+        </label>
+      </div>
+  </aside>
+  <app-portfolio></app-portfolio>
+</div>
