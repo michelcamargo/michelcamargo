@@ -1,0 +1,14 @@
+@use '../constants';
+
+@mixin action-button($color: constants.$color-action-accent, $hover: green, $active: yellow) {
+  background: $color;
+  transition: constants.$transition-in;
+
+  &:hover {
+    background: $hover;
+  }
+
+  &:active {
+    background: $active;
+  }
+}

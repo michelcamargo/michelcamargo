@@ -1,0 +1,6 @@
+@use '../constants';
+
+@mixin large-title($color: $color-text-action, $font-size: $font-size-larger) {
+  font-size: $font-size;
+  color: red;
+}
