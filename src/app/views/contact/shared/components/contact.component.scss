@@ -1,3 +1,5 @@
+@use "./src/theme";
+
 .content__wrapper {
   display: flex;
   flex-direction: row;
@@ -6,6 +8,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    padding: 0 theme.$spacing-medium;
+    box-shadow: theme.$shadow-light;
 
     @media screen and (min-width: 768px) {
       max-width: 30%;
@@ -23,18 +27,40 @@
       }
     }
 
-    .contact__body {
-
+    .contact__form {
 
       .form__inputContainer {
         display: flex;
         flex-direction: column;
 
-        .inputLabel {
-
-
-          .inputElement {}
+        .form__inputLabel {
+          font-size: theme.$font-size-smaller;
+          color: theme.$color-text-action;
         }
+
+        .form__inputElement {
+          background: transparent;
+          border: none;
+          border-bottom: 2px solid theme.$color-disabled;
+          transition: theme.$transition-slow;
+
+          &:focus, &:active {
+            outline: none;
+            border-bottom: 2px solid theme.$color-action-secondary;
+          }
+        }
+
+        &:not(:last-child) {
+          margin-bottom: theme.$spacing-medium;
+        }
+      }
+
+      .form__submitButton {
+
+      }
+
+      .form__logUsersButton {
+
       }
     }
 

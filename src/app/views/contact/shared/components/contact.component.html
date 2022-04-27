@@ -3,10 +3,11 @@
     <div class="contact__header">
       <h3 class="contact__title">Give me a call!</h3>
       <p class="contact__subtitle">
-        asnokanxlan;alcnaklnasaskjbsdhasbkejbljnsjclnsd.cnsacjn;a.
+        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system,
+        and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.
       </p>
     </div>
-    <div class="contact__body">
+    <form class="contact__form">
       <label class="form__inputContainer">
         <span class="form__inputLabel">
           First Name
@@ -31,31 +32,39 @@
           placeholder="Seu último nome"
         />
       </label>
-        <label class="form__inputContainer">
+      <label class="form__inputContainer">
           <span class="form__inputLabel">
             Last Name
           </span>
-          <input
-            class="form__inputElement"
-            name="email"
-            type="text"
-            [(ngModel)]="userFormData.email"
-            placeholder="Seu melhor email"
-          />
-        </label>
-        <label class="form__inputContainer">
+        <input
+          class="form__inputElement"
+          name="email"
+          type="text"
+          [(ngModel)]="userFormData.email"
+          placeholder="Seu melhor email"
+        />
+      </label>
+      <label class="form__inputContainer">
           <span class="form__inputLabel">
             Message
           </span>
-          <textarea
-            class="form__inputElement"
-            name="message"
-            type="text"
-            [(ngModel)]="userFormData.message"
-            placeholder="Escreva uma mensagem legal"
-          ></textarea>
-        </label>
-      </div>
+        <textarea
+          class="form__inputElement"
+          name="message"
+          type="text"
+          [(ngModel)]="userFormData.message"
+          placeholder="Escreva uma mensagem legal"
+        ></textarea>
+      </label>
+
+      <button class="form__submitButton" (click)="submitFormHandler()">
+        Send
+      </button>
+
+      <button class="form__logUsersButton" (click)="getAllUsers()">
+        Log users
+      </button>
+    </form>
   </aside>
   <app-portfolio></app-portfolio>
 </div>

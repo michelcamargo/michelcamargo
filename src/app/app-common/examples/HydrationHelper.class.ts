@@ -45,3 +45,39 @@
 //     return currentObject;
 //   }
 // }
+
+
+//   /**
+//    * Define estrutura padrão do produto para tipagem
+//    * @param responseProduct
+//    * @param mappings Mapeamento de produto
+//    */
+//   public hydrateProduct(responseProduct: any, mappings?: any) {
+//     mappings = mappings ? mappings : this.productMappings;
+//
+//     let product: any = HydrationHelper.hydration<any>(mappings, responseProduct);//
+//     return product as any;
+//   }
+
+//   /**
+//    * Mapeamento de propriedades
+//    * @private
+//    */
+//   private productMappings = {
+//     "title": "productTitle",
+//     "id": "productId",
+//     "categoryId": "categoryId",
+//     "category": "Categoria.0",
+//     "link": "link",
+//     "values.price": "items.0.sellers.0.commertialOffer.Price",
+//     "values.listPrice": "items.0.sellers.0.commertialOffer.ListPrice",
+//     "values.unitMultiplier": "items.0.unitMultiplier",
+//     "values.measurementUnit": "items.0.measurementUnit",
+//     "values.installments": "items.0.sellers.0.commertialOffer.Installments",
+//     "availableQuantity": "items.0.sellers.0.commertialOffer.AvailableQuantity",
+//     "isAvailable": "items.0.sellers.0.commertialOffer.IsAvailable",
+//     "specificationGroups": "allSpecificationsGroups",
+//     "details.Modo de usar": "Modo de usar.0",
+//     "details.Composição": "Composição.0",
+//     "details.description": "description"
+//   };
