@@ -11,6 +11,7 @@ import { ViewTemplateModule } from "./app-modules/view-template/shared/view-temp
 import { HttpClientModule } from "@angular/common/http";
 import { ContactComponent } from './views/contact/shared/components/contact.component';
 import { PortfolioComponent } from './views/contact/shared/components/portfolio/portfolio/portfolio.component';
+import { AuthenticationComponent } from './views/login/shared/components/authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PortfolioComponent } from './views/contact/shared/components/portfolio/
     NotFoundComponent,
     ContactComponent,
     PortfolioComponent,
+    AuthenticationComponent,
   ],
     imports: [
         BrowserModule,

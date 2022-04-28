@@ -1,0 +1,69 @@
+@use "./src/theme";
+
+.login__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .authentication__wrapper {
+    .authentication__headingContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .authentication__headTitle {
+
+      }
+    }
+
+    .authentication__content {
+      .authentication__form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .auth-form__inputGroup {
+          display: flex;
+          flex-direction: column;
+
+          &:not(:last-child) {
+            margin-bottom: theme.$spacing-medium;
+          }
+
+          .auth-form__inputLabel {
+              margin-bottom: theme.$spacing-smallest;
+          }
+          .auth-form__inputElement {
+            border-left: 0;
+            border-top: 0;
+            border-right: 0;
+            border-bottom: 2px solid theme.$color-disabled;
+            outline: 0 !important;
+
+            transition: theme.$transition-in;
+
+            &:active, &:focus {
+              border-bottom: 2px solid theme.$color-action-accent;
+            }
+          }
+        }
+      }
+    }
+
+    .auth-form__submitButton {
+      background: theme.$color-action-primary;
+      color: theme.$color-text-primary__inverted;
+
+      transition: theme.$transition-in;
+
+      &:hover {
+        background: lighten(theme.$color-action-primary, 8%);
+      }
+
+      &:active {
+        background: darken(theme.$color-action-primary, 8%);
+      }
+    }
+  }
+}

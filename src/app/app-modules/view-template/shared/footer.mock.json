@@ -18,14 +18,6 @@
     ]
   },
   {
-    "title": "Trabalho",
-    "items": [
-      {
-        "label": "Villa Mercato"
-      }
-    ]
-  },
-  {
     "title": "Contato",
     "items": [
       {
@@ -39,6 +31,15 @@
       {
         "label": "E-mail",
         "link": "mailto:michelcamargo@outlook.com"
+      }
+    ]
+  },
+  {
+    "title": "Administração",
+    "items": [
+      {
+        "label": "Login",
+        "link": "/login"
       }
     ]
   }
