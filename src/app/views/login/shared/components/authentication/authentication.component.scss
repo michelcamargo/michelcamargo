@@ -32,20 +32,10 @@
           }
 
           .auth-form__inputLabel {
-              margin-bottom: theme.$spacing-smallest;
+            @include theme.text-input-label(theme.$color-text-action, theme.$font-size-smaller);
           }
           .auth-form__inputElement {
-            border-left: 0;
-            border-top: 0;
-            border-right: 0;
-            border-bottom: 2px solid theme.$color-disabled;
-            outline: 0 !important;
-
-            transition: theme.$transition-in;
-
-            &:active, &:focus {
-              border-bottom: 2px solid theme.$color-action-accent;
-            }
+            @include theme.input-text-line(theme.$color-text-primary, theme.$color-action-accent, theme.$font-size-small);
           }
         }
       }
@@ -64,6 +54,11 @@
       &:active {
         background: darken(theme.$color-action-primary, 8%);
       }
+    }
+
+    .auth-form__registerButton {
+      background: transparent;
+      color: theme.$color-text-action;
     }
   }
 }

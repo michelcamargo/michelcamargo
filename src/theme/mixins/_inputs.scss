@@ -1,54 +1,23 @@
 @use '../constants';
 
-@mixin text-input($input-color: $text-color, $input-bg: $white, $input-border: $border-color, $input-border-radius: $border-radius, $input-border-width: $border-width, $input-box-shadow: $input-shadow, $input-focus-bg: $input-bg, $input-focus-border: $input-border, $input-focus-box-shadow: $input-focus-shadow, $input-focus-color: $input-color, $input-focus-shadow: $input-shadow, $input-focus-width: $input-border-width, $input-height: $input-height, $input-padding: $input-padding, $input-shadow: $input-shadow, $input-width: $input-width) {
-  &,
-  &::placeholder {
-    color: $input-color;
-  }
-
-  &::placeholder {
-    opacity: 1;
-  }
-
-  &:focus {
-    background-color: $input-focus-bg;
-    border-color: $input-focus-border;
-    box-shadow: $input-focus-box-shadow;
-    color: $input-focus-color;
-    outline: 0;
-    transition: all 0.2s ease-in-out;
-  }
-
-  &:focus::placeholder {
-    opacity: 0;
-  }
+@mixin input-text-line($color, $lineColor, $fontSize) {
+  font-size: $fontSize;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid constants.$color-disabled;
+  transition: constants.$transition-slow;
 
   &:hover {
-    background-color: $input-bg;
-    border-color: $input-border;
-    box-shadow: $input-box-shadow;
-    color: $input-color;
-    outline: 0;
+    border-bottom: 2px solid rgba($lineColor, .5);
   }
 
-  &:hover::placeholder {
-    opacity: 0;
-  }
-
-  &:active {
-    background-color: $input-bg;
-    border-color: $input-border;
-    box-shadow: $input-box-shadow;
-    color: $input-color;
-    outline: 0;
-  }
-
-  &:active::placeholder {
-    opacity: 0;
+  &:focus, &:active, &:active:hover, &:focus:hover {
+    outline: none;
+    border-bottom: 2px solid $lineColor;
   }
 
   &:disabled {
-    background-color: $input-bg;
-    border-color: $input-border;
+    background-color: constants.$color-disabled;
+    border-color: constants.$color-disabled;
   }
 }

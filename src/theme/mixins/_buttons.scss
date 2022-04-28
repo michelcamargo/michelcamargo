@@ -1,14 +1,31 @@
 @use '../constants';
 
-@mixin action-button($color: constants.$color-action-accent, $hover: green, $active: yellow) {
-  background: $color;
+@mixin button-action($textColor, $fontSize, $bgColor) {
+  font-size: $fontSize;
+  color: $textColor;
+  background: $bgColor;
   transition: constants.$transition-in;
+  padding: constants.$button-padding;
 
   &:hover {
-    background: $hover;
+    background: lighten($bgColor, 8%);
   }
 
   &:active {
-    background: $active;
+    background: darken($bgColor, 8%);;
+  }
+}
+
+@mixin button-disabled() {
+  color: constants.$color-text-primary__inverted;
+  background: constants.$color-mono-grey;
+  transition: constants.$transition-in;
+
+  &:hover {
+    background: lighten(constants.$color-mono-grey, 8%);
+  }
+
+  &:active {
+    background: darken(constants.$color-mono-grey, 8%);
   }
 }

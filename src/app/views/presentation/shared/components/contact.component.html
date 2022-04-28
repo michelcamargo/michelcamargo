@@ -1,16 +1,15 @@
 <div class="content__wrapper container">
   <aside class="contact__container">
     <div class="contact__header">
-      <h3 class="contact__title">Give me a call!</h3>
+      <h3 class="contact__title">Me mande uma mensagem!</h3>
       <p class="contact__subtitle">
-        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system,
-        and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.
+        Entre em contato comigo para tirar dúvidas, sugestões ou para saber mais sobre meu trabalho.
       </p>
     </div>
     <form class="contact__form">
       <label class="form__inputContainer">
         <span class="form__inputLabel">
-          First Name
+          Nome
         </span>
         <input
           class="form__inputElement"
@@ -22,7 +21,7 @@
       </label>
       <label class="form__inputContainer">
         <span class="form__inputLabel">
-          Last Name
+          Sobrenome
         </span>
         <input
           class="form__inputElement"
@@ -34,7 +33,7 @@
       </label>
       <label class="form__inputContainer">
           <span class="form__inputLabel">
-            Last Name
+            Email
           </span>
         <input
           class="form__inputElement"
@@ -46,7 +45,7 @@
       </label>
       <label class="form__inputContainer">
           <span class="form__inputLabel">
-            Message
+            Mensagem
           </span>
         <textarea
           class="form__inputElement"
@@ -58,8 +57,14 @@
       </label>
 
       <button class="form__submitButton" (click)="submitFormHandler()">
-        Send
+        Enviar
       </button>
+
+      <p class="form__contactDisclaimer">
+        <span class="form__contactDisclaimerText">
+          Não enviamos spam ou compartilhamos suas informações com terceiros :)
+        </span>
+      </p>
 
       <button class="form__logUsersButton" (click)="getAllUsers()">
         Log users

@@ -1,6 +1,46 @@
 @use '../constants';
 
-@mixin large-title($color: $color-text-action, $font-size: $font-size-larger) {
-  font-size: $font-size;
-  color: red;
+@mixin text-body($color, $size) {
+  font-family: constants.$font-family-base;
+  font-size: $size;
+  line-height: 1;
+  color: $color;
+}
+
+@mixin text-heading($color, $size) {
+  font-family: constants.$font-family-heading;
+  font-size: $size;
+  line-height: 1;
+  color: $color;
+}
+
+@mixin text-input-label($color, $size) {
+  font-family: constants.$font-family-base;
+  font-size: $size;
+  line-height: 1;
+  color: $color;
+  margin-bottom: constants.$spacing-smallest;
+}
+
+@mixin text-link-action($color, $activeColor, $size) {
+  font-family: constants.$font-family-base;
+  font-size: $size;
+  line-height: 1;
+  color: $color;
+  margin-bottom: constants.$spacing-smallest;
+  border: none;
+  text-decoration: none;
+
+  &:hover {
+    color: $activeColor;
+    border-bottom: 2px solid $activeColor;
+  }
+
+  &:active {}
+
+  &:focus {}
+
+  &:visited {}
+
+  &:disabled {}
 }

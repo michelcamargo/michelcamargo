@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: column;
     padding: 0 theme.$spacing-medium;
-    box-shadow: theme.$shadow-light;
 
     @media screen and (min-width: 768px) {
       max-width: 30%;
@@ -20,10 +19,11 @@
       flex-direction: column;
 
       .contact__title {
+        @include theme.text-heading(theme.$color-text-action, theme.$font-size-medium);
+      }
 
-        .contact__subtitle {
-
-        }
+      .contact__subtitle {
+        @include theme.text-body(theme.$color-text-action, theme.$font-size-smaller);
       }
     }
 
@@ -34,20 +34,11 @@
         flex-direction: column;
 
         .form__inputLabel {
-          font-size: theme.$font-size-smaller;
-          color: theme.$color-text-action;
+          @include theme.text-input-label(theme.$color-text-action, theme.$font-size-smaller);
         }
 
         .form__inputElement {
-          background: transparent;
-          border: none;
-          border-bottom: 2px solid theme.$color-disabled;
-          transition: theme.$transition-slow;
-
-          &:focus, &:active {
-            outline: none;
-            border-bottom: 2px solid theme.$color-action-secondary;
-          }
+          @include theme.input-text-line(theme.$color-text-primary, theme.$color-action-accent, theme.$font-size-small);
         }
 
         &:not(:last-child) {

@@ -1,9 +1,9 @@
-@import "../../../../../../theme";
+@use "./src/theme";
 
 .header__wrapper {
   width: 100%;
   display: flex;
-  background: $color-background-secondary;
+  background: theme.$color-background-secondary;
   height: 64px;
 
   .header__container {
@@ -40,8 +40,7 @@
           }
 
           .nav__link {
-            color: $color-action-primary;
-            font-size: $font-size-small;
+            @include theme.text-link-action(theme.$color-action-primary, theme.$color-action-primary, theme.$font-size-small);
           }
 
           .nav__ctaLink {
@@ -49,11 +48,7 @@
             width: fit-content;
 
             .nav__ctaButton {
-              border-radius: $border-radius-small;
-              background: $color-action-primary;
-              color: $color-text-primary__inverted;
-              padding: $button-padding;
-              font-size: $font-size-small;
+              @include theme.button-action(theme.$color-text-primary__inverted, theme.$font-size-small, theme.$color-action-primary);
             }
           }
         }
