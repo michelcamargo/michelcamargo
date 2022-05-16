@@ -2,13 +2,13 @@
   "logo": "/assets/svg/header/michelcamargo.svg",
   "navigation": [
     {
-      "label": "Portfolio",
-      "link": "/work",
+      "label": "Login",
+      "link": "/login",
       "external": false
     },
     {
       "label": "Let's work together",
-      "link": "/contact",
+      "link": "/work",
       "external": false,
       "highlighted": true
     }

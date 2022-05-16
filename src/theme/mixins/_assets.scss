@@ -1,0 +1,5 @@
+@import '../constants';
+
+@mixin light-background-asset {
+  background: url("#{$imgPath}background/starline.jpg") center center/100%;
+}

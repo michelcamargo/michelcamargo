@@ -15,12 +15,12 @@ export class AuthenticationComponent implements OnInit {
   public inputEmail: string;
 
   /**
-   * Entrada de usuário: Email
+   * Entrada de usuário: Senha
    */
   public inputPassword: string;
 
   /**
-   *
+   * Serviço de autenticação
    * @private
    */
   private authenticationService: AuthenticationService;
@@ -34,7 +34,9 @@ export class AuthenticationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  /**
+   * Método para autenticar o usuário
+   */
   public actionLogin() {
     if(this.validateAuthForm()) {
       const authData: AuthData = {
@@ -47,6 +49,10 @@ export class AuthenticationComponent implements OnInit {
     }
   }
 
+  /**
+   * Método para validar o formulário de autenticação
+   * @private
+   */
   private validateAuthForm() {
     try {
       if (!this.inputEmail || this.inputEmail === '') {

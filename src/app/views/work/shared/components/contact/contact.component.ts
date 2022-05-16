@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from "../../../../types/user";
-import { userModel } from "../../../../models/user.model";
-import { UserService } from "../services/user.service";
+import { User } from "../../../../../types/user";
+import { userModel } from "../../../../../models/user.model";
+import { UserService } from "../../services/user.service";
 
 @Component({
   selector: 'app-contact',
@@ -38,7 +38,7 @@ export class ContactComponent implements OnInit {
   /**
    * Busca usuários
    */
-  public getAllUsers(): Array<User> {
+  public getAllCustomers(): Array<User> {
     let userArray: Array<User> = [];
 
     this.userService.fetchAllUsers().subscribe({
@@ -57,7 +57,7 @@ export class ContactComponent implements OnInit {
    * Busca usuário por ID
    * @param id usuário a buscar
    */
-  public getUserById(id: number): User | null {
+  public getCustomerById(id: number): User | null {
     let matchedUser: User | null = null;
 
     this.userService.fetchUserById(id).subscribe(

@@ -1,18 +1,28 @@
 @use '../constants';
 
-@mixin button-action($textColor, $fontSize, $bgColor) {
+/**
+ * @mixin Botão de ação
+ * @param {string} $color
+ * @param {string} $fontSize
+ * @param {string} $bgColor
+ */
+@mixin button-action($bgColor, $textColor, $fontSize) {
   font-size: $fontSize;
   color: $textColor;
   background: $bgColor;
   transition: constants.$transition-in;
   padding: constants.$button-padding;
+  border: 2px solid $bgColor;
+  border-radius: constants.$border-radius-small;
 
   &:hover {
+    border: 2px solid lighten($bgColor, 5%);
     background: lighten($bgColor, 8%);
   }
 
   &:active {
-    background: darken($bgColor, 8%);;
+    border: 2px solid darken($bgColor, 5%);
+    background: darken($bgColor, 8%);
   }
 }
 

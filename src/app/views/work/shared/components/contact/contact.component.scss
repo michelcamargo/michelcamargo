@@ -1,6 +1,6 @@
-@use "./src/theme";
+@use "src/theme";
 
-.content__wrapper {
+.contact__wrapper {
   display: flex;
   flex-direction: row;
 
@@ -47,7 +47,7 @@
       }
 
       .form__submitButton {
-
+        @include theme.button-action(theme.$color-action-primary, theme.$color-text-primary__inverted, theme.$font-size-small);
       }
 
       .form__logUsersButton {

@@ -18,14 +18,48 @@
       display: inline-block;
       position: relative;
       height: 75%;
+      color: red;
+      fill:red;
 
       .header__logo {
         display: inline-block;
         position: relative;
         height: 100%;
+
+        color: red;
         fill: red;
-        color: blue;
+
+        svg {
+          fill: orange;
+          color: orange;
+        }
+
+        path {
+          fill: orange;
+          color: orange;
+        }
+
+        .path {
+          fill: green;
+          color: green;
+        }
       }
+
+      .header__logo svg {
+        color: blue;
+        fill: blue;
+      }
+
+      .header__logo svg fill {
+        color: #00A0C3;
+        fill: #4DBE97;
+      }
+
+      .header__logo fill {
+        color: grey;
+        fill: grey;
+      }
+
     }
 
     .header__navWrapper {
@@ -48,7 +82,7 @@
             width: fit-content;
 
             .nav__ctaButton {
-              @include theme.button-action(theme.$color-text-primary__inverted, theme.$font-size-small, theme.$color-action-primary);
+              @include theme.button-action(theme.$color-action-primary, theme.$color-text-primary__inverted, theme.$font-size-small);
             }
           }
         }

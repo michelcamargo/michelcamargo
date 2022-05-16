@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {WorkItem} from "../../../../../../types/work";
+import {WorkItem} from "../../../../../types/work";
 
 @Component({
   selector: 'app-portfolio',

@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/shared/components/home.component';
 import { NotFoundComponent } from './views/notfound/shared/components/not-found.component';
 import { AboutComponent } from './views/about/about.component';
-import { ViewTemplateModule } from "./app-modules/view-template/shared/view-template.module";
+import { ViewTemplateModule } from "./app-modules/view-template/private/view-template.module";
 import { HttpClientModule } from "@angular/common/http";
-import { ContactComponent } from './views/presentation/shared/components/contact.component';
-import { PortfolioComponent } from './views/presentation/shared/components/portfolio/portfolio/portfolio.component';
+import { ContactComponent } from './views/work/shared/components/contact/contact.component';
+import { PortfolioComponent } from './views/work/shared/components/portfolio/portfolio.component';
 import { AuthenticationComponent } from './views/login/shared/components/authentication/authentication.component';
+import { WorkViewComponent } from './views/work/shared/components/work-view.component';
+import { CustomersPanelComponent } from './app-modules/customers/shared/components/customers-panel/customers-panel.component';
 
 @NgModule({
   declarations: [
@@ -22,15 +24,17 @@ import { AuthenticationComponent } from './views/login/shared/components/authent
     ContactComponent,
     PortfolioComponent,
     AuthenticationComponent,
+    WorkViewComponent,
+    CustomersPanelComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ViewTemplateModule,
-        NgbModule,
-        HttpClientModule,
-        FormsModule
-    ],
+  imports: [
+      BrowserModule,
+      AppRoutingModule,
+      ViewTemplateModule,
+      NgbModule,
+      HttpClientModule,
+      FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

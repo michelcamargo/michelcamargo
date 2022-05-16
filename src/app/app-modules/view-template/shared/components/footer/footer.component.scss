@@ -1,10 +1,10 @@
-@import '../../../../../../theme';
+@use './src/theme';
 
 .footer {
   width: 100%;
-  background: $color-background-secondary;
-  padding-top: $spacing-medium;
-  padding-bottom: $spacing-medium;
+  background: theme.$color-background-secondary;
+  padding-top: theme.$spacing-medium;
+  padding-bottom: theme.$spacing-medium;
 
   .footer__container {
     display: flex;
@@ -26,22 +26,31 @@
         flex-direction: column;
 
         .footer__menuHeading {
-          font-size: $font-size-small;
-          color: $color-text-action;
-          margin-bottom: $spacing-small;
+          width: fit-content;
+          height: fit-content;
+          line-height: 1;
+          font-size: theme.$font-size-smaller;
+          font-weight: 600;
+          color: theme.$color-text-action;
+          margin-bottom: theme.$spacing-small;
         }
 
         .footer__menuItem {
+          width: fit-content;
+          height: fit-content;
+          line-height: 1;
+
           &:not(&:last-child) {
-            margin-bottom: $spacing-smaller;
+            margin-bottom: theme.$spacing-smaller;
           }
 
           .footer__menuLink {
-            color: $color-text-primary;
+            font-size: theme.$font-size-x-small;
+            color: theme.$color-text-primary;
             text-decoration: none;
 
             &:hover {
-              color: $color-action-accent;
+              color: theme.$color-action-accent;
             }
 
             &:focus, &:active {}

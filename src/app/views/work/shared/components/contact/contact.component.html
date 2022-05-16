@@ -1,9 +1,9 @@
-<div class="content__wrapper container">
+<div class="contact__wrapper container">
   <aside class="contact__container">
     <div class="contact__header">
-      <h3 class="contact__title">Me mande uma mensagem!</h3>
+      <h3 class="contact__title">Como posso ajudar?</h3>
       <p class="contact__subtitle">
-        Entre em contato comigo para tirar dúvidas, sugestões ou para saber mais sobre meu trabalho.
+        Mande uma mensagem! Tire uma dúvida e conheça mais sobre meu trabalho
       </p>
     </div>
     <form class="contact__form">
@@ -52,7 +52,7 @@
           name="message"
           type="text"
           [(ngModel)]="userFormData.message"
-          placeholder="Escreva uma mensagem legal"
+          placeholder="Escreva uma mensagem legal em 250 caracteres"
         ></textarea>
       </label>
 
@@ -66,10 +66,9 @@
         </span>
       </p>
 
-      <button class="form__logUsersButton" (click)="getAllUsers()">
+      <button class="form__logUsersButton" (click)="getAllCustomers()">
         Log users
       </button>
     </form>
   </aside>
-  <app-portfolio></app-portfolio>
 </div>
