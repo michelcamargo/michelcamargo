@@ -1,0 +1,13 @@
+<main class="cust-panel__wrapper">
+  <div class="cust-panel__container">
+    <ul class="cust-panel__list" *ngFor="let customer of customerList">
+      <li class="cust-panel__item">
+        <p>{{customer.firstName}}</p>
+        <p>{{customer.lastName}}</p>
+        <p>{{customer.email}}</p>
+        <p>{{customer.message}}</p>
+        <p>{{customer.intention}}</p>
+      </li>
+    </ul>
+  </div>
+</main>

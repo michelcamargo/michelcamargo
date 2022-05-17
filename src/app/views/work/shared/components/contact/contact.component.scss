@@ -46,6 +46,12 @@
         }
       }
 
+      .form__contactDisclaimer {
+        .form__contactDisclaimerText {
+          font-size: theme.$font-size-smallest;
+        }
+      }
+
       .form__submitButton {
         @include theme.button-action(theme.$color-action-primary, theme.$color-text-primary__inverted, theme.$font-size-small);
       }

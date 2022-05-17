@@ -44,6 +44,7 @@ export class ContactComponent implements OnInit {
     this.userService.fetchAllUsers().subscribe({
       next: (users: Array<User>) => {
         userArray = users;
+        console.log(userArray);
       },
       error: (error: any) => {
         console.log(error);
