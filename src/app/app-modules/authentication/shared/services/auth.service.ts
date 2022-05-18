@@ -3,8 +3,8 @@ import {AuthenticationModule} from "../../private/authentication/authentication.
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
-import {User} from "../../../../types/user";
-import {AuthData} from "../../../../types/auth";
+import {User} from "../types/user";
+import {AuthData} from "../types/auth";
 
 @Injectable({
   providedIn: AuthenticationModule
