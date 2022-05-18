@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { environment } from "../../../../../environments/environment";
-import { Observable } from "rxjs";
-import { map } from 'rxjs/operators';
+import {AuthenticationModule} from "../../private/authentication/authentication.module";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../../environments/environment";
+import {Observable} from "rxjs";
 import {User} from "../../../../types/user";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: AuthenticationModule
 })
 
-export class UserRegisterService {
+export class AuthService {
 
   /**
    * Serviço responsãvel pelas requisições HTTP.
@@ -49,24 +49,16 @@ export class UserRegisterService {
   public fetchAllUsers(): Observable<Array<User>> {
     let url: string = `${this.resourceUrl}/users`;
 
-    return this.httpClient.get<any>(url, {headers: this.httpHeaders}).pipe(
-      map(res => {
-        console.log('[fetchAllUsers] res:', res);
-        return res;
-      })
-    )
+    return this.httpClient.get<Array<User>>(url, {headers: this.httpHeaders})
   }
 
   /**
    * Busca produtos por Id do produto
    * @param userId
    */
-  public fetchUserById(userId: number): Observable<any> {
+  public fetchUserById(userId: number): Observable<User> {
     let url: string = `${this.resourceUrl}/users:${userId}`;
 
-    return (this.httpClient.get<any>(url, {headers: this.httpHeaders})
-      .pipe(map(res => {
-        console.log('[fetchUserById] res:', res);
-      })));
+    return this.httpClient.get<User>(url, {headers: this.httpHeaders});
   }
 }

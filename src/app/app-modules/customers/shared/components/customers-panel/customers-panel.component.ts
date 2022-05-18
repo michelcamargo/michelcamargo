@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from "../../services/customer.service";
+import {Customer, IntentionEnum} from "../../types/customer";
 
 @Component({
   selector: 'app-customers-panel',
@@ -14,14 +15,16 @@ export class CustomersPanelComponent implements OnInit {
 
   constructor(customerService: CustomerService) {
     this.customerService = customerService;
+
   }
+
 
   ngOnInit(): void {
     this.setCustomerList();
   }
 
   public setCustomerList(): void {
-    this.customerService.fetchCustomers().subscribe({
+    this.customerService.fetchAllCustomers().subscribe({
       next: (customers) => {
         this.customerList = customers;
       },

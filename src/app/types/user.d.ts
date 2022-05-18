@@ -1,10 +1,10 @@
 export type User = {
-  id: number;
+  _id?: number;
+  alias: string;
   firstName: string;
   lastName: string;
   email: string;
-  message: string;
-  // password: string;
+  secret?: string;
   // createdAt: Date;
   // updatedAt: Date;
 }

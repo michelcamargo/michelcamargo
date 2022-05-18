@@ -34,7 +34,7 @@ export class UserService {
    * @param formData
    */
   public submitForm(formData: User): void {
-    let url: string = `${environment.resourceUrl}/users`;
+    let url: string = `${environment.resourceUrl}/customer`;
 
     const body = JSON.stringify(formData)
     console.log("body >", body);

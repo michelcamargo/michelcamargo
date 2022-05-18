@@ -15,7 +15,7 @@
           class="form__inputElement"
           name="firstName"
           type="text"
-          [(ngModel)]="userFormData.firstName"
+          [(ngModel)]="customerFormData.firstName"
           placeholder="Seu primeiro nome"
         />
       </label>
@@ -27,7 +27,7 @@
           class="form__inputElement"
           name="lastName"
           type="text"
-          [(ngModel)]="userFormData.lastName"
+          [(ngModel)]="customerFormData.lastName"
           placeholder="Seu último nome"
         />
       </label>
@@ -39,7 +39,7 @@
           class="form__inputElement"
           name="email"
           type="text"
-          [(ngModel)]="userFormData.email"
+          [(ngModel)]="customerFormData.email"
           placeholder="Seu melhor email"
         />
       </label>
@@ -51,9 +51,37 @@
           class="form__inputElement"
           name="message"
           type="text"
-          [(ngModel)]="userFormData.message"
-          placeholder="Escreva uma mensagem legal em 250 caracteres"
+          [(ngModel)]="customerFormData.message"
+          placeholder="Escreva uma mensagem legal"
         ></textarea>
+      </label>
+      <label class="form__inputContainer">
+          <span class="form__inputLabel">
+            Mensagem
+          </span>
+        <input
+          class="form__inputElement"
+          name="intention"
+          type="radio"
+          [(ngModel)]="customerFormData.intention"
+          [value]="0"
+        />
+
+        <input
+          class="form__inputElement"
+          name="intention"
+          type="radio"
+          [(ngModel)]="customerFormData.intention"
+          [value]="1"
+        />
+
+        <input
+          class="form__inputElement"
+          name="intention"
+          type="radio"
+          [(ngModel)]="customerFormData.intention"
+          [value]="2"
+        />
       </label>
 
       <button class="form__submitButton" (click)="submitFormHandler()">

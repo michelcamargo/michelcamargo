@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import {map} from "rxjs/operators";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../../environments/environment";
+import {Customer} from "../types/customer";
 
 @Injectable({
   providedIn: CustomerModule
@@ -36,14 +37,26 @@ export class CustomerService {
     this.resourceUrl = `${environment.resourceUrl}`;
   }
 
-  public fetchCustomers(): Observable<Array<Customer>> {
+  public fetchAllCustomers(): Observable<Array<Customer>> {
     let url: string = `${this.resourceUrl}/customers`;
 
-    return this.httpClient.get<any>(url, {headers: this.httpHeaders}).pipe(
+    return this.httpClient.get<Array<Customer>>(url, {headers: this.httpHeaders}).pipe(
       map(res => {
         console.log('[fetchAllClients]', res);
         return res;
       })
     );
+  }
+
+  public fetchCustomerById(id: number): Observable<Customer> {
+    let url: string = `${this.resourceUrl}/customers/${id}`;
+
+    return this.httpClient.get<Customer>(url, {headers: this.httpHeaders})
+  }
+
+  public fetchCustomerByAlias(alias: string): Observable<Customer> {
+    let url: string = `${this.resourceUrl}/customers/u/${alias}`;
+
+    return this.httpClient.get<Customer>(url, {headers: this.httpHeaders})
   }
 }

@@ -1,8 +1,14 @@
+export enum IntentionEnum {
+  'proposta',
+  'consulta',
+  'inspiracao'
+}
+
 type Customer = {
-  id: number,
+  _id?: number,
   firstName: string,
   lastName: string,
   email: string,
   message?: string,
-  intention: string
+  intention?: IntentionEnum
 }

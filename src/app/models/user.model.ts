@@ -1,11 +1,11 @@
 import { User } from '../types/user';
 
-export const userModel = (id: number): User => {
+export const userModel = (): User => {
   return {
-    id: id,
+    alias: '',
     firstName: '',
     lastName: '',
     email: '',
-    message: ''
+    secret: '',
   }
 }
