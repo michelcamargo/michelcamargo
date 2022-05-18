@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from "../../services/customer.service";
-import {Customer, IntentionEnum} from "../../types/customer";
+import { Customer } from "../../types/customer";
 
 @Component({
   selector: 'app-customers-panel',

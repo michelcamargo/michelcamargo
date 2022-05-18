@@ -10,20 +10,15 @@ import { PortfolioModule } from "./app-modules/portfolio/private/portfolio/portf
 import { AuthenticationModule } from "./app-modules/authentication/private/authentication/authentication.module";
 
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './views/notfound/not-found.component';
-import { AboutComponent } from './views/about/about.component';
-import { WorkViewComponent } from './views/work/work-view.component';
-import { AuthViewComponent } from './views/auth/auth-view.component';
-import { HomeViewComponent } from "./views/home/home-view.component";
+// import { NotFoundComponent } from './views/notfound/not-found.component';
+// import { AboutComponent } from './views/about/about.component';
+// import { WorkViewComponent } from './views/work/work-view.component';
+// import { AuthViewComponent } from './views/auth/auth-view.component';
+// import { HomeViewComponent } from "./views/home/home-view.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeViewComponent,
-    AboutComponent,
-    NotFoundComponent,
-    WorkViewComponent,
-    AuthViewComponent,
   ],
   imports: [
     BrowserModule,
