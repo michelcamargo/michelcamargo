@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SContent} from "../../../../view-template/shared/types";
+import {SContent} from "../../../../view-template/shared/types/content";
 
 @Component({
   selector: 'app-gallery',
@@ -13,6 +13,7 @@ export class GalleryComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.workGallery);
   }
 
 }

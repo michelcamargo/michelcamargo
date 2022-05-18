@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SContent } from "../../types";
+import { SContent } from "../../types/content";
 
 @Component({
   selector: 'app-header',
@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.headerContent);
   }
 
 }

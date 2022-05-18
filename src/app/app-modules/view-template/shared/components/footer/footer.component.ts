@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Asset, SContent } from "../../types";
+import { Asset, SContent } from "../../types/content";
 
 type FooterMenu = [
   {
@@ -21,7 +21,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log(this.footerContent);
   }
 
 }
