@@ -26,19 +26,4 @@ export class AuthComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  /**
-   * Método para autenticar o usuário
-   */
-  public actionLogin(): void {
-    // this.validateAuthForm();
-
-    // const authData: AuthData = {
-    //   email: this.inputEmail,
-    //   password: this.inputPassword
-    // };
-
-
-    // this.authenticationService.authenticate(authData);
-  }
 }

@@ -1,23 +1,18 @@
-export type HeaderProps = {
-  logo?: string
-  navigation?: [
-    {
-      label?: string
-      icon?: string
-      link?: string
-      highlighted?: boolean
-    }
-  ];
+export type SContent = {
+  _id?: number,
+  groupName: string,
+  link: string,
+  isExternal: boolean,
+  label: string,
+  imgSrc: string,
+  imgSrcMobile: string
 }
 
-export type FooterMenu = {
-  title?: string
-  items?: [
-    {
-      label?: string
-      icon?: string
-      link?: string
-      external?: boolean
-    }
-  ];
+export type Asset = {
+  _id?: number,
+  src: string,
+  srcMobile?: string,
+  link?: string,
+  isExternal?: boolean,
+  title: string
 }

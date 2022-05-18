@@ -9,13 +9,11 @@ import { NotFoundComponent } from './views/notfound/not-found.component';
 import { AboutComponent } from './views/about/about.component';
 import { ViewTemplateModule } from "./app-modules/view-template/private/view-template.module";
 import { HttpClientModule } from "@angular/common/http";
-import { AuthenticationComponent } from './views/login/shared/components/authentication/authentication.component';
 import { WorkViewComponent } from './views/work/work-view.component';
 import { CustomerModule } from "./app-modules/customers/private/customer.module";
 import { PortfolioModule } from "./app-modules/portfolio/private/portfolio/portfolio.module";
 import {AuthenticationModule} from "./app-modules/authentication/private/authentication/authentication.module";
 import { AuthViewComponent } from './views/auth/auth-view.component';
-import { AuthComponent } from './app-modules/authentication/shared/component/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +21,8 @@ import { AuthComponent } from './app-modules/authentication/shared/component/aut
     HomeComponent,
     AboutComponent,
     NotFoundComponent,
-    AuthenticationComponent,
     WorkViewComponent,
     AuthViewComponent,
-    AuthComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import footerData from "../../footer.mock.json";
-import { FooterMenu } from "../../types";
+import { Asset, SContent } from "../../types";
+
+type FooterMenu = [
+  {
+    heading: string,
+    items: Array<SContent>
+  }
+]
 
 @Component({
   selector: 'app-footer',
@@ -15,9 +21,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    footerData.forEach((item, key) => {
-      this.footerContent.push(JSON.parse(JSON.stringify(item)));
-    });
+
   }
 
 }

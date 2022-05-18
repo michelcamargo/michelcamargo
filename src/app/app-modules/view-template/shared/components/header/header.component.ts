@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderProps} from "../../types";
-import headerData from "../../header.mock.json";
+import { SContent } from "../../types";
 
 @Component({
   selector: 'app-header',
@@ -8,14 +7,15 @@ import headerData from "../../header.mock.json";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  public headerContent: HeaderProps;
+  /**
+   * Conteúdo do header
+   */
+  public headerContent: Array<SContent> = [];
 
   constructor() {
-    this.headerContent = JSON.parse(JSON.stringify(headerData));
   }
 
   ngOnInit(): void {
-    // this.headerContent = headerData;
   }
 
 }
