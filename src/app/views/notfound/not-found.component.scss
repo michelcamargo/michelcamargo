@@ -1,9 +1,9 @@
-@import "../../../theme/index";
+@use "src/theme";
 
 .game__screen {
   display: flex;
   position: relative;
-  background: $game-color-background;
+  background: theme.$game-color-background;
   height: 620px;
   width: 100%;
 
@@ -15,6 +15,6 @@
     align-items: center;
     justify-content: center;
 
-    color: $color-action-accent;
+    color: theme.$color-action-accent;
   }
 }

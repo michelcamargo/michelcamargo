@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './views/home/shared/components/home.component';
+import { HomeComponent } from './views/home/home.component';
 import { NotFoundComponent } from './views/notfound/not-found.component';
 import { AboutComponent } from './views/about/about.component';
 import { ViewTemplateModule } from "./app-modules/view-template/private/view-template.module";

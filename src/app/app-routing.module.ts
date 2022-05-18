@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './views/about/about.component';
-import { HomeComponent } from "./views/home/shared/components/home.component";
+import { HomeComponent } from "./views/home/home.component";
 import { NotFoundComponent } from './views/notfound/not-found.component';
 import { PathResolverService } from "./app-modules/path-resolver/shared/services/path-resolver.service";
 import { WorkViewComponent } from "./views/work/work-view.component";
