@@ -1,5 +1,7 @@
 import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import ptBr from '@angular/common/locales/pt';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from "@angular/forms";
@@ -10,15 +12,12 @@ import { PortfolioModule } from "./app-modules/portfolio/private/portfolio/portf
 import { AuthenticationModule } from "./app-modules/authentication/private/authentication/authentication.module";
 
 import { AppComponent } from './app.component';
-// import { NotFoundComponent } from './views/notfound/not-found.component';
-// import { AboutComponent } from './views/about/about.component';
-// import { WorkViewComponent } from './views/work/work-view.component';
-// import { AuthViewComponent } from './views/auth/auth-view.component';
-// import { HomeViewComponent } from "./views/home/home-view.component";
+
+registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +30,9 @@ import { AppComponent } from './app.component';
     PortfolioModule,
     AuthenticationModule
   ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: "pt-BR"},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

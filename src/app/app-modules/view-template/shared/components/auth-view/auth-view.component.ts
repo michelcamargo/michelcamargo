@@ -6,12 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth-view.component.scss']
 })
 export class AuthViewComponent implements OnInit {
-  /**
-   * Construtor
-   */
-  constructor() {
-  }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
+
 }
