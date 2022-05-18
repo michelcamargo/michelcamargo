@@ -1,4 +1,4 @@
-@use "src/theme";
+@use "../../../theme/index";
 
 .work__wrapper {
   @include theme.light-background-asset();

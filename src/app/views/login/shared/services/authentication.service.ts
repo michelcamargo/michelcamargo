@@ -27,25 +27,5 @@ export class AuthenticationService {
     this.httpClient = httpClient;
   }
 
-  /**
-   * Envia formulário para o servidor
-   * @param authData
-   */
-  public authenticate(authData: AuthData): void {
-    let url: string = `${environment.resourceUrl}/login`;
 
-    const body = JSON.stringify(authData)
-    console.log("[auth] data:", body);
-
-    this.httpClient.post<AuthData>(url, body, {headers: this.httpHeaders}).subscribe(
-      {
-        next: (authData: AuthData) => {
-          console.log("user >", authData);
-        },
-        error: (error: any) => {
-          console.log("error >", error);
-        }
-      }
-    )
-  }
 }

@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../../../../environments/environment";
 import {Observable} from "rxjs";
 import {User} from "../../../../types/user";
+import {AuthData} from "../../../../types/auth";
 
 @Injectable({
   providedIn: AuthenticationModule
@@ -60,5 +61,27 @@ export class AuthService {
     let url: string = `${this.resourceUrl}/users:${userId}`;
 
     return this.httpClient.get<User>(url, {headers: this.httpHeaders});
+  }
+
+  /**
+   * Envia formulário para o servidor
+   * @param authData
+   */
+  public authenticate(authData: AuthData): void {
+    let url: string = `${environment.resourceUrl}/login`;
+
+    const body = JSON.stringify(authData)
+    console.log("[auth] data:", body);
+
+    this.httpClient.post<AuthData>(url, body, {headers: this.httpHeaders}).subscribe(
+      {
+        next: (authData: AuthData) => {
+          console.log("user >", authData);
+        },
+        error: (error: any) => {
+          console.log("error >", error);
+        }
+      }
+    )
   }
 }

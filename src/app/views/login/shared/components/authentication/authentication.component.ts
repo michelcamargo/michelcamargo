@@ -45,7 +45,7 @@ export class AuthenticationComponent implements OnInit {
       };
 
 
-      this.authenticationService.authenticate(authData);
+      // this.authenticationService.authenticate(authData);
     }
   }
 

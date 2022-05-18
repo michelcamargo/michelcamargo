@@ -5,15 +5,17 @@ import { FormsModule } from "@angular/forms";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/shared/components/home.component';
-import { NotFoundComponent } from './views/notfound/shared/components/not-found.component';
+import { NotFoundComponent } from './views/notfound/not-found.component';
 import { AboutComponent } from './views/about/about.component';
 import { ViewTemplateModule } from "./app-modules/view-template/private/view-template.module";
 import { HttpClientModule } from "@angular/common/http";
 import { AuthenticationComponent } from './views/login/shared/components/authentication/authentication.component';
-import { WorkViewComponent } from './views/work/shared/components/work-view.component';
+import { WorkViewComponent } from './views/work/work-view.component';
 import { CustomerModule } from "./app-modules/customers/private/customer.module";
 import { PortfolioModule } from "./app-modules/portfolio/private/portfolio/portfolio.module";
 import {AuthenticationModule} from "./app-modules/authentication/private/authentication/authentication.module";
+import { AuthViewComponent } from './views/auth/auth-view.component';
+import { AuthComponent } from './app-modules/authentication/shared/component/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import {AuthenticationModule} from "./app-modules/authentication/private/authent
     NotFoundComponent,
     AuthenticationComponent,
     WorkViewComponent,
+    AuthViewComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
