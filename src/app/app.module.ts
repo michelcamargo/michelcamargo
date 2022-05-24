@@ -12,6 +12,7 @@ import { PortfolioModule } from "./app-modules/portfolio/private/portfolio/portf
 import { AuthenticationModule } from "./app-modules/authentication/private/authentication/authentication.module";
 
 import { AppComponent } from './app.component';
+import {TemplateComponent} from "./app-modules/view-template/shared/components/template.component";
 
 registerLocaleData(ptBr);
 
@@ -22,13 +23,13 @@ registerLocaleData(ptBr);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ViewTemplateModule,
-    NgbModule,
     HttpClientModule,
+    NgbModule,
     FormsModule,
-    CustomerModule,
-    PortfolioModule,
-    AuthenticationModule
+    ViewTemplateModule,
+    // CustomerModule,
+    // PortfolioModule,
+    // AuthenticationModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: "pt-BR"},

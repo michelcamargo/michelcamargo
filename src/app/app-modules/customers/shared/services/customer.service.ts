@@ -7,7 +7,8 @@ import {environment} from "../../../../../environments/environment";
 import {Customer} from "../types/customer";
 
 @Injectable({
-  providedIn: CustomerModule
+  // providedIn: CustomerModule
+  providedIn: 'root'
 })
 export class CustomerService {
   /**

@@ -1,4 +1,4 @@
-export type SContent = {
+export type CustomContent = {
   _id?: number,
   groupName: string,
   link: string,

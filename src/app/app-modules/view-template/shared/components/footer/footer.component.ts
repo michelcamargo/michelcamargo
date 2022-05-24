@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Asset, SContent } from "../../types/content";
-
-type FooterMenu = [
-  {
-    heading: string,
-    items: Array<SContent>
-  }
-]
+import { TemplateService } from '../../services/template.service';
+import { CustomContent } from "../../types/content";
 
 @Component({
   selector: 'app-footer',
@@ -14,14 +8,32 @@ type FooterMenu = [
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  public footerContent: Array<FooterMenu>;
+  public footerContent: Array<Array<CustomContent>>;
 
-  constructor() {
-    this.footerContent = [];
+  constructor(public readonly templateService: TemplateService) {
+    this.footerContent = []
   }
 
   ngOnInit(): void {
     console.log(this.footerContent);
+    this.setFooterContent(2);
+  }
+
+  /**
+   * Define itens do footer
+   * @param columns
+   */
+  public setFooterContent(columns: number) {
+    for(let i = 0; i < columns; i++) {
+      this.templateService.fetchLinksByGroupName(`footer_${i}`).subscribe({
+        next: (content) => {
+          this.footerContent.push(content);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+    }
   }
 
 }

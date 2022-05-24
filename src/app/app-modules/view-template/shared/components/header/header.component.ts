@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SContent } from "../../types/content";
+import { CustomContent } from "../../types/content";
+import {TemplateService} from "../../services/template.service";
 
 @Component({
   selector: 'app-header',
@@ -10,13 +11,41 @@ export class HeaderComponent implements OnInit {
   /**
    * Conteúdo do header
    */
-  public headerContent: Array<SContent> = [];
+  public headerNavigation: Array<CustomContent> = [];
 
-  constructor() {
+  /**
+   * Botões do header
+   */
+  public headerButtons: Array<CustomContent> = [];
+
+  constructor(private readonly templateService: TemplateService) {
   }
 
   ngOnInit(): void {
-    console.log(this.headerContent);
+    this.setHeaderContent();
+  }
+
+  /**
+   * Define conteúdo do header
+   */
+  public setHeaderContent() {
+    this.templateService.fetchLinksByGroupName('header_nav').subscribe({
+      next: (content) => {
+        this.headerNavigation = content;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
+    this.templateService.fetchLinksByGroupName('header_buttons').subscribe({
+      next: (content) => {
+        this.headerButtons = content;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
   }
 
 }

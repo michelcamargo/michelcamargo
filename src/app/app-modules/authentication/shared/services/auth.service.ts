@@ -7,7 +7,8 @@ import {User} from "../types/user";
 import {AuthData} from "../types/auth";
 
 @Injectable({
-  providedIn: AuthenticationModule
+  // providedIn: AuthenticationModule
+  providedIn: 'root'
 })
 
 export class AuthService {

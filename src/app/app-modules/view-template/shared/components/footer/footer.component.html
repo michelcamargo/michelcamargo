@@ -1,17 +1,24 @@
 <footer class="footer">
   <div class="footer__container container">
     <div class="footer__menu">
-<!--      <ul class="footer__menuList" *ngFor="let menu of footerContent">-->
-<!--        <h6 class="footer__menuHeading">{{menu.title}}</h6>-->
-<!--        <li class="footer__menuItem" *ngFor="let item of menu.items">-->
-<!--          <a class="footer__menuLink link" href="{{item.link}}" target="{{item.external && '_blank'}}">-->
-<!--            <ng-container *ngIf="item.icon">-->
-<!--              <img class="footer__menuIcon" alt="{{item.label}}" src="{{item.icon}}" />-->
-<!--            </ng-container>-->
-<!--            {{item.label}}-->
-<!--          </a>-->
-<!--        </li>-->
-<!--      </ul>-->
+      <ul class="footer__menuList" *ngFor="let menu of footerContent">
+        <li class="footer__menuItem" *ngFor="let item of menu">
+          <ng-container *ngIf="item.link && item.link != '#'; else noLink">
+            <a class="footer__menuLink link" href="{{item.link}}" target="{{item.isExternal && '_blank'}}">
+              <ng-container *ngIf="item.imgSrc">
+                <img class="footer__menuIcon" alt="{{item.label}}" src="{{item.imgSrc}}" />
+              </ng-container>
+              {{item.label}}
+            </a>
+          </ng-container>
+          <ng-template #noLink>
+            <ng-container *ngIf="item.imgSrc">
+              <img class="footer__menuIcon" alt="{{item.label}}" src="{{item.imgSrc}}" />
+            </ng-container>
+            {{item.label}}
+          </ng-template>
+        </li>
+      </ul>
     </div>
   </div>
 </footer>

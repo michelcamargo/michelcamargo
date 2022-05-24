@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { PortfolioModule } from '../../private/portfolio/portfolio.module';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
-  providedIn: PortfolioModule
+  providedIn: 'root'
 })
 export class PortfolioService {
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+    this.http = http;
+  }
 }

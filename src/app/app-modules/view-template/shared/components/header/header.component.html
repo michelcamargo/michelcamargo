@@ -6,20 +6,18 @@
 
     <nav class="header__navWrapper">
       <ul class="nav__list">
-<!--        <li class="nav__listItem" *ngFor="let item of headerContent.navigation">-->
-<!--          <ng-container *ngIf="item.highlighted">-->
-<!--            <a class="nav__ctaLink link" href="{{item.link}}">-->
-<!--              <button class="nav__ctaButton btn">-->
-<!--                {{item.label}}-->
-<!--              </button>-->
-<!--            </a>-->
-<!--          </ng-container>-->
-<!--          <ng-container *ngIf="!item.highlighted">-->
-<!--            <a class="nav__link link" href="{{item.link}}">-->
-<!--              {{item.label}}-->
-<!--            </a>-->
-<!--          </ng-container>-->
-<!--        </li>-->
+        <li class="nav__listItem" *ngFor="let item of headerNavigation">
+          <a class="nav__link link" href="{{item.link}}">
+            {{item.label}}
+          </a>
+        </li>
+        <li class="nav__listItem" *ngFor="let item of headerButtons">
+          <a class="nav__ctaLink link" href="{{item.link}}">
+            <button class="nav__ctaButton btn">
+              {{item.label}}
+            </button>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

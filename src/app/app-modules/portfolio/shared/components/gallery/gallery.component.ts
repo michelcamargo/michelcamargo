@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {SContent} from "../../../../view-template/shared/types/content";
+import {CustomContent} from "../../../../view-template/shared/types/content";
+// import { PortfolioService } from '../../services/portfolio.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+  styleUrls: ['./gallery.component.scss'],
+  // providers: [ PortfolioService ]
 })
 export class GalleryComponent implements OnInit {
 
-  public workGallery: Array<SContent> = [];
+  public workGallery: Array<CustomContent> = [];
 
   constructor() { }
 
