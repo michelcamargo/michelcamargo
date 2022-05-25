@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../../../environments/environment";
-import {Observable} from "rxjs";
-import {CustomContent} from "../types/content";
-// import {ViewTemplateModule} from "../../private/view-template.module";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../../../environments/environment";
+import { Observable } from "rxjs";
+import { CustomContent } from "../types/content";
+import {Injectable} from "@angular/core";
 
 @Injectable({
-  // providedIn: ViewTemplateModule
   providedIn: 'root'
 })
-export class TemplateService {
 
+export class TemplateService {
   /**
    * Cabeçalho para requisições
    * @private
@@ -23,7 +21,7 @@ export class TemplateService {
   };
 
   /**
-   * Serviço responsãvel pelas requisições HTTP.
+   * Angular HTTP Requests
    * @injected
    */
   private readonly httpClient: HttpClient;

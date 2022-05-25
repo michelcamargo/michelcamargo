@@ -11,6 +11,9 @@ import { WorkViewComponent } from "../shared/components/work-view/work-view.comp
 import { AboutViewComponent } from "../shared/components/about-view/about-view.component";
 
 import { TemplateService } from "../shared/services/template.service";
+import {ContactComponent} from "../../customers/shared/components/contact/contact.component";
+import {FormsModule} from "@angular/forms";
+import {AuthenticationModule} from "../../authentication/private/authentication/authentication.module";
 
 
 @NgModule({
@@ -22,10 +25,14 @@ import { TemplateService } from "../shared/services/template.service";
     AuthViewComponent,
     NotFoundViewComponent,
     WorkViewComponent,
-    AboutViewComponent
+    AboutViewComponent,
+    // misc components
+    ContactComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    AuthenticationModule
   ],
   exports: [
     TemplateComponent,
