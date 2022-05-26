@@ -1,0 +1,14 @@
+<ng-container *ngIf="!isLoading; else skeleton">
+  <div class="intro__contentContainer">
+    <h3 class="intro__title">{{presentation.headtitle}}</h3>
+    <h2 class="intro__subtitle">{{presentation.subtitle}}</h2>
+    <p class="intro__description">{{presentation.description}}</p>
+  </div>
+</ng-container>
+<ng-template #skeleton>
+  <div class="skeleton__contentContainer">
+    <h3 class="skeleton__title"></h3>
+    <h2 class="skeleton__subtitle"></h2>
+    <h4 class="skeleton__description"></h4>
+  </div>
+</ng-template>

@@ -37,12 +37,22 @@ export class TemplateService {
   }
 
   /**
-   * Busca links
+   * Busca agrupamento de links
    * @param groupName
    */
-  public fetchLinksByGroupName(groupName: string): Observable<Array<CustomContent>> {
-    let url: string = `${this.resourceUrl}/content/${groupName}`;
+  public fetchContentGroup(groupName: string): Observable<Array<CustomContent>> {
+    let url: string = `${this.resourceUrl}/content/group/${groupName}`;
 
     return this.httpClient.get<Array<CustomContent>>(url, {headers: this.httpHeaders})
+  }
+
+  /**
+   * Busca links
+   * @param title
+   */
+  public fetchContentByTitle(title: string): Observable<CustomContent> {
+    let url: string = `${this.resourceUrl}/content/${title}`;
+
+    return this.httpClient.get<CustomContent>(url, {headers: this.httpHeaders})
   }
 }

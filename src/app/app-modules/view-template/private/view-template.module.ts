@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TemplateComponent } from "../shared/components/template.component";
 import { HeaderComponent } from "../shared/components/header/header.component";
 import { FooterComponent } from "../shared/components/footer/footer.component";
 import { HomeViewComponent } from '../shared/components/home-view/home-view.component';
@@ -14,11 +13,13 @@ import { TemplateService } from "../shared/services/template.service";
 import {ContactComponent} from "../../customers/shared/components/contact/contact.component";
 import {FormsModule} from "@angular/forms";
 import {AuthenticationModule} from "../../authentication/private/authentication/authentication.module";
+import {CustomerModule} from "../../customers/private/customer.module";
+import {PortfolioModule} from "../../portfolio/private/portfolio/portfolio.module";
+import {HeroModule} from "../../hero/private/hero.module";
 
 
 @NgModule({
   declarations: [
-    TemplateComponent,
     HeaderComponent,
     FooterComponent,
     HomeViewComponent,
@@ -29,13 +30,15 @@ import {AuthenticationModule} from "../../authentication/private/authentication/
     // misc components
     ContactComponent
   ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    AuthenticationModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        AuthenticationModule,
+        CustomerModule,
+        PortfolioModule,
+        HeroModule
+    ],
   exports: [
-    TemplateComponent,
     HeaderComponent,
     FooterComponent,
     HomeViewComponent,

@@ -6,16 +6,16 @@
           <ng-container *ngIf="item.link && item.link != '#'; else noLink">
             <a class="footer__menuLink link" href="{{item.link}}" target="{{item.isExternal && '_blank'}}">
               <ng-container *ngIf="item.imgSrc">
-                <img class="footer__menuIcon" alt="{{item.label}}" src="{{item.imgSrc}}" />
+                <img class="footer__menuIcon" alt="{{item.text}}" src="{{item.imgSrc}}" />
               </ng-container>
-              {{item.label}}
+              {{item.text}}
             </a>
           </ng-container>
           <ng-template #noLink>
             <ng-container *ngIf="item.imgSrc">
-              <img class="footer__menuIcon" alt="{{item.label}}" src="{{item.imgSrc}}" />
+              <img class="footer__menuIcon" alt="{{item.text}}" src="{{item.imgSrc}}" />
             </ng-container>
-            {{item.label}}
+            {{item.text}}
           </ng-template>
         </li>
       </ul>

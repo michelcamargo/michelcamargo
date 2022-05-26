@@ -1,11 +1,12 @@
 export type CustomContent = {
-  _id?: number,
+  _id: number,
+  title: string,
   groupName: string,
-  link: string,
+  link?: string,
   isExternal: boolean,
-  label: string,
-  imgSrc: string,
-  imgSrcMobile: string
+  text?: string,
+  imgSrc?: string,
+  imgSrcMobile?: string
 }
 
 export type Asset = {

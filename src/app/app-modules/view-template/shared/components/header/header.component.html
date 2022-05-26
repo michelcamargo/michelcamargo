@@ -8,13 +8,13 @@
       <ul class="nav__list">
         <li class="nav__listItem" *ngFor="let item of headerNavigation">
           <a class="nav__link link" href="{{item.link}}">
-            {{item.label}}
+            {{item.text}}
           </a>
         </li>
         <li class="nav__listItem" *ngFor="let item of headerButtons">
           <a class="nav__ctaLink link" href="{{item.link}}">
             <button class="nav__ctaButton btn">
-              {{item.label}}
+              {{item.text}}
             </button>
           </a>
         </li>

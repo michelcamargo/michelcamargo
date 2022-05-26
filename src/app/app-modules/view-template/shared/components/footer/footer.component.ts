@@ -25,7 +25,7 @@ export class FooterComponent implements OnInit {
    */
   public setFooterContent(columns: number) {
     for(let i = 0; i < columns; i++) {
-      this.templateService.fetchLinksByGroupName(`footer_${i}`).subscribe({
+      this.templateService.fetchContentGroup(`footer_${i}`).subscribe({
         next: (content) => {
           this.footerContent.push(content);
         },

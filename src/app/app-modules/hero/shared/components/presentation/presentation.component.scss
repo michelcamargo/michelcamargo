@@ -1,0 +1,22 @@
+@use "src/theme";
+
+.intro__contentContainer {
+  .intro__title {
+    font-size: theme.$font-size-x-large;
+    font-weight: 700;
+    color: theme.$color-text-action;
+  }
+
+  .intro__subtitle {
+    font-size: theme.$font-size-largest;
+    font-weight: 700;
+    color: theme.$color-action-primary;
+  }
+
+  .intro__description {
+    font-size: theme.$font-size-larger;
+    font-weight: 700;
+    color: theme.$color-action-accent;
+    line-height: 1.1;
+  }
+}

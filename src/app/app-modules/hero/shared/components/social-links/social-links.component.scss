@@ -1,0 +1,24 @@
+@use "src/theme";
+
+.social__wrapper {
+  margin-top: theme.$spacing-large;
+
+  .social__linkList {
+    display: flex;
+    flex-direction: row;
+
+    .social__listItem {
+      font-size: theme.$font-size-small;
+      text-decoration: none;
+
+      .social__element {
+        @include theme.minicard(#FFFFFF, theme.$color-text-action, theme.$font-size-small);
+
+        .social__icon {
+          max-width: 32px;
+          height: auto;
+        }
+      }
+    }
+  }
+}

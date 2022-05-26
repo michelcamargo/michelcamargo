@@ -2,4 +2,8 @@
 
 .portfolio__wrapper {
   //@include theme.light-background-asset();
+
+  @media screen and (min-width: 768px) {
+    max-width: 70%;
+  }
 }

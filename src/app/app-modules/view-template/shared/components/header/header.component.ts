@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
    * Define conteúdo do header
    */
   public setHeaderContent() {
-    this.templateService.fetchLinksByGroupName('header_nav').subscribe({
+    this.templateService.fetchContentGroup('header_nav').subscribe({
       next: (content) => {
         this.headerNavigation = content;
       },
@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-    this.templateService.fetchLinksByGroupName('header_buttons').subscribe({
+    this.templateService.fetchContentGroup('header_buttons').subscribe({
       next: (content) => {
         this.headerButtons = content;
       },

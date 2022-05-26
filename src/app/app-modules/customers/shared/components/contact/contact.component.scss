@@ -1,18 +1,17 @@
 @use "src/theme";
 
 .contact__wrapper {
-  display: flex;
-  flex-direction: row;
+  padding: 0;
+  width: fit-content;
+
+  @media screen and (min-width: 768px) {
+    max-width: 30%;
+  }
 
   .contact__container {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 0 theme.$spacing-medium;
-
-    @media screen and (min-width: 768px) {
-      max-width: 30%;
-    }
 
     .contact__header {
       display: flex;

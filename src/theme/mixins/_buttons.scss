@@ -2,9 +2,9 @@
 
 /**
  * @mixin Botão de ação
+ * @param {string} $bgColor
  * @param {string} $color
  * @param {string} $fontSize
- * @param {string} $bgColor
  */
 @mixin button-action($bgColor, $textColor, $fontSize) {
   font-size: $fontSize;
@@ -37,5 +37,35 @@
 
   &:active {
     background: darken(constants.$color-mono-grey, 8%);
+  }
+}
+
+/**
+ * @mixin Minicard
+ * @param {string} $bgColor
+ * @param {string} $color
+ * @param {string} $fontSize
+ */
+@mixin minicard($bgColor, $textColor, $fontSize) {
+  padding: constants.$spacing-small;
+  font-size: $fontSize;
+  width: fit-content;
+  color: $textColor;
+  background: $bgColor;
+  opacity: .84;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: constants.$border-radius-small;
+  transition: constants.$transition-in;
+
+  &:hover {
+    background: $bgColor;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+  }
+
+  &:active {
+    background: darken($bgColor, 2%);
+    opacity: 1;
+    box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.12);
   }
 }
