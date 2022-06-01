@@ -4,16 +4,24 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  height: 100%;
 
   .work-view__leftElement {
     position: relative;
     display: flex;
     width: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: theme.$color-background-secondary;
+    padding: theme.$spacing-medium;
+    border-radius: theme.$border-radius-small;
+    height: fit-content;
   }
 
   .work-view__rightElement {
     position: relative;
     display: flex;
     width: 70%;
+    overflow-y: auto;
   }
 }

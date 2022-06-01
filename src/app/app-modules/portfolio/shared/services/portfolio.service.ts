@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PortfolioModule } from '../../private/portfolio/portfolio.module';
+// import { PortfolioModule } from '../private/portfolio.module';
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({

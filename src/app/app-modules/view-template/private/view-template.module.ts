@@ -12,9 +12,9 @@ import { AboutViewComponent } from "../shared/components/about-view/about-view.c
 import { TemplateService } from "../shared/services/template.service";
 import { ContactComponent} from "../../customers/shared/components/contact/contact.component";
 import { FormsModule } from "@angular/forms";
-import { AuthenticationModule } from "../../authentication/private/authentication/authentication.module";
+import { AuthenticationModule } from "../../authentication/private/authentication.module";
 import { CustomerModule } from "../../customers/private/customer.module";
-import { PortfolioModule } from "../../portfolio/private/portfolio/portfolio.module";
+import { PortfolioModule } from "../../portfolio/private/portfolio.module";
 import { HeroModule } from "../../hero/private/hero.module";
 
 

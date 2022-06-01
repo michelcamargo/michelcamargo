@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GalleryComponent } from "../../shared/components/gallery/gallery.component";
-import { PortfolioService } from "../../shared/services/portfolio.service";
+import { GalleryComponent } from "../shared/components/gallery/gallery.component";
+import { PortfolioService } from "../shared/services/portfolio.service";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 

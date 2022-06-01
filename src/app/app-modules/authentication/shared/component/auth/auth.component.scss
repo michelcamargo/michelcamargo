@@ -1,10 +1,16 @@
 @use "src/theme";
 
 .authentication__wrapper {
+  height: 100%;
+  padding: theme.$spacing-medium;
+  background: theme.$color-background-secondary;
+  border-radius: theme.$border-radius-small;
+
   .authentication__headingContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: theme.$spacing-medium;
 
     .authentication__headTitle {
 
