@@ -38,6 +38,9 @@ export class CustomerService {
     this.resourceUrl = `${environment.resourceUrl}`;
   }
 
+  /**
+   * Buscar todos os clientes
+   */
   public fetchAllCustomers(): Observable<Array<Customer>> {
     let url: string = `${this.resourceUrl}/customers`;
 
@@ -49,15 +52,38 @@ export class CustomerService {
     );
   }
 
-  public fetchCustomerById(id: number): Observable<Customer> {
-    let url: string = `${this.resourceUrl}/customers/${id}`;
+  /**
+   * Enviar formulário (cliente)
+   */
+  public submitCustomer(customer: Customer): Observable<any> {
+    let url: string = `${this.resourceUrl}/customers`;
+    const body = JSON.stringify(customer);
 
-    return this.httpClient.get<Customer>(url, {headers: this.httpHeaders})
+    console.log('submitting', body);
+
+    return this.httpClient.post<Customer>(url, body,{headers: this.httpHeaders}).pipe(
+      map(res => {
+        // console.log('[fetchAllClients]', res);
+        return res;
+      })
+    );
   }
 
-  public fetchCustomerByAlias(alias: string): Observable<Customer> {
-    let url: string = `${this.resourceUrl}/customers/u/${alias}`;
-
-    return this.httpClient.get<Customer>(url, {headers: this.httpHeaders})
-  }
+  /**
+   * Buscar cliente por ID
+   */
+  // public fetchCustomerById(id: number): Observable<Customer> {
+  //   let url: string = `${this.resourceUrl}/customers/${id}`;
+  //
+  //   return this.httpClient.get<Customer>(url, {headers: this.httpHeaders})
+  // }
+  //
+  /**
+   * Buscar cliente por alias
+   */
+  // public fetchCustomerByAlias(alias: string): Observable<Customer> {
+  //   let url: string = `${this.resourceUrl}/customers/u/${alias}`;
+  //
+  //   return this.httpClient.get<Customer>(url, {headers: this.httpHeaders})
+  // }
 }

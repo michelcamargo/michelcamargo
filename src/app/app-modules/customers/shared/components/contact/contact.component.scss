@@ -15,10 +15,12 @@
 
       .contact__title {
         @include theme.text-heading(theme.$color-text-action, theme.$font-size-medium);
+        margin-bottom: theme.$spacing-small;
       }
 
       .contact__subtitle {
         @include theme.text-body(theme.$color-text-action, theme.$font-size-smaller);
+        margin-bottom: theme.$spacing-medium;
       }
     }
 
@@ -41,6 +43,30 @@
         }
       }
 
+      .form__radioInputGroup {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: theme.$spacing-medium;
+
+        .form__radioContainer {
+          display: flex;
+          flex-direction: row;
+
+          &:not(:last-child) {
+            margin-bottom: theme.$spacing-small;
+          }
+
+          .form__radioElement {
+            margin-top: 1px;
+            margin-right: theme.$spacing-small;
+          }
+        }
+      }
+
+
+
+      .form__textAreaContainer {}
+
       .form__contactDisclaimer {
         .form__contactDisclaimerText {
           font-size: theme.$font-size-smallest;
@@ -49,6 +75,7 @@
 
       .form__submitButton {
         @include theme.button-action(theme.$color-action-primary, theme.$color-text-primary__inverted, theme.$font-size-small);
+        width: 100%;
       }
 
       .form__logUsersButton {

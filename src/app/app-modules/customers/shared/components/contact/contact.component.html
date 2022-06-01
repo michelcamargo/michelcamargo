@@ -43,10 +43,7 @@
           placeholder="Seu melhor email"
         />
       </label>
-      <label class="form__inputContainer">
-          <span class="form__inputLabel">
-            Mensagem
-          </span>
+      <label class="form__inputContainer form__textAreaContainer">
         <textarea
           class="form__inputElement"
           name="message"
@@ -55,34 +52,44 @@
           placeholder="Escreva uma mensagem legal"
         ></textarea>
       </label>
-      <label class="form__inputContainer">
+      <div class="form__radioInputGroup">
+        <label class="form__inputContainer form__radioContainer">
+          <input
+            class="form__inputElement form__radioElement"
+            name="intention"
+            type="radio"
+            [(ngModel)]="customerFormData.intention"
+            [value]="0"
+          />
           <span class="form__inputLabel">
-            Mensagem
+            valor 0
           </span>
-        <input
-          class="form__inputElement"
-          name="intention"
-          type="radio"
-          [(ngModel)]="customerFormData.intention"
-          [value]="0"
-        />
-
-        <input
-          class="form__inputElement"
-          name="intention"
-          type="radio"
-          [(ngModel)]="customerFormData.intention"
-          [value]="1"
-        />
-
-        <input
-          class="form__inputElement"
-          name="intention"
-          type="radio"
-          [(ngModel)]="customerFormData.intention"
-          [value]="2"
-        />
-      </label>
+        </label>
+        <label class="form__inputContainer form__radioContainer">
+          <input
+            class="form__inputElement form__radioElement"
+            name="intention"
+            type="radio"
+            [(ngModel)]="customerFormData.intention"
+            [value]="1"
+          />
+          <span class="form__inputLabel">
+            valor 1
+          </span>
+        </label>
+        <label class="form__inputContainer form__radioContainer">
+          <input
+            class="form__inputElement form__radioElement"
+            name="intention"
+            type="radio"
+            [(ngModel)]="customerFormData.intention"
+            [value]="2"
+          />
+          <span class="form__inputLabel">
+            valor 2
+          </span>
+        </label>
+      </div>
 
       <button class="form__submitButton" (click)="submitFormHandler()">
         Enviar
@@ -93,10 +100,6 @@
           Não enviamos spam ou compartilhamos suas informações com terceiros :)
         </span>
       </p>
-
-      <button class="form__logUsersButton" (click)="getAllCustomers()">
-        Log users
-      </button>
     </form>
   </aside>
 </div>

@@ -32,51 +32,50 @@ export class ContactComponent implements OnInit {
    * Trata informações do formulário para envio
    */
   public submitFormHandler() {
-    // this.customerService.submitForm(this.customerFormData);
+    this.customerService.submitCustomer(this.customerFormData);
   }
 
-  /**
-   * Busca usuários
-   */
-  public getAllCustomers() {
-    this.customerService.fetchAllCustomers().subscribe({
-      next: (customers) => {
-        console.log('[FetchAllCustomers]', customers);
-        customers && (this.customerList = customers);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    });
-  }
+  // /**
+  //  * Busca usuário por ID
+  //  * @param id usuário a buscar
+  //  */
+  // public getCustomerById(id: number) {
+  //   this.customerService.fetchCustomerById(id).subscribe({
+  //     next: (customer) => {
+  //       console.log("get users:", customer, "type:", typeof customer);
+  //       customer && this.customerList.push(customer);
+  //     },
+  //     error: (error) => {
+  //       console.log(error);
+  //     }
+  //   });
+  // }
+  //
+  // public getCustomerByAlias(alias: string) {
+  //   this.customerService.fetchCustomerByAlias(alias).subscribe({
+  //     next: (customer) => {
+  //       console.log('[getCustomerByAlias]', customer);
+  //       customer && this.customerList.push(<Customer>customer);
+  //     },
+  //     error: (error) => {
+  //       console.log(console.log('[getCustomerByAlias]' ,error));
+  //     }
+  //   });
+  // }
 
-
-  /**
-   * Busca usuário por ID
-   * @param id usuário a buscar
-   */
-  public getCustomerById(id: number) {
-    this.customerService.fetchCustomerById(id).subscribe({
-      next: (customer) => {
-        console.log("get users:", customer, "type:", typeof customer);
-        customer && this.customerList.push(customer);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
-  }
-
-  public getCustomerByAlias(alias: string) {
-    this.customerService.fetchCustomerByAlias(alias).subscribe({
-      next: (customer) => {
-        console.log('[getCustomerByAlias]', customer);
-        customer && this.customerList.push(<Customer>customer);
-      },
-      error: (error) => {
-        console.log(console.log('[getCustomerByAlias]' ,error));
-      }
-    });
-  }
+  // /**
+  //  * Busca clientes
+  //  */
+  // public getAllCustomers() {
+  //   this.customerService.fetchAllCustomers().subscribe({
+  //     next: (customers) => {
+  //       console.log('[FetchAllCustomers]', customers);
+  //       // customers && (this.customerList = customers);
+  //     },
+  //     error: (err) => {
+  //       console.log(err);
+  //     }
+  //   });
+  // }
 
 }
