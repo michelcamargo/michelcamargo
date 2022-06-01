@@ -1,12 +1,23 @@
+// export type CustomContent = {
+//   _id: number,
+//   title: string,
+//   groupName: string,
+//   link?: string,
+//   isExternal: boolean,
+//   text?: string,
+//   imgSrc?: string,
+//   imgSrcMobile?: string
+// }
+
 export type CustomContent = {
   _id: number,
   title: string,
-  groupName: string,
+  group_name: string,
   link?: string,
-  isExternal: boolean,
+  is_external: boolean,
   text?: string,
-  imgSrc?: string,
-  imgSrcMobile?: string
+  img_src?: string,
+  img_src_mobile?: string
 }
 
 export type Asset = {

@@ -1,17 +1,17 @@
 <div class="social__wrapper">
   <ng-container *ngIf="!isLoading; else skeleton">
     <ul class="social__linkList">
-      <li class="social__listItem" *ngFor="let content of socialLinks">
+      <li class="social__listItem social__listItem" [ngClass]="'social__listItem--' + content.title" *ngFor="let content of socialLinks">
         <ng-container *ngIf="(content.link && content.link !== '#'); else noLink">
-          <a class="social__linkElement social__element" [href]="content.link" [target]="content.isExternal ? '_blank' : ''">
-            <img class="social__icon" [src]="content.imgSrc" [alt]="content.title" />
-            {{ content.text }}
+          <a class="social__linkElement social__element" [ngClass]="'social__linkElement--' + content.title" [href]=content.link [target]="content.is_external ? '_blank' : ''">
+            <img class="social__icon" [src]=content.img_src [alt]=content.title [ngStyle]="{'height.px': socialIconSize}" />
+            <span class="social__label">{{ content.text }}</span>
           </a>
         </ng-container>
         <ng-template #noLink>
           <div class="social__element">
-            <img class="social__icon" [src]="content.imgSrc" [alt]="content.title" />
-            {{ content.text }}
+            <img class="social__icon" [src]=content.img_src [alt]=content.title [ngStyle]="{'height.px': socialIconSize}" />
+            <span class="social__label">{{ content.text }}</span>
           </div>
         </ng-template>
       </li>

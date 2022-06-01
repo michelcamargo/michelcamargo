@@ -47,7 +47,8 @@
  * @param {string} $fontSize
  */
 @mixin minicard($bgColor, $textColor, $fontSize) {
-  padding: constants.$spacing-small;
+  display: block;
+  padding: .5rem .75rem;
   font-size: $fontSize;
   width: fit-content;
   color: $textColor;
@@ -56,12 +57,15 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
   border-radius: constants.$border-radius-small;
   transition: constants.$transition-in;
+  text-decoration: none;
 
   &:hover {
     background: $bgColor;
     box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
     opacity: 1;
   }
+
+  &:focus, &:focus-visible {}
 
   &:active {
     background: darken($bgColor, 2%);

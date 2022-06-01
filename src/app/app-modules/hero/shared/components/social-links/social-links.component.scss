@@ -11,13 +11,37 @@
       font-size: theme.$font-size-small;
       text-decoration: none;
 
+      &:not(&:last-child) {
+        margin-right: theme.$spacing-medium;
+      }
+
       .social__element {
         @include theme.minicard(#FFFFFF, theme.$color-text-action, theme.$font-size-small);
 
         .social__icon {
-          max-width: 32px;
-          height: auto;
+          // inline styles
+          margin-right: theme.$spacing-small;
         }
+
+        .social__label {
+          display: inline-block;
+          font-size: 16px;
+          font-weight: 500;
+          text-decoration: none;
+          transform: translateY(3px);
+          color: theme.$color-action-primary;
+
+          transition: theme.$transition-in;
+
+          &:hover {}
+          &:focus {}
+          &:focus-visible {}
+          &:active {}
+        }
+      }
+
+      .social__element {
+
       }
     }
   }

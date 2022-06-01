@@ -3,4 +3,17 @@
 .work-view__wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+
+  .work-view__leftElement {
+    position: relative;
+    display: flex;
+    width: 30%;
+  }
+
+  .work-view__rightElement {
+    position: relative;
+    display: flex;
+    width: 70%;
+  }
 }

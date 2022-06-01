@@ -33,8 +33,8 @@ export class HeaderComponent implements OnInit {
       next: (content) => {
         this.headerNavigation = content;
       },
-      error: (err) => {
-        console.log(err);
+      error: (error) => {
+        console.log('[setHeaderContent] error:', error);
       }
     });
 
@@ -42,8 +42,8 @@ export class HeaderComponent implements OnInit {
       next: (content) => {
         this.headerButtons = content;
       },
-      error: (err) => {
-        console.log(err);
+      error: (error) => {
+        console.log('[setHeaderContent] error:', error);
       }
     });
   }

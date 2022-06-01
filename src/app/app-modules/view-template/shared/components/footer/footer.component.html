@@ -4,16 +4,16 @@
       <ul class="footer__menuList" *ngFor="let menu of footerContent">
         <li class="footer__menuItem" *ngFor="let item of menu">
           <ng-container *ngIf="item.link && item.link != '#'; else noLink">
-            <a class="footer__menuLink link" href="{{item.link}}" target="{{item.isExternal && '_blank'}}">
-              <ng-container *ngIf="item.imgSrc">
-                <img class="footer__menuIcon" alt="{{item.text}}" src="{{item.imgSrc}}" />
+            <a class="footer__menuLink link" href="{{item.link}}" target="{{item.is_external && '_blank'}}">
+              <ng-container *ngIf="item.img_src">
+                <img class="footer__menuIcon" alt="{{item.text}}" src="{{item.img_src}}" />
               </ng-container>
               {{item.text}}
             </a>
           </ng-container>
           <ng-template #noLink>
-            <ng-container *ngIf="item.imgSrc">
-              <img class="footer__menuIcon" alt="{{item.text}}" src="{{item.imgSrc}}" />
+            <ng-container *ngIf="item.img_src">
+              <img class="footer__menuIcon" alt="{{item.text}}" src="{{item.img_src}}" />
             </ng-container>
             {{item.text}}
           </ng-template>

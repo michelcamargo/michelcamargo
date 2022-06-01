@@ -34,7 +34,6 @@ export class PresentationComponent implements OnInit {
 
   ngOnInit(): void {
     this.setHeroPresentation();
-    console.log(this.presentation);
   }
 
   /**
@@ -49,7 +48,7 @@ export class PresentationComponent implements OnInit {
         this.presentation.headtitle = customContent.text;
       },
       error: (error) => {
-        console.log(error);
+        console.log('[hero-title] error:', error);
         this.isLoading = false;
         this.hasError = true;
       },
@@ -63,7 +62,7 @@ export class PresentationComponent implements OnInit {
         this.presentation.subtitle = customContent.text;
       },
       error: (error) => {
-        console.log(error);
+        console.log('[hero-title] error:', error);
         this.isLoading = false;
         this.hasError = true;
       },
@@ -77,7 +76,7 @@ export class PresentationComponent implements OnInit {
         this.presentation.description = customContent.text;
       },
       error: (error) => {
-        console.log(error);
+        console.log('[hero-title] error:', error);
         this.isLoading = false;
         this.hasError = true;
       },

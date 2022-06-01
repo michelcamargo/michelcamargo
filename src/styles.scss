@@ -2,7 +2,15 @@
 
 body {
   height: 100vh;
-  //background: $color-background-primary;
+}
+
+main {
+  height: 100vh;
+}
+
+.view {
+  height: 100%;
+  @include light-background-asset;
 }
 
 .container {

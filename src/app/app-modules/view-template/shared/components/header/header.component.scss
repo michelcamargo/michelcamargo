@@ -4,7 +4,7 @@
   width: 100%;
   display: flex;
   background: theme.$color-background-secondary;
-  height: 64px;
+  height: theme.$header-height;
 
   .header__container {
     display: flex;

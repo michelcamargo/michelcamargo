@@ -43,7 +43,7 @@ export class CustomerService {
 
     return this.httpClient.get<Array<Customer>>(url, {headers: this.httpHeaders}).pipe(
       map(res => {
-        console.log('[fetchAllClients]', res);
+        // console.log('[fetchAllClients]', res);
         return res;
       })
     );

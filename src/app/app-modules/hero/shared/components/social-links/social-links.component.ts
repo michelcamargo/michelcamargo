@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomContent } from "../../../../view-template/shared/types/content";
-import {TemplateService} from "../../../../view-template/shared/services/template.service";
+import { TemplateService } from "../../../../view-template/shared/services/template.service";
 
 @Component({
   selector: 'app-social-links',
@@ -23,30 +23,37 @@ export class SocialLinksComponent implements OnInit {
    */
   public isLoading: boolean;
 
+  /**
+   * Largura dos ícones
+   */
+  public socialIconSize: string;
+
   constructor(
     private readonly templateService: TemplateService
   ) {
     this.isLoading = false;
     this.hasError = false;
+    this.socialIconSize = '32';
   }
 
   ngOnInit(): void {
-    this.setSocialLinks();
+    this.setSocialLinks(this.socialIconSize);
   }
 
   /**
    * Define links do painel social
    * @private
+   *
    */
-  private setSocialLinks(): void {
+  private setSocialLinks(width: string): void {
+    this.socialIconSize = width;
     this.isLoading = true;
     this.templateService.fetchContentGroup('social_links').subscribe({
       next: (customContent) => {
         this.socialLinks = customContent;
-        console.log(this.socialLinks);
       },
       error: (error) => {
-        console.log(error);
+        console.log('[setSocialLinks] error:', error);
         this.isLoading = false;
         this.hasError = true;
       },

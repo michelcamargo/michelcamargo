@@ -1,7 +1,7 @@
 @use "src/theme";
 
 .home__wrapper {
-  @include theme.light-background-asset;
+  height: 100%;
 
   .home__container {
     display: flex;

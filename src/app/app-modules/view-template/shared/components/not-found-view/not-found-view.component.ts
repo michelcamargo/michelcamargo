@@ -5,7 +5,10 @@ import {take} from "rxjs";
 @Component({
   selector: 'app-not-found-view',
   templateUrl: './not-found-view.component.html',
-  styleUrls: ['./not-found-view.component.scss']
+  styleUrls: ['./not-found-view.component.scss'],
+  host: {
+    class: 'view'
+  }
 })
 export class NotFoundViewComponent implements OnInit {
 

@@ -32,7 +32,7 @@ export class CustomersPanelComponent implements OnInit {
         alert(error);
       },
       complete: () => {
-        console.log('customers fetched');
+        // console.log('customers fetched');
       }
     });
   }

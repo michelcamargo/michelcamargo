@@ -1,4 +1,7 @@
+@use "src/theme";
+
 #root {
-  display: block;
+  display: flex;
   flex-direction: column;
+  height: calc(100vh - #{theme.$header-height});
 }

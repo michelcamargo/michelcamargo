@@ -2,11 +2,7 @@
 
 .contact__wrapper {
   padding: 0;
-  width: fit-content;
-
-  @media screen and (min-width: 768px) {
-    max-width: 30%;
-  }
+  width: 100%;
 
   .contact__container {
     position: relative;
