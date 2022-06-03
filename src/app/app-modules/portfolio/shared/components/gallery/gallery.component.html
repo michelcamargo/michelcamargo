@@ -1,18 +1,32 @@
 <div class="portfolio__wrapper">
-<!--  <div *ngFor="let portfolio of workGallery">-->
-<!--    <div>-->
-<!--      <picture *ngFor="let picture of portfolio.imageArray">-->
-<!--        <source media="(max-width: 768px)" [srcset]="picture.lowUrl">-->
-<!--        <img [src]="picture.url" [alt]="picture.alt">-->
-<!--      </picture>-->
-<!--    </div>-->
-<!--    <div>-->
-      <div class="portfolio__headingContainer" >
-        <h6 class="portfolio__title">
-<!--          {{portfolio.title}}-->
-          teste
-        </h6>
+  <h3 class="portfolio__headTitle">
+    Projetos em que participei
+  </h3>
+
+  <a *ngFor="let portfolio of career" class="portfolio__experience" [href]="portfolio.link" target="_blank">
+    <div class="experience__gallery">
+      <img class="experience__galleryItem" [src]="'#'" [alt]="portfolio.heading">
+<!--      <img class="experience__galleryItem" [src]="portfolio.src" [alt]="portfolio.heading">-->
+<!--      <img class="experience__galleryItem" [src]="portfolio.src" [alt]="portfolio.heading">-->
+<!--      <img class="experience__galleryItem" [src]="portfolio.src" [alt]="portfolio.heading">-->
+    </div>
+    <div class="experience__summary">
+      <h5 class="experience__title">
+        {{portfolio.heading}}
+      </h5>
+      <h6 class="experience__subtitle">
+        {{portfolio.subheading}}
+      </h6>
+      <div class="experience__contentContainer">
+        <p class="experience__contentDescription">
+          {{portfolio.description}}
+        </p>
       </div>
-<!--</div>&ndash;&gt;-->
-<!--  </div>-->
+      <a class="experience__linkElement">
+        <button class="experience__btnVisit">
+          Confira online
+        </button>
+      </a>
+    </div>
+  </a>
 </div>

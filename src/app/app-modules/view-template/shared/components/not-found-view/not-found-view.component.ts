@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Route, Router} from "@angular/router";
-import {take} from "rxjs";
+import { ActivatedRoute } from "@angular/router";
+import { take } from "rxjs";
 
 @Component({
   selector: 'app-not-found-view',

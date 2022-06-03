@@ -1,9 +1,62 @@
 @use "src/theme";
 
 .portfolio__wrapper {
-  //@include theme.light-background-asset();
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: theme.$spacing-larger;
+  margin-bottom: theme.$spacing-larger;
 
-  @media screen and (min-width: 768px) {
-    max-width: 70%;
+  .portfolio__experience {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
+
+    transition: theme.$transition-in;
+
+    &:not(&:last-child) {
+      margin-bottom: theme.$spacing-medium;
+    }
+
+    .experience__gallery {
+      width: 69%;
+
+      .experience__galleryItem {}
+    }
+
+    .experience__summary {
+      background: theme.$color-background-secondary;
+      width: 29%;
+      padding: theme.$spacing-medium;
+      border-radius: theme.$border-radius-small;
+
+      .experience__title {
+        font-size: theme.$font-size-medium;
+      }
+
+      .experience__subtitle {
+        font-size: theme.$font-size-small;
+      }
+
+      .experience__contentContainer {
+        .experience__contentDescription {
+          font-size: theme.$font-size-smaller;
+        }
+      }
+
+      .experience__linkElement {
+        .experience__btnVisit {
+          @include theme.button-action(theme.$color-action-accent, theme.$color-text-primary__inverted, theme.$font-size-small);
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .portfolio__headTitle {
+    font-size: theme.$font-size-large;
+    margin-bottom: theme.$spacing-small;
   }
 }
