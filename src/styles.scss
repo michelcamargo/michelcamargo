@@ -59,4 +59,33 @@ main {
   padding-bottom: $spacing-largest;
 }
 
-@import '~bootstrap/scss/bootstrap';
+/** region BOOTSTRAP */
+//@import '~bootstrap/scss/bootstrap'; // Bootstrap completo
+
+// Funções
+@import "../node_modules/bootstrap/scss/functions";
+
+// Customização
+$primary: #006A82;
+$secondary: #4DBE97;
+$body-font-family: 'Sora', 'Verdana', sans-serif;
+$body-font-size: 1rem;
+$body-font-weight: 400;
+$body-line-height: 1.5;
+$body-color: #212529;
+$body-bg: #fff;
+
+// Bootstrap base
+@import "../node_modules/bootstrap/scss/variables";
+//@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+
+// Pacotes opcionais
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/helpers";
+//@import "../node_modules/bootstrap/scss/utilities/api";
+/** endregion */
