@@ -7,7 +7,7 @@ export default function ClientLayout({ children }) {
     return (
       <html lang="en">
         <body>
-          <h2>Layout root</h2>
+          {'root'}
           {children}
         </body>
       </html>
@@ -17,7 +17,7 @@ export default function ClientLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
-        <h2>Layout root (ptbr)</h2>
+        {'root'}
         {children}
       </body>
     </html>

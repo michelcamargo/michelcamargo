@@ -1,4 +1,4 @@
-import ClientLayout from "@/layouts/sign-in.layout";
+import ClientLayout from "@/layouts/auth-user.layout";
 
 export default function Layout({ children }) {
   return (
