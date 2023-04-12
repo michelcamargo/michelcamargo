@@ -1,6 +1,6 @@
 'use client';
 import { ReactNode } from "react";
-import styles from './page.module.scss';
+import styles from './Root.module.scss';
 
 interface Props {
   children: ReactNode

@@ -40,3 +40,4 @@ next-env.d.ts
 
 # Variáveis de ambiente
 .env
+/.vscode/settings.json

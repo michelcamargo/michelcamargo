@@ -1,6 +1,6 @@
 'use client';
 
-export default function ClientLayout({ children }) {
+export default function ClientRootLayout({ children }) {
   const lang = 'PTBR';
   
   if (lang !== 'PTBR') {
@@ -17,7 +17,6 @@ export default function ClientLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body>
-        {'root'}
         {children}
       </body>
     </html>

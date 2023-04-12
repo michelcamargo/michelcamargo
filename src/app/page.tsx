@@ -1,6 +1,5 @@
-// import Image from 'next/image'
 // import { Inter } from 'next/font/google'
-import styles from './page.module.scss'
+import styles from './Root.module.scss'
 import Link from "next/link";
 import PreAuthentication from "@/components/pre-auth";
 

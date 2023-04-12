@@ -1,5 +1,6 @@
 export default function Loading() {
+  // skeleton
   return (
-    <h4>Carregando</h4>
+    <p>Carregando</p>
   )
 }

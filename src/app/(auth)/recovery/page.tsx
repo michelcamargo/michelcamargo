@@ -1,11 +1,11 @@
 import styles from './SignIn.module.scss';
 
-const AuthSignIn = () => {
+const AuthRecoveryPage = () => {
   return (
     <div className={styles.signIn_content}>
-      Entrar
+      <p>Recuperar senha</p>
     </div>
   )
 }
 
-export default AuthSignIn;
+export default AuthRecoveryPage;

@@ -12,10 +12,10 @@ const PreAuthentication = ({children}: Props) => {
     <div className={styles.preAuth_content}>
       <div className={styles.preAuth_boxes}>
         <div>
-          <Link href={'/sign-in'}>Login</Link>
+          <Link href={'/auth/sign-in'}>Login</Link>
         </div>
         <div>
-          <Link href={'/sign-up'}>Registro</Link>
+          <Link href={'/auth/sign-up'}>Registro</Link>
         </div>
       </div>
     </div>
