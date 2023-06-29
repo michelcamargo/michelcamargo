@@ -1,0 +1,26 @@
+.container {
+  background: blue;
+}
+
+.page_wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .page_content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .session_container {
+      position: relative;
+      width: 100%;
+      max-width: 1130px;
+      background: #202020;
+    }
+  }
+}
+
