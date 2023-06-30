@@ -1,4 +1,4 @@
-import DefaultHeader from "@/components/DefaultHeader";
+import { DefaultHeader } from "@/components/HeaderComponent";
 import Styled from './styles';
 import useDatahooks from "@/hooks/useDatahooks";
 import LoadingFeedback from "@/components/LoadingFeedback";
@@ -21,7 +21,9 @@ export default function Layout({ children }) {
   return (
     <Styled.PageLayout>
       <DefaultHeader dataHooks={dataHooks.header}/>
-      <main>{children}</main>
+      <Styled.BodyContainer>
+        <Styled.BodyContent>{children}</Styled.BodyContent>
+      </Styled.BodyContainer>
     </Styled.PageLayout>
   );
 }

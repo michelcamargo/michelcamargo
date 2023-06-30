@@ -1,4 +1,4 @@
-// eslint-disable-next-line import/no-cycle
+import "@/styles/globals.css";
 import AppProviders from "@/components/AppProviders";
 import NextConfig from '@/configs/next.env';
 import {NavbarHeightContextProvider} from "@/components/NavbarHeightContext";
