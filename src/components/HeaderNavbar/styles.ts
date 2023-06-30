@@ -1,4 +1,4 @@
-import {styled} from "@mui/material";
+import { styled } from "@mui/material";
 import Link from "next/link";
 
 const Navbar = styled('nav')`

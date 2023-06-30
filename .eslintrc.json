@@ -1,6 +1,8 @@
 {
   "extends": [
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "globals": {
     "arguments": false,
@@ -19,6 +21,14 @@
   "settings": {
 
   },
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "eslint-plugin-import-helpers",
+    "react-hooks",
+    "react-perf"
+  ],
   "rules": {
     "indent": [
       "error",
@@ -45,6 +55,8 @@
         "classes": "always"
       }
     ],
+    "object-curly-spacing": ["error", "always"],
+    "@typescript-eslint/object-curly-spacing": ["error", "always"],
     "no-lonely-if": "off",
     "global-require": "off",
     "arrow-body-style": "off",
@@ -77,6 +89,28 @@
     "import/no-anonymous-default-export": "off",
     "import/no-useless-path-segments": "off",
     "import/prefer-default-export": "off",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          [
+            "/^react$/"
+          ],
+          "module",
+          "/^~/",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ],
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
     "react/forbid-prop-types": "off",

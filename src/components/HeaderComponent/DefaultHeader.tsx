@@ -1,9 +1,11 @@
 import React from 'react';
-import Styled from './styles';
-import { HeaderData } from "@/lib/datahooks";
-import HeaderNavbar from '@/components/HeaderNavbar';
-import HeaderTopBanner from "./HeaderTopBanner";
+
 import BrandLogo from "@/components/BrandLogo";
+import HeaderNavbar from '@/components/HeaderNavbar';
+import { HeaderData } from "@/lib/datahooks";
+
+import HeaderTopBanner from "./HeaderTopBanner";
+import Styled from './styles';
 
 interface Props {
   dataHooks?: HeaderData,

@@ -1,10 +1,10 @@
-import {CircularProgress} from "@mui/material";
+import { CircularProgress } from "@mui/material";
 
 interface Props {
   minimal?: boolean
 }
 
-const LoadingFeedback = ({minimal}: Props) => {
+const LoadingFeedback = ({ minimal }: Props) => {
   
   return (
     <CircularProgress />

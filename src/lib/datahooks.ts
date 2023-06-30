@@ -1,4 +1,4 @@
-import {CustomBannerData, CustomContent} from "@/lib/custom-content";
+import { CustomBannerData, CustomContent } from "@/lib/custom-content";
 
 export type PageData = {
   head: {

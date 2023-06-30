@@ -1,17 +1,18 @@
-import "@/styles/globals.css";
+import { ReactElement, ReactNode } from "react";
+
 import AppProviders from "@/components/AppProviders";
-import NextConfig from '@/configs/next.env';
-import {NavbarHeightContextProvider} from "@/components/NavbarHeightContext";
-import {ToastContainer} from "react-toastify";
 import CookiesPopup from "@/components/CookiesPopup";
+import { NavbarHeightContextProvider } from "@/components/NavbarHeightContext";
+import NextConfig from '@/configs/next.env';
 import CustomPageHead from "@/pages/_head";
-import {AppProps} from "next/app";
-import {ReactElement, ReactNode} from "react";
-import {NextPage} from "next";
+import { NextPage } from "next";
+import { AppProps } from "next/app";
+import { ToastContainer } from "react-toastify";
+import "@/styles/globals.css";
 
 const isProd = NextConfig.ENV === 'production';
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = NonNullable<unknown>, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 

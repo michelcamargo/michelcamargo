@@ -2,6 +2,7 @@ import { createContext, useMemo, useState } from 'react';
 
 const NavbarHeightContext = createContext({
   navbarHeight: 0,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setNavbarHeight: () => {},
 });
 

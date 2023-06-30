@@ -3,9 +3,9 @@ import { Swiper } from "swiper";
 type CarouselConfig = {
   spaceBetween: number,
   slidesPerView: number,
-  onSlideChange?: (event: Event) => any,
-  onSwiper?: (swiper: Swiper) => any,
-  onSelect?: (event: Event) => any,
+  onSlideChange?: (event: Event) => never,
+  onSwiper?: (swiper: Swiper) => never,
+  onSelect?: (event: Event) => never,
 }
 
 export {

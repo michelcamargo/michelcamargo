@@ -1,6 +1,6 @@
 const DefaultErrorComponent = () => {
   return (
-    <p>ERROR</p>
+    <p>DEFAULT ERROR COMPONENT</p>
   );
 };
 

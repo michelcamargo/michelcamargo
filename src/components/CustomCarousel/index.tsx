@@ -1,11 +1,12 @@
 import React, { ReactElement } from 'react';
+
+import { CarouselConfig } from "@/components/CustomCarousel/types";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { CarouselConfig } from "@/components/CustomCarousel/types";
 
 interface Props {
   items: Array<ReactElement>,
@@ -18,14 +19,14 @@ const DEFAULT_CFG: CarouselConfig = {
   slidesPerView: 3,
 };
 
-const CustomCarousel = ({items, config = DEFAULT_CFG}: Props) => {
+const CustomCarousel = ({ items, config = DEFAULT_CFG }: Props) => {
   const {
     spaceBetween, slidesPerView, onSlideChange, onSwiper, onSelect
   } = config;
   
   return (
     <Swiper
-      style={{display: 'flex'}}
+      style={{ display: 'flex' }}
       modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
@@ -37,7 +38,7 @@ const CustomCarousel = ({items, config = DEFAULT_CFG}: Props) => {
     >
       {items.map((item, index) => (
         <SwiperSlide key={index}
-          style={{border: '1px solid grey', display: 'flex', justifyContent: 'center'}}
+          style={{ border: '1px solid grey', display: 'flex', justifyContent: 'center' }}
           title={'teste'}
           onSelect={onSelect}
         >
