@@ -5,10 +5,23 @@ import {NavbarHeightContextProvider} from "@/components/NavbarHeightContext";
 import {ToastContainer} from "react-toastify";
 import CookiesPopup from "@/components/CookiesPopup";
 import CustomPageHead from "@/pages/_head";
+import {AppProps} from "next/app";
+import {ReactElement, ReactNode} from "react";
+import {NextPage} from "next";
 
 const isProd = NextConfig.ENV === 'production';
 
-export default function App({ Component, pageProps }) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+}
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+}
+
+const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? (page => page);
+  
   return (
     <AppProviders>
       <CustomPageHead title="Michel Camargo - Portfolio" isProd={isProd} />
@@ -18,9 +31,11 @@ export default function App({ Component, pageProps }) {
         position="top-center"
       />
       <NavbarHeightContextProvider>
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
       </NavbarHeightContextProvider>
       <CookiesPopup />
     </AppProviders>
   );
-}
+};
+
+export default App;

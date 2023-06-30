@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "babel-plugin-root-import": "^6.6.0",
-    "eslint-config-next": "^13.4.7"
+    "eslint-config-next": "^13.4.7",
+    "swr": "^2.2.0"
   }
 }

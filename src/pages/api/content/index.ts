@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PageData } from "@/lib/page";
+import { PageData } from "@/lib/datahooks";
 import staticHomeContent from '@/domains/HomePage/static-content';
 
 export default function handler(
