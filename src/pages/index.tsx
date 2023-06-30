@@ -1,8 +1,8 @@
-import HomePage from "@/domains/HomePage";
-// import fetchHeaderContent from "@/services/header-service";
-import ContentService from "@/services/content.service";
-import {ReactElement} from "react";
+import { ReactElement } from "react";
+
 import Layout from "@/components/layout";
+import HomePage from "@/domains/HomePage";
+import ContentService from "@/services/content.service";
 
 const fetchHomepageContent = async (language?: string) => {
   try {

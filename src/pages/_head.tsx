@@ -9,7 +9,7 @@ interface Props {
   isProd?: boolean,
 }
 
-const CustomPageHead = ({title, description, isProd}: Props) => {
+const CustomPageHead = ({ title, description, isProd }: Props) => {
   
   return (
     <Head>

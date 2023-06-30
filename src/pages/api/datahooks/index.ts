@@ -1,5 +1,5 @@
-import {NextApiRequest, NextApiResponse} from "next";
 import staticDatahooks from "@/pages/api/datahooks/static-datahooks";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(
   req: NextApiRequest,

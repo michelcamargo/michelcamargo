@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { PageData } from "@/lib/datahooks";
 import staticHomeContent from '@/domains/HomePage/static-content';
+import { PageData } from "@/lib/datahooks";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(
   req: NextApiRequest,

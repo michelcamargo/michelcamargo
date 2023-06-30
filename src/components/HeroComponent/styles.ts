@@ -1,7 +1,8 @@
 import { styled } from "@mui/material";
 
 const HeroAuthor = styled('h1')`
-
+  font-size: 32px;
+  
 `;
 
 const HeroContainer = styled('div')`
@@ -21,7 +22,9 @@ const HeroAuthorLastname = styled('span')`
 `;
 
 const HeroDescription = styled('h2')`
-
+  display: flex;
+  position: relative;
+  font-size: 42px;
 `;
 
 const HeroDescriptionText = styled('span')`

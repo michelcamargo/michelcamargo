@@ -1,11 +1,12 @@
+import { CustomBannerData } from "@/lib/custom-content";
+
 import Styled from './styles';
-import {CustomBannerData} from "@/lib/custom-content";
 
 interface Props {
   data: CustomBannerData
 }
 
-const HeaderTopBanner = ({data}: Props) => {
+const HeaderTopBanner = ({ data }: Props) => {
   return (
     <Styled.HeaderTopBannerWrapper>
       <Styled.HeaderTopBannerContainer>

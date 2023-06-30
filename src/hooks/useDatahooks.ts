@@ -1,5 +1,5 @@
-import useSWR from "swr";
 import fetcher from "@/helpers/fetcher";
+import useSWR from "swr";
 
 export default function useDatahooks (key?: string) {
   const fetchUrl = key ? `/api/datahooks/${key}` : '/api/datahooks';

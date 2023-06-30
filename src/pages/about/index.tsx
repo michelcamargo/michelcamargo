@@ -1,7 +1,8 @@
+import { ReactElement } from "react";
+
+import Layout from "@/components/layout";
 import NextConfig from "@/configs/next.env";
 import AboutPage from "@/domains/About";
-import {ReactElement} from "react";
-import Layout from "@/components/layout";
 
 async function fetchAboutContent(language?: string) {
   const langQuery = language ? `?lang=${language}` : '';

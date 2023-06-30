@@ -1,11 +1,10 @@
 import React from 'react';
 
+import ButtonLink from "@/components/ButtonLink";
+import NextConfig from '@/configs/next.env';
 import CookieConsent from 'react-cookie-consent';
 
-import NextConfig from '@/configs/next.env';
-
 import Styled from './styles';
-import ButtonLink from "@/components/ButtonLink";
 
 const CookiesPopup = () => {
   const infoText = 'Nosso site usa alguns cookies e registra seu endereço IP para fins de acessibilidade, ' +

@@ -1,7 +1,9 @@
 import React from 'react';
-import Styled from "./styles";
-import {getContentArray, getCustomContentByKey} from "@/helpers/content-handler";
+
 import LoadingFeedback from "@/components/LoadingFeedback";
+import { getContentArray, getCustomContentByKey } from "@/helpers/content-handler";
+
+import Styled from "./styles";
 
 const HeroComponent = ({ heroData }) => {
   const authorData = getCustomContentByKey('heading', heroData);
@@ -15,7 +17,7 @@ const HeroComponent = ({ heroData }) => {
       { (author && Array.isArray(author)) ? (
         <Styled.HeroAuthor>
           <Styled.HeroAuthorFirstname>{author[0] + ' '}</Styled.HeroAuthorFirstname>
-          <Styled.HeroAuthorMiddlename>{author[1] + ' '}</Styled.HeroAuthorMiddlename>
+          {/*<Styled.HeroAuthorMiddlename>{author[1] + ' '}</Styled.HeroAuthorMiddlename>*/}
           <Styled.HeroAuthorLastname>{author[2]}</Styled.HeroAuthorLastname>
         </Styled.HeroAuthor>
       ) : (

@@ -1,15 +1,17 @@
-import {ReactElement, useCallback, useState} from "react";
-import { HeaderData, PageData } from "@/lib/datahooks";
-import { getCustomContentByKey } from "@/helpers/content-handler";
+import { ReactElement, useCallback, useState } from "react";
+
 import CustomCarousel from "@/components/CustomCarousel";
-import {Button} from "@mui/material";
-import Styled from './styles';
 import HeroComponent from "@/components/HeroComponent";
+import LoadingFeedback from "@/components/LoadingFeedback";
+import { getCustomContentByKey } from "@/helpers/content-handler";
 import useDidMount from "@/hooks/useDidMount";
 import { CustomContent } from "@/lib/custom-content";
-import LoadingFeedback from "@/components/LoadingFeedback";
+import { HeaderData, PageData } from "@/lib/datahooks";
+import { NextPageWithLayout } from "@/pages/_app";
 import CustomPageHead from "@/pages/_head";
-import {NextPageWithLayout} from "@/pages/_app";
+import { Button } from "@mui/material";
+
+import Styled from './styles';
 
 interface Props {
   pageContent: PageData,
@@ -19,7 +21,7 @@ interface Props {
   }
 }
 
-const HomePage: NextPageWithLayout = ({pageContent}: Props) => {
+const HomePage: NextPageWithLayout = ({ pageContent }: Props) => {
   const { head } = pageContent;
   const [carouselItems, setCarouselItems] = useState<Array<ReactElement>>([]);
   const [heroData, setHeroData] = useState<CustomContent[]>();

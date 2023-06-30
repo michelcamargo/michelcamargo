@@ -1,6 +1,5 @@
-import Axios from 'axios';
-
 import { ResourcesConfig } from '@/configs';
+import Axios from 'axios';
 
 export const createNewApi = (options = undefined) => {
   return Axios.create({

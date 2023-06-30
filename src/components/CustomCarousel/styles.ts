@@ -1,5 +1,5 @@
 import { styled } from "@mui/material";
-import {SwiperSlide} from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import 'swiper/css';
 
 const SlideItem = styled(SwiperSlide)`
