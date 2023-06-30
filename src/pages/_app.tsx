@@ -2,11 +2,13 @@ import { ReactElement, ReactNode } from "react";
 
 import AppProviders from "@/components/AppProviders";
 import CookiesPopup from "@/components/CookiesPopup";
+import CustomAppRootHTML from "@/components/CustomAppRootHTML";
 import { NavbarHeightContextProvider } from "@/components/NavbarHeightContext";
 import NextConfig from '@/configs/next.env';
 import CustomPageHead from "@/pages/_head";
 import { NextPage } from "next";
 import { AppProps } from "next/app";
+import { Lexend } from 'next/font/google';
 import { ToastContainer } from "react-toastify";
 import "@/styles/globals.css";
 
@@ -20,8 +22,21 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout
 }
 
+const lexend = Lexend({ subsets: ['latin'] });
+
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? (page => page);
+  
+  const availableFonts = [
+    {
+      id: 'lead',
+      font: lexend,
+    },
+    {
+      id: 'highlight',
+      font: lexend,
+    }
+  ];
   
   return (
     <AppProviders>
@@ -32,6 +47,8 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         position="top-center"
       />
       <NavbarHeightContextProvider>
+        <CustomAppRootHTML availableFonts={availableFonts} />
+        {/* eslint-disable-next-line react/no-unknown-property */}
         {getLayout(<Component {...pageProps} />)}
       </NavbarHeightContextProvider>
       <CookiesPopup />
