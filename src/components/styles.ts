@@ -1,9 +1,19 @@
-import {styled} from "@mui/material";
+import {Container, styled} from "@mui/material";
 
 const PageLayout = styled('div')`
-  background: red;
+
+`;
+
+const BodyContainer = styled(Container)`
+
+`;
+
+const BodyContent = styled('main')`
+
 `;
 
 export default {
-  PageLayout
+  PageLayout,
+  BodyContainer,
+  BodyContent,
 };
