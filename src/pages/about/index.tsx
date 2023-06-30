@@ -1,6 +1,7 @@
 import NextConfig from "@/configs/next.env";
-import fetchHeaderContent from "@/services/header-service";
 import AboutPage from "@/domains/About";
+import {ReactElement} from "react";
+import Layout from "@/components/layout";
 
 async function fetchAboutContent(language?: string) {
   const langQuery = language ? `?lang=${language}` : '';
@@ -16,19 +17,23 @@ async function fetchAboutContent(language?: string) {
 }
 
 export const getStaticProps = async context => {
-  const [homeContent, headerContent] = await Promise.all([
+  const [homeContent] = await Promise.all([
     fetchAboutContent('pt-BR'),
-    fetchHeaderContent('home', 'pt-BR'),
   ]);
   
   return {
     props: {
       pageContent: homeContent,
-      dataHooks: {
-        header: headerContent
-      }
     }
   };
+};
+
+AboutPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout>
+      {page}
+    </Layout>
+  );
 };
 
 export default AboutPage;

@@ -1,5 +1,5 @@
 import Styled from './styles';
-import {HeaderNavItem} from "@/lib/header";
+import {HeaderNavItem} from "@/lib/datahooks";
 
 interface Props {
   navbarItems: Array<HeaderNavItem>

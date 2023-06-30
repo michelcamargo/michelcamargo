@@ -1,6 +1,5 @@
 import {ReactElement, useCallback, useState} from "react";
-import { PageData } from "@/lib/page";
-import { HeaderData } from "@/lib/header";
+import { HeaderData, PageData } from "@/lib/datahooks";
 import { getCustomContentByKey } from "@/helpers/content-handler";
 import CustomCarousel from "@/components/CustomCarousel";
 import {Button} from "@mui/material";
@@ -10,17 +9,17 @@ import useDidMount from "@/hooks/useDidMount";
 import { CustomContent } from "@/lib/custom-content";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import CustomPageHead from "@/pages/_head";
-import DefaultHeader from "@/components/common-header";
+import {NextPageWithLayout} from "@/pages/_app";
 
 interface Props {
   pageContent: PageData,
-  dataHooks: {
+  dataHooks?: {
     header: HeaderData,
     footer?: any
   }
 }
 
-export default function HomePage({pageContent, dataHooks}: Props) {
+const HomePage: NextPageWithLayout = ({pageContent}: Props) => {
   const { head } = pageContent;
   const [carouselItems, setCarouselItems] = useState<Array<ReactElement>>([]);
   const [heroData, setHeroData] = useState<CustomContent[]>();
@@ -37,16 +36,11 @@ export default function HomePage({pageContent, dataHooks}: Props) {
   };
   
   const hydratePageContent = useCallback(content => {
-    console.log('hidratando page', content);
     const sessionHero = getCustomContentByKey('hero', content);
     
     if (sessionHero && Array.isArray(sessionHero)) {
       setHeroData(sessionHero);
     }
-  }, []);
-  
-  const hydrateTemplate = useCallback(templateData => {
-    console.log('hydrate template', templateData);
   }, []);
   
   const clearItems = () => {
@@ -57,10 +51,6 @@ export default function HomePage({pageContent, dataHooks}: Props) {
     if (sessions) {
       hydratePageContent(sessions);
     }
-    
-    if (dataHooks) {
-      hydrateTemplate(dataHooks);
-    }
   });
   
   if (!sessions) return <LoadingFeedback />;
@@ -68,7 +58,7 @@ export default function HomePage({pageContent, dataHooks}: Props) {
   return (
     <>
       <CustomPageHead title={head.title} description={head.description} />
-      <DefaultHeader navigationItems={dataHooks.header.navigationItems} />
+      {/*<DefaultHeader dataHooks={dataHooks.header} />*/}
       <main className={'page_wrapper'}>
         <div className={'page_content'}>
           <div className={'hero-section'}>
@@ -85,4 +75,6 @@ export default function HomePage({pageContent, dataHooks}: Props) {
       </main>
     </>
   );
-}
+};
+
+export default HomePage;

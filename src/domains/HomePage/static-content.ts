@@ -1,4 +1,4 @@
-import { PageData } from "@/lib/page";
+import { PageData } from "@/lib/datahooks";
 
 const staticContent: PageData = {
   head: {

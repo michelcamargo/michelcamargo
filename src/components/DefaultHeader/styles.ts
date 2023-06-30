@@ -8,23 +8,31 @@ const HeaderWrapper = styled('div')`
 `;
 
 const TopContainer = styled('div')`
-
+  display: flex;
+  flex-direction: row;
+  background: blue;
 `;
 
 const MidContainer = styled('div')`
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const BottomContainer = styled('div')`
-
+  display: flex;
+  flex-direction: row;
 `;
 
 const LeftContainer = styled('div')`
-
+  display: flex;
+  flex-direction: row;
 `;
 
 const RightContainer = styled('div')`
-
+  display: flex;
+  flex-direction: row;
 `;
 
 export default {

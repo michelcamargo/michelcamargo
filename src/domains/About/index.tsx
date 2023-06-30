@@ -1,8 +1,9 @@
 import Head from "next/head";
 import styles from './AboutPage.module.scss';
-import { PageData } from "@/lib/page";
-import { HeaderData } from "@/lib/header";
+import { PageData } from "@/lib/datahooks";
+import { HeaderData } from "@/lib/datahooks";
 import useClassNames from "@/hooks/useClassnames";
+import {NextPageWithLayout} from "@/pages/_app";
 
 interface Props {
   pageContent: PageData,
@@ -12,7 +13,7 @@ interface Props {
   }
 }
 
-export default function AboutPage({pageContent, dataHooks}: Props) {
+const AboutPage: NextPageWithLayout = ({pageContent}: Props) => {
   const { head } = pageContent;
   
   const Metadata = () => (
@@ -45,4 +46,7 @@ export default function AboutPage({pageContent, dataHooks}: Props) {
       </main>
     </>
   );
-}
+};
+
+export default AboutPage;
+
