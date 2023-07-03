@@ -20,7 +20,7 @@ interface Props {
 const HomePage: NextPageWithLayout = ({ pageContent }: Props) => {
   const { head } = pageContent;
   const [carouselItems, setCarouselItems] = useState<Array<ReactElement>>([]);
-  const [heroData, setHeroData] = useState<CustomContent[]>();
+  const [heroData, setHeroData] = useState<CustomContent[]>([]);
   
   const { sessions } = pageContent.body;
   
