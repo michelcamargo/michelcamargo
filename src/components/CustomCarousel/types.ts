@@ -1,3 +1,5 @@
+import { ReactEventHandler } from "react";
+
 import { Swiper } from "swiper";
 
 export type CarouselConfig = {
@@ -5,5 +7,5 @@ export type CarouselConfig = {
   slidesPerView: number,
   onSlideChange?: (swiper: Swiper) => void,
   onSwiper?: (swiper: Swiper) => void,
-  onSelect?: (swiper: Swiper) => void,
+  onSelect?: ReactEventHandler<HTMLElement> | undefined,
 }
