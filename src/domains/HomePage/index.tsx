@@ -6,8 +6,8 @@ import LoadingFeedback from "@/components/LoadingFeedback";
 import { getCustomContentByKey } from "@/helpers/content-handler";
 import useDidMount from "@/hooks/useDidMount";
 import { CustomContent } from "@/lib/custom-content";
-import { HeaderData, PageData } from "@/lib/datahooks";
-import { NextPageWithLayout } from "@/pages/_app";
+import { PageData } from "@/lib/datahooks";
+import { NextPageWithLayout } from "@/lib/layout";
 import CustomPageHead from "@/pages/_head";
 import { Button } from "@mui/material";
 
@@ -15,10 +15,6 @@ import Styled from './styles';
 
 interface Props {
   pageContent: PageData,
-  dataHooks?: {
-    header: HeaderData,
-    footer?: any
-  }
 }
 
 const HomePage: NextPageWithLayout = ({ pageContent }: Props) => {

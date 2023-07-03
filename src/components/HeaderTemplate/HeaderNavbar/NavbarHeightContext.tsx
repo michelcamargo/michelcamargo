@@ -1,4 +1,8 @@
-import { createContext, useMemo, useState } from 'react';
+import { createContext, ReactNode, useMemo, useState } from 'react';
+
+interface Props {
+  children: ReactNode,
+}
 
 const NavbarHeightContext = createContext({
   navbarHeight: 0,
@@ -6,7 +10,7 @@ const NavbarHeightContext = createContext({
   setNavbarHeight: () => {},
 });
 
-export const NavbarHeightContextProvider = ({ children }) => {
+export const NavbarHeightContextProvider = ({ children }: Props) => {
   const [navbarHeight, setNavbarHeight] = useState(0);
   
   const value = useMemo(() => ({
@@ -15,6 +19,7 @@ export const NavbarHeightContextProvider = ({ children }) => {
   }), [navbarHeight]);
   
   return (
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     <NavbarHeightContext.Provider value={value!}>
       {children}
     </NavbarHeightContext.Provider>
