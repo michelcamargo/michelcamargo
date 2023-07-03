@@ -4,7 +4,7 @@ const PageLayout = styled('div')`
   display: flex;
   position: relative;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
 `;
 
 const BodyContainer = styled(Container)`
@@ -12,7 +12,7 @@ const BodyContainer = styled(Container)`
 `;
 
 const BodyContent = styled('main')`
-
+  flex: 1;
 `;
 
 export default {

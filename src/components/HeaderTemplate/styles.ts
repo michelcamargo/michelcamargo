@@ -1,6 +1,6 @@
 import { Container, styled } from '@mui/material';
 
-const HeaderWrapper = styled('div')`
+const HeaderWrapper = styled('header')`
   display: flex;
   flex-direction: column;
   width: 100%;
