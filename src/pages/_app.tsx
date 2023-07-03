@@ -1,30 +1,21 @@
-import { ReactElement, ReactNode } from "react";
-
 import AppProviders from "@/components/AppProviders";
 import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
 import { NavbarHeightContextProvider } from "@/components/HeaderTemplate/HeaderNavbar/NavbarHeightContext";
 import NextConfig from '@/configs/next.env';
+import { AppPropsWithLayout } from "@/lib/layout";
 import CustomPageHead from "@/pages/_head";
-import { NextPage } from "next";
-import { AppProps } from "next/app";
 import { Lexend } from 'next/font/google';
 import { ToastContainer } from "react-toastify";
 import "@/styles/globals.css";
 
 const isProd = NextConfig.ENV === 'production';
 
-export type NextPageWithLayout<P = NonNullable<unknown>, IP = P> = NextPage<P, IP> & {
-  getLayout?: (page: ReactElement) => ReactNode
-}
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
-
 const lexend = Lexend({ subsets: ['latin'] });
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const { children, ...rest } = pageProps;
+  
   const getLayout = Component.getLayout ?? (page => page);
   
   const fonts = [
@@ -39,7 +30,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   ];
   
   return (
-    <AppProviders>
+    <AppProviders pageProps={pageProps}>
       <CustomPageHead title="Michel Camargo" isProd={isProd} />
       <ToastContainer
         theme="colored"
@@ -49,7 +40,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <NavbarHeightContextProvider>
         <CustomAppRootHTML availableFonts={fonts} />
         {/* eslint-disable-next-line react/no-unknown-property */}
-        {getLayout(<Component {...pageProps} />)}
+        {getLayout(<Component {...rest}>{children}</Component>)}
       </NavbarHeightContextProvider>
       <CookiesPopup />
     </AppProviders>
