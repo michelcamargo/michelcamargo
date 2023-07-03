@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BrandLogo from "@/components/BrandLogo";
-import HeaderNavbar from '@/components/HeaderNavbar';
+import HeaderNavbar from '@/components/HeaderTemplate/HeaderNavbar';
 import { HeaderData } from "@/lib/datahooks";
 
 import HeaderTopBanner from "./HeaderTopBanner";

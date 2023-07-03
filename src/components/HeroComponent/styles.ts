@@ -2,7 +2,7 @@ import { styled } from "@mui/material";
 
 const HeroAuthor = styled('h1')`
   font-size: 32px;
-  
+  color: ${({ theme }) => theme && theme.palette.primary.main};
 `;
 
 const HeroContainer = styled('div')`

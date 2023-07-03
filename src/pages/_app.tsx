@@ -3,7 +3,7 @@ import { ReactElement, ReactNode } from "react";
 import AppProviders from "@/components/AppProviders";
 import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
-import { NavbarHeightContextProvider } from "@/components/NavbarHeightContext";
+import { NavbarHeightContextProvider } from "@/components/HeaderTemplate/HeaderNavbar/NavbarHeightContext";
 import NextConfig from '@/configs/next.env';
 import CustomPageHead from "@/pages/_head";
 import { NextPage } from "next";
@@ -27,7 +27,7 @@ const lexend = Lexend({ subsets: ['latin'] });
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const getLayout = Component.getLayout ?? (page => page);
   
-  const availableFonts = [
+  const fonts = [
     {
       id: 'lead',
       font: lexend,
@@ -40,14 +40,14 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   
   return (
     <AppProviders>
-      <CustomPageHead title="Michel Camargo - Portfolio" isProd={isProd} />
+      <CustomPageHead title="Michel Camargo" isProd={isProd} />
       <ToastContainer
         theme="colored"
         hideProgressBar
         position="top-center"
       />
       <NavbarHeightContextProvider>
-        <CustomAppRootHTML availableFonts={availableFonts} />
+        <CustomAppRootHTML availableFonts={fonts} />
         {/* eslint-disable-next-line react/no-unknown-property */}
         {getLayout(<Component {...pageProps} />)}
       </NavbarHeightContextProvider>

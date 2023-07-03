@@ -1,3 +1,5 @@
+import muiTheme from "@/styles/themes";
+import { ThemeProvider } from '@mui/material/styles';
 import { NextDataHooksProvider } from 'next-data-hooks';
 
 const AppProviders = ({
@@ -6,7 +8,9 @@ const AppProviders = ({
 }) => {
   return (
     <NextDataHooksProvider nextDataHooks={nextDataHooks}>
-      {children}
+      <ThemeProvider theme={muiTheme(true)}>
+        {children}
+      </ThemeProvider>
     </NextDataHooksProvider>
   );
 };
