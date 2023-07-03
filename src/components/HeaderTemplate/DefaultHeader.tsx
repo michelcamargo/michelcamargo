@@ -1,4 +1,4 @@
-import React from 'react';
+import { forwardRef } from 'react';
 
 import BrandLogo from "@/components/BrandLogo";
 import HeaderNavbar from '@/components/HeaderTemplate/HeaderNavbar';
@@ -8,13 +8,15 @@ import HeaderTopBanner from "./HeaderTopBanner";
 import Styled from './styles';
 
 interface Props {
-  dataHooks?: HeaderData,
+  dataHooks?: HeaderData
 }
 
-const DefaultHeader = ({ dataHooks }: Props) => {
+const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
+  const { dataHooks } = props;
+  
   if (!dataHooks) {
     return (
-      <Styled.HeaderWrapper>
+      <Styled.HeaderWrapper ref={ref}>
         <Styled.HeaderContainer>
           <Styled.LeftContainer>
             <BrandLogo />
@@ -41,6 +43,6 @@ const DefaultHeader = ({ dataHooks }: Props) => {
       </Styled.HeaderContainer>
     </Styled.HeaderWrapper>
   );
-};
+});
 
 export default DefaultHeader;
