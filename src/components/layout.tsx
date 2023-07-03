@@ -1,10 +1,11 @@
-import { DefaultHeader } from "@/components/HeaderComponent";
+import { DefaultFooter } from "@/components/FooterTemplate";
+import { DefaultHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import useDatahooks from "@/hooks/useDatahooks";
 
 import Styled from './styles';
 
-export default function Layout({ children }) {
+const DefaultLayout = ({ children }) => {
   const { dataHooks, isDataHooksLoading, dataHooksError } = useDatahooks();
   
   if (dataHooksError) {
@@ -25,6 +26,9 @@ export default function Layout({ children }) {
       <Styled.BodyContainer>
         <Styled.BodyContent>{children}</Styled.BodyContent>
       </Styled.BodyContainer>
+      <DefaultFooter />
     </Styled.PageLayout>
   );
-}
+};
+
+export default DefaultLayout;

@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import Layout from "@/components/layout";
+import DefaultLayout from "@/components/layout";
 import HomePage from "@/domains/HomePage";
 import ContentService from "@/services/content.service";
 
@@ -16,28 +16,28 @@ const fetchHomepageContent = async (language?: string) => {
 };
 
 export const getStaticProps = async context => {
-  const [homeContent, /*headerContent*/] = await Promise.all([
-    fetchHomepageContent('pt-BR'),
-    // fetchHeaderContent('home', 'pt-BR'),
-  ]).catch(error => {
-    console.error('Falha ao buscar informações da HOME-PAGE', error);
-  });
+  const pageContent = await fetchHomepageContent('pt-BR');
+  
+  if (!pageContent) {
+    return {
+      props: {
+        pageContent: null
+      }
+    };
+  }
   
   return {
     props: {
-      pageContent: homeContent,
-      // dataHooks: {
-      //   header: headerContent
-      // }
+      pageContent,
     }
   };
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
+    <DefaultLayout>
       {page}
-    </Layout>
+    </DefaultLayout>
   );
 };
 
