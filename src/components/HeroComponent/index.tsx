@@ -2,10 +2,15 @@ import React from 'react';
 
 import LoadingFeedback from "@/components/LoadingFeedback";
 import { getContentArray, getCustomContentByKey } from "@/helpers/content-handler";
+import { CustomContent } from "@/lib/custom-content";
 
 import Styled from "./styles";
 
-const HeroComponent = ({ heroData }) => {
+interface Props {
+  heroData: Array<CustomContent>
+}
+
+const HeroComponent = ({ heroData }: Props) => {
   const authorData = getCustomContentByKey('heading', heroData);
   const author = Array.isArray(authorData) ? getContentArray(authorData) : authorData;
   
