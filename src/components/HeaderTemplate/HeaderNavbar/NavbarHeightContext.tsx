@@ -6,8 +6,7 @@ interface Props {
 
 const NavbarHeightContext = createContext({
   navbarHeight: 0,
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setNavbarHeight: () => {},
+  setNavbarHeight: _ => _,
 });
 
 export const NavbarHeightContextProvider = ({ children }: Props) => {
@@ -19,8 +18,7 @@ export const NavbarHeightContextProvider = ({ children }: Props) => {
   }), [navbarHeight]);
   
   return (
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    <NavbarHeightContext.Provider value={value!}>
+    <NavbarHeightContext.Provider value={value}>
       {children}
     </NavbarHeightContext.Provider>
   );

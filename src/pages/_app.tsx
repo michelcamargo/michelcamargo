@@ -1,7 +1,6 @@
 import AppProviders from "@/components/AppProviders";
 import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
-import { NavbarHeightContextProvider } from "@/components/HeaderTemplate/HeaderNavbar/NavbarHeightContext";
 import NextConfig from '@/configs/next.env';
 import { AppPropsWithLayout } from "@/lib/layout";
 import CustomPageHead from "@/pages/_head";
@@ -37,11 +36,9 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         hideProgressBar
         position="top-center"
       />
-      <NavbarHeightContextProvider>
-        <CustomAppRootHTML availableFonts={fonts} />
-        {/* eslint-disable-next-line react/no-unknown-property */}
-        {getLayout(<Component {...rest}>{children}</Component>)}
-      </NavbarHeightContextProvider>
+      <CustomAppRootHTML availableFonts={fonts} />
+      {/* eslint-disable-next-line react/no-unknown-property */}
+      {getLayout(<Component {...rest}>{children}</Component>)}
       <CookiesPopup />
     </AppProviders>
   );
