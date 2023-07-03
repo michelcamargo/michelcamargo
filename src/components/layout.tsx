@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 
 import { DefaultFooter, DEFAULT_HEIGHT_FOOTER } from "@/components/FooterTemplate";
 import { DefaultHeader, DEFAULT_HEIGHT_HEADER } from "@/components/HeaderTemplate";
@@ -8,7 +8,11 @@ import useDynamicContentHeight from "@/hooks/useDynamicContentHeight";
 
 import Styled from './styles';
 
-const DefaultLayout = ({ children }) => {
+interface Props {
+  children: ReactNode,
+}
+
+const DefaultLayout = ({ children }: Props) => {
   const { dataHooks, isDataHooksLoading, dataHooksError } = useDataHooks();
   const { footerRef, contentRef } = useDynamicContentHeight();
   const headerRef = useRef<HTMLDivElement | null>(null);
