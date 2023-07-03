@@ -19,10 +19,10 @@ const getCustomContentByKey = (key: string, data: Array<CustomContent>) => {
   return data;
 };
 
-const getContentArray = (data: Array<CustomContent>) => {
+const getContentArray = (data: Array<CustomContent>): Array<string> => {
   if (!data || !Array.isArray(data) || data.length === 0) return [];
   
-  return data.map(item => item.content);
+  return data.map(item => typeof item.content === 'string' ? item.content : JSON.stringify(item.content));
 };
 
 export {
