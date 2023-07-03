@@ -10,7 +10,7 @@ import 'swiper/css/scrollbar';
 
 interface Props {
   items: Array<ReactElement>,
-  config?: any,
+  config?: CarouselConfig,
   activeIndex?: number,
 }
 

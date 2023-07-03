@@ -1,23 +1,15 @@
 import { PageData } from "@/lib/datahooks";
-import { HeaderData } from "@/lib/datahooks";
-import { NextPageWithLayout } from "@/pages/_app";
+import { NextPageWithLayout } from "@/lib/layout";
 import CustomPageHead from "@/pages/_head";
 
 import Styled from './styles';
 
 interface Props {
   pageContent: PageData,
-  dataHooks?: {
-    header: HeaderData,
-    footer?: any
-  }
 }
 
 const AboutPage: NextPageWithLayout = ({ pageContent }: Props) => {
   const { head } = pageContent;
-  // const { sessions } = body;
-  
-  // const sessionHero = sessions.find(session => session.key === 'hero');
   
   return (
     <>
