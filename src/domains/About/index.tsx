@@ -1,6 +1,7 @@
+import LoadingFeedback from "@/components/LoadingFeedback";
 import { PageData } from "@/lib/datahooks";
 import { NextPageWithLayout } from "@/lib/layout";
-import CustomPageHead from "@/pages/_head";
+// import CustomPageHead from "@/pages/_head";
 
 import Styled from './styles';
 
@@ -9,15 +10,18 @@ interface Props {
 }
 
 const AboutPage: NextPageWithLayout = ({ pageContent }: Props) => {
-  const { head } = pageContent;
+  const { body } = pageContent;
+  
+  if (!pageContent) return <p>NO CONTENT</p>;
+  if (!body) return <LoadingFeedback />;
   
   return (
     <>
-      <CustomPageHead title={head.title} description={head.description}/>
+      {/*<CustomPageHead title={head.title} description={head.description}/>*/}
       <Styled.PageWrapper>
         <Styled.PageContainer>
           <Styled.PageContent>
-            {/*{JSON.stringify(sessionHero.content)}*/}
+            {'PÁGINA SOBRE'}
           </Styled.PageContent>
         </Styled.PageContainer>
       </Styled.PageWrapper>

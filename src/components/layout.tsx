@@ -12,7 +12,7 @@ interface Props {
   children: ReactNode,
 }
 
-const DefaultLayout = ({ children }: Props) => {
+const Common = ({ children }: Props) => {
   const { dataHooks, isDataHooksLoading, dataHooksError } = useDataHooks();
   const { footerRef, contentRef } = useDynamicContentHeight();
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -40,9 +40,24 @@ const DefaultLayout = ({ children }: Props) => {
   );
 };
 
+const Minimal = ({ children }: Props) => {
+  const { contentRef } = useDynamicContentHeight();
+  
+  return (
+    <Styled.PageLayout>
+      <Styled.BodyContainer ref={contentRef}>
+        <Styled.BodyContent>{children}</Styled.BodyContent>
+      </Styled.BodyContainer>
+    </Styled.PageLayout>
+  );
+};
+
 export {
   DEFAULT_HEIGHT_HEADER,
   DEFAULT_HEIGHT_FOOTER
 };
 
-export default DefaultLayout;
+export default {
+  Common,
+  Minimal,
+};

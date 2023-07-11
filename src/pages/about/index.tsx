@@ -1,39 +1,35 @@
 import { ReactElement } from "react";
 
 import Layout from "@/components/layout";
-import NextConfig from "@/configs/next.env";
 import AboutPage from "@/domains/About";
+import ContentService from "@/services/content.service";
 
-async function fetchAboutContent(language?: string) {
-  const langQuery = language ? `?lang=${language}` : '';
-  
-  const response = await fetch(`${NextConfig.APP_URL}/api/content/about-page${langQuery}`, {
-    method: 'GET',
-    headers: {
+const fetchAboutContent = async (language?: string) => {
+  try {
+    const response = await ContentService.fetchByKey('about-page', language);
     
-    }
-  });
-  
-  return response.json();
-}
+    return response.json();
+  } catch(error) {
+    console.error('@@ Falha ao buscar informações da ABOUT-PAGE', error);
+    return null;
+  }
+};
 
 export const getStaticProps = async context => {
-  const [homeContent] = await Promise.all([
-    fetchAboutContent('pt-BR'),
-  ]);
+  const pageContent = await fetchAboutContent('pt-BR') ?? null;
   
   return {
     props: {
-      pageContent: homeContent,
+      pageContent: pageContent,
     }
   };
 };
 
 AboutPage.getLayout = function getLayout(page: ReactElement) {
   return (
-    <Layout>
+    <Layout.Common>
       {page}
-    </Layout>
+    </Layout.Common>
   );
 };
 

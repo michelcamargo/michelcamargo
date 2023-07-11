@@ -17,11 +17,13 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
   if (!dataHooks) {
     return (
       <Styled.HeaderWrapper ref={ref}>
+        <Styled.HeaderOverlayBlur />
         <Styled.HeaderContainer>
           <Styled.LeftContainer>
             <BrandLogo />
           </Styled.LeftContainer>
         </Styled.HeaderContainer>
+        
       </Styled.HeaderWrapper>
     );
   }
@@ -30,6 +32,7 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
   
   return (
     <Styled.HeaderWrapper>
+      <Styled.HeaderOverlayBlur />
       {headerDisclaimer && <HeaderTopBanner data={headerDisclaimer} />}
       <Styled.HeaderContainer>
         <Styled.MidContainer>

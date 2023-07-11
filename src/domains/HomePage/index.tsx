@@ -18,11 +18,11 @@ interface Props {
 }
 
 const HomePage: NextPageWithLayout = ({ pageContent }: Props) => {
-  const { head } = pageContent;
   const [carouselItems, setCarouselItems] = useState<Array<ReactElement>>([]);
   const [heroData, setHeroData] = useState<CustomContent[]>([]);
   
-  const { sessions } = pageContent.body;
+  const { head, body } = pageContent;
+  const { sessions } = body;
   
   const setItems = () => {
     setCarouselItems(previous => {
@@ -56,21 +56,19 @@ const HomePage: NextPageWithLayout = ({ pageContent }: Props) => {
   return (
     <>
       <CustomPageHead title={head.title} description={head.description} />
-      {/*<DefaultHeader dataHooks={dataHooks.header} />*/}
-      <main className={'page_wrapper'}>
+      <div className={'page_wrapper'}>
         <div className={'page_content'}>
-          <div className={'hero-section'}>
-            { heroData ? <HeroComponent heroData={heroData} /> : <LoadingFeedback />}
-            <div className={'Carrousel'}>
-              <Styled.ActionPanel>
-                <Button onClick={setItems}>PUSH</Button>
-                <Button onClick={clearItems} color={'warning'}>CLEAR</Button>
-              </Styled.ActionPanel>
-              <CustomCarousel items={carouselItems} />
-            </div>
-          </div>
+          { heroData ? <HeroComponent heroData={heroData} /> : <LoadingFeedback />}
+          <session className={'Carrousel'}>
+            <Styled.ActionPanel>
+              <Button onClick={setItems} variant={'outlined'}>PUSH</Button>
+              <Button onClick={clearItems} color={'warning'}>POP</Button>
+              <Button onClick={clearItems} variant={'contained'} color={'error'}>CLEAR</Button>
+            </Styled.ActionPanel>
+            <CustomCarousel items={carouselItems} />
+          </session>
         </div>
-      </main>
+      </div>
     </>
   );
 };
