@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import DefaultLayout from "@/components/layout";
+import Layout from "@/components/layout";
 import HomePage from "@/domains/HomePage";
 import ContentService from "@/services/content.service";
 
@@ -16,15 +16,7 @@ const fetchHomepageContent = async (language?: string) => {
 };
 
 export const getStaticProps = async context => {
-  const pageContent = await fetchHomepageContent('pt-BR');
-  
-  if (!pageContent) {
-    return {
-      props: {
-        pageContent: null
-      }
-    };
-  }
+  const pageContent = await fetchHomepageContent('pt-BR') ?? null;
   
   return {
     props: {
@@ -35,9 +27,9 @@ export const getStaticProps = async context => {
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
   return (
-    <DefaultLayout>
+    <Layout.Common>
       {page}
-    </DefaultLayout>
+    </Layout.Common>
   );
 };
 

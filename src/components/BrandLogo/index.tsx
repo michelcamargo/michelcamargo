@@ -8,7 +8,7 @@ interface Props {
   height?: number,
 }
 
-const BrandLogo = ({ width = 56, height = 56 }: Props) => {
+const BrandLogo = ({ width = 48, height = 48 }: Props) => {
   const brandLogoImg = circleFillColorLogo;
   
   return (

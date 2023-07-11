@@ -2,6 +2,7 @@ import { Container, styled } from "@mui/material";
 
 const HeaderTopBannerWrapper = styled('div')`
   padding: 8px 0;
+  z-index: 3;
 `;
 
 const HeaderTopBannerContainer = styled(Container)`

@@ -5,7 +5,7 @@ const HeroAuthor = styled('h1')`
   color: ${({ theme }) => theme && theme.palette.primary.main};
 `;
 
-const HeroContainer = styled('div')`
+const HeroContainer = styled('session')`
 
 `;
 

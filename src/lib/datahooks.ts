@@ -8,7 +8,7 @@ export type PageData = {
   body: {
     sessions: Array<CustomContent>
   }
-}
+} | object;
 
 export type HeaderNavItem = {
   key: string,
