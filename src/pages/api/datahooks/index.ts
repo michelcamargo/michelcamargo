@@ -6,6 +6,11 @@ export default function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'GET') {
-    res.status(200).json(staticDatahooks);
+    try {
+      res.status(200).json(staticDatahooks);
+    } catch (error) {
+      console.error('Error in server-side fetch:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   }
 }

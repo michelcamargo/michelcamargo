@@ -9,7 +9,10 @@ const fetchHomepageContent = async (language?: string) => {
   try {
     const response = await ContentService.fetchByKey('home-page', language);
     
-    return response.json();
+    if (response) {
+      return response.json();
+    }
+    
   } catch(error) {
     throw new Error(`Falha ao buscar informações da HOME-PAGE >> ${error}`);
   }
