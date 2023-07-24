@@ -51,7 +51,7 @@ export default class CustomContent {
       });
       
       if (!target) {
-        const deepArray = [];
+        const deepArray: Array<CustomContent> = [];
         leveledChildren.forEach(childrenCustomContent => {
           if (Array.isArray(childrenCustomContent.children) && childrenCustomContent.children.length > 0) {
             deepArray.concat(childrenCustomContent.children);
@@ -64,7 +64,7 @@ export default class CustomContent {
         if (target.content) {
           targetContent = target.content;
         } else if (Array.isArray(target.children) && target.children.length > 0) {
-          const childrenContentArray = [];
+          const childrenContentArray: Array<string> = [];
           target.children.forEach(item => item.content && childrenContentArray.push(item.content));
           
           if (childrenContentArray.length > 0) {
