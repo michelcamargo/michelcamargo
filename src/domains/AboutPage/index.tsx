@@ -6,7 +6,7 @@ import CustomContent from "@/helpers/custom-content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
 import { PageHead, ServerViewProps } from "@/lib/datahooks";
-import { NextPageWithLayout } from "@/lib/layout";
+import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
 
@@ -14,7 +14,7 @@ interface Props {
   serverViewData: ServerViewProps,
 }
 
-const AboutPage: NextPageWithLayout = ({ serverViewData }: Props) => {
+const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewHead, setViewHead] = useState<PageHead>(null);
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
