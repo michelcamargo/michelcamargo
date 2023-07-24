@@ -1,12 +1,12 @@
 import LoadingFeedback from "@/components/LoadingFeedback";
-import { PageData } from "@/lib/datahooks";
+import { ServerViewProps } from "@/lib/datahooks";
 import { NextPageWithLayout } from "@/lib/layout";
 // import CustomPageHead from "@/pages/_head";
 
 import Styled from './styles';
 
 interface Props {
-  pageContent: PageData,
+  pageContent: ServerViewProps,
 }
 
 const AboutPage: NextPageWithLayout = ({ pageContent }: Props) => {

@@ -1,14 +1,10 @@
 import AppProviders from "@/components/AppProviders";
 import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
-import NextConfig from '@/configs/next.env';
 import { AppPropsWithLayout } from "@/lib/layout";
-import CustomPageHead from "@/pages/_head";
 import { Lexend } from 'next/font/google';
 import { ToastContainer } from "react-toastify";
 import "@/styles/globals.css";
-
-const isProd = NextConfig.ENV === 'production';
 
 const lexend = Lexend({ subsets: ['latin'] });
 
@@ -30,7 +26,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   
   return (
     <AppProviders pageProps={pageProps}>
-      <CustomPageHead title="Michel Camargo" isProd={isProd} />
+      {/*<CustomPageHead title="Michel Camargo" isProd={isProd} />*/}
       <ToastContainer
         theme="colored"
         hideProgressBar
@@ -38,7 +34,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       />
       <CustomAppRootHTML availableFonts={fonts} />
       {/* eslint-disable-next-line react/no-unknown-property */}
-      {getLayout(<Component {...rest}>{children}</Component>)}
+      { getLayout(<Component {...rest}>{children}</Component>) }
       <CookiesPopup />
     </AppProviders>
   );

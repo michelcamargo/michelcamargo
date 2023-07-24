@@ -34,7 +34,23 @@ const darkTheme = createTheme({
       xl: 1920,
     },
   },
-  
+  typography: {
+    fontFamily: 'Open Sans',
+    h1: {},
+    h2: {},
+    h3: {},
+    h4: {},
+    h5: {},
+    h6: {},
+    subtitle1: {},
+    subtitle2: {},
+    body1: {},
+    body2: {},
+    button: {},
+    caption: {},
+    overline: {},
+  },
+  spacing: [0, 4, 8, 16, 32, 64],
 });
 
 export default darkTheme;

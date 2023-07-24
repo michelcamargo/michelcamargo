@@ -16,9 +16,11 @@ const AppProviders = ({
 }: Props) => {
   const { ...pageData } = pageProps;
   
+  const isDarkMode = true;
+  
   return (
     <NextDataHooksProvider {...pageData}>
-      <ThemeProvider theme={muiTheme(true)}>
+      <ThemeProvider theme={muiTheme(isDarkMode)}>
         {children}
       </ThemeProvider>
     </NextDataHooksProvider>

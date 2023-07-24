@@ -1,6 +1,7 @@
-export type CustomContent = {
+export type CustomContentType = {
   key: string,
-  content: string | Array<CustomContent> | null
+  content?: string,
+  children?: Array<CustomContentType>,
 }
 
 export type CustomBannerData = {

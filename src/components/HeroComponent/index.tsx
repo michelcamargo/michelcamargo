@@ -1,41 +1,36 @@
 import React from 'react';
 
 import LoadingFeedback from "@/components/LoadingFeedback";
-import { getContentArray, getCustomContentByKey } from "@/helpers/content-handler";
-import { CustomContent } from "@/lib/custom-content";
+import CustomContent from "@/helpers/custom-content";
 
 import Styled from "./styles";
 
 interface Props {
-  heroData: Array<CustomContent>
+  data: CustomContent,
 }
 
-const HeroComponent = ({ heroData }: Props) => {
-  const authorData = getCustomContentByKey('heading', heroData);
-  const author = Array.isArray(authorData) ? getContentArray(authorData) : authorData;
+const HeroComponent = ({ data }: Props) => {
+  const author = data.getContent('heading', ' ', ['de Souza']);
+  const subHeading = data.getContent('subHeading');
+  const description = data.getContent('description');
   
-  const descriptionData = getCustomContentByKey('subHeading', heroData);
-  const description = Array.isArray(descriptionData) ? getContentArray(descriptionData) : descriptionData;
+  if (!data) return <LoadingFeedback minimal />;
   
   return (
     <Styled.HeroContainer>
-      { (author && Array.isArray(author)) ? (
-        <Styled.HeroAuthor>
-          <Styled.HeroAuthorFirstname>{author[0] + ' '}</Styled.HeroAuthorFirstname>
-          {/*<Styled.HeroAuthorMiddlename>{author[1] + ' '}</Styled.HeroAuthorMiddlename>*/}
-          <Styled.HeroAuthorLastname>{author[2]}</Styled.HeroAuthorLastname>
-        </Styled.HeroAuthor>
-      ) : (
-        <LoadingFeedback />
-      )}
+      <Styled.HeroAuthor>
+        <Styled.HeroAuthorFirstname>{author}</Styled.HeroAuthorFirstname>
+        {/*<Styled.HeroAuthorMiddlename>{author.midName + ' '}</Styled.HeroAuthorMiddlename>*/}
+        {/*<Styled.HeroAuthorLastname>{author.lastName}</Styled.HeroAuthorLastname>*/}
+      </Styled.HeroAuthor>
   
-      { description ? (
-        <Styled.HeroDescription>
-          <Styled.HeroDescriptionText>{description}</Styled.HeroDescriptionText>
-        </Styled.HeroDescription>
-      ) : (
-        <LoadingFeedback />
-      )}
+      <Styled.HeroSubHeading>
+        <Styled.HeroSubHeadingText>{subHeading}</Styled.HeroSubHeadingText>
+      </Styled.HeroSubHeading>
+  
+      <Styled.HeroDescription>
+        <Styled.HeroDescriptionText>{description}</Styled.HeroDescriptionText>
+      </Styled.HeroDescription>
     </Styled.HeroContainer>
   );
 };

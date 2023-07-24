@@ -1,14 +1,24 @@
-import { CustomBannerData, CustomContent } from "@/lib/custom-content";
+import CustomContent from "@/helpers/custom-content";
+import { CustomBannerData, CustomContentType } from "@/lib/custom-content";
 
-export type PageData = {
-  head: {
-    title: string,
-    description: string
-  },
+export type PageHead = {
+  title: string,
+  description: string
+}
+
+export type ServerViewProps = {
+  head: PageHead,
+  body: {
+    sessions: Array<CustomContentType>
+  }
+};
+
+export type ViewData = {
+  head: PageHead,
   body: {
     sessions: Array<CustomContent>
   }
-} | object;
+};
 
 export type HeaderNavItem = {
   key: string,
