@@ -15,7 +15,7 @@ interface Props {
 }
 
 const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const [viewHead, setViewHead] = useState<PageHead>(null);
+  const [viewHead, setViewHead] = useState<PageHead | null>(null);
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
