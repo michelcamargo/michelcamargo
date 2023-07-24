@@ -7,9 +7,7 @@ import { GetStaticPropsContext } from "next";
 
 const fetchAboutContent = async (language?: string) => {
   try {
-    const response = await ContentService.fetchByKey('about-page', language);
-    
-    return response.json();
+    return ContentService.fetchByKey_static('about-page', language);
   } catch(error) {
     throw new Error(`Falha ao buscar informações da ABOUT-PAGE >> ${error}`);
   }
