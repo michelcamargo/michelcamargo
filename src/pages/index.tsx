@@ -3,6 +3,7 @@ import { ReactElement } from "react";
 import Layout from "@/components/layout";
 import HomePage from "@/domains/HomePage";
 import ContentService from "@/services/content.service";
+import { GetStaticPropsContext } from "next";
 
 const fetchHomepageContent = async (language?: string) => {
   try {
@@ -15,7 +16,7 @@ const fetchHomepageContent = async (language?: string) => {
   }
 };
 
-export const getStaticProps = async context => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
   const serverViewData = await fetchHomepageContent('pt-BR') ?? null;
   
   return {
