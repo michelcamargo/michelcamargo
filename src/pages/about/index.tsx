@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
 import Layout from "@/components/layout";
-import AboutPage from "@/domains/About";
+import AboutPage from "@/domains/AboutPage";
 import ContentService from "@/services/content.service";
 
 const fetchAboutContent = async (language?: string) => {
@@ -16,11 +16,11 @@ const fetchAboutContent = async (language?: string) => {
 };
 
 export const getStaticProps = async context => {
-  const pageContent = await fetchAboutContent('pt-BR') ?? null;
+  const serverViewData = await fetchAboutContent('pt-BR') ?? null;
   
   return {
     props: {
-      pageContent: pageContent,
+      serverViewData,
     }
   };
 };

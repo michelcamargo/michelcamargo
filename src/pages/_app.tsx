@@ -26,7 +26,6 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   
   return (
     <AppProviders pageProps={pageProps}>
-      {/*<CustomPageHead title="Michel Camargo" isProd={isProd} />*/}
       <ToastContainer
         theme="colored"
         hideProgressBar
