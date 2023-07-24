@@ -5,7 +5,7 @@ const getViewData = (serverViewProps: ServerViewProps): ViewData => {
   const { head, body } = serverViewProps;
   
   if (!body || !Array.isArray(body.sessions)) {
-    return serverViewProps as ViewData;
+    return serverViewProps as unknown as ViewData;
   }
   
   return {
