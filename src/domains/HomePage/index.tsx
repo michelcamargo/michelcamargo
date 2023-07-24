@@ -18,14 +18,7 @@ const HomePage: NextPageWithLayout = ({ serverViewData }: Props) => {
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
-    const hydratedView = Hydration.getViewData(serverViewData);
-    
-    if (!hydratedView) {
-      console.error('FALHA AO CARREGAR DADOS DA PÁGINA');
-      return;
-    }
-    
-    const { head, body } = hydratedView;
+    const { head, body } = Hydration.getViewData(serverViewData);
     
     setViewHead(head);
     setViewSessions(body.sessions);
@@ -34,8 +27,6 @@ const HomePage: NextPageWithLayout = ({ serverViewData }: Props) => {
   useDidMount(() => {
     if (serverViewData) {
       hydratePage();
-    } else {
-      console.log('NO PAGE CONTENT!');
     }
   });
   

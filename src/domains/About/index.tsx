@@ -1,7 +1,7 @@
 import LoadingFeedback from "@/components/LoadingFeedback";
+import View from "@/components/View";
 import { ServerViewProps } from "@/lib/datahooks";
 import { NextPageWithLayout } from "@/lib/layout";
-// import CustomPageHead from "@/pages/_head";
 
 import Styled from './styles';
 
@@ -16,8 +16,7 @@ const AboutPage: NextPageWithLayout = ({ pageContent }: Props) => {
   if (!body) return <LoadingFeedback />;
   
   return (
-    <>
-      {/*<CustomPageHead title={head.title} description={head.description}/>*/}
+    <View path={} title={'Sobre mim'} ignorePrefix description={'Detalhes'}>
       <Styled.PageWrapper>
         <Styled.PageContainer>
           <Styled.PageContent>
@@ -25,7 +24,7 @@ const AboutPage: NextPageWithLayout = ({ pageContent }: Props) => {
           </Styled.PageContent>
         </Styled.PageContainer>
       </Styled.PageWrapper>
-    </>
+    </View>
   );
 };
 
