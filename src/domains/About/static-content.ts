@@ -2,14 +2,14 @@ import { ServerViewProps } from "@/lib/datahooks";
 
 const staticContent: ServerViewProps = {
   head: {
-    title: 'Michel Camargo - Web developer & UIUX design',
-    description: 'Um pouco mais sobre mim',
+    title: 'Sobre mim',
+    description: 'Conheça um pouco do meu trabalho',
   },
   body: {
     sessions: [
       {
         key: 'hero',
-        content: [
+        children: [
           {
             key: 'a',
             content: 'ABC'

@@ -11,11 +11,6 @@ export default function handler(
   if (req.method === 'GET') {
     console.log('queryString', queryString);
     
-    const { body } = staticHomeContent;
-    const { sessions } = body;
-    
-    console.log('sessions --', sessions);
-    
     const pageContent: ServerViewProps = {
       ...staticHomeContent,
     };

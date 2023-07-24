@@ -4,7 +4,7 @@ import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
 const STATIC_HOME_CONTENT = {
   head: {
-    title: 'Michel Camargo - Web developer & UIUX design',
+    title: 'Web developer & UIUX design',
     description: 'Estudos e portfolio',
   },
   body: {
