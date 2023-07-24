@@ -16,11 +16,11 @@ const fetchHomepageContent = async (language?: string) => {
 };
 
 export const getStaticProps = async context => {
-  const pageContent = await fetchHomepageContent('pt-BR') ?? null;
+  const serverViewData = await fetchHomepageContent('pt-BR') ?? null;
   
   return {
     props: {
-      pageContent,
+      serverViewData,
     }
   };
 };

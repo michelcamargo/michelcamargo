@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ButtonLink from "@/components/ButtonLink";
-import NextConfig from '@/configs/next.env';
+import AppConfig from '@/configs/next.env';
 import CookieConsent from 'react-cookie-consent';
 
 import Styled from './styles';
@@ -57,7 +57,7 @@ const CookiesPopup = () => {
       <Styled.DisclaimerContainer>
         <Styled.DisclaimerText>
           {infoText}
-          <ButtonLink href={`${NextConfig.APP_URL}/privacy`}>
+          <ButtonLink href={`${AppConfig.APP_URL}/privacy`}>
             Saiba mais
           </ButtonLink>
         </Styled.DisclaimerText>

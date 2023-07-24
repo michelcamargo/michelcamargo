@@ -5,7 +5,7 @@ const HeroAuthor = styled('h1')`
   color: ${({ theme }) => theme && theme.palette.primary.main};
 `;
 
-const HeroContainer = styled('session')`
+const HeroContainer = styled('div')`
 
 `;
 
@@ -21,7 +21,17 @@ const HeroAuthorLastname = styled('span')`
 
 `;
 
-const HeroDescription = styled('h2')`
+const HeroSubHeading = styled('h2')`
+  display: flex;
+  position: relative;
+  font-size: 42px;
+`;
+
+const HeroSubHeadingText = styled('span')`
+
+`;
+
+const HeroDescription = styled('p')`
   display: flex;
   position: relative;
   font-size: 42px;
@@ -37,6 +47,8 @@ export default {
   HeroAuthorFirstname,
   HeroAuthorMiddlename,
   HeroAuthorLastname,
+  HeroSubHeading,
+  HeroSubHeadingText,
   HeroDescription,
   HeroDescriptionText,
 };

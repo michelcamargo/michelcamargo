@@ -1,15 +1,15 @@
-import staticHomeContent from '@/domains/HomePage/static-content';
-import { PageData } from "@/lib/datahooks";
+import staticHomeContent from '@/domains/HomePage/static';
+import { ServerViewProps } from "@/lib/datahooks";
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<PageData>
+  res: NextApiResponse<ServerViewProps>
 ) {
   const queryString = req.query;
   
   if (req.method === 'GET') {
-    console.log('queryString', queryString);
+    console.log('GET CONTENT GERAL', queryString);
     
     res.status(200).json(staticHomeContent);
   }

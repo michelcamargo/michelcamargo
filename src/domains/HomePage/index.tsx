@@ -1,75 +1,57 @@
-import { ReactElement, useCallback, useState } from "react";
+import { useCallback, useState } from "react";
 
-import CustomCarousel from "@/components/CustomCarousel";
 import HeroComponent from "@/components/HeroComponent";
 import LoadingFeedback from "@/components/LoadingFeedback";
-import { getCustomContentByKey } from "@/helpers/content-handler";
+import View from "@/components/View";
+import CustomContent from "@/helpers/custom-content";
+import Hydration from '@/helpers/hydration';
 import useDidMount from "@/hooks/useDidMount";
-import { CustomContent } from "@/lib/custom-content";
-import { PageData } from "@/lib/datahooks";
+import { PageHead, ServerViewProps } from "@/lib/datahooks";
 import { NextPageWithLayout } from "@/lib/layout";
-import CustomPageHead from "@/pages/_head";
-import { Button } from "@mui/material";
-
-import Styled from './styles';
 
 interface Props {
-  pageContent: PageData,
+  serverViewData: ServerViewProps,
 }
 
-const HomePage: NextPageWithLayout = ({ pageContent }: Props) => {
-  const [carouselItems, setCarouselItems] = useState<Array<ReactElement>>([]);
-  const [heroData, setHeroData] = useState<CustomContent[]>([]);
+const HomePage: NextPageWithLayout = ({ serverViewData }: Props) => {
+  const [viewHead, setViewHead] = useState<PageHead>(null);
+  const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
-  const { head, body } = pageContent;
-  const { sessions } = body;
-  
-  const setItems = () => {
-    setCarouselItems(previous => {
-      return [
-        ...previous,
-        (<p key={previous.length+1}>{`Slide ${previous.length + 1}`}</p>)
-      ];
-    });
-  };
-  
-  const hydratePageContent = useCallback(content => {
-    const sessionHero = getCustomContentByKey('hero', content);
+  const hydratePage = useCallback(() => {
+    const hydratedView = Hydration.getViewData(serverViewData);
     
-    if (sessionHero && Array.isArray(sessionHero)) {
-      setHeroData(sessionHero);
+    if (!hydratedView) {
+      console.error('FALHA AO CARREGAR DADOS DA PÁGINA');
+      return;
     }
-  }, []);
-  
-  const clearItems = () => {
-    setCarouselItems([]);
-  };
+    
+    const { head, body } = hydratedView;
+    
+    setViewHead(head);
+    setViewSessions(body.sessions);
+  }, [serverViewData]);
   
   useDidMount(() => {
-    if (sessions) {
-      hydratePageContent(sessions);
+    if (serverViewData) {
+      hydratePage();
+    } else {
+      console.log('NO PAGE CONTENT!');
     }
   });
   
-  if (!sessions) return <LoadingFeedback />;
+  if (!viewHead || !viewSessions) return <LoadingFeedback />;
   
   return (
-    <>
-      <CustomPageHead title={head.title} description={head.description} />
+    <View path={'/'} title={viewHead.title} description={viewHead.description}>
       <div className={'page_wrapper'}>
         <div className={'page_content'}>
-          { heroData ? <HeroComponent heroData={heroData} /> : <LoadingFeedback />}
-          <session className={'Carrousel'}>
-            <Styled.ActionPanel>
-              <Button onClick={setItems} variant={'outlined'}>PUSH</Button>
-              <Button onClick={clearItems} color={'warning'}>POP</Button>
-              <Button onClick={clearItems} variant={'contained'} color={'error'}>CLEAR</Button>
-            </Styled.ActionPanel>
-            <CustomCarousel items={carouselItems} />
-          </session>
+          <HeroComponent data={viewSessions.find(session => session.key === 'hero')} />
+          <div className={'Carrousel'}>
+            {/*<PortfolioCarousel items={portfolioData} />*/}
+          </div>
         </div>
       </div>
-    </>
+    </View>
   );
 };
 

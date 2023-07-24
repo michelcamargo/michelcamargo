@@ -1,8 +1,8 @@
-import NextConfig from "@/configs/next.env";
+import AppConfig from "@/configs/next.env";
 
 class ContentService {
   
-  private static contentURL = `${NextConfig.APP_URL}/api/content`;
+  private static contentURL = `${AppConfig.APP_URL}/api/content`;
   
   static async fetchByKey(key: string, language?: string) {
     const langQuery = language ? `?lang=${language}` : '';

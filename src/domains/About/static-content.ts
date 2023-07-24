@@ -1,6 +1,6 @@
-import { PageData } from "@/lib/datahooks";
+import { ServerViewProps } from "@/lib/datahooks";
 
-const staticContent: PageData = {
+const staticContent: ServerViewProps = {
   head: {
     title: 'Michel Camargo - Web developer & UIUX design',
     description: 'Um pouco mais sobre mim',

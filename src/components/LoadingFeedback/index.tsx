@@ -1,4 +1,4 @@
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, LinearProgress } from "@mui/material";
 
 interface Props {
   minimal?: boolean,
@@ -7,10 +7,13 @@ interface Props {
 }
 
 const LoadingFeedback = ({ minimal, heading, description }: Props) => {
-  
   if (minimal) {
     return (
-      <CircularProgress />
+      <div>
+        <h6>{heading}</h6>
+        <span>{description}</span>
+        <CircularProgress />
+      </div>
     );
   }
   
@@ -18,9 +21,8 @@ const LoadingFeedback = ({ minimal, heading, description }: Props) => {
     <div>
       <h6>{heading}</h6>
       <span>{description}</span>
-      <CircularProgress />
+      <LinearProgress />
     </div>
-    
   );
 };
 
