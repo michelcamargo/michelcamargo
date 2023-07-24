@@ -11,8 +11,7 @@ const fetchHomepageContent = async (language?: string) => {
     
     return response.json();
   } catch(error) {
-    console.error('@@ Falha ao buscar informações da HOME-PAGE', error);
-    return null;
+    throw new Error(`Falha ao buscar informações da HOME-PAGE >> ${error}`);
   }
 };
 
