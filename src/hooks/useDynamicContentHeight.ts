@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/no-non-null-assertion */
 import { useEffect, useRef } from 'react';
 
 import { DEFAULT_HEIGHT_HEADER, DEFAULT_HEIGHT_FOOTER } from '@/components/layout';

@@ -1,7 +1,7 @@
 import { Box, styled } from "@mui/material";
 
 interface Props {
-  key?: any,
+  key?: string,
 }
 
 const PortfolioCaseWrapper = styled('li')<Props>``;
