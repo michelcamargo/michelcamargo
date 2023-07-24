@@ -4,9 +4,9 @@ import React from 'react';
 // import { getCustomContentByKey } from "@/helpers/content-handler";
 import CustomContent from "@/helpers/custom-content";
 // import { CustomContent } from "@/lib/custom-content";
-import Image from "next/image";
-
-import Styled from './styles';
+// import Image from "next/image";
+//
+// import Styled from './styles';
 
 interface Props {
   items: Array<CustomContent>
