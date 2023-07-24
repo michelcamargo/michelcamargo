@@ -6,15 +6,15 @@ import CustomContent from "@/helpers/custom-content";
 import Styled from "./styles";
 
 interface Props {
-  data: CustomContent,
+  data?: CustomContent,
 }
 
 const HeroComponent = ({ data }: Props) => {
+  if (!data) return <LoadingFeedback minimal />;
+  
   const author = data.getContent('heading', ' ', ['de Souza']);
   const subHeading = data.getContent('subHeading');
   const description = data.getContent('description');
-  
-  if (!data) return <LoadingFeedback minimal />;
   
   return (
     <Styled.HeroContainer>
