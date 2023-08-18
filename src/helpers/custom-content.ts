@@ -78,7 +78,13 @@ export default class CustomContent {
       }
     }
     
-    return targetContent ? targetContent.replace(filterExp, '') : null;
+    console.log('Buscando [', keyName, '] em [', this.key, '] | content >>', targetContent);
+    
+    if (targetContent && typeof targetContent === 'string') {
+      return targetContent.replace(filterExp, '');
+    }
+    
+    return targetContent ?? null;
   }
   
   /**

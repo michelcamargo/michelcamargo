@@ -4,6 +4,15 @@ export type CustomContentType = {
   children?: Array<CustomContentType>,
 }
 
+export type CustomIcon = {
+  key: string,
+  src: string,
+  height: number | 16,
+  width: number | 16,
+  blurHeight: number | 0,
+  blurWidth: number | 0,
+}
+
 export type CustomBannerData = {
   heading?: string,
   text?: string,
