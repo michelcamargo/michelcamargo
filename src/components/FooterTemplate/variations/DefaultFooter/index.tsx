@@ -15,12 +15,14 @@ export const DefaultFooter = forwardRef<HTMLDivElement, Props>(({ minimal }, ref
     <Styled.FooterWrapper ref={ref}>
       <Styled.FooterContainer>
         <Styled.FooterContent>
-          <Styled.FooterLeftSession>
-            <FooterMenu />
-          </Styled.FooterLeftSession>
-          <Styled.FooterRightSession>
-            <FooterPartners />
-          </Styled.FooterRightSession>
+          <Styled.FooterSplitSessions>
+            <Styled.FooterLeftSession>
+              <FooterMenu />
+            </Styled.FooterLeftSession>
+            <Styled.FooterRightSession>
+              <FooterPartners />
+            </Styled.FooterRightSession>
+          </Styled.FooterSplitSessions>
           <Styled.FooterBottomSession>
             <FooterCopyright />
           </Styled.FooterBottomSession>
