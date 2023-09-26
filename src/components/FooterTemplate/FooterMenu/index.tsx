@@ -1,14 +1,21 @@
 import React from 'react';
 
+import Styled from './styles';
+
 const FooterMenu = () => {
   return (
-    <div>
-      <ul>
-        <li>
-          item
-        </li>
-      </ul>
-    </div>
+    <Styled.Wrapper>
+      <Styled.List>
+        <Styled.ListItem>
+          <Styled.ListItemLink href={'/'}>
+            item 1
+          </Styled.ListItemLink>
+        </Styled.ListItem>
+        <Styled.ListItemLink href={'/'}>
+          item 2
+        </Styled.ListItemLink>
+      </Styled.List>
+    </Styled.Wrapper>
   );
 };
 
