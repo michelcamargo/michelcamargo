@@ -1,7 +1,8 @@
 import React from 'react';
 
 import circleFillColorLogo from '@/assets/svg/brand/logo_circlefill_color.svg';
-import Image from "next/image";
+
+import Styled from './styles';
 
 interface Props {
   width?: number,
@@ -12,9 +13,9 @@ const BrandLogo = ({ width = 48, height = 48 }: Props) => {
   const brandLogoImg = circleFillColorLogo;
   
   return (
-    <div>
-      <Image src={brandLogoImg} alt={"Logo da marca"} width={width} height={height} />
-    </div>
+    <Styled.LogoLink href={'/'}>
+      <Styled.LogoImage src={brandLogoImg} alt={"Logo da marca"} width={width} height={height} />
+    </Styled.LogoLink>
   );
 };
 

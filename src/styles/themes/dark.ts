@@ -29,9 +29,9 @@ const darkTheme = createTheme({
     values: {
       xs: 0,
       sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920,
+      md: 720,
+      lg: 820,
+      xl: 1200,
     },
   },
   typography: {

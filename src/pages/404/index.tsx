@@ -1,8 +1,3 @@
-
-const NotFoundPage = () => {
-  return (
-    <p>404 NOT FOUND</p>
-  );
-};
+import NotFoundPage from "@/domains/NotFoundPage";
 
 export default NotFoundPage;

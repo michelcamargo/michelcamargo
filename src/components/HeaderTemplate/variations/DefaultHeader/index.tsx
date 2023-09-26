@@ -4,7 +4,7 @@ import BrandLogo from "@/components/BrandLogo";
 import HeaderNavbar from '@/components/HeaderTemplate/HeaderNavbar';
 import { HeaderData } from "@/lib/datahooks";
 
-import HeaderTopBanner from "./HeaderTopBanner";
+import HeaderTopBanner from "../../HeaderTopBanner";
 import Styled from './styles';
 
 interface Props {
@@ -23,7 +23,6 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
             <BrandLogo />
           </Styled.LeftContainer>
         </Styled.HeaderContainer>
-        
       </Styled.HeaderWrapper>
     );
   }

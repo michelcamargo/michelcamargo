@@ -32,7 +32,7 @@ const Common = ({ children }: Props) => {
   return (
     <Styled.PageLayout>
       <DefaultHeader dataHooks={dataHooks.header} ref={headerRef} />
-      <Styled.BodyContainer ref={contentRef}>
+      <Styled.BodyContainer ref={contentRef} fixed>
         <Styled.BodyContent>{children}</Styled.BodyContent>
       </Styled.BodyContainer>
       <DefaultFooter ref={footerRef} />

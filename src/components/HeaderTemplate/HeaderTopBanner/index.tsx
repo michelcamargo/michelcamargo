@@ -7,6 +7,8 @@ interface Props {
 }
 
 const HeaderTopBanner = ({ data }: Props) => {
+  console.log('data', data);
+  
   return (
     <Styled.HeaderTopBannerWrapper>
       <Styled.HeaderTopBannerContainer>

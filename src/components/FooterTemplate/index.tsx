@@ -1,4 +1,4 @@
-import { DefaultFooter } from './DefaultFooter';
+import { DefaultFooter } from './variations/DefaultFooter';
 
 const DEFAULT_HEIGHT_FOOTER = 0;
 

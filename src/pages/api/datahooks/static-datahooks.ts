@@ -8,10 +8,14 @@ const headerStaticData: HeaderData = {
       href: '/about',
       items: [],
     },
+    {
+      key: 'portfolio',
+      label: 'Trabalho',
+      href: '/portfolio',
+      items: [],
+    },
   ],
-  headerDisclaimer: {
-    text: 'Chamada de atenção persistente no topo da página'
-  }
+  headerDisclaimer: undefined
 };
 
 export default {

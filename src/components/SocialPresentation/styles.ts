@@ -1,24 +1,32 @@
 import { Link, styled } from "@mui/material";
 
-const SocialList = styled('div')`
+export interface StyledProps {
+
+}
+
+const SocialList = styled('div')<StyledProps>`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-top: 16px;
 `;
 
-const SocialItem = styled(Link)`
+const SocialItem = styled(Link)<StyledProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  
+  font-size: 16px;
   
   &:not(&:last-child) {
     margin-right: 16px;
   }
 `;
 
-const SocialItemLabel = styled('p')`
+const SocialItemLabel = styled('p')<StyledProps>`
   display: block;
   justify-content: center;
   margin-left: 8px;
