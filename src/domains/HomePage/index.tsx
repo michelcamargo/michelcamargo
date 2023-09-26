@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 
 import HeroComponent from "@/components/HeroComponent";
 import LoadingFeedback from "@/components/LoadingFeedback";
+import PortfolioCarousel from "@/components/PortfolioCarousel";
 import SocialPresentation from "@/components/SocialPresentation";
 import View from "@/components/View";
 import CustomContent from "@/helpers/custom-content";
@@ -41,9 +42,6 @@ const HomePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
         <div className={'page_content'}>
           <HeroComponent data={viewSessions.find(session => session.key === 'hero')} />
           <SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />
-          <div className={'Carrousel'}>
-            {/*<PortfolioCarousel items={portfolioData} />*/}
-          </div>
         </div>
       </div>
     </View>

@@ -10,6 +10,7 @@ const PageLayout = styled('div')`
 
 const BodyContainer = styled(Container)`
   flex: 1;
+  margin: 0 auto;
 `;
 
 const BodyContent = styled('main')`

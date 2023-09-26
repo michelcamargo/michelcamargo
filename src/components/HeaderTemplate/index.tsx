@@ -1,4 +1,4 @@
-import DefaultHeader from "@/components/HeaderTemplate/DefaultHeader";
+import DefaultHeader from "@/components/HeaderTemplate/variations/DefaultHeader";
 
 const DEFAULT_HEIGHT_HEADER = 0;
 
