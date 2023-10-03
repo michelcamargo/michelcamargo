@@ -24,7 +24,7 @@ export const DefaultFooter = forwardRef<HTMLDivElement, Props>((props, ref) => {
               <FooterMenu items={dataHooks?.menuItems} />
             </Styled.FooterLeftSession>
             <Styled.FooterRightSession>
-              <FooterPartners />
+              <FooterPartners partnerList={dataHooks?.partners} />
             </Styled.FooterRightSession>
           </Styled.FooterSplitSessions>
           <Styled.FooterBottomSession>
