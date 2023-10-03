@@ -34,6 +34,6 @@ export type HeaderData = {
 
 export type FooterData = {
   menuItems?: Array<CustomNavItem>,
-  partners?: Array<CustomContent>,
+  partners?: Array<string>,
   disclaimer?: Array<string>,
 }
