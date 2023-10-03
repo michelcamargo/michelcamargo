@@ -5,16 +5,16 @@ import PortfolioPage from "@/domains/PortfolioPage";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
 
-const fetchAboutContent = async (language?: string) => {
+const fetchPortfolioContent = async (language?: string) => {
   try {
-    return ContentService.fetchByKey_static('portfolio-page', language);
+    return ContentService.fetchByKey_static('portfolio', language);
   } catch(error) {
     throw new Error(`Falha ao buscar informações da PORTFOLIO-PAGE >> ${error}`);
   }
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const serverViewData = await fetchAboutContent('pt-BR') ?? null;
+  const serverViewData = await fetchPortfolioContent('pt-BR') ?? null;
   
   return {
     props: {
