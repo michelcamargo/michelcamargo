@@ -10,7 +10,7 @@ interface Props {
 const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   return (
     <div>
-      Trabalho
+      {JSON.stringify(serverViewData)}
     </div>
   );
 };
