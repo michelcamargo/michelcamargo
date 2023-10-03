@@ -35,7 +35,7 @@ const Common = ({ children }: Props) => {
       <Styled.BodyContainer ref={contentRef} fixed>
         <Styled.BodyContent>{children}</Styled.BodyContent>
       </Styled.BodyContainer>
-      <DefaultFooter ref={footerRef} />
+      <DefaultFooter dataHooks={dataHooks.footer} ref={footerRef} />
     </Styled.PageLayout>
   );
 };
