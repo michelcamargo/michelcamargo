@@ -1,4 +1,4 @@
-import { HeaderData } from "@/lib/datahooks";
+import { FooterData, HeaderData } from "@/lib/datahooks";
 
 const headerStaticData: HeaderData = {
   navigationItems: [
@@ -18,6 +18,23 @@ const headerStaticData: HeaderData = {
   headerDisclaimer: undefined
 };
 
+const footerStaticData: FooterData = {
+  menuItems: [
+    {
+      key: 'admin',
+      label: 'Administrativo',
+      href: 'localhost:3001',
+      items: [],
+    },
+  ],
+  partners: [],
+  disclaimer: [
+    'Aplicação de cunho apresentativo sem fins lucrativos',
+    'Todos os direitos reservados - 2023',
+  ]
+};
+
 export default {
-  header: headerStaticData
+  header: headerStaticData,
+  footer: footerStaticData,
 };

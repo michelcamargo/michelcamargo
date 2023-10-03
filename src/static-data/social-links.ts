@@ -1,3 +1,4 @@
+import githubIcon from "@/assets/svg/social/github-outlined.svg";
 import instagramIcon from "@/assets/svg/social/instagram-outlined.svg";
 import linkedinIcon from "@/assets/svg/social/linkedin-inner.svg";
 import { CustomContentType } from "@/lib/custom-content";
@@ -38,6 +39,27 @@ const STATIC_SOCIAL_LINKS: Array<CustomContentType> = [
       {
         key: 'icon',
         content: linkedinIcon.src
+      },
+      {
+        key: 'target',
+        content: '_blank'
+      },
+    ]
+  },
+  {
+    key: 'social-github',
+    children: [
+      {
+        key: 'label',
+        content: 'GitHub'
+      },
+      {
+        key: 'link',
+        content: 'https://github.com/michelcamargo/'
+      },
+      {
+        key: 'icon',
+        content: githubIcon.src
       },
       {
         key: 'target',
