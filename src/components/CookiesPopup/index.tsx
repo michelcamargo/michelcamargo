@@ -9,15 +9,13 @@ import AppLink from "../AppLink";
 import Styled from './styles';
 
 const CookiesPopup = () => {
-  const infoText = 'Nosso site usa alguns cookies e registra seu endereço IP para fins de acessibilidade, ' +
+  const infoText = 'Esse site utiliza alguns cookies para fins de acessibilidade, ' +
     'segurança e gerenciamento de seu acesso à rede de telecomunicações. ' +
-    'Você pode desativar a coleta de dados e os cookies alterando as configurações do navegador, ' +
-    'mas isso pode afetar o funcionamento deste site.';
+    'Com o seu consentimento, sua experiência de navegação será customizada de acordo com seu navegador' +
+    'de acordo com as +Política de Privacidade+ e +Termos de Uso+.';
   
-  const secondDisclaimer = 'Com o seu consentimento, podemos utilizar cookies' +
-    ' e seu endereço IP para coletar estatísticas individuais ' +
-    'e fornecer a você ofertas e anúncios personalizados sujeitos à +Política de Privacidade+ e aos +Termos de Uso+.' +
-    'Você pode ajustar ou retirar seu consentimento a qualquer momento nas configurações.';
+  const secondDisclaimer = 'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador, ' +
+    'note que essa ação que pode comprometer sua navegação no site.';
   
   const generalStyle = {
     display: 'flex',

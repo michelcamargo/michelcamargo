@@ -1,8 +1,8 @@
 import STATIC_HERO_CONTENT from '@/static-data/hero-content';
-import STATIC_PORTFOLIO_CONTENT from '@/static-data/portfolio';
+import { STATIC_PORTFOLIO_CONTENT } from '@/static-data/portfolio';
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
-const STATIC_HOME_CONTENT = {
+export default {
   head: {
     title: 'Web developer & UIUX design',
     description: 'Estudos e portfolio',
@@ -24,5 +24,3 @@ const STATIC_HOME_CONTENT = {
     ]
   },
 };
-
-export default STATIC_HOME_CONTENT;

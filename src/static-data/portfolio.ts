@@ -1,6 +1,6 @@
 import { CustomContentType } from "@/lib/custom-content";
 
-const PORTFOLIO_STATIC_CONTENT: Array<CustomContentType> = [
+export const STATIC_PORTFOLIO_CONTENT: Array<CustomContentType> = [
   {
     key: 'portfolio-villa-mercato',
     children: [
@@ -81,4 +81,50 @@ const PORTFOLIO_STATIC_CONTENT: Array<CustomContentType> = [
   },
 ];
 
-export default PORTFOLIO_STATIC_CONTENT;
+export const STATIC_DEVSTACK_CONTENT: Array<CustomContentType> = [
+  {
+    key: 'frontend',
+    children: [
+      {
+        key: 'react',
+        children: [
+          {
+            key: 'label',
+            content: 'React / Next.JS'
+          },
+          {
+            key: 'stack-img',
+            content: '#'
+          }
+        ]
+      },
+      {
+        key: 'typescript',
+        children: [
+          {
+            key: 'label',
+            content: 'Typescript'
+          },
+          {
+            key: 'stack-img',
+            content: '#'
+          }
+        ]
+      },
+      {
+        key: 'react',
+        children: [
+          {
+            key: 'label',
+            content: 'React / Next.JS'
+          },
+          {
+            key: 'stack-img',
+            content: '#'
+          }
+        ]
+      },
+    ],
+  },
+];
+
