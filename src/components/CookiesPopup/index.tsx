@@ -14,23 +14,24 @@ const CookiesPopup = () => {
     'Com o seu consentimento, sua experiência de navegação será customizada de acordo com seu navegador' +
     'de acordo com as +Política de Privacidade+ e +Termos de Uso+.';
   
-  const secondDisclaimer = 'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador, ' +
-    'note que essa ação que pode comprometer sua navegação no site.';
+  const secondDisclaimer = 'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador.' +
+    'note que essa ação pode comprometer sua navegação e o funcionamento do site.';
   
   const generalStyle = {
     display: 'flex',
     'flex-direction': 'column',
     right: 0,
+    maxHeight: '260px',
     backgroundColor: 'transparent',
     backgroundImage: `url(${UnicodeBg.src})`,
-    backgroundSize: 'cover', // Define o tamanho da imagem de fundo
-    backgroundRepeat: 'no-repeat', // Impede a repetição da imagem
-    backgroundPosition: 'center center', // Centraliza a imagem de fundo
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
     color: '#FFFFFF',
-    width: '640px',
+    width: '512px',
     marginLeft: 'auto',
     
-    padding: '0 38px',
+    padding: '8px 16px',
   };
   
   const contentStyle = {
@@ -38,7 +39,6 @@ const CookiesPopup = () => {
   };
   const acceptBtnStyle = {
     borderRadius: '4px',
-    padding: '8px 12px',
     background: 'unset',
     color: 'white',
     'font-weight': 'bold',

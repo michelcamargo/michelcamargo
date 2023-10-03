@@ -20,14 +20,20 @@ export type ViewData = {
   }
 };
 
-export type HeaderNavItem = {
+export type CustomNavItem = {
   key: string,
   label: string,
   href: string,
-  items: Array<HeaderNavItem>,
+  items: Array<CustomNavItem>,
 }
 
 export type HeaderData = {
-  navigationItems: Array<HeaderNavItem>,
+  navigationItems: Array<CustomNavItem>,
   headerDisclaimer?: CustomBannerData,
+}
+
+export type FooterData = {
+  menuItems?: Array<CustomNavItem>,
+  partners?: Array<CustomContent>,
+  disclaimer?: CustomContent,
 }

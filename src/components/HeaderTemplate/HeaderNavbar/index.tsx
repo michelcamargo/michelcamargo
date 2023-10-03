@@ -1,9 +1,9 @@
-import { HeaderNavItem } from "@/lib/datahooks";
+import { CustomNavItem } from "@/lib/datahooks";
 
 import Styled from './styles';
 
 interface Props {
-  navbarItems: Array<HeaderNavItem>
+  navbarItems: Array<CustomNavItem>
 }
 
 const HeaderNavbar = ({ navbarItems }: Props) => {
