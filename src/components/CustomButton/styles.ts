@@ -1,14 +1,14 @@
 import { Button, styled } from "@mui/material";
 
-interface Props {
+export interface StyledProps {
   isLoading?: boolean,
   isDisabled?: boolean,
 }
 
-const Btn = styled(Button)<Props>`
+const Btn = styled(Button)<StyledProps>`
 
 `;
 
 export default {
-  Btn
+  Btn,
 };

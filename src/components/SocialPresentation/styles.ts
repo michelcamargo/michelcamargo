@@ -1,7 +1,8 @@
-import { Link, styled } from "@mui/material";
+import AppLink from "@/components/AppLink";
+import { styled } from "@mui/material";
 
 export interface StyledProps {
-
+  callback?: () => void,
 }
 
 const SocialList = styled('div')<StyledProps>`
@@ -12,7 +13,7 @@ const SocialList = styled('div')<StyledProps>`
   margin-top: 16px;
 `;
 
-const SocialItem = styled(Link)<StyledProps>`
+const SocialItem = styled(AppLink)<StyledProps>`
   display: flex;
   flex-direction: row;
   justify-content: center;
