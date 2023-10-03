@@ -1,5 +1,6 @@
-import React, { MouseEvent } from 'react';
+import React, { HTMLAttributeAnchorTarget } from 'react';
 
+import CustomButton from "@/components/CustomButton";
 import CustomContent from "@/helpers/custom-content";
 import Image from "next/image";
 
@@ -26,17 +27,16 @@ const SocialPresentation = ({ socialData }: Props) => {
         const label = item.getContent('label') as string;
         const href = item.getContent('link') as string;
         const icon = item.getContent('icon') as string;
-        const target = item.getContent('target') as string;
+        const target = item.getContent('target') as HTMLAttributeAnchorTarget;
   
-        const logEvent = (event: MouseEvent<HTMLElement>) => {
-          console.log('link social - event', event);
+        const logEvent = (socialItem: CustomContent) => {
+          console.log('link social - event', socialItem);
         };
         
         return (
-          <Styled.SocialItem key={index}
-            variant="body2"
-            onClick={logEvent}
-            href={href}
+          <CustomButton key={index}
+            callback={() => logEvent(item)}
+            anchor={href}
             target={target}
           >
             <Image
@@ -49,7 +49,7 @@ const SocialPresentation = ({ socialData }: Props) => {
             <Styled.SocialItemLabel>
               {label}
             </Styled.SocialItemLabel>
-          </Styled.SocialItem>
+          </CustomButton>
         );
       })}
     </Styled.SocialList>

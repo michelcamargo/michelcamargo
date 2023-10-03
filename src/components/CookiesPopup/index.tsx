@@ -1,9 +1,11 @@
+/* eslint-disable */
 import React from 'react';
 
-import ButtonLink from "@/components/ButtonLink";
 import AppConfig from '@/configs/next.env';
 import CookieConsent from 'react-cookie-consent';
 
+import UnicodeBg from '../../assets/img/disclaimer/unicodebg.jpg';
+import AppLink from "../AppLink";
 import Styled from './styles';
 
 const CookiesPopup = () => {
@@ -21,10 +23,16 @@ const CookiesPopup = () => {
     display: 'flex',
     'flex-direction': 'column',
     right: 0,
-    background: '#000000',
+    backgroundColor: 'transparent',
+    backgroundImage: `url(${UnicodeBg.src})`,
+    backgroundSize: 'cover', // Define o tamanho da imagem de fundo
+    backgroundRepeat: 'no-repeat', // Impede a repetição da imagem
+    backgroundPosition: 'center center', // Centraliza a imagem de fundo
     color: '#FFFFFF',
     width: '640px',
     marginLeft: 'auto',
+    
+    padding: '0 38px',
   };
   
   const contentStyle = {
@@ -43,6 +51,7 @@ const CookiesPopup = () => {
     'font-weight': 'bold',
   };
   
+  /* eslint-disable */
   return (
     <CookieConsent
       flipButtons
@@ -57,15 +66,16 @@ const CookiesPopup = () => {
       <Styled.DisclaimerContainer>
         <Styled.DisclaimerText>
           {infoText}
-          <ButtonLink href={`${AppConfig.APP_URL}/privacy`}>
+          <AppLink href={`${AppConfig.APP_URL}/privacy`}>
             Saiba mais
-          </ButtonLink>
+          </AppLink>
         </Styled.DisclaimerText>
         <Styled.DisclaimerText>{secondDisclaimer}</Styled.DisclaimerText>
       </Styled.DisclaimerContainer>
       
     </CookieConsent>
   );
+  /* eslint-disable */
 };
 
 export default CookiesPopup;
