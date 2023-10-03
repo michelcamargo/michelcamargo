@@ -1,19 +1,29 @@
 import React from 'react';
 
+import AppLink from "@/components/AppLink";
+import { CustomNavItem } from "@/lib/datahooks";
+
 import Styled from './styles';
 
-const FooterMenu = () => {
+interface Props {
+  items?: Array<CustomNavItem>
+}
+
+const FooterMenu = ({ items }: Props) => {
+  if (!items?.length) return <></>;
+  
   return (
     <Styled.Wrapper>
       <Styled.List>
-        <Styled.ListItem>
-          <Styled.ListItemLink href={'/'}>
-            item 1
-          </Styled.ListItemLink>
-        </Styled.ListItem>
-        <Styled.ListItemLink href={'/'}>
-          item 2
-        </Styled.ListItemLink>
+        { items.map(item => {
+          return (
+            <Styled.ListItem key={item.key}>
+              <AppLink href={'/'}>
+                {'links'}
+              </AppLink>
+            </Styled.ListItem>
+          );
+        })}
       </Styled.List>
     </Styled.Wrapper>
   );
