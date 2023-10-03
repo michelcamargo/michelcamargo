@@ -6,12 +6,15 @@ import { CustomNextPage } from "@/lib/layout";
 interface Props {
   serverViewData: ServerViewProps
 }
-const NotFoundPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
+
+const TermsPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
+  const termos = 'Termos de privacidade';
+	
   return (
     <div>
-      <p>404 NOT FOUND</p>
+      {termos}
     </div>
   );
 };
 
-export default NotFoundPage;
+export default TermsPage;
