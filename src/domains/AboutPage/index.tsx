@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 
 import LoadingFeedback from "@/components/LoadingFeedback";
-import View from "@/components/View";
+import AppView from "@/components/View";
 import CustomContent from "@/helpers/custom-content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
@@ -19,10 +19,12 @@ const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
-    const { head, body } = Hydration.getViewData(serverViewData);
+    const { viewTitle, viewSubtitle, viewSessions: sessions } = Hydration.parseViewProps(serverViewData);
     
-    setViewHead(head);
-    setViewSessions(body.sessions);
+    setViewHead({ title: viewTitle, description: viewSubtitle });
+    setViewSessions(sessions);
+    
+    console.log('body.sessions', sessions);
   }, [serverViewData]);
   
   useDidMount(() => {
@@ -34,15 +36,15 @@ const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   if (!viewHead || !viewSessions) return <LoadingFeedback />;
   
   return (
-    <View path={'/about'} title={viewHead.title} description={viewHead.description}>
+    <AppView path={'/about'} title={viewHead.title} description={viewHead.description}>
       <Styled.PageWrapper>
         <Styled.PageContainer>
           <Styled.PageContent>
-            {'PÁGINA SOBRE'}
+            {JSON.stringify(viewSessions)}
           </Styled.PageContent>
         </Styled.PageContainer>
       </Styled.PageWrapper>
-    </View>
+    </AppView>
   );
 };
 

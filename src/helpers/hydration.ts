@@ -1,22 +1,20 @@
 import CustomContent from "@/helpers/custom-content";
-import { ServerViewProps, ViewData } from "@/lib/datahooks";
+import { ServerViewProps } from "@/lib/datahooks";
 
-const getViewData = (serverViewProps: ServerViewProps): ViewData => {
-  const { head, body } = serverViewProps;
+const parseViewProps = (viewProps: ServerViewProps) => {
+  const { head, body } = viewProps;
   
-  if (!body || !Array.isArray(body.sessions)) {
-    return serverViewProps as unknown as ViewData;
-  }
+  // if (!body || !Array.isArray(body.sessions)) {
+  //   return viewProps as unknown as ViewData;
+  // }
   
   return {
-    head,
-    body: {
-      ...body,
-      sessions: body.sessions.map(session => new CustomContent(session))
-    }
+    viewTitle: head.title,
+    viewSubtitle: viewProps.head.description ?? null,
+    viewSessions: body.sessions?.map(session => new CustomContent(session)),
   };
 };
 
 export default {
-  getViewData,
+  parseViewProps
 };

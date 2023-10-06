@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import Layout from "@/components/layout";
+import HydratedView from "@/components/HydratedView";
 import HomePage from "@/domains/HomePage";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
@@ -25,11 +25,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout.Common>
-      {page}
-    </Layout.Common>
-  );
+  return <HydratedView target={page} />;
 };
 
 export default HomePage;
