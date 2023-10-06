@@ -12,7 +12,7 @@ interface Props {
   keywords?: string,
 }
 
-const View = ({
+const AppView = ({
   title,
   ignorePrefix,
   description,
@@ -35,4 +35,4 @@ const View = ({
   );
 };
 
-export default View;
+export default AppView;

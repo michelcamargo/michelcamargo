@@ -5,14 +5,17 @@ import { DefaultHeader, DEFAULT_HEIGHT_HEADER } from "@/components/HeaderTemplat
 import LoadingFeedback from "@/components/LoadingFeedback";
 import useDataHooks from "@/hooks/useDataHooks";
 import useDynamicContentHeight from "@/hooks/useDynamicContentHeight";
+import { ServerViewProps } from "@/lib/datahooks";
 
 import Styled from './styles';
 
 interface Props {
   children: ReactNode,
+  serverProps?: ServerViewProps,
+  bypassServerContent?: boolean,
 }
 
-const Common = ({ children }: Props) => {
+const Common = ({ children, serverProps, bypassServerContent }: Props) => {
   const { dataHooks, isDataHooksLoading, dataHooksError } = useDataHooks();
   const { footerRef, contentRef } = useDynamicContentHeight();
   const headerRef = useRef<HTMLDivElement | null>(null);
@@ -29,6 +32,12 @@ const Common = ({ children }: Props) => {
     );
   }
   
+  if (!bypassServerContent && !serverProps) {
+    return (
+      <LoadingFeedback />
+    );
+  }
+  
   return (
     <Styled.PageLayout>
       <DefaultHeader dataHooks={dataHooks.header} ref={headerRef} />
@@ -40,7 +49,7 @@ const Common = ({ children }: Props) => {
   );
 };
 
-const Minimal = ({ children }: Props) => {
+const Minimal = ({ children, serverProps }: Props) => {
   const { contentRef } = useDynamicContentHeight();
   
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { ReactElement, ReactNode } from "react";
 
 import { NextPage } from "next";
@@ -9,4 +10,9 @@ export type CustomNextPage<P = NonNullable<unknown>, IP = P> = NextPage<P, IP> &
 
 export type AppPropsWithLayout = AppProps & {
   Component: CustomNextPage,
+}
+
+export enum ViewLayoutEnum {
+  DEFAULT = 'default',
+  MINIMAL = 'minimal',
 }

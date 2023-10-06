@@ -64,7 +64,7 @@ const CookiesPopup = () => {
       <Styled.DisclaimerContainer>
         <Styled.DisclaimerText>
           {infoText}
-          <AppLink href={`${AppConfig.APP_URL}/privacy`}>
+          <AppLink href={`${AppConfig.APP_URL}/terms`}>
             Saiba mais
           </AppLink>
         </Styled.DisclaimerText>

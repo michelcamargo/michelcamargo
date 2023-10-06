@@ -1,6 +1,7 @@
+import { ServerViewProps } from "@/lib/datahooks";
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
-const STATIC_ABOUT_CONTENT = {
+export default {
   head: {
     title: 'Sobre mim',
     description: 'Conheça meu trabalho',
@@ -19,6 +20,4 @@ const STATIC_ABOUT_CONTENT = {
       }
     ]
   },
-};
-
-export default STATIC_ABOUT_CONTENT;
+} as ServerViewProps;

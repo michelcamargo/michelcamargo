@@ -1,7 +1,8 @@
+import { ServerViewProps } from "@/lib/datahooks";
 import { STATIC_PORTFOLIO_CONTENT, STATIC_DEVSTACK_CONTENT } from '@/static-data/portfolio';
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
-export const STATIC_HOME_CONTENT = {
+export default {
   head: {
     title: 'Trabalho e portifólio',
     description: 'Entre em contato',
@@ -22,6 +23,4 @@ export const STATIC_HOME_CONTENT = {
       }
     ]
   },
-};
-
-export default STATIC_HOME_CONTENT;
+} as ServerViewProps;

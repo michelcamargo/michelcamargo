@@ -1,3 +1,4 @@
+import { ServerViewProps } from "@/lib/datahooks";
 import { STATIC_USER_INTERFACE_TERMS, STATIC_PRIVACY_TERMS } from '@/static-data/terms';
 
 export default {
@@ -17,4 +18,4 @@ export default {
       },
     ]
   },
-};
+} as ServerViewProps;
