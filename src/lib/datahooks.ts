@@ -1,20 +1,23 @@
 import CustomContent from "@/helpers/custom-content";
 import { CustomBannerData, CustomContentType } from "@/lib/custom-content";
 
-export type PageHead = {
+export type ViewMetadata = {
+  path: string,
   title: string,
-  description: string
+  description?: string,
+  ignoreTitlePostfix?: boolean,
+  keywords?: string,
 }
 
 export type ServerViewProps = {
-  head: PageHead,
-  body: {
+  metadata: ViewMetadata,
+  content: {
     sessions: Array<CustomContentType>
   }
 };
 
 export type ViewData = {
-  head: PageHead,
+  head: ViewMetadata,
   body: {
     sessions: Array<CustomContent>
   }

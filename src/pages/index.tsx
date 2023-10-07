@@ -25,7 +25,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 };
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
-  return <HydratedView target={page} />;
+  return <HydratedView viewElement={page} />;
 };
 
 export default HomePage;

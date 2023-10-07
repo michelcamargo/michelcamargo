@@ -2,11 +2,12 @@ import { ServerViewProps } from "@/lib/datahooks";
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
 export default {
-  head: {
+  metadata: {
+    path: '/about',
     title: 'Sobre mim',
     description: 'Conheça meu trabalho',
   },
-  body: {
+  content: {
     sessions: [
       {
         key: 'social',
