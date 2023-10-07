@@ -1,7 +1,7 @@
 import { Link, styled } from "@mui/material";
 
 export interface StyledProps {
-  isDisabled?: boolean,
+  isdisabled?: boolean,
 }
 
 const Anchor = styled(Link)<StyledProps>`

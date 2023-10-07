@@ -23,7 +23,6 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
     
     setViewHead({ title: viewTitle, description: viewSubtitle });
     setViewSessions(sessions);
-    
   }, [serverViewData]);
   
   useDidMount(() => {
