@@ -11,16 +11,16 @@ interface Props extends StyledProps {
   callback?: () => void,
 }
 
-const CustomButton = ({ children, anchor, target, isLoading, isDisabled }: Props) => {
+const CustomButton = ({ children, anchor, target, isloading, isdisabled }: Props) => {
   if (!anchor) return (
-    <Styled.Btn isLoading={isLoading} isDisabled={isDisabled}>
+    <Styled.Btn isloading={isloading} isdisabled={isdisabled}>
       {children}
     </Styled.Btn>
   );
   
   return (
     <AppLink href={anchor} target={target}>
-      <Styled.Btn isLoading={isLoading} isDisabled={isDisabled}>
+      <Styled.Btn isloading={isloading} isdisabled={isdisabled}>
         { children }
       </Styled.Btn>
     </AppLink>

@@ -1,8 +1,8 @@
 import { Button, styled } from "@mui/material";
 
 export interface StyledProps {
-  isLoading?: boolean,
-  isDisabled?: boolean,
+  isloading?: boolean,
+  isdisabled?: boolean,
 }
 
 const Btn = styled(Button)<StyledProps>`

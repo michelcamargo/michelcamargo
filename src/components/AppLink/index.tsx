@@ -8,10 +8,10 @@ interface Props extends StyledProps {
   target?: HTMLAttributeAnchorTarget,
 }
 
-const AppLink = ({ children, href, target, isDisabled }: Props) => {
+const AppLink = ({ children, href, target, isdisabled }: Props) => {
   
   return (
-    <Styled.Anchor href={href} target={target} isDisabled={isDisabled}>
+    <Styled.Anchor href={href} target={target} isdisabled={isdisabled}>
       {children}
     </Styled.Anchor>
   );

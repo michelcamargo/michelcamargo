@@ -19,9 +19,8 @@ const CookiesPopup = () => {
   
   const generalStyle = {
     display: 'flex',
-    'flex-direction': 'column',
     right: 0,
-    maxHeight: '260px',
+    height: 'auto',
     backgroundColor: 'transparent',
     backgroundImage: `url(${UnicodeBg.src})`,
     backgroundSize: 'cover',
@@ -31,7 +30,7 @@ const CookiesPopup = () => {
     width: '512px',
     marginLeft: 'auto',
     
-    padding: '8px 16px',
+    padding: '22px',
   };
   
   const contentStyle = {
@@ -41,12 +40,12 @@ const CookiesPopup = () => {
     borderRadius: '4px',
     background: 'unset',
     color: 'white',
-    'font-weight': 'bold',
+    fontWeight: 'bold',
   };
   const refuseBtnStyle = {
     background: 'black',
     borderRadius: '4px',
-    'font-weight': 'bold',
+    fontWeight: 'bold',
   };
   
   /* eslint-disable */
