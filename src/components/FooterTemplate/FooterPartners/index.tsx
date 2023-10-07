@@ -4,13 +4,15 @@ interface Props {
   partnerList?: Array<string>
 }
 
+import Styled from './styles';
+
 const FooterPartners = ({ partnerList = [] }: Props) => {
   if (!partnerList?.length) return <></>;
   
   return (
-    <div>
+    <Styled.Wrapper>
       FooterPartners
-    </div>
+    </Styled.Wrapper>
   );
 };
 

@@ -1,7 +1,7 @@
 import { Container, styled } from '@mui/material';
 
 export interface StyledProps {
-  
+  minified?: boolean,
 }
 
 const HeaderWrapper = styled('header')<StyledProps>`
