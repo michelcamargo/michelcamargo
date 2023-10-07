@@ -4,11 +4,12 @@ import { STATIC_PORTFOLIO_CONTENT } from '@/static-data/portfolio';
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
 export default {
-  head: {
+  metadata: {
+    path: '/',
     title: 'Web developer & UIUX design',
     description: 'Estudos e portfolio',
   },
-  body: {
+  content: {
     sessions: [
       {
         key: 'hero',

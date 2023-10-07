@@ -2,11 +2,10 @@ import React, { useCallback, useState } from 'react';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import LoadingFeedback from "@/components/LoadingFeedback";
-import AppView from "@/components/View";
 import CustomContent from "@/helpers/custom-content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
-import { PageHead, ServerViewProps } from "@/lib/datahooks";
+import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
@@ -16,7 +15,7 @@ interface Props {
 }
 
 const TermsPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const [viewHead, setViewHead] = useState<PageHead | null>(null);
+  const [viewHead, setViewHead] = useState<Partial<ViewMetadata> | null>(null);
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
@@ -36,12 +35,10 @@ const TermsPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   if (!viewHead || !viewSessions) return <LoadingFeedback />;
   
   return (
-    <AppView path="/terms" title={viewHead.title} description={viewHead.description}>
-      <Styled.PageWrapper>
-        <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />
-        {JSON.stringify(viewSessions)}
-      </Styled.PageWrapper>
-    </AppView>
+    <Styled.PageWrapper>
+      {viewHead?.title && <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />}
+      {JSON.stringify(viewSessions)}
+    </Styled.PageWrapper>
   );
 };
 

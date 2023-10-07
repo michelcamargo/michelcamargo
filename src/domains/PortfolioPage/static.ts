@@ -3,11 +3,12 @@ import { STATIC_PORTFOLIO_CONTENT, STATIC_DEVSTACK_CONTENT } from '@/static-data
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
 export default {
-  head: {
+  metadata: {
+    path: '/portfolio',
     title: 'Trabalho e portifólio',
     description: 'Entre em contato',
   },
-  body: {
+  content: {
     sessions: [
       {
         key: 'stack',

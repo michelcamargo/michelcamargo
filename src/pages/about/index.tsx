@@ -24,7 +24,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 };
 
 AboutPage.getLayout = function getLayout(page: ReactElement) {
-  return <HydratedView target={page} />;
+  return <HydratedView viewElement={page} />;
 };
 
 export default AboutPage;
