@@ -2,6 +2,8 @@ import React, { useCallback, useState } from 'react';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import LoadingFeedback from "@/components/LoadingFeedback";
+import PortfolioComponent from "@/components/Portfolio";
+import PortfolioItem from "@/components/Portfolio/PortfolioItem";
 import CustomContent from "@/helpers/custom-content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
@@ -33,11 +35,26 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   
   if (!viewHead || !viewSessions) return <LoadingFeedback />;
   
+  const portfolio = viewSessions.find(item => item.key === 'portfolio')?.getChildren();
+  
+  console.log('portfolio', portfolio);
+  
+  if (!portfolio) {
+    return (
+      <Styled.PageWrapper>
+        <Styled.PageContent>
+          {viewHead?.title && <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />}
+          {JSON.stringify(viewSessions)}
+        </Styled.PageContent>
+      </Styled.PageWrapper>
+    );
+  }
+  
   return (
     <Styled.PageWrapper>
       <Styled.PageContent>
         {viewHead?.title && <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />}
-        {JSON.stringify(viewSessions)}
+        <PortfolioComponent data={portfolio} />
       </Styled.PageContent>
     </Styled.PageWrapper>
   );

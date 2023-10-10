@@ -1,4 +1,5 @@
 import { ServerViewProps } from "@/lib/datahooks";
+import STATIC_MAIN_RESUME from "@/static-data/resume";
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
 export default {
@@ -17,7 +18,10 @@ export default {
             children: STATIC_SOCIAL_LINKS,
           }
         ]
-    
+      },
+      {
+        key: 'resume',
+        children: STATIC_MAIN_RESUME,
       }
     ]
   },

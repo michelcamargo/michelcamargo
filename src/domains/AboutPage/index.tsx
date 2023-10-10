@@ -1,6 +1,8 @@
 import { useCallback, useState } from "react";
 
 import LoadingFeedback from "@/components/LoadingFeedback";
+import PersonalPresentation from "@/components/PersonalPresentation";
+import SocialPresentation from "@/components/SocialPresentation";
 import CustomContent from "@/helpers/custom-content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
@@ -31,11 +33,17 @@ const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   
   if (!viewSessions) return <LoadingFeedback />;
   
+  console.log('viewSessions', viewSessions);
+  
+  const socialMediaContent = viewSessions.find(item => item.key === 'social');
+  const aboutContent = viewSessions.find(item => item.key === 'resume');
+  
   return (
     <Styled.PageWrapper>
       <Styled.PageContainer>
         <Styled.PageContent>
-          {JSON.stringify(viewSessions)}
+          <PersonalPresentation serverContent={aboutContent} />
+          <SocialPresentation socialData={socialMediaContent} />
         </Styled.PageContent>
       </Styled.PageContainer>
     </Styled.PageWrapper>
