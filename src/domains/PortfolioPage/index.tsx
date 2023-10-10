@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PortfolioComponent from "@/components/Portfolio";
-import PortfolioItem from "@/components/Portfolio/PortfolioItem";
 import CustomContent from "@/helpers/custom-content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
