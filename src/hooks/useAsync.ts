@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 /**
  * @param {() => Promise<T>} callback - Função assíncrona que retorna uma Promise
@@ -6,20 +6,19 @@ import { useState, useCallback } from 'react';
  * @returns {Object} um objeto contendo o estado de `loading` e a função que faz sua chamada.
  */
 const useAsync = <T>(
-  callback: (...args: any[]) => Promise<T>,
-  inputs: any[] = [],
+  callback: (...args: T[]) => Promise<T>,
+  inputs: T[] = [],
 ): {
   loading: boolean,
-  call: (...args: any[]) => Promise<T>,
+  call: (...args: T[]) => Promise<T>,
 } => {
   const [loading, setLoading] = useState(false);
   
   const call = useCallback(
-    async (...args: any[]) => {
+    async (...args: T[]) => {
       try {
         setLoading(true);
-        const response = await callback(...args);
-        return response;
+        return await callback(...args);
       } finally {
         setTimeout(() => {
           setLoading(false);
