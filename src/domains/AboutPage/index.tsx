@@ -21,8 +21,6 @@ const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const hydratePage = useCallback(() => {
     const { viewSessions: sessions } = Hydration.parseViewProps(serverViewData);
     setViewSessions(sessions);
-    
-    console.log('page sessions', sessions);
   }, [serverViewData]);
   
   useDidMount(() => {
@@ -32,8 +30,6 @@ const AboutPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   });
   
   if (!viewSessions) return <LoadingFeedback />;
-  
-  console.log('viewSessions', viewSessions);
   
   const socialMediaContent = viewSessions.find(item => item.key === 'social');
   const aboutContent = viewSessions.find(item => item.key === 'resume');

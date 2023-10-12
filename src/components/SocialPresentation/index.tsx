@@ -14,7 +14,7 @@ const SocialPresentation = ({ socialData }: Props) => {
   const socialItems = socialData ? socialData.getChildren() : [];
   
   if (!socialData) {
-    console.log('socialData', socialData);
+    console.log('no social data', socialData);
     
     return (
       <p>NO SOCIAL DATA</p>

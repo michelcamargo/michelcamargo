@@ -1,3 +1,4 @@
+import AppLink from "@/components/AppLink";
 import { CustomNavItem } from "@/lib/datahooks";
 
 import Styled from './styles';
@@ -12,9 +13,9 @@ const HeaderNavbar = ({ navbarItems }: Props) => {
       <Styled.NavList>
         {navbarItems.map((item, index) => (
           <Styled.NavListItem key={index}>
-            <Styled.NavListItemLink href={item.href}>
+            <AppLink href={item.href}>
               {item.label}
-            </Styled.NavListItemLink>
+            </AppLink>
           </Styled.NavListItem>
         ))}
       </Styled.NavList>

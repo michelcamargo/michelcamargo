@@ -21,13 +21,13 @@ const PersonalPresentation = ({ serverContent }: Props) => {
     );
   }
   
-  console.log('serverContent', serverContent);
+  const careerData = serverContent.getChild('career-overall');
   
   return (
     <Styled.Wrapper>
       <ProfileAvatar width={220} />
       <HobbiesPanel />
-      <CareerOverall />
+      <CareerOverall data={careerData} />
     </Styled.Wrapper>
   );
 };
