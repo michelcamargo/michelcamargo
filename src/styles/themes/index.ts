@@ -5,17 +5,17 @@ import darkTheme from './dark';
 import lightTheme from './light';
 
 export default function(isDarkMode = false, availableFonts: Array<{ id: string, font: NextFont }>) {
-  const currentTheme = isDarkMode ? darkTheme : lightTheme;
-  
   const leadFont = availableFonts.find(item => item.id === 'lead');
+  const rawLeadFont = leadFont?.font;
+  const fontFamily = rawLeadFont?.style?.fontFamily ?? 'Lexend';
   
-  console.log('LEAD FONT ###', leadFont);
+  const currentTheme = isDarkMode ? darkTheme(fontFamily) : lightTheme(fontFamily);
   
   return createTheme({
     ...currentTheme,
     typography: {
       ...currentTheme.typography,
-      fontFamily: 'Lexend',
+      fontFamily,
     },
   });
 }
