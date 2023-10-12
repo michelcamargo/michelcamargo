@@ -6,6 +6,8 @@ import { AppConfig, MetaConfig } from "@/configs";
 import { ViewLayoutEnum } from "@/lib/layout";
 import HeadMetadata from "@/pages/_head";
 import { useRouter } from "next/router";
+import { ToastContainer } from "react-toastify";
+import CustomToastContainer from "@/components/Toast/CustomToastContainer";
 
 interface Props {
   viewElement: ReactElement,
@@ -33,6 +35,11 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
           isProd={AppConfig.ENV === 'production'}
         />
         <RenderLayout bypassServerContent>
+          <ToastContainer
+            theme="colored"
+            hideProgressBar
+            position="top-center"
+          />
           {viewElement}
         </RenderLayout>
       </>

@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
+import ContactForm from "@/components/ContactForm";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PortfolioComponent from "@/components/Portfolio";
 import CustomContent from "@/helpers/custom-content";
@@ -36,25 +37,16 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   
   const portfolio = viewSessions.find(item => item.key === 'portfolio')?.getChildren();
   
-  console.log('portfolio', portfolio);
-  
-  if (!portfolio) {
-    return (
-      <Styled.PageWrapper>
-        <Styled.PageContent>
-          {viewHead?.title && <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />}
-          {JSON.stringify(viewSessions)}
-        </Styled.PageContent>
-      </Styled.PageWrapper>
-    );
-  }
-  
   return (
     <Styled.PageWrapper>
-      <Styled.PageContent>
-        {viewHead?.title && <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />}
+      {viewHead?.title && <DefaultViewHeading title={viewHead.title} container />}
+      <Styled.SplitRow>
+        <ContactForm
+          title={viewHead.description}
+          description={'Identifique-se e me mande uma mensagem, estarei feliz em responder'}
+        />
         <PortfolioComponent data={portfolio} />
-      </Styled.PageContent>
+      </Styled.SplitRow>
     </Styled.PageWrapper>
   );
 };
