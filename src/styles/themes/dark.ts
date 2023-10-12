@@ -35,7 +35,7 @@ const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Open Sans',
+    fontFamily: 'Lexend',
     h1: {},
     h2: {},
     h3: {},

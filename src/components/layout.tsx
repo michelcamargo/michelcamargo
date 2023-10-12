@@ -41,9 +41,7 @@ const Common = ({ children, serverProps, bypassServerContent }: Props) => {
   return (
     <Styled.PageLayout>
       <DefaultHeader dataHooks={dataHooks.header} ref={headerRef} />
-      <Styled.BodyContainer ref={contentRef} fixed>
-        <Styled.BodyContent>{children}</Styled.BodyContent>
-      </Styled.BodyContainer>
+      <Styled.Body ref={contentRef}>{children}</Styled.Body>
       <DefaultFooter dataHooks={dataHooks.footer} ref={footerRef} />
     </Styled.PageLayout>
   );
@@ -54,9 +52,7 @@ const Minimal = ({ children, serverProps }: Props) => {
   
   return (
     <Styled.PageLayout>
-      <Styled.BodyContainer ref={contentRef}>
-        <Styled.BodyContent>{children}</Styled.BodyContent>
-      </Styled.BodyContainer>
+      <Styled.Body ref={contentRef}>{children}</Styled.Body>
     </Styled.PageLayout>
   );
 };

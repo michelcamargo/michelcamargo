@@ -34,6 +34,23 @@ const lightTheme = createTheme({
       xl: 1200,
     },
   },
+  typography: {
+    fontFamily: 'Lexend',
+    h1: {},
+    h2: {},
+    h3: {},
+    h4: {},
+    h5: {},
+    h6: {},
+    subtitle1: {},
+    subtitle2: {},
+    body1: {},
+    body2: {},
+    button: {},
+    caption: {},
+    overline: {},
+  },
+  spacing: [0, 4, 8, 16, 32, 64],
 });
 
 export default lightTheme;

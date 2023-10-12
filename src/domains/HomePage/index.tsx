@@ -37,10 +37,8 @@ const HomePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   
   return (
     <Styled.PageWrapper>
-      <Styled.PageContent>
-        <HeroComponent data={viewSessions.find(session => session.key === 'hero')} />
-        <SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />
-      </Styled.PageContent>
+      <HeroComponent data={viewSessions.find(session => session.key === 'hero')} />
+      <SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />
     </Styled.PageWrapper>
   );
 };

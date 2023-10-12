@@ -1,4 +1,4 @@
-import { Container, styled } from "@mui/material";
+import { styled } from "@mui/material";
 
 const PageLayout = styled('div')`
   display: flex;
@@ -8,17 +8,13 @@ const PageLayout = styled('div')`
   background: var(--background-light);
 `;
 
-const BodyContainer = styled(Container)`
+const Body = styled('main')`
   flex: 1;
-  margin: 0 auto;
-`;
-
-const BodyContent = styled('main')`
-  flex: 1;
+  display: flex;
+  flex-direction: column;
 `;
 
 export default {
   PageLayout,
-  BodyContainer,
-  BodyContent,
+  Body,
 };
