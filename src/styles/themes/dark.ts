@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const darkTheme = createTheme({
+const darkTheme = (leadFont: string) => createTheme({
   palette: {
     mode: 'dark',
     primary: {
@@ -35,7 +35,7 @@ const darkTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Lexend',
+    fontFamily: leadFont,
     h1: {},
     h2: {},
     h3: {},
