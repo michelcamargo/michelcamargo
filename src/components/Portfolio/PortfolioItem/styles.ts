@@ -9,17 +9,25 @@ const Wrapper = styled(Box)<StyledProps>`
 `;
 
 const CaseTitle = styled(Typography)<StyledProps>`
+	font-size: 20px;
 `;
 
 const CaseDescription = styled(Typography)<StyledProps>`
+	font-size: 14px;
 `;
 
-const CaseImageGroup = styled(Box)<StyledProps>`
+const CaseCommonImageGroup = styled(Box)<StyledProps>`
+	display: flex;
+`;
+
+const CaseCoverImageGroup = styled(Box)<StyledProps>`
+	display: flex;
 `;
 
 const CaseBrandName = styled(Typography)<StyledProps>`
+	font-size: 16px;
 `;
 
 export default {
-  Wrapper, CaseTitle, CaseDescription, CaseImageGroup, CaseBrandName
+  Wrapper, CaseTitle, CaseDescription, CaseCoverImageGroup, CaseCommonImageGroup, CaseBrandName
 };

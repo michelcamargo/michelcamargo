@@ -3,7 +3,7 @@ import { Box, styled, Typography } from "@mui/material";
 const Wrapper = styled(Box)`
   display: flex;
   flex-direction: column;
-  background: ${({ theme }) => 'white'};
+  background-color: rbga(0,0,0, 0.1);
   padding: 16px;
   width: 620px !important;
 `;

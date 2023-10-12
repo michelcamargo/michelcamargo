@@ -2,6 +2,7 @@ import React from 'react';
 
 import CustomContent from "@/helpers/custom-content";
 
+import PortfolioImageGroup from './PortfolioImageGroup';
 import Styled from './styles';
 
 interface Props {
@@ -30,7 +31,10 @@ const PortfolioItem = ({ data }: Props) => {
   const portfolioCase = {
     title: rawCaseTitle?.getContent() ?? '',
     description: rawCaseDescription?.getContent() ?? '',
-    images: caseImages,
+    images: {
+      cover: caseImages?.filter(item => item.key === 'cover-img-src') ?? [],
+      common: caseImages?.filter(item => item.key === 'common-img-src') ?? [],
+    },
     branding: caseBranding,
   };
   
@@ -38,23 +42,17 @@ const PortfolioItem = ({ data }: Props) => {
   
   return (
     <Styled.Wrapper>
-      <div>
-        <Styled.CaseTitle>
-          {portfolioCase.title}
-        </Styled.CaseTitle>
-        <Styled.CaseDescription>
-          {portfolioCase.description}
-        </Styled.CaseDescription>
-        <Styled.CaseBrandName>
-          {portfolioCase.branding.name}
-        </Styled.CaseBrandName>
-        <Styled.CaseImageGroup>
-          {JSON.stringify(caseImages)}
-        </Styled.CaseImageGroup>
-        <Styled.CaseImageGroup>
-        
-        </Styled.CaseImageGroup>
-      </div>
+      <Styled.CaseTitle>
+        {portfolioCase.title}
+      </Styled.CaseTitle>
+      <Styled.CaseDescription>
+        {portfolioCase.description}
+      </Styled.CaseDescription>
+      <Styled.CaseBrandName>
+        {portfolioCase.branding.name}
+      </Styled.CaseBrandName>
+      <PortfolioImageGroup.Cover items={portfolioCase.images.cover} />
+      <PortfolioImageGroup.Common items={portfolioCase.images.common} />
     </Styled.Wrapper>
   );
 };

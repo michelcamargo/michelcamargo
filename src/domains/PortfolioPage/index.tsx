@@ -9,6 +9,7 @@ import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
 import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
+import WorkIcon from '@mui/icons-material/Work';
 
 import Styled from "./styles";
 
@@ -39,13 +40,15 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   
   return (
     <Styled.PageWrapper>
-      {viewHead?.title && <DefaultViewHeading title={viewHead.title} container />}
       <Styled.SplitRow>
         <ContactForm
           title={viewHead.description}
           description={'Identifique-se e me mande uma mensagem, estarei feliz em responder'}
         />
-        <PortfolioComponent data={portfolio} />
+        <Styled.GeneralContent>
+          {viewHead?.title && <DefaultViewHeading title={viewHead.title} container Icon={WorkIcon} />}
+          <PortfolioComponent data={portfolio} />
+        </Styled.GeneralContent>
       </Styled.SplitRow>
     </Styled.PageWrapper>
   );

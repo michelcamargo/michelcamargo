@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+
+import { SvgIconTypeMap } from "@mui/material";
+import { OverridableComponent } from "@mui/types";
 
 import Styled, { StyledProps } from './styles';
 
 interface Props extends StyledProps {
   title: string,
   subtitle?: string,
+  Icon?: OverridableComponent<SvgIconTypeMap<object, "svg">> & { muiName: string; },
 }
 
-const DefaultViewHeading = ({ title, subtitle, container }: Props) => {
+const DefaultViewHeading = ({ title, subtitle, container, Icon }: Props) => {
   
   const TitleTemplate = () => {
     if (!title) return <></>;
     
     return (
       <Styled.TopRow>
-        <p>icon</p>
+        { Icon && (
+          <Icon />
+        )}
         <Styled.HeadingText>
           {title}
         </Styled.HeadingText>
