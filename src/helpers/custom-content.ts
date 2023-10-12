@@ -78,7 +78,7 @@ export default class CustomContent {
       }
     }
     
-    console.log('Buscando [', keyName, '] em [', this.key, '] | content >>', targetContent);
+    // console.log('Buscando [', keyName, '] em [', this.key, '] | content >>', targetContent);
     
     if (targetContent && typeof targetContent === 'string') {
       return targetContent.replace(filterExp, '');

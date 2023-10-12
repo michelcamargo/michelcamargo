@@ -23,8 +23,6 @@ const HomePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
     const { viewSessions: sessions } = Hydration.parseViewProps(serverViewData);
     
     setViewSessions(sessions);
-    
-    console.log('body.sessions', sessions);
   }, [serverViewData]);
   
   useDidMount(() => {

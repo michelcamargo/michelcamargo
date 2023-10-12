@@ -20,7 +20,7 @@ const CustomButton = ({ children, type, anchor, target, isloading, isdisabled }:
   );
   
   return (
-    <AppLink href={anchor} target={target}>
+    <AppLink href={anchor} target={target} noUnderline>
       <Styled.Btn type={type ?? 'button'} isloading={isloading} isdisabled={isdisabled}>
         { children }
       </Styled.Btn>
