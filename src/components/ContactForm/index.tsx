@@ -102,71 +102,49 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
   }, [stepper]);
   
   const StepFormRender = ({ changeHandler }: FormStepProps) => {
-    let RenderNode;
-    
-    switch (stepper.step) {
-      case 0:
-        RenderNode = (
-          <CustomInput.TextArea
-            id={'intention'}
-            name={'intention'}
-            label={'Assunto'}
-            value={formik.values.intention}
+    const formStepElements = [
+      (
+        <CustomInput.TextArea
+          key={'intention'}
+          id={'intention'}
+          name={'intention'}
+          label={'Assunto'}
+          placeholder={'Escreva aqui a sua intenção de contato'}
+          value={formik.values.intention}
+          hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
+          helperText={formik.touched.intention && formik.errors.intention}
+          onChange={formik.handleChange}
+        />
+      ),
+      (
+        <Styled.InputColumn key={'personal'}>
+          <CustomInput.TextField
+            id={'name'}
+            name={'name'}
+            label={'Nome'}
+            value={formik.values.name}
             type={'text'}
-            hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
-            helperText={formik.touched.intention && formik.errors.intention}
+            hasErrors={Boolean(formik.errors.name?.length)}
             onChange={formik.handleChange}
           />
-        );
-        
-        break;
-        
-      case 1:
-        RenderNode = (
-          <Styled.InputColumn>
-            <CustomInput.TextField
-              id={'name'}
-              name={'name'}
-              label={'Nome'}
-              value={formik.values.name}
-              type={'text'}
-              hasErrors={Boolean(formik.errors.name?.length)}
-              onChange={formik.handleChange}
-            />
-            <CustomInput.TextField
-              id={'email'}
-              name={'email'}
-              label={'Email'}
-              value={formik.values.email}
-              mode={'email'}
-              hasErrors={Boolean(formik.touched.email && formik.errors.email)}
-              helperText={formik.touched.email && formik.errors.email}
-              onChange={formik.handleChange}
-            />
-          </Styled.InputColumn>
-        );
-        break;
-        
-      default:
-        RenderNode = (
-          <CustomInput.TextArea
-            id={'intention'}
-            name={'intention'}
-            label={'Assunto'}
-            value={formik.values.intention}
-            type={'text'}
-            minRows={4}
-            hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
-            helperText={formik.touched.intention && formik.errors.intention}
+          <CustomInput.TextField
+            id={'email'}
+            name={'email'}
+            label={'Email'}
+            value={formik.values.email}
+            mode={'email'}
+            hasErrors={Boolean(formik.touched.email && formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
             onChange={formik.handleChange}
           />
-        );
-    }
+        </Styled.InputColumn>
+      )
+    ];
     
     return (
       <Styled.FormBody onSubmit={formik.handleSubmit}>
         <FormControl>
-          {RenderNode}
+          {formStepElements[stepper.step]}
         </FormControl>
         <Styled.FormActionPanel>
           { stepper.step === ContactFormStep.general

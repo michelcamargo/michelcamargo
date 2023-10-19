@@ -1,8 +1,8 @@
 import React, { ChangeEventHandler } from 'react';
 
-import { TextareaAutosize, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 
-import { StyledProps } from './styles';
+import Styled, { StyledProps } from './styles';
 
 interface Props extends StyledProps {
   value: string,
@@ -57,7 +57,7 @@ const TextAreaComponent = ({
   hasErrors, onChange, helperText, outlined, isDisabled, height, width, minRows, maxRows, maxLength
 }: Props) => {
   return (
-    <TextareaAutosize
+    <Styled.TextArea
       id={id}
       name={name}
       value={value}
