@@ -8,6 +8,7 @@ import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
+import AppLink from "@/components/AppLink";
 
 interface Props {
   serverViewData: ServerViewProps,
@@ -30,18 +31,35 @@ const LinkTreePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   
   if (!viewSessions) return <LoadingFeedback />;
   
+  const linkTreeContent = viewSessions.find(item => item.key === 'link-tree');
+  const linksContent = linkTreeContent ? linkTreeContent.getChildren() : [];
+  
+  const linkArray = linksContent.map(item => {
+    console.log('item', item);
+    
+    return {
+      label: item.getContent('label') ?? '',
+      link: item.getContent('link') ?? '',
+      icon: item.getContent('icon') ?? null,
+    };
+  });
+  
   return (
     <Styled.PageWrapper>
       <Styled.MainColumn>
-        {viewSessions.map((item, index) => (
-          <Styled.LinkRow key={index}>
-            <Styled.LinkContent>
-              {/*<Styled.LinkIcon />*/}
-              <Styled.LinkLabel>
-                {'Conteúdo do link'}
-              </Styled.LinkLabel>
-            </Styled.LinkContent>
-          </Styled.LinkRow>
+        {linkArray.map((item, index) => (
+          <AppLink key={index} href={item.link}>
+            <Styled.LinkRow key={index}>
+              <Styled.LinkContent>
+                {item.icon}
+                {/*<Styled.LinkIcon />*/}
+                <Styled.LinkLabel>
+                  {item.label}
+                  {/*{JSON.stringify(item)}*/}
+                </Styled.LinkLabel>
+              </Styled.LinkContent>
+            </Styled.LinkRow>
+          </AppLink>
         ))}
       </Styled.MainColumn>
     </Styled.PageWrapper>
