@@ -14,7 +14,7 @@ interface Props {
 const CustomImage = ({ alt, src, width, height, anchor }: Props) => {
   if (anchor) {
     return (
-      <AppLink href={anchor} noUnderline>
+      <AppLink href={anchor}>
         <Image width={width ?? 42} height={height ?? 42} alt={alt} src={src} />
       </AppLink>
     );

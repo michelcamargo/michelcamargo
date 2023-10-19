@@ -9,14 +9,6 @@ import AppLink from "../AppLink";
 import Styled from './styles';
 
 const CookiesPopup = () => {
-  const infoText = 'Esse site utiliza alguns cookies para fins de acessibilidade, ' +
-    'segurança e gerenciamento de seu acesso à rede de telecomunicações. ' +
-    'Com o seu consentimento, sua experiência de navegação será customizada de acordo com seu navegador' +
-    'de acordo com as +Política de Privacidade+ e +Termos de Uso+.';
-  
-  const secondDisclaimer = 'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador.' +
-    'note que essa ação pode comprometer sua navegação e o funcionamento do site.';
-  
   const generalStyle = {
     display: 'flex',
     right: 0,
@@ -61,13 +53,23 @@ const CookiesPopup = () => {
       declineButtonStyle={refuseBtnStyle}
     >
       <Styled.DisclaimerContainer>
-        <Styled.DisclaimerText>
-          {infoText}
-          <AppLink href={`${AppConfig.APP_URL}/terms`}>
-            Saiba mais
-          </AppLink>
-        </Styled.DisclaimerText>
-        <Styled.DisclaimerText>{secondDisclaimer}</Styled.DisclaimerText>
+        <Styled.DisclaimerFragment>
+          <Styled.DisclaimerText>
+            {'Esse site utiliza alguns cookies para fins de acessibilidade e personalização de conteúdo.'}
+            {'Com o seu consentimento, sua experiência de navegação será aprimorada de acordo com as configurações do seu navegador'}
+            {'de acordo com as '}
+            <AppLink color={'#FFFFFF'} underline={'static'} href={`${AppConfig.APP_URL}/terms`}>{'Políticas de Privacidade'}</AppLink>
+          </Styled.DisclaimerText>
+          <Styled.DisclaimerText>
+          
+          </Styled.DisclaimerText>
+        </Styled.DisclaimerFragment>
+        <Styled.DisclaimerFragment>
+          <Styled.DisclaimerText>
+            {'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador.' +
+              'note que essa ação pode comprometer sua navegação e o funcionamento do site.'}
+          </Styled.DisclaimerText>
+        </Styled.DisclaimerFragment>
       </Styled.DisclaimerContainer>
       
     </CookieConsent>

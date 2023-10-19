@@ -18,19 +18,21 @@ const BrandLogo = ({ width = 52, height = 52 }: Props) => {
 
   const rainbowTrigger = () => {
     setRainbow(true);
-    setTimeout(() => setRainbow(false), 5000);
+    setTimeout(() => setRainbow(false), 1500);
   };
   
   const rotateHue = () => {
     if (rainbow) {
-      setLogoHueDegree(prevState => (prevState + randomXToY(10, 50)) < 360
-        ? prevState + 1
-        : 0);
+      const modifier = randomXToY(1, 5);
+      
+      setLogoHueDegree(prevState => (prevState + modifier) < 360
+        ? prevState + modifier
+        : 360 - prevState);
     }
   };
   
   useEffect(() => {
-    setTimeout(rotateHue, randomXToY(10, 100));
+    setTimeout(rotateHue, randomXToY(50, 500));
   }, [rainbow, rotateHue]);
   
   return (

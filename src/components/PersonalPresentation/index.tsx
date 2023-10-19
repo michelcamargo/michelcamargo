@@ -1,7 +1,6 @@
 import React from 'react';
 
-import CareerOverall from "@/components/PersonalPresentation/CareerOverall";
-import HobbiesPanel from "@/components/PersonalPresentation/HobbiesPanel";
+import CareerOverview from "@/components/PersonalPresentation/CareerOverview";
 import ProfileAvatar from "@/components/PersonalPresentation/ProfileAvatar";
 import CustomContent from "@/helpers/custom-content";
 
@@ -25,9 +24,7 @@ const PersonalPresentation = ({ serverContent }: Props) => {
   
   return (
     <Styled.Wrapper>
-      <ProfileAvatar width={220} />
-      <HobbiesPanel />
-      <CareerOverall data={careerData} />
+      <CareerOverview data={careerData} />
     </Styled.Wrapper>
   );
 };

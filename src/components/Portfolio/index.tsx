@@ -11,14 +11,13 @@ interface Props {
 
 const PortfolioComponent = ({ data }: Props) => {
   if (!data || !data?.length) {
-    console.log('Portfolio data', data);
     return <p>NO PORTFOLIO ITEMS</p>;
   }
 	
   return (
-    <Styled.Wrapper>
+    <Styled.PortfolioList>
       {data.map((item, index) => <PortfolioItem key={index} data={item} />)}
-    </Styled.Wrapper>
+    </Styled.PortfolioList>
   );
 };
 

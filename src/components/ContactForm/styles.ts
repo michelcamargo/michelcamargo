@@ -32,7 +32,13 @@ const FormActionPanel = styled(Box)`
   flex-direction: row;
 `;
 
+const InputColumn = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+`;
+
 export default {
   Wrapper, FormHead, FormHeading, FormSubtitle, FormBody,
-  FormActionPanel,
+  FormActionPanel, InputColumn,
 };

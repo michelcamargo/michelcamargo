@@ -1,6 +1,6 @@
-import { styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 
-const PageLayout = styled('div')`
+const PageLayout = styled(Box)`
   display: flex;
   position: relative;
   flex-direction: column;

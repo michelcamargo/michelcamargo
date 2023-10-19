@@ -1,5 +1,5 @@
-import {AddressInfo} from "@/lib/geolocation";
-import {UTMCampaignInfo} from "@/lib/utm";
+import { AddressInfo } from "@/lib/geolocation";
+import { UTMCampaignInfo } from "@/lib/utm";
 
 export type CustomerPersonalInfo = {
 	firstName: string,

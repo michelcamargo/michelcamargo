@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import CustomButton from "@/components/CustomButton";
 import CustomInput from '@/components/CustomInput';
@@ -8,10 +8,18 @@ import { CustomerProfile } from "@/lib/customer";
 import CustomerService from "@/services/customer.service";
 import { FormControl } from "@mui/material";
 import { useFormik } from "formik";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import * as yup from "yup";
 
 import Styled from './styles';
+
+export enum ContactFormStep {
+  general = 0,
+  personal = 1,
+}
+interface FormStepProps {
+  changeHandler: (targetStep: ContactFormStep) => void,
+}
 
 interface Props {
   id?: number,
@@ -23,6 +31,7 @@ interface Props {
 const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Props) => {
   
   // const queryClient = useQueryClient();
+  const [stepper, setStepper] = useState({ step: ContactFormStep.general, ready: false });
   
   const {
     isLoading: isSendingContact,
@@ -85,6 +94,118 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
     },
   });
   
+  const formStepHandler = useCallback((targetStep: ContactFormStep) => {
+    setStepper({
+      ...stepper,
+      step: targetStep,
+    });
+  }, [stepper]);
+  
+  const StepFormRender = ({ changeHandler }: FormStepProps) => {
+    let RenderNode;
+    
+    switch (stepper.step) {
+      case 0:
+        RenderNode = (
+          <CustomInput.TextArea
+            id={'intention'}
+            name={'intention'}
+            label={'Assunto'}
+            value={formik.values.intention}
+            type={'text'}
+            hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
+            helperText={formik.touched.intention && formik.errors.intention}
+            onChange={formik.handleChange}
+          />
+        );
+        
+        break;
+        
+      case 1:
+        RenderNode = (
+          <Styled.InputColumn>
+            <CustomInput.TextField
+              id={'name'}
+              name={'name'}
+              label={'Nome'}
+              value={formik.values.name}
+              type={'text'}
+              hasErrors={Boolean(formik.errors.name?.length)}
+              onChange={formik.handleChange}
+            />
+            <CustomInput.TextField
+              id={'email'}
+              name={'email'}
+              label={'Email'}
+              value={formik.values.email}
+              mode={'email'}
+              hasErrors={Boolean(formik.touched.email && formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+              onChange={formik.handleChange}
+            />
+          </Styled.InputColumn>
+        );
+        break;
+        
+      default:
+        RenderNode = (
+          <CustomInput.TextArea
+            id={'intention'}
+            name={'intention'}
+            label={'Assunto'}
+            value={formik.values.intention}
+            type={'text'}
+            minRows={4}
+            hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
+            helperText={formik.touched.intention && formik.errors.intention}
+            onChange={formik.handleChange}
+          />
+        );
+    }
+    
+    return (
+      <Styled.FormBody onSubmit={formik.handleSubmit}>
+        <FormControl>
+          {RenderNode}
+        </FormControl>
+        <Styled.FormActionPanel>
+          { stepper.step === ContactFormStep.general
+            ? (
+              <CustomButton
+                // startIcon={product ? <EditIcon /> : <LibraryAddIcon />}
+                // variant="contained"
+                // sx={{ mt: 3, ml: 1 }}
+                callback={() => changeHandler(ContactFormStep.personal)}
+              >
+                {'Continuar'}
+              </CustomButton>
+            ) : (
+              <>
+                <CustomButton
+                  // startIcon={<ArrowBackIcon />}
+                  // variant="contained"
+                  callback={() => changeHandler(ContactFormStep.general)}
+                  // sx={{ mt: 3, ml: 1 }}
+                  // style={{ backgroundColor: "gray" }}
+                >
+                  Voltar
+                </CustomButton>
+                <CustomButton
+                // startIcon={product ? <EditIcon /> : <LibraryAddIcon />}
+                // variant="contained"
+                  type="submit"
+                // sx={{ mt: 3, ml: 1 }}
+                >
+                  {'Enviar'}
+                </CustomButton>
+              </>
+            )
+          }
+        </Styled.FormActionPanel>
+      </Styled.FormBody>
+    );
+  };
+  
   if (isSendingContact) {
     return (
       <LoadingFeedback heading={'Enviando formulário'} minimal />
@@ -111,58 +232,7 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
           </Styled.FormSubtitle>
         }
       </Styled.FormHead>
-      <Styled.FormBody onSubmit={formik.handleSubmit}>
-        <FormControl>
-          <CustomInput.TextField
-            id={'name'}
-            name={'name'}
-            label={'Nome'}
-            value={formik.values.name}
-            type={'text'}
-            hasErrors={Boolean(formik.errors.name?.length)}
-            onChange={formik.handleChange}
-          />
-          <CustomInput.TextField
-            id={'email'}
-            name={'email'}
-            label={'Email'}
-            value={formik.values.email}
-            mode={'email'}
-            hasErrors={Boolean(formik.touched.email && formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-            onChange={formik.handleChange}
-          />
-          <CustomInput.TextField
-            id={'intention'}
-            name={'intention'}
-            label={'Assunto'}
-            value={formik.values.intention}
-            type={'text'}
-            hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
-            helperText={formik.touched.intention && formik.errors.intention}
-            onChange={formik.handleChange}
-          />
-        </FormControl>
-        <Styled.FormActionPanel>
-          <CustomButton
-            // startIcon={<ArrowBackIcon />}
-            // variant="contained"
-            // onClick={handleGoBackClick}
-            // sx={{ mt: 3, ml: 1 }}
-            // style={{ backgroundColor: "gray" }}
-          >
-            Voltar
-          </CustomButton>
-          <CustomButton
-            // startIcon={product ? <EditIcon /> : <LibraryAddIcon />}
-            // variant="contained"
-            type="submit"
-            // sx={{ mt: 3, ml: 1 }}
-          >
-            {'Enviar'}
-          </CustomButton>
-        </Styled.FormActionPanel>
-      </Styled.FormBody>
+      <StepFormRender {...stepper} changeHandler={step => formStepHandler(step)} />
     </Styled.Wrapper>
   );
 };

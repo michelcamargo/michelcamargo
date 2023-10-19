@@ -3,22 +3,29 @@ import { Link, styled } from "@mui/material";
 export interface StyledProps {
   isdisabled?: boolean,
   color?: string,
-  noUnderline?: boolean,
+  _underline?: 'static' | 'ease',
 }
 
 const Anchor = styled(Link)<StyledProps>`
-  display: flex;
+  display: inline;
   position: relative;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
+  text-decoration: ${({ theme, _underline, color }) =>
+    _underline === 'static' ? `underline ${color ? color : theme.palette.primary.main[500]}` : 'none'};
   padding: 0;
+  color: ${({ color, theme }) => color ? color : theme.palette.primary.main[500]};
+  opacity: 1;
+  transition: opacity 300ms ease;
+
+  &:hover {
+    opacity: ${({ _underline }) => _underline === 'static' ? .8 : 'inherit'};
+  }
   
   &::after {
     content: "";
     width: 100%;
-    border-bottom: 1px solid ${({ theme }) => theme.palette.primary.main[500]};
+    border-bottom: 1px solid ${({ theme, color }) => color ? color : theme.palette.primary.main[500]};
     position: absolute;
     bottom: 0;
     left: 0;
@@ -27,7 +34,7 @@ const Anchor = styled(Link)<StyledProps>`
   }
   
   &:hover::after {
-    opacity: ${({ noUnderline }) => noUnderline ? 0 : 1};
+    opacity: ${({ _underline }) => _underline === 'ease' ? 1 : 0};
   }
 `;
 

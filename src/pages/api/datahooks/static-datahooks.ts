@@ -23,8 +23,12 @@ const footerStaticData: FooterData = {
     {
       key: 'admin',
       label: 'Administrativo',
-      href: 'localhost:3001',
-      items: [],
+      href: '/admin',
+    },
+    {
+      key: 'link-tree',
+      label: 'Árvore de links',
+      href: '/links',
     },
   ],
   partners: [],
