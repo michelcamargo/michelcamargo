@@ -10,7 +10,7 @@ import Styled from './styles';
 
 const CookiesPopup = () => {
   const generalStyle = {
-    display: 'flex',
+    display: 'block',
     right: 0,
     height: 'auto',
     backgroundColor: 'transparent',
@@ -21,18 +21,22 @@ const CookiesPopup = () => {
     color: '#FFFFFF',
     width: '512px',
     marginLeft: 'auto',
-    
-    padding: '22px',
+    padding: '16px',
   };
   
   const contentStyle = {
-    display: 'flex'
+    display: 'block',
+    padding: 0,
+    height: 'auto',
+    flex: 1,
   };
   const acceptBtnStyle = {
     borderRadius: '4px',
-    background: 'unset',
+    background: 'none',
     color: 'white',
     fontWeight: 'bold',
+    padding: 0,
+    textDecoration: 'underline white'
   };
   const refuseBtnStyle = {
     background: 'black',
@@ -44,9 +48,7 @@ const CookiesPopup = () => {
   return (
     <CookieConsent
       flipButtons
-      enableDeclineButton
-      declineButtonText={"Recusar [N]"}
-      buttonText="Aceitar [Y]"
+      buttonText="Fechar e continuar navegando"
       style={generalStyle}
       contentStyle={contentStyle}
       buttonStyle={acceptBtnStyle}
@@ -59,11 +61,10 @@ const CookiesPopup = () => {
             {'Com o seu consentimento, sua experiência de navegação será aprimorada de acordo com as configurações do seu navegador'}
             {'de acordo com as '}
             <AppLink color={'#FFFFFF'} underline={'static'} href={`${AppConfig.APP_URL}/terms`}>{'Políticas de Privacidade'}</AppLink>
-          </Styled.DisclaimerText>
-          <Styled.DisclaimerText>
-          
+            {'.'}
           </Styled.DisclaimerText>
         </Styled.DisclaimerFragment>
+        <br />
         <Styled.DisclaimerFragment>
           <Styled.DisclaimerText>
             {'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador.' +
@@ -71,7 +72,6 @@ const CookiesPopup = () => {
           </Styled.DisclaimerText>
         </Styled.DisclaimerFragment>
       </Styled.DisclaimerContainer>
-      
     </CookieConsent>
   );
   /* eslint-disable */
