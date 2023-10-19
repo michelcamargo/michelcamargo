@@ -5,6 +5,8 @@ const PageWrapper = styled(Box)`
   flex-direction: column;
   flex: 1;
   height: 100%;
+  //max-width: 1030px;
+  //margin: auto;
 `;
 
 const GeneralContent = styled(Box)`

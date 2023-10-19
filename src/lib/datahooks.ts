@@ -27,7 +27,7 @@ export type CustomNavItem = {
   key: string,
   label: string,
   href: string,
-  items: Array<CustomNavItem>,
+  items?: Array<CustomNavItem>,
 }
 
 export type HeaderData = {

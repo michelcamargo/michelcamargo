@@ -13,7 +13,7 @@ const HeaderNavbar = ({ navbarItems }: Props) => {
       <Styled.NavList>
         {navbarItems.map((item, index) => (
           <Styled.NavListItem key={index}>
-            <AppLink href={item.href}>
+            <AppLink href={item.href} underline={'ease'}>
               {item.label}
             </AppLink>
           </Styled.NavListItem>

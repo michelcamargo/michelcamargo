@@ -6,16 +6,18 @@ interface Props extends StyledProps {
   children: ReactNode,
   href: string,
   target?: HTMLAttributeAnchorTarget,
+  underline?: 'static' | 'ease',
 }
 
-const AppLink = ({ children, href, target, isdisabled, noUnderline }: Props) => {
+const AppLink = ({ children, href, target, isdisabled, underline, color }: Props) => {
   
   return (
     <Styled.Anchor
       href={href}
       target={target}
       isdisabled={isdisabled}
-      noUnderline={noUnderline}
+      _underline={underline}
+      color={color}
     >
       {children}
     </Styled.Anchor>

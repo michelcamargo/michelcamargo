@@ -1,6 +1,7 @@
 import React from 'react';
 
 import CustomContent from "@/helpers/custom-content";
+import Image from 'next/image';
 
 import PortfolioImageGroup from './PortfolioImageGroup';
 import Styled from './styles';
@@ -24,6 +25,7 @@ const PortfolioItem = ({ data }: Props) => {
   const caseBranding = {
     logo: rawCaseBrand?.getChild('case-brand-logo')?.getContent(),
     name: rawCaseBrand?.getChild('case-brand-name')?.getContent(),
+    color: rawCaseBrand?.getChild('case-brand-color')?.getContent(),
   };
   
   const caseImages = rawCaseImages?.getChildren();
@@ -38,21 +40,25 @@ const PortfolioItem = ({ data }: Props) => {
     branding: caseBranding,
   };
   
-  // console.log('PORTFOLIO CASE:', portfolioCase);
-  
   return (
     <Styled.Wrapper>
-      <Styled.CaseTitle>
-        {portfolioCase.title}
-      </Styled.CaseTitle>
-      <Styled.CaseDescription>
-        {portfolioCase.description}
-      </Styled.CaseDescription>
-      <Styled.CaseBrandName>
-        {portfolioCase.branding.name}
-      </Styled.CaseBrandName>
-      <PortfolioImageGroup.Cover items={portfolioCase.images.cover} />
-      <PortfolioImageGroup.Common items={portfolioCase.images.common} />
+      <Styled.CardOverlay background={portfolioCase.branding.color ?? '#FFFFFF79'} />
+      <Styled.CardContent background={portfolioCase.branding.color ?? '#FFFFFF79'}>
+        <Styled.CaseTitle>
+          {portfolioCase.title}
+        </Styled.CaseTitle>
+        <Styled.CaseDescription>
+          {portfolioCase.description}
+        </Styled.CaseDescription>
+        <Styled.Branding>
+          { portfolioCase.branding.logo
+            ? <Image src={portfolioCase.branding.logo ?? ''} alt={`Logotipo ${portfolioCase.branding.name}`} />
+            : <Styled.CaseBrandName>{portfolioCase.branding.name}</Styled.CaseBrandName>
+          }
+        </Styled.Branding>
+        <PortfolioImageGroup.Cover items={portfolioCase.images.cover} />
+        <PortfolioImageGroup.Common items={portfolioCase.images.common} />
+      </Styled.CardContent>
     </Styled.Wrapper>
   );
 };

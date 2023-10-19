@@ -18,7 +18,7 @@ const FooterMenu = ({ items }: Props) => {
         { items.map(item => {
           return (
             <Styled.ListItem key={item.key}>
-              <AppLink href={item.href}>
+              <AppLink href={item.href} underline={'ease'}>
                 {item.label}
               </AppLink>
             </Styled.ListItem>

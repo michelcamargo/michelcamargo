@@ -4,10 +4,13 @@ interface StyledProps {
 	isActive?: boolean,
 }
 
-const Wrapper = styled(Box)<StyledProps>`
+const PortfolioList = styled(Box)<StyledProps>`
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
 `;
 
 export default {
-  Wrapper,
+  PortfolioList,
 };
