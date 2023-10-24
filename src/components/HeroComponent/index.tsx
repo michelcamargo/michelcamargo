@@ -16,12 +16,14 @@ const HeroComponent = ({ data }: Props) => {
   const subHeading = data.getContent('subHeading');
   const description = data.getContent('description');
   
+  const authorName = author?.split(' ') ?? [''];
+  
   return (
     <Styled.HeroContainer>
       <Styled.HeroAuthor>
-        <Styled.HeroAuthorFirstname>{author}</Styled.HeroAuthorFirstname>
+        <Styled.HeroAuthorFirstname>{authorName[0]}</Styled.HeroAuthorFirstname>
         {/*<Styled.HeroAuthorMiddlename>{author.midName + ' '}</Styled.HeroAuthorMiddlename>*/}
-        {/*<Styled.HeroAuthorLastname>{author.lastName}</Styled.HeroAuthorLastname>*/}
+        <Styled.HeroAuthorLastname>{authorName[1]}</Styled.HeroAuthorLastname>
       </Styled.HeroAuthor>
   
       <Styled.HeroSubHeading>

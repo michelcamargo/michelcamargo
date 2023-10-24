@@ -1,24 +1,20 @@
 import React, { useCallback, useState } from 'react';
 
-import CustomForm from "@/components/_workhouse/CustomForm";
 import CustomButton from "@/components/CustomButton";
+import CustomInput from '@/components/CustomInput';
 import LoadingFeedback from "@/components/LoadingFeedback";
-import SuccessFeedback from "@/components/SuccessFeedback";
-import { CustomerProfile, ProspectCustomer, ProspectIntention } from "@/lib/customer";
+import { splitName } from "@/helpers/customer";
+import { CustomerProfile } from "@/lib/customer";
 import CustomerService from "@/services/customer.service";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { FormControl } from "@mui/material";
-import { FormikHelpers } from "formik";
+import { useFormik } from "formik";
 import { useMutation } from "react-query";
 import * as yup from "yup";
 
-import { FieldText, FieldTextArea } from "../_workhouse/CustomForm/CustomFormField";
 import Styled from './styles';
 
 export enum ContactFormStep {
-  // eslint-disable-next-line no-unused-vars
   general = 0,
-  // eslint-disable-next-line no-unused-vars
   personal = 1,
 }
 interface FormStepProps {
@@ -37,22 +33,12 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
   // const queryClient = useQueryClient();
   const [stepper, setStepper] = useState({ step: ContactFormStep.general, ready: false });
   
-  const initialValues: ProspectCustomer = {
-    personal: {
-      fullName: '',
-      email: '',
-    },
-    prospection: {
-      intention: ProspectIntention.explore
-    }
-  };
-  
   const {
     isLoading: isSendingContact,
     isSuccess: isContactSent,
-    mutate: mutateProspection,
+    mutate: contactMutate,
   } = useMutation(
-    (formData: ProspectCustomer) => CustomerService.prospectCustomer(formData),
+    (formData: Partial<CustomerProfile>) => CustomerService.prospectCustomer(formData),
     {
       onSuccess: data => {
         if (data) {
@@ -63,14 +49,6 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
       },
     }
   );
-  
-  const handleSubmit = (values: ProspectCustomer, actions: FormikHelpers<ProspectCustomer>)  => {
-    if (!values) console.log('failed to mutate');
-    
-    console.log('formData', values, 'typeof', typeof values);
-    
-    mutateProspection(values);
-  };
   
   const validationSchema = () => {
     return yup.object({
@@ -86,6 +64,36 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
     });
   };
   
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      email: '',
+      intention: '',
+      message: '',
+    },
+    validationSchema: validationSchema,
+    enableReinitialize: true,
+    onSubmit: async (values, { resetForm }) => {
+      const { firstName, lastName } = splitName(values.name);
+      
+      const body = {
+        personal: {
+          firstName,
+          lastName,
+          fullName: values.name,
+          email: values.email,
+        },
+        prospection: { intention: values.intention },
+      } as Partial<CustomerProfile>;
+
+      console.log('formik', body);
+
+      await contactMutate(body);
+
+      resetForm();
+    },
+  });
+  
   const formStepHandler = useCallback((targetStep: ContactFormStep) => {
     setStepper({
       ...stepper,
@@ -95,17 +103,46 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
   
   const StepFormRender = ({ changeHandler }: FormStepProps) => {
     const formStepElements = [
-      (<FieldTextArea id="intention" key="intention" name="intention" />),
       (
-        <Styled.InputField key={'personal'}>
-          <FieldText id="Nome" label="Nome" key="name" name="name" />
-          <FieldText id="Email" label="Email" key="email" type="email" name="email" />
-        </Styled.InputField>
+        <CustomInput.TextArea
+          key={'intention'}
+          id={'intention'}
+          name={'intention'}
+          label={'Assunto'}
+          placeholder={'Escreva aqui a sua intenção de contato'}
+          value={formik.values.intention}
+          hasErrors={Boolean(formik.touched.intention && formik.errors.intention)}
+          helperText={formik.touched.intention && formik.errors.intention}
+          onChange={formik.handleChange}
+        />
+      ),
+      (
+        <Styled.InputColumn key={'personal'}>
+          <CustomInput.TextField
+            id={'name'}
+            name={'name'}
+            label={'Nome'}
+            value={formik.values.name}
+            type={'text'}
+            hasErrors={Boolean(formik.errors.name?.length)}
+            onChange={formik.handleChange}
+          />
+          <CustomInput.TextField
+            id={'email'}
+            name={'email'}
+            label={'Email'}
+            value={formik.values.email}
+            mode={'email'}
+            hasErrors={Boolean(formik.touched.email && formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+            onChange={formik.handleChange}
+          />
+        </Styled.InputColumn>
       )
     ];
     
     return (
-      <Styled.FormBody>
+      <Styled.FormBody onSubmit={formik.handleSubmit}>
         <FormControl>
           {formStepElements[stepper.step]}
         </FormControl>
@@ -113,7 +150,9 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
           { stepper.step === ContactFormStep.general
             ? (
               <CustomButton
-                afterIcon={<ArrowForwardIosIcon />}
+                // startIcon={product ? <EditIcon /> : <LibraryAddIcon />}
+                // variant="contained"
+                // sx={{ mt: 3, ml: 1 }}
                 callback={() => changeHandler(ContactFormStep.personal)}
               >
                 {'Continuar'}
@@ -121,12 +160,19 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
             ) : (
               <>
                 <CustomButton
+                  // startIcon={<ArrowBackIcon />}
+                  // variant="contained"
                   callback={() => changeHandler(ContactFormStep.general)}
+                  // sx={{ mt: 3, ml: 1 }}
+                  // style={{ backgroundColor: "gray" }}
                 >
                   Voltar
                 </CustomButton>
                 <CustomButton
+                // startIcon={product ? <EditIcon /> : <LibraryAddIcon />}
+                // variant="contained"
                   type="submit"
+                // sx={{ mt: 3, ml: 1 }}
                 >
                   {'Enviar'}
                 </CustomButton>
@@ -138,8 +184,19 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
     );
   };
   
-  if (isSendingContact) return <LoadingFeedback heading={'Enviando formulário'} minimal />;
-  if (isContactSent) return <SuccessFeedback label={'Obrigado pelo contato, nos vemos em breve!'} />;
+  if (isSendingContact) {
+    return (
+      <LoadingFeedback heading={'Enviando formulário'} minimal />
+    );
+  }
+  
+  if (isContactSent) {
+    return (
+      <p>
+        Formulário enviado, obrigado por entrar em contato!
+      </p>
+    );
+  }
   
   return (
     <Styled.Wrapper>
@@ -153,13 +210,7 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
           </Styled.FormSubtitle>
         }
       </Styled.FormHead>
-      <CustomForm<ProspectCustomer>
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        <StepFormRender {...stepper} changeHandler={step => formStepHandler(step)} />
-      </CustomForm>
+      <StepFormRender {...stepper} changeHandler={step => formStepHandler(step)} />
     </Styled.Wrapper>
   );
 };

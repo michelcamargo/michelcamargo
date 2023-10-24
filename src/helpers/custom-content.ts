@@ -37,53 +37,49 @@ export default class CustomContent {
    */
   public getContent = (keyName?: string, separator = ' ', filterArray: Array<string> = []): string | null => {
     const filterExp = new RegExp(filterArray.join("|"), "g");
-    
+  
     if (!keyName || keyName.toLowerCase() === this.key.toLowerCase()) {
       return this.content ? this.content.replace(filterExp, '') : null;
     }
-  
+
     let leveledChildren = this.children;
-    let targetContent = null;
-    
+    let targetContent: string | null = null;
+
     while (!targetContent && Array.isArray(leveledChildren) && leveledChildren.length > 0) {
-      const target = leveledChildren.find(item => {
-        return item.key.toLowerCase() === keyName.toLowerCase();
-      });
-      
-      if (!target) {
-        const deepArray: Array<CustomContent> = [];
-        leveledChildren.forEach(childrenCustomContent => {
-          if (Array.isArray(childrenCustomContent.children) && childrenCustomContent.children.length > 0) {
-            deepArray.concat(childrenCustomContent.children);
-          }
-        });
-        
-        leveledChildren = deepArray;
-        
-      } else if (target) {
-        if (target.content) {
-          targetContent = target.content;
-        } else if (Array.isArray(target.children) && target.children.length > 0) {
-          const childrenContentArray: Array<string> = [];
-          target.children.forEach(item => item.content && childrenContentArray.push(item.content));
-          
-          if (childrenContentArray.length > 0) {
-            targetContent = childrenContentArray.join(separator);
-          } else {
-            targetContent = null;
-          }
-        } else {
-          targetContent = null;
+      const deepArray: Array<CustomContent> = [];
+      let found = false;
+
+      leveledChildren.forEach(childrenCustomContent => {
+        if (Array.isArray(childrenCustomContent.children) && childrenCustomContent.children.length > 0) {
+          deepArray.push(...childrenCustomContent.children);
         }
+      
+        if (!found && childrenCustomContent.key.toLowerCase() === keyName.toLowerCase()) {
+          if (childrenCustomContent.content) {
+            targetContent = childrenCustomContent.content;
+            found = true;
+          } else if (Array.isArray(childrenCustomContent.children) && childrenCustomContent.children.length > 0) {
+            const childrenContentArray: Array<string> = [];
+            childrenCustomContent.children.forEach(item => item.content && childrenContentArray.push(item.content));
+          
+            if (childrenContentArray.length > 0) {
+              targetContent = childrenContentArray.join(separator);
+              found = true;
+            }
+          }
+        }
+      });
+
+      if (!found) {
+        leveledChildren = deepArray;
       }
     }
-    
-    // console.log('Buscando [', keyName, '] em [', this.key, '] | content >>', targetContent);
-    
+
     if (targetContent && typeof targetContent === 'string') {
-      return targetContent.replace(filterExp, '');
+      const content = targetContent as string;
+      return content.replace(filterExp, '');
     }
-    
+
     return targetContent ?? null;
   }
   

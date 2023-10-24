@@ -1,18 +1,33 @@
 import { useCallback, useState } from "react";
 
+import AppLink from "@/components/AppLink";
+import { MinimalHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import CustomContent from "@/helpers/custom-content";
 import Hydration from '@/helpers/hydration';
 import useDidMount from "@/hooks/useDidMount";
+import { LinkTreeItem } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
-import AppLink from "@/components/AppLink";
 
 interface Props {
   serverViewData: ServerViewProps,
 }
+
+const LinkTreeItem = ({ content, key }: { content: LinkTreeItem, key: number }) => (
+  <AppLink key={key} href={content.link}>
+    <Styled.LinkRow key={key}>
+      <Styled.LinkContent>
+        {content.icon}
+        <Styled.LinkLabel>
+          {content.label}
+        </Styled.LinkLabel>
+      </Styled.LinkContent>
+    </Styled.LinkRow>
+  </AppLink>
+);
 
 const LinkTreePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
@@ -34,34 +49,21 @@ const LinkTreePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const linkTreeContent = viewSessions.find(item => item.key === 'link-tree');
   const linksContent = linkTreeContent ? linkTreeContent.getChildren() : [];
   
-  const linkArray = linksContent.map(item => {
-    console.log('item', item);
-    
+  const linkArray: Array<LinkTreeItem> = linksContent.map(item => {
     return {
       label: item.getContent('label') ?? '',
       link: item.getContent('link') ?? '',
-      icon: item.getContent('icon') ?? null,
     };
   });
   
   return (
     <Styled.PageWrapper>
-      <Styled.MainColumn>
-        {linkArray.map((item, index) => (
-          <AppLink key={index} href={item.link}>
-            <Styled.LinkRow key={index}>
-              <Styled.LinkContent>
-                {item.icon}
-                {/*<Styled.LinkIcon />*/}
-                <Styled.LinkLabel>
-                  {item.label}
-                  {/*{JSON.stringify(item)}*/}
-                </Styled.LinkLabel>
-              </Styled.LinkContent>
-            </Styled.LinkRow>
-          </AppLink>
-        ))}
-      </Styled.MainColumn>
+      <MinimalHeader />
+      <Styled.Content>
+        <Styled.MainColumn>
+          {linkArray.map((item, index) => (<LinkTreeItem content={item} key={index} />))}
+        </Styled.MainColumn>
+      </Styled.Content>
     </Styled.PageWrapper>
   );
 };

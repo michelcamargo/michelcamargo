@@ -1,3 +1,5 @@
+import { ReactElement } from "react";
+
 export type CustomContentType = {
   key: string,
   content?: string,
@@ -19,4 +21,10 @@ export type CustomBannerData = {
   href?: string,
   image?: string,
   background?: string,
+}
+
+export type LinkTreeItem = {
+  label: string,
+  link: string,
+  icon?: ReactElement,
 }
