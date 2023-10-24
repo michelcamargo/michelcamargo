@@ -44,20 +44,26 @@ const PortfolioItem = ({ data }: Props) => {
     <Styled.Wrapper>
       <Styled.CardOverlay background={portfolioCase.branding.color ?? '#FFFFFF79'} />
       <Styled.CardContent background={portfolioCase.branding.color ?? '#FFFFFF79'}>
-        <Styled.CaseTitle>
-          {portfolioCase.title}
-        </Styled.CaseTitle>
-        <Styled.CaseDescription>
-          {portfolioCase.description}
-        </Styled.CaseDescription>
-        <Styled.Branding>
-          { portfolioCase.branding.logo
-            ? <Image src={portfolioCase.branding.logo ?? ''} alt={`Logotipo ${portfolioCase.branding.name}`} />
-            : <Styled.CaseBrandName>{portfolioCase.branding.name}</Styled.CaseBrandName>
-          }
-        </Styled.Branding>
-        <PortfolioImageGroup.Cover items={portfolioCase.images.cover} />
-        <PortfolioImageGroup.Common items={portfolioCase.images.common} />
+        <Styled.PortfolioHead>
+          <Styled.Branding>
+            { portfolioCase.branding.logo
+              ? <Image src={portfolioCase.branding.logo ?? ''} alt={`Logotipo ${portfolioCase.branding.name}`} />
+              : <Styled.CaseBrandName>{portfolioCase.branding.name}</Styled.CaseBrandName>
+            }
+          </Styled.Branding>
+          <Styled.PortfolioHeading>
+            <Styled.CaseTitle>
+              {portfolioCase.title}
+            </Styled.CaseTitle>
+            <Styled.CaseDescription>
+              {portfolioCase.description}
+            </Styled.CaseDescription>
+          </Styled.PortfolioHeading>
+        </Styled.PortfolioHead>
+        <Styled.PortfolioContent>
+          <PortfolioImageGroup.Cover items={portfolioCase.images.cover} />
+          <PortfolioImageGroup.Common items={portfolioCase.images.common} />
+        </Styled.PortfolioContent>
       </Styled.CardContent>
     </Styled.Wrapper>
   );

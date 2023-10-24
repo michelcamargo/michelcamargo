@@ -35,29 +35,13 @@ const FormActionPanel = styled(Box)`
   margin-top: 8px;
 `;
 
-const InputField = styled(Box)`
+const InputColumn = styled(Box)`
   display: flex;
   flex-direction: column;
   row-gap: 8px;
 `;
 
-const FormFieldBox = styled(Box)`
-  min-height: 52px;
-	padding: 4px 8px;
-	border-style: none;
-	box-shadow: 0 0 2px 1px rgba(0,0,0, .1);
-	border-radius: 4px;
-	background: #FFFFFF77;
-	transition: .2s ease-in;
-	
-	&:focus, &:focus-visible {
-		box-shadow: 0 0 2px 1px rgba(0,0,0, .2);
-		background: #FFFFFFFF;
-		outline: none;
-	}
-`;
-
 export default {
-  Wrapper, FormHead, FormHeading, FormSubtitle, FormBody, FormActionPanel,
-  InputField, FormFieldBox,
+  Wrapper, FormHead, FormHeading, FormSubtitle, FormBody,
+  FormActionPanel, InputColumn,
 };

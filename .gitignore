@@ -34,5 +34,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Variáveis de ambiente
 .env
+
+# JetBrains
 .idea
+
+

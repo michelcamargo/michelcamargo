@@ -23,7 +23,7 @@ const BrandLogo = ({ width = 52, height = 52 }: Props) => {
   
   const rotateHue = () => {
     if (rainbow) {
-      const modifier = randomXToY(1, 5);
+      const modifier = randomXToY(1, 7);
       
       setLogoHueDegree(prevState => (prevState + modifier) < 360
         ? prevState + modifier
@@ -32,7 +32,7 @@ const BrandLogo = ({ width = 52, height = 52 }: Props) => {
   };
   
   useEffect(() => {
-    setTimeout(rotateHue, randomXToY(50, 500));
+    setTimeout(rotateHue, randomXToY(100, 1000));
   }, [rainbow, rotateHue]);
   
   return (

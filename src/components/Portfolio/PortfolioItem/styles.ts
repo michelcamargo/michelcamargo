@@ -6,10 +6,25 @@ interface StyledProps {
 	background?: string,
 }
 
-const Wrapper = styled(Box)<StyledProps>`
+const Wrapper = styled('details')<StyledProps>`
 	position: relative;
 	width: fit-content;
 	border-radius: 4px;
+`;
+
+const PortfolioHead = styled('summary')<StyledProps>`
+	position: relative;
+	width: fit-content;
+`;
+
+const PortfolioHeading = styled(Box)<StyledProps>`
+	position: relative;
+	width: fit-content;
+`;
+
+const PortfolioContent = styled(Box)<StyledProps>`
+	position: relative;
+	width: fit-content;
 `;
 
 const CardOverlay = styled(Box)<StyledProps>`
@@ -69,6 +84,6 @@ const CaseBrandName = styled(Typography)<StyledProps>`
 `;
 
 export default {
-  Wrapper, CardOverlay, CardContent,
+  Wrapper, CardOverlay, CardContent, PortfolioHead, PortfolioHeading, PortfolioContent,
   CaseTitle, CaseDescription, CaseCoverImageGroup, CaseCommonImageGroup, Branding, CaseBrandName
 };

@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import {styled, Typography} from "@mui/material";
 
 const HeroAuthor = styled('h1')`
   font-size: 32px;
@@ -9,8 +9,9 @@ const HeroContainer = styled('div')`
 
 `;
 
-const HeroAuthorFirstname = styled('span')`
-
+const HeroAuthorFirstname = styled(Typography)`
+  font-size: 42px;
+  font-weight: bold;
 `;
 
 const HeroAuthorMiddlename = styled('span')`
