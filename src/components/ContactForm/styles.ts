@@ -9,15 +9,17 @@ const Wrapper = styled(Box)`
 const FormHead = styled(Box)`
   display: flex;
   flex-direction: column;
+  margin-bottom: 8px;
 `;
 
 const FormHeading = styled(Typography)`
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 `;
 
 const FormSubtitle = styled(Typography)`
-
+  font-size: 14px;
+  white-space: pre-wrap;
 `;
 
 const FormBody = styled(Form)`

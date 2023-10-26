@@ -13,9 +13,13 @@ interface Props {
 const PortfolioAccordionContent: FC<Props> = ({ data }: Props) => {
   const { images } = data;
 	
-  const renderImages = (targetImages: Array<CustomImageProps>, altText: string) => targetImages.map(imageInfo => (
-    <Image key={imageInfo.alt} src={imageInfo.src} alt={imageInfo.alt ?? altText} />
-  ));
+  const renderImages = (targetImages: Array<CustomImageProps>, altText: string) => targetImages.map(imageInfo => {
+    if (!imageInfo) return undefined;
+    
+    return (
+      <Image key={imageInfo?.alt} src={imageInfo?.src} alt={imageInfo?.alt ?? altText} />
+    );
+  });
 	
   return (
     <Styled.ContentWrapper>

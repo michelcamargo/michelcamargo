@@ -45,7 +45,7 @@ const portfolioToAccordion = (portfolio: CustomContent) => {
   const coverImages = caseImages?.filter(item => item.key === 'cover-img-src');
   const coverParsedImages = coverImages?.map(image => {
     return {
-      src: image.getContent(),
+      src: image.getContent() ?? '',
       alt: 'cover-image'
     } as CustomImageProps;
   });
@@ -53,7 +53,7 @@ const portfolioToAccordion = (portfolio: CustomContent) => {
   const commonImages = caseImages?.filter(item => item.key === 'common-img-src');
   const commonParsedImages = commonImages?.map(image => {
     return {
-      src: image.getContent(),
+      src: image.getContent() ?? '',
       alt: 'case-image'
     } as CustomImageProps;
   });

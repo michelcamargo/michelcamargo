@@ -17,7 +17,10 @@ const HeadingTitle = styled(Typography)<StyledProps>`
 	flex-direction: column;
 `;
 
-const HeadingBrandName = styled(Typography)<StyledProps>``;
+const HeadingBrandName = styled(Typography)<StyledProps>`
+	font-size: 14px;
+	font-weight: bold;
+`;
 
 const BrandingRow = styled(Box)<StyledProps>`
 	display: flex;
