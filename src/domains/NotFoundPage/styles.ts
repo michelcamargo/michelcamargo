@@ -3,6 +3,7 @@ import { Container, styled, Typography } from "@mui/material";
 const PageWrapper = styled(Container)`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const MainMessage = styled(Typography)`

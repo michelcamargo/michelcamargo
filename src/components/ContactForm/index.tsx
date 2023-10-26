@@ -6,6 +6,7 @@ import LoadingFeedback from "@/components/LoadingFeedback";
 import SuccessFeedback from "@/components/SuccessFeedback";
 import { CustomerProfile, ProspectCustomer, ProspectIntention } from "@/lib/customer";
 import CustomerService from "@/services/customer.service";
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { FormControl } from "@mui/material";
 import { FormikHelpers } from "formik";
@@ -95,11 +96,11 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
   
   const StepFormRender = ({ changeHandler }: FormStepProps) => {
     const formStepElements = [
-      (<FieldTextArea id="intention" key="intention" name="intention" />),
+      (<FieldTextArea id="intention" key="intention" name="intention" height={80} fullWidth />),
       (
         <Styled.InputField key={'personal'}>
-          <FieldText id="Nome" label="Nome" key="name" name="name" />
-          <FieldText id="Email" label="Email" key="email" type="email" name="email" />
+          <FieldText id="Nome" label="Nome" key="name" name="name" fullWidth />
+          <FieldText id="Email" label="Email" key="email" type="email" name="email" fullWidth />
         </Styled.InputField>
       )
     ];
@@ -115,6 +116,7 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
               <CustomButton
                 afterIcon={<ArrowForwardIosIcon />}
                 callback={() => changeHandler(ContactFormStep.personal)}
+                bold
               >
                 {'Continuar'}
               </CustomButton>
@@ -122,11 +124,13 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
               <>
                 <CustomButton
                   callback={() => changeHandler(ContactFormStep.general)}
+                  beforeIcon={<ArrowBackIosIcon />}
                 >
                   Voltar
                 </CustomButton>
                 <CustomButton
                   type="submit"
+                  bold
                 >
                   {'Enviar'}
                 </CustomButton>

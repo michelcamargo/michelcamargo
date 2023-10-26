@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
+import BriefPresentation from "@/components/BriefPresentation";
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import ContactForm from "@/components/ContactForm";
 import LoadingFeedback from "@/components/LoadingFeedback";
@@ -37,14 +38,16 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   if (!viewHead || !viewSessions) return <LoadingFeedback />;
   
   const portfolio = viewSessions.find(item => item.key === 'portfolio')?.getChildren();
+  const authorInfo = viewSessions.find(item => item.key === 'resume');
   
   return (
     <Styled.PageWrapper>
       <Styled.SplitRow>
         <Styled.LeftContainer>
+          { authorInfo && <BriefPresentation authorInfo={authorInfo} /> }
           <ContactForm
             title={viewHead.description}
-            description={'Identifique-se e me mande uma mensagem, estarei feliz em responder'}
+            description={'Permita-me conhecê-lo!\nIdentifique-se e envie uma mensagem'}
           />
         </Styled.LeftContainer>
         <Styled.GeneralContent>

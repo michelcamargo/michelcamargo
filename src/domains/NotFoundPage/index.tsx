@@ -4,6 +4,7 @@ import DefaultViewHeading from "@/components/CommonViewHeading";
 import CustomButton from "@/components/CustomButton";
 import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
+import HomeIcon from '@mui/icons-material/Home';
 
 import Styled from './styles';
 
@@ -14,8 +15,7 @@ const NotFoundPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   return (
     <Styled.PageWrapper>
       <DefaultViewHeading title={'404 Página não encontrada'} />
-      {JSON.stringify(serverViewData)}
-      <CustomButton anchor={'/'}>
+      <CustomButton anchor={'/'} beforeIcon={<HomeIcon />}>
         Voltar ao ínicio
       </CustomButton>
     </Styled.PageWrapper>
