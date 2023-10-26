@@ -1,5 +1,7 @@
 import { ReactElement } from "react";
 
+import { CustomImageProps } from "@/helpers/image";
+
 export type CustomContentType = {
   key: string,
   content?: string,
@@ -27,8 +29,8 @@ export type PortfolioCase = {
   title: string,
   description: string,
   images: {
-    cover: Array<any>,
-    common: Array<any>,
+    cover: Array<CustomImageProps>,
+    common: Array<CustomImageProps>,
   },
   branding: { logo: string, name: string, color: string },
   highlighted?: boolean,
