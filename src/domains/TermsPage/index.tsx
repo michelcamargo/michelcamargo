@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import LoadingFeedback from "@/components/LoadingFeedback";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
 import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";

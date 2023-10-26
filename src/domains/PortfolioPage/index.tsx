@@ -4,7 +4,7 @@ import DefaultViewHeading from "@/components/CommonViewHeading";
 import ContactForm from "@/components/ContactForm";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PortfolioComponent from "@/components/Portfolio";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
 import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";
@@ -41,10 +41,12 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   return (
     <Styled.PageWrapper>
       <Styled.SplitRow>
-        <ContactForm
-          title={viewHead.description}
-          description={'Identifique-se e me mande uma mensagem, estarei feliz em responder'}
-        />
+        <Styled.LeftContainer>
+          <ContactForm
+            title={viewHead.description}
+            description={'Identifique-se e me mande uma mensagem, estarei feliz em responder'}
+          />
+        </Styled.LeftContainer>
         <Styled.GeneralContent>
           {viewHead?.title && <DefaultViewHeading title={viewHead.title} container Icon={WorkIcon} />}
           <PortfolioComponent data={portfolio} />

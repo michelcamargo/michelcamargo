@@ -1,5 +1,5 @@
-import CustomContent from "@/helpers/custom-content";
-import { CustomBannerData, CustomContentType } from "@/lib/custom-content";
+import CustomContent from "@/helpers/content";
+import { CustomBannerData, CustomContentType } from "@/lib/content";
 
 export type ViewMetadata = {
   path: string,

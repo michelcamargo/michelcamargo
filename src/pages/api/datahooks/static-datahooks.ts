@@ -2,12 +2,12 @@ import { FooterData, HeaderData } from "@/lib/datahooks";
 
 const headerStaticData: HeaderData = {
   navigationItems: [
-    {
-      key: 'about',
-      label: 'Sobre',
-      href: '/about',
-      items: [],
-    },
+    // {
+    //   key: 'about',
+    //   label: 'Sobre',
+    //   href: '/about',
+    //   items: [],
+    // },
     {
       key: 'portfolio',
       label: 'Trabalho',

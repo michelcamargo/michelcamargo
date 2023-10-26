@@ -1,7 +1,7 @@
 import githubIcon from "@/assets/svg/social/github-outlined.svg";
 import instagramIcon from "@/assets/svg/social/instagram-outlined.svg";
 import linkedinIcon from "@/assets/svg/social/linkedin-inner.svg";
-import { CustomContentType } from "@/lib/custom-content";
+import { CustomContentType } from "@/lib/content";
 
 const STATIC_SOCIAL_LINKS: Array<CustomContentType> = [
   {

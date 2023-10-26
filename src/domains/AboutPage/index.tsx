@@ -3,7 +3,7 @@ import { useCallback, useState } from "react";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PersonalPresentation from "@/components/PersonalPresentation";
 import SocialPresentation from "@/components/SocialPresentation";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import Hydration from "@/helpers/hydration";
 import useDidMount from "@/hooks/useDidMount";
 import { ServerViewProps } from "@/lib/datahooks";

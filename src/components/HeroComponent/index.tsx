@@ -1,7 +1,7 @@
 import React from 'react';
 
 import LoadingFeedback from "@/components/LoadingFeedback";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 
 import Styled from "./styles";
 
