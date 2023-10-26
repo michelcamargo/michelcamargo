@@ -6,13 +6,19 @@ interface StyledProps {
 	background?: string,
 }
 
-const Wrapper = styled('details')<StyledProps>`
+const Wrapper = styled(Box)<StyledProps>`
 	position: relative;
 	width: fit-content;
 	border-radius: 4px;
+	flex: 1;
+	transition: .1s ease-in;
+	
+	&:hover {
+		flex: 2;
+	}
 `;
 
-const PortfolioHead = styled('summary')<StyledProps>`
+const PortfolioHead = styled(Box)<StyledProps>`
 	position: relative;
 	width: fit-content;
 `;

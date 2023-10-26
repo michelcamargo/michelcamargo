@@ -7,8 +7,8 @@ interface StyledProps {
 const PortfolioList = styled(Box)<StyledProps>`
 	width: 100%;
 	display: flex;
+	flex: 1;
 	flex-direction: column;
-	row-gap: 16px;
 `;
 
 export default {
