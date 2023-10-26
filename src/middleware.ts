@@ -5,9 +5,10 @@ const paths = ['/teste'];
 
 export function middleware(request: NextRequest) {
   let intercept = false;
+  const { pathname } = request.nextUrl;
   
   paths.forEach(path => {
-    if (request.nextUrl.pathname.startsWith(path)) {
+    if (pathname.startsWith(path)) {
       intercept = true;
     }
   });

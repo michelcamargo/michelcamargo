@@ -23,6 +23,17 @@ export type CustomBannerData = {
   background?: string,
 }
 
+export type PortfolioCase = {
+  title: string,
+  description: string,
+  images: {
+    cover: Array<any>,
+    common: Array<any>,
+  },
+  branding: { logo: string, name: string, color: string },
+  highlighted?: boolean,
+}
+
 export type LinkTreeItem = {
   label: string,
   link: string,
