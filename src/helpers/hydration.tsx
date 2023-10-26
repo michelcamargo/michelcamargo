@@ -2,7 +2,8 @@ import React from "react";
 
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
+import { CustomImageProps } from "@/helpers/image";
 import { CustomAccordionItem } from "@/lib/accordion";
 import { PortfolioCase } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
@@ -41,12 +42,28 @@ const portfolioToAccordion = (portfolio: CustomContent) => {
   
   const caseImages = rawCaseImages?.getChildren();
   
+  const coverImages = caseImages?.filter(item => item.key === 'cover-img-src');
+  const coverParsedImages = coverImages?.map(image => {
+    return {
+      src: image.getContent(),
+      alt: 'cover-image'
+    } as CustomImageProps;
+  });
+  
+  const commonImages = caseImages?.filter(item => item.key === 'common-img-src');
+  const commonParsedImages = commonImages?.map(image => {
+    return {
+      src: image.getContent(),
+      alt: 'case-image'
+    } as CustomImageProps;
+  });
+  
   const caseItem: PortfolioCase = {
     title: rawCaseTitle?.getContent() ?? '',
     description: rawCaseDescription?.getContent() ?? '',
     images: {
-      cover: caseImages?.filter(item => item.key === 'cover-img-src') ?? [],
-      common: caseImages?.filter(item => item.key === 'common-img-src') ?? [],
+      cover: coverParsedImages ?? [],
+      common: commonParsedImages ?? [],
     },
     branding: caseBranding,
     highlighted: false,

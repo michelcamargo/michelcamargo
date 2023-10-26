@@ -3,7 +3,7 @@ import React from 'react';
 import CustomAccordion from "@/components/CustomAccordion";
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import hydration from "@/helpers/hydration";
 import { CustomAccordionItem } from "@/lib/accordion";
 
@@ -20,9 +20,6 @@ const PortfolioComponent = ({ data }: Props) => {
 	
   return (
     <>
-      {/*<Styled.PortfolioList>*/}
-      {/*  {data.map((item, index) => <PortfolioItem key={index} data={item} />)}*/}
-      {/*</Styled.PortfolioList>*/}
       <CustomAccordion
         items={accordionPortfolio}
         summaryComponent={PortfolioAccordionHeading}

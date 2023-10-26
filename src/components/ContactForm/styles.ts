@@ -4,9 +4,6 @@ import { Form } from "formik";
 const Wrapper = styled(Box)`
   display: flex;
   flex-direction: column;
-  background-color: rbga(0,0,0, 0.1);
-  padding: 16px;
-  width: 620px !important;
 `;
 
 const FormHead = styled(Box)`

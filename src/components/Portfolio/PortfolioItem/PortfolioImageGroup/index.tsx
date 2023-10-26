@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CustomImage from "@/components/CustomImage";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import { CustomImageProps } from "@/helpers/image";
 
 import Styled from './styles';

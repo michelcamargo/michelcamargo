@@ -1,4 +1,4 @@
-import { CustomContentType } from "@/lib/custom-content";
+import { CustomContentType } from "@/lib/content";
 
 export default class CustomContent {
   

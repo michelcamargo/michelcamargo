@@ -27,6 +27,7 @@ const BrandingRow = styled(Box)<StyledProps>`
 
 const HeadingBrandLogoWrapper = styled(Box)<StyledProps>`
 	display: flex;
+	margin-right: 8px;
 `;
 
 const CommonImages = styled(Box)<StyledProps>`

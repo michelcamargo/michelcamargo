@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 
+import { CustomImageProps } from "@/helpers/image";
 import { PortfolioCase } from "@/lib/content";
 import Image from "next/image";
 
@@ -12,20 +13,17 @@ interface Props {
 const PortfolioAccordionContent: FC<Props> = ({ data }: Props) => {
   const { images } = data;
 	
-  const commonImages = images.common.map(imageInfo => (
-    <Image key={imageInfo.alt} src={imageInfo.src} alt={imageInfo.alt ?? 'Case image'} />
-  ));
-  const coverImages = images.cover.map(imageInfo => (
-    <Image key={imageInfo.alt} src={imageInfo.src} alt={imageInfo.alt ?? 'Case image'} />
+  const renderImages = (targetImages: Array<CustomImageProps>, altText: string) => targetImages.map(imageInfo => (
+    <Image key={imageInfo.alt} src={imageInfo.src} alt={imageInfo.alt ?? altText} />
   ));
 	
   return (
     <Styled.ContentWrapper>
       <Styled.CoverImages>
-        {commonImages}
+        {renderImages(images.cover, 'Cover image')}
       </Styled.CoverImages>
       <Styled.CommonImages>
-        {coverImages}
+        {renderImages(images.common, 'Case image')}
       </Styled.CommonImages>
     </Styled.ContentWrapper>
   );

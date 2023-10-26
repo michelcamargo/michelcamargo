@@ -4,7 +4,7 @@ import HeroComponent from "@/components/HeroComponent";
 import LoadingFeedback from "@/components/LoadingFeedback";
 // import PortfolioCarousel from "@/components/PortfolioCarousel";
 import SocialPresentation from "@/components/SocialPresentation";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import Hydration from '@/helpers/hydration';
 import useDidMount from "@/hooks/useDidMount";
 import { ServerViewProps } from "@/lib/datahooks";

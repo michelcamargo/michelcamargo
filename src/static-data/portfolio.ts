@@ -1,4 +1,5 @@
-import { CustomContentType } from "@/lib/custom-content";
+import villaMercatoBrandLogo from '@/assets/branding/villa-mercato/logo-color.png';
+import { CustomContentType } from "@/lib/content";
 
 export const STATIC_PORTFOLIO_CONTENT: Array<CustomContentType> = [
   {
@@ -22,7 +23,7 @@ export const STATIC_PORTFOLIO_CONTENT: Array<CustomContentType> = [
         children: [
           {
             key: 'case-brand-logo',
-            content: ''
+            content: villaMercatoBrandLogo.src,
           },
           {
             key: 'case-brand-name',

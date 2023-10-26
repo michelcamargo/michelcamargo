@@ -1,4 +1,4 @@
-import { CustomContentType } from "@/lib/custom-content";
+import { CustomContentType } from "@/lib/content";
 
 const STATIC_HERO_CONTENT: Array<CustomContentType> = [
   {

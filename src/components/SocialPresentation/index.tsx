@@ -1,7 +1,7 @@
 import React, { HTMLAttributeAnchorTarget } from 'react';
 
 import CustomButton from "@/components/CustomButton";
-import CustomContent from "@/helpers/custom-content";
+import CustomContent from "@/helpers/content";
 import Image from "next/image";
 
 import Styled from './styles';

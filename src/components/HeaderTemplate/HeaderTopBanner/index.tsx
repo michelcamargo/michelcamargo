@@ -1,4 +1,4 @@
-import { CustomBannerData } from "@/lib/custom-content";
+import { CustomBannerData } from "@/lib/content";
 
 import Styled from './styles';
 
@@ -7,8 +7,6 @@ interface Props {
 }
 
 const HeaderTopBanner = ({ data }: Props) => {
-  console.log('data', data);
-  
   return (
     <Styled.HeaderTopBannerWrapper>
       <Styled.HeaderTopBannerContainer>

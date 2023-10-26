@@ -5,8 +5,14 @@ const PageWrapper = styled(Box)`
   flex-direction: column;
   flex: 1;
   height: 100%;
-  //max-width: 1030px;
-  //margin: auto;
+`;
+
+const LeftContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  background-color: rbga(0,0,0, 0.1);
+  padding: 16px;
+  width: 620px !important;
 `;
 
 const GeneralContent = styled(Box)`
@@ -24,6 +30,7 @@ const SplitRow = styled(Box)`
 `;
 
 export default {
+  LeftContainer,
   PageWrapper,
   SplitRow,
   GeneralContent,
