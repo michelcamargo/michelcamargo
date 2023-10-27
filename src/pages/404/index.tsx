@@ -14,6 +14,7 @@ const fetch404Content = async (language?: string) => {
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const serverViewData = await fetch404Content('pt-BR') ?? null;
   

@@ -13,6 +13,7 @@ const fetchAboutContent = async (language?: string) => {
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const serverViewData = await fetchAboutContent('pt-BR') ?? null;
   

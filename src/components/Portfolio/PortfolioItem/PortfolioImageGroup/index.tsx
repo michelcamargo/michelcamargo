@@ -26,7 +26,7 @@ const generateImageElements = (imagesData: Array<CustomContent>) => {
 const Common = ({ items }: Props) => {
   return (
     <Styled.CommonGrid>
-			
+      {JSON.stringify(items)}
     </Styled.CommonGrid>
   );
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import staticTermsContent from '@/domains/TermsPage/static';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

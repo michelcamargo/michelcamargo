@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import staticPortfolioContent from '@/domains/PortfolioPage/static';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

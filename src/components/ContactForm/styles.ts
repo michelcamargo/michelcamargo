@@ -1,5 +1,4 @@
 import { Box, styled, Typography } from "@mui/material";
-import { Form } from "formik";
 
 const Wrapper = styled(Box)`
   display: flex;
@@ -12,6 +11,10 @@ const FormHead = styled(Box)`
   margin-bottom: 8px;
 `;
 
+const FormHeader = styled(Box)`
+  display: flex;
+`;
+
 const FormHeading = styled(Typography)`
   font-size: 20px;
   font-weight: bold;
@@ -22,7 +25,7 @@ const FormSubtitle = styled(Typography)`
   white-space: pre-wrap;
 `;
 
-const FormBody = styled(Form)`
+const FormBody = styled(Box)`
   display: flex;
   flex-direction: column;
 `;
@@ -58,5 +61,5 @@ const FormFieldBox = styled(Box)`
 
 export default {
   Wrapper, FormHead, FormHeading, FormSubtitle, FormBody, FormActionPanel,
-  InputField, FormFieldBox,
+  InputField, FormFieldBox, FormHeader,
 };

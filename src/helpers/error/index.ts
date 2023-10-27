@@ -34,37 +34,24 @@ export const showErrorByCode = (errorCode: number, customMessage?: string, toast
 /**
  * Trata erros padrão ou sem definição mapeada
  * @param response
- * @param defaultMessage
  * @returns {{'[FORM_ERROR]': string}|{'[FORM_ERROR]'}}
  */
-const defaultErrorMessage = (response: AxiosResponse, defaultMessage?: string) => {
+const defaultErrorMessage = (response: AxiosResponse) => {
   const { status } = response;
   if ([412, 422].includes(status)) {
-    showErrorByCode(0);
-    
-    return {
-      // [FORM_ERROR]: 'Não foi possível concluir a operação, verifique os dados informados e tente novamente.',
-    };
+    return showErrorByCode(0);
   }
   
   if (status === 403) {
-    showErrorByCode(0);
-    return {
-      // [FORM_ERROR]: 'Operação não autorizada.',
-    };
+    return showErrorByCode(0);
   }
   
   if (status === 404) {
-    showErrorByCode(0);
-    return {
-      // [FORM_ERROR]: 'O recurso que você solicitou não está disponível.',
-    };
+    
+    return showErrorByCode(0);
   }
   
-  showErrorByCode(0);
-  return {
-    // [FORM_ERROR]: defaultMessage,
-  };
+  return showErrorByCode(0);
 };
 
 // const sendExceptionToSentry = (err, key) => {
@@ -112,14 +99,12 @@ export const handleRequestError = (error: Error | number, customMessage?: string
       return showErrorByCode(3, customMessage);
     }
     
-    console.log('\n RESPONSE \n', response);
-    
     errorCode = 1001;
     
     const appError = APP_ERROR_MAPPINGS.find(err => err.code === errorCode) || APP_ERROR_MAPPINGS[0];
     
     if (!appError) {
-      return defaultErrorMessage(response, customMessage);
+      return defaultErrorMessage(response);
     }
   }
   
