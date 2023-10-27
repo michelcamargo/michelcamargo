@@ -3,9 +3,9 @@ import React from "react";
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
 import CustomContent from "@/helpers/content";
-import { CustomImageProps } from "@/helpers/image";
+import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomAccordionItem } from "@/lib/accordion";
-import { PortfolioCase } from "@/lib/content";
+import { PortfolioCase, CustomImageProps, ImageDimensions } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
 
 const parseViewProps = (viewProps: ServerViewProps) => {
@@ -22,7 +22,11 @@ const parseViewProps = (viewProps: ServerViewProps) => {
   };
 };
 
-const portfolioToAccordion = (portfolio: CustomContent) => {
+const portfolioToAccordion = (
+  portfolio: CustomContent,
+  coverImageDimensions: ImageDimensions,
+  commonImageDimensions: ImageDimensions
+) => {
   const rawCaseTitle = portfolio.getChild('case-title');
   const rawCaseDescription = portfolio.getChild('case-description');
   const rawCaseBrand = portfolio.getChild('case-brand');
@@ -45,16 +49,18 @@ const portfolioToAccordion = (portfolio: CustomContent) => {
   const coverImages = caseImages?.filter(item => item.key === 'cover-img-src');
   const coverParsedImages = coverImages?.map(image => {
     return {
-      src: image.getContent() ?? '',
-      alt: 'cover-image'
+      src: image.getContent() ?? NO_IMAGE_SRC(coverImageDimensions),
+      alt: 'cover-image',
+      ...coverImageDimensions,
     } as CustomImageProps;
   });
   
   const commonImages = caseImages?.filter(item => item.key === 'common-img-src');
   const commonParsedImages = commonImages?.map(image => {
     return {
-      src: image.getContent() ?? '',
-      alt: 'case-image'
+      src: image.getContent() ?? NO_IMAGE_SRC(commonImageDimensions),
+      alt: 'case-image',
+      ...commonImageDimensions,
     } as CustomImageProps;
   });
   
@@ -71,6 +77,7 @@ const portfolioToAccordion = (portfolio: CustomContent) => {
   
   return {
     name: caseItem.title,
+    backgroundImage: caseItem.images.cover[0]?.src,
     heading: <PortfolioAccordionHeading data={caseItem} />,
     content: <PortfolioAccordionContent data={caseItem} />,
     highlighted: caseItem.highlighted,

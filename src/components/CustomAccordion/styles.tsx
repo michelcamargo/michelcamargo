@@ -1,12 +1,21 @@
-import * as React from "react";
-
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import { styled } from "@mui/material";
 import MuiAccordion, { AccordionProps } from "@mui/material/Accordion";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import MuiAccordionSummary, { AccordionSummaryProps } from "@mui/material/AccordionSummary";
 
-const AccordionItem = styled((props: AccordionProps) => (
+export type StyledCustomAccordionProps = {
+  noSpacing?: boolean,
+  background?: string,
+  contentDivisor?: string,
+  border?: string,
+}
+
+export type StyledAccordionProps = AccordionProps & StyledCustomAccordionProps;
+
+export type StyledSummaryProps = AccordionSummaryProps & StyledCustomAccordionProps;
+
+const AccordionItem = styled((props: StyledAccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
@@ -18,28 +27,29 @@ const AccordionItem = styled((props: AccordionProps) => (
   },
 }));
 
-const AccordionSummary = styled((props: AccordionSummaryProps) => (
+const AccordionSummary = styled((props: StyledSummaryProps) => (
   <MuiAccordionSummary
     expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
     {...props}
   />
-))(({ theme }) => ({
-  backgroundColor:
+))(({ theme, noSpacing, background, }) => ({
+  background:
     theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
-      : 'rgba(0, 0, 0, .03)',
+      ? background ? background : 'inherit'
+      : background ? background : 'inherit',
   flexDirection: 'row-reverse',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(90deg)',
   },
   '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(1),
+    marginLeft: noSpacing ? 0 : theme.spacing( 1),
   },
 }));
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(2),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
+const AccordionDetails = styled(MuiAccordionDetails)<StyledCustomAccordionProps>
+(({ theme, noSpacing, contentDivisor }) => ({
+  padding: noSpacing ? 0 : theme.spacing(2),
+  borderTop: contentDivisor ?? 'unset',
 }));
 
 export default {

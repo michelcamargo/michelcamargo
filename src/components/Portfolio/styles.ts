@@ -9,6 +9,7 @@ const PortfolioList = styled(Box)<StyledProps>`
 	display: flex;
 	flex: 1;
 	flex-direction: column;
+	background: red;
 `;
 
 export default {

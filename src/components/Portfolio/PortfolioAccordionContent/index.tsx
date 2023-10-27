@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
-import { CustomImageProps } from "@/helpers/image";
-import { PortfolioCase } from "@/lib/content";
+import { PortfolioCase, CustomImageProps } from "@/lib/content";
 import Image from "next/image";
 
 import Styled from './styles';
@@ -17,7 +16,13 @@ const PortfolioAccordionContent: FC<Props> = ({ data }: Props) => {
     if (!imageInfo) return undefined;
     
     return (
-      <Image key={imageInfo?.alt} src={imageInfo?.src} alt={imageInfo?.alt ?? altText} />
+      <Image
+        key={imageInfo?.alt}
+        src={imageInfo?.src}
+        alt={imageInfo?.alt ?? altText}
+        width={imageInfo?.width ?? 42}
+        height={imageInfo?.height ?? 42}
+      />
     );
   });
 	

@@ -1,6 +1,14 @@
 import { ReactElement } from "react";
 
-import { CustomImageProps } from "@/helpers/image";
+export type ImageDimensions = {
+  width?: number,
+	height?: number,
+}
+
+export type CustomImageProps = ImageDimensions & {
+	src: string,
+	alt: string,
+}
 
 export type CustomContentType = {
   key: string,

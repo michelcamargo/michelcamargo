@@ -16,7 +16,13 @@ const PortfolioComponent = ({ data }: Props) => {
     return <p>NO PORTFOLIO ITEMS</p>;
   }
   
-  const accordionPortfolio = data.map(caseItem => hydration.portfolioToAccordion(caseItem) as CustomAccordionItem);
+  const accordionPortfolio = data.map(
+    caseItem => hydration.portfolioToAccordion(
+      caseItem,
+      { width: 240, height: 42 },
+      { width: 64, height: 42 }
+    ) as CustomAccordionItem
+  );
 	
   return (
     <>
@@ -24,6 +30,7 @@ const PortfolioComponent = ({ data }: Props) => {
         items={accordionPortfolio}
         summaryComponent={PortfolioAccordionHeading}
         contentComponent={PortfolioAccordionContent}
+        noSpacing
       />
     </>
   );
