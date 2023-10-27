@@ -47,7 +47,7 @@ const Common = ({ children, serverProps, bypassServerContent }: Props) => {
   );
 };
 
-const Minimal = ({ children, serverProps }: Props) => {
+const Minimal = ({ children }: Props) => {
   const { contentRef } = useDynamicContentHeight();
   
   return (

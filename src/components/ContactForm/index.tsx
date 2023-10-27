@@ -1,29 +1,23 @@
 import React, { useCallback, useState } from 'react';
 
-import CustomForm from "@/components/_workhouse/CustomForm";
-import CustomButton from "@/components/CustomButton";
+import FormStepRender from "@/components/ContactForm/FormStepRender";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import SuccessFeedback from "@/components/SuccessFeedback";
-import { CustomerProfile, ProspectCustomer, ProspectIntention } from "@/lib/customer";
+import { showErrorByCode } from "@/helpers/error";
+import { CustomerProfile, CustomerLead } from "@/lib/customer";
 import CustomerService from "@/services/customer.service";
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import { FormControl } from "@mui/material";
-import { FormikHelpers } from "formik";
+import { Formik, FormikHelpers, FormikValues } from "formik";
 import { useMutation } from "react-query";
 import * as yup from "yup";
 
-import { FieldText, FieldTextArea } from "../_workhouse/CustomForm/CustomFormField";
+import FormStepper from "../FormStepper";
 import Styled from './styles';
 
 export enum ContactFormStep {
   // eslint-disable-next-line no-unused-vars
-  general = 0,
+  intro = 0,
   // eslint-disable-next-line no-unused-vars
   personal = 1,
-}
-interface FormStepProps {
-  changeHandler: (targetStep: ContactFormStep) => void,
 }
 
 interface Props {
@@ -33,19 +27,23 @@ interface Props {
   description?: string,
 }
 
-const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Props) => {
+const ContactForm = ({ callbackHandler, title, description }: Props) => {
   
   // const queryClient = useQueryClient();
-  const [stepper, setStepper] = useState({ step: ContactFormStep.general, ready: false });
+  const [currentStep, setCurrentStep] = useState<ContactFormStep>(ContactFormStep.intro);
   
-  const initialValues: ProspectCustomer = {
-    personal: {
-      fullName: '',
+  const initialValues: CustomerLead = {
+    name: '',
+    email: '',
+    message: '',
+  };
+  
+  const handleReset = () => {
+    return {
+      name: '',
       email: '',
-    },
-    prospection: {
-      intention: ProspectIntention.explore
-    }
+      message: '',
+    };
   };
   
   const {
@@ -53,7 +51,7 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
     isSuccess: isContactSent,
     mutate: mutateProspection,
   } = useMutation(
-    (formData: ProspectCustomer) => CustomerService.prospectCustomer(formData),
+    (formData: CustomerLead) => CustomerService.prospectCustomer(formData),
     {
       onSuccess: data => {
         if (data) {
@@ -65,12 +63,19 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
     }
   );
   
-  const handleSubmit = (values: ProspectCustomer, actions: FormikHelpers<ProspectCustomer>)  => {
-    if (!values) console.log('failed to mutate');
+  const handleSubmit = (values: FormikValues, actions: FormikHelpers<CustomerLead>)  => {
+    if (!values) {
+      showErrorByCode(2);
+      return;
+    }
     
-    console.log('formData', values, 'typeof', typeof values);
+    const prospectedCustomer = values as CustomerLead;
     
-    mutateProspection(values);
+    mutateProspection(prospectedCustomer);
+    
+    actions.resetForm();
+    
+    return;
   };
   
   const validationSchema = () => {
@@ -82,65 +87,13 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
       // }),
       name: yup.string().required("Informe o nome"),
       email: yup.string().required("Informe o email"),
-      intention: yup.string().required("Qual o assunto?"),
       message: yup.string().notRequired(),
     });
   };
   
-  const formStepHandler = useCallback((targetStep: ContactFormStep) => {
-    setStepper({
-      ...stepper,
-      step: targetStep,
-    });
-  }, [stepper]);
-  
-  const StepFormRender = ({ changeHandler }: FormStepProps) => {
-    const formStepElements = [
-      (<FieldTextArea id="intention" key="intention" name="intention" height={80} fullWidth />),
-      (
-        <Styled.InputField key={'personal'}>
-          <FieldText id="Nome" label="Nome" key="name" name="name" fullWidth />
-          <FieldText id="Email" label="Email" key="email" type="email" name="email" fullWidth />
-        </Styled.InputField>
-      )
-    ];
-    
-    return (
-      <Styled.FormBody>
-        <FormControl>
-          {formStepElements[stepper.step]}
-        </FormControl>
-        <Styled.FormActionPanel>
-          { stepper.step === ContactFormStep.general
-            ? (
-              <CustomButton
-                afterIcon={<ArrowForwardIosIcon />}
-                callback={() => changeHandler(ContactFormStep.personal)}
-                bold
-              >
-                {'Continuar'}
-              </CustomButton>
-            ) : (
-              <>
-                <CustomButton
-                  callback={() => changeHandler(ContactFormStep.general)}
-                  beforeIcon={<ArrowBackIosIcon />}
-                >
-                  Voltar
-                </CustomButton>
-                <CustomButton
-                  type="submit"
-                  bold
-                >
-                  {'Enviar'}
-                </CustomButton>
-              </>
-            )
-          }
-        </Styled.FormActionPanel>
-      </Styled.FormBody>
-    );
-  };
+  const formStepHandler = useCallback((step: ContactFormStep) => {
+    setCurrentStep(step);
+  }, []);
   
   if (isSendingContact) return <LoadingFeedback heading={'Enviando formulário'} minimal />;
   if (isContactSent) return <SuccessFeedback label={'Obrigado pelo contato, nos vemos em breve!'} />;
@@ -157,13 +110,26 @@ const ContactForm = ({ id: inheritId, callbackHandler, title, description }: Pro
           </Styled.FormSubtitle>
         }
       </Styled.FormHead>
-      <CustomForm<ProspectCustomer>
+      <Formik<CustomerLead>
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
+        onReset={handleReset}
       >
-        <StepFormRender {...stepper} changeHandler={step => formStepHandler(step)} />
-      </CustomForm>
+        { props => (
+          <form onSubmit={props.handleSubmit}>
+            <Styled.FormBody>
+              <FormStepper<ContactFormStep>
+                availableSteps={[ContactFormStep.intro, ContactFormStep.personal]}
+                currentStep={currentStep}
+                stepChanger={formStepHandler}
+              >
+                <FormStepRender step={currentStep} formProps={props} />
+              </FormStepper>
+            </Styled.FormBody>
+          </form>
+        ) }
+      </Formik>
     </Styled.Wrapper>
   );
 };

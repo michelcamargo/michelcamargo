@@ -9,7 +9,7 @@ import CustomButton from "@/components/CustomButton";
 
 import Styled from './styles';
 
-const ViewTemplateError = ({ code, message }: Props) => {
+const ViewTemplateError = ({ message }: Props) => {
   return (
     <Styled.Wrapper>
       <Styled.TopRow>

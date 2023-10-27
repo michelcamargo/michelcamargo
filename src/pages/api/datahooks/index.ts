@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import staticDatahooks from "@/pages/api/datahooks/static-datahooks";
 import { NextApiRequest, NextApiResponse } from "next";
 

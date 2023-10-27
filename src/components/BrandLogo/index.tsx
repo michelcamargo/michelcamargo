@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import circleFillColorLogo from '@/assets/svg/brand/logo_circlefill_color.svg';
 import { randomXToY } from "@/helpers/math";
@@ -21,7 +21,7 @@ const BrandLogo = ({ width = 52, height = 52 }: Props) => {
     setTimeout(() => setRainbow(false), 1500);
   };
   
-  const rotateHue = () => {
+  const rotateHue = useCallback(() => {
     if (rainbow) {
       const modifier = randomXToY(1, 7);
       
@@ -29,7 +29,7 @@ const BrandLogo = ({ width = 52, height = 52 }: Props) => {
         ? prevState + modifier
         : 360 - prevState);
     }
-  };
+  }, [rainbow]);
   
   useEffect(() => {
     setTimeout(rotateHue, randomXToY(100, 1000));

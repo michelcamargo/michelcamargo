@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import staticHomeContent from '@/domains/HomePage/static';
 import type { NextApiRequest, NextApiResponse } from 'next';
 

@@ -1,4 +1,4 @@
-import { Box, styled } from "@mui/material";
+import { Box, Input, styled, TextareaAutosize } from "@mui/material";
 
 interface StyledProps {
   width?: number,
@@ -14,14 +14,14 @@ const FieldLabel = styled(Box)<StyledProps>`
 
 `;
 
-const TextInput = styled('input')<StyledProps>`
+const TextInput = styled(Input)<StyledProps>`
   width: ${({ width, fullWidth }) => {
     if (width) return `${width}px`; else if (fullWidth) return '100%';
     return 'inherit';
   }};
 `;
 
-const TextArea = styled('textarea')<StyledProps>`
+const TextArea = styled(TextareaAutosize)<StyledProps>`
   width: ${({ width, fullWidth }) => {
     if (width) return `${width}px`; else if (fullWidth) return '100%';
     return 'inherit';

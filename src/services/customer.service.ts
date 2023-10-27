@@ -1,13 +1,13 @@
 import AppConfig from "@/configs/next.env";
 import { handleRequestError } from "@/helpers/error";
-import { CustomerProfile } from "@/lib/customer";
+import { CustomerProfile, CustomerLead } from "@/lib/customer";
 import { OrangeForgeApi } from "@/services/api.service";
 
 class CustomerService {
   
   private static contentURL = `${AppConfig.APP_URL}/api/content`;
   
-  static async prospectCustomer(customer: Partial<CustomerProfile>): Promise<CustomerProfile | null> {
+  static async prospectCustomer(customer: CustomerLead): Promise<CustomerProfile | null> {
     try {
       const { data } = await OrangeForgeApi.getInstance()
         .post(`/customer/prospect`, customer);

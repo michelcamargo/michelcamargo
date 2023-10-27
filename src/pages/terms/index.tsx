@@ -14,6 +14,7 @@ const fetchPrivacyConditionTerms = async (language?: string) => {
   }
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const serverViewData = await fetchPrivacyConditionTerms('pt-BR') ?? null;
   

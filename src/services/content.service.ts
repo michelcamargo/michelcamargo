@@ -5,6 +5,7 @@ class ContentService {
   
   private static contentURL = `${AppConfig.APP_URL}/api/content`;
   
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   static fetchByKey_static(key: string, language?: string) {
     // const langQuery = language ? `?lang=${language}` : '';
     

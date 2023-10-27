@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from "react";
 
-import CustomToastContainer from "@/components/Toast/CustomToastContainer";
 import { AppPropsWithLayout } from "@/lib/layout";
 import muiTheme from "@/styles/themes";
 import { ThemeProvider } from '@mui/material/styles';

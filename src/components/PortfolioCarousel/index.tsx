@@ -2,17 +2,17 @@ import React from 'react';
 
 // import CustomCarousel from "@/components/CustomCarousel";
 // import { getCustomContentByKey } from "@/helpers/content-handler";
-import CustomContent from "@/helpers/content";
+// import CustomContent from "@/helpers/content";
 // import { CustomContent } from "@/lib/custom-content";
 // import Image from "next/image";
 //
 // import Styled from './styles';
 
-interface Props {
-  items: Array<CustomContent>
-}
+// interface Props {
+//   items: Array<CustomContent>
+// }
 
-const PortfolioCarousel = ({ items }: Props) => {
+const PortfolioCarousel = () => {
   
   // const portfolioData = new CustomContent('portfolio', 'CASOS DE TRABALHO', items);
   

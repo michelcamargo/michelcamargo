@@ -11,7 +11,7 @@ import Styled from './styles';
 interface Props {
   serverViewData: ServerViewProps
 }
-const NotFoundPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
+const NotFoundPage: CustomNextPage<Props> = () => {
   return (
     <Styled.PageWrapper>
       <DefaultViewHeading title={'404 Página não encontrada'} />

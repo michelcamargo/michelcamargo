@@ -1,5 +1,3 @@
-import React, { ReactNode } from 'react';
-
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/types";
 

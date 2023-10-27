@@ -1,15 +1,11 @@
 import React from 'react';
 
 import ProfileAvatar from "@/components/PersonalPresentation/ProfileAvatar";
-import CustomContent from "@/helpers/content";
 
 import Styled from './styles';
 
-interface Props {
-	authorInfo: CustomContent,
-}
-
-const BriefPresentation = ({ authorInfo }: Props) => {
+const BriefPresentation = () => {
+  
   return (
     <Styled.Wrapper>
       <Styled.PresentationSummary>

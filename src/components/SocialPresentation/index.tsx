@@ -14,8 +14,6 @@ const SocialPresentation = ({ socialData }: Props) => {
   const socialItems = socialData ? socialData.getChildren() : [];
   
   if (!socialData) {
-    console.log('no social data', socialData);
-    
     return (
       <p>NO SOCIAL DATA</p>
     );
@@ -30,7 +28,7 @@ const SocialPresentation = ({ socialData }: Props) => {
         const target = item.getContent('target') as HTMLAttributeAnchorTarget || '_self';
 
         const logEvent = (socialItem: CustomContent) => {
-          console.log('link social - event', socialItem);
+          return socialItem;
         };
 
         return (

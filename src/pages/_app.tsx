@@ -3,11 +3,11 @@ import React from "react";
 import AppProviders from "@/components/AppProviders";
 import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
+import CustomToastContainer from "@/components/Toast/CustomToastContainer";
 import { AppPropsWithLayout } from "@/lib/layout";
 import { Lexend } from 'next/font/google';
 import "@/styles/globals.css";
 import 'react-toastify/dist/ReactToastify.css';
-import CustomToastContainer from "@/components/Toast/CustomToastContainer";
 
 const lexend = Lexend({ subsets: ['latin'] });
 
