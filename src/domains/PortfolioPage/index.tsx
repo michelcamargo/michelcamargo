@@ -44,10 +44,10 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
     <Styled.PageWrapper>
       <Styled.SplitRow>
         <Styled.LeftContainer>
-          { authorInfo && <BriefPresentation authorInfo={authorInfo} /> }
+          { authorInfo && <BriefPresentation /> }
           <ContactForm
             title={viewHead.description}
-            description={'Permita-me conhecê-lo!\nIdentifique-se e envie uma mensagem'}
+            description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
           />
         </Styled.LeftContainer>
         <Styled.GeneralContent>
