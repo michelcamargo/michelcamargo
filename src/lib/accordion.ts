@@ -6,4 +6,5 @@ export type CustomAccordionItem = {
 	content: ReactNode,
 	highlighted?: boolean,
 	active?: boolean
+	backgroundImage?: string,
 }

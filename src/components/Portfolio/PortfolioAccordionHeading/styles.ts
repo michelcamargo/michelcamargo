@@ -43,7 +43,7 @@ const CoverImageContainer = styled(Box)<StyledProps>`
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: ${({ cover }) => `url(${cover})`};
+	background: ${({ cover }) => `url(${cover}) center/100% no-repeat`};
 `;
 
 export default {
