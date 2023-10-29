@@ -1,8 +1,11 @@
 import { styled, Typography } from "@mui/material";
 
 const HeroAuthor = styled('h1')`
-  font-size: 32px;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
   color: ${({ theme }) => theme && theme.palette.primary.main};
+  column-gap: 8px;
 `;
 
 const HeroContainer = styled('div')`
@@ -10,8 +13,8 @@ const HeroContainer = styled('div')`
 `;
 
 const HeroAuthorFirstname = styled(Typography)`
-  font-size: 42px;
-  font-weight: bold;
+  font-size: 48px;
+  font-weight: normal;
 `;
 
 const HeroAuthorMiddlename = styled('span')`
@@ -19,7 +22,9 @@ const HeroAuthorMiddlename = styled('span')`
 `;
 
 const HeroAuthorLastname = styled('span')`
-
+  font-size: 48px;
+  font-weight: bold;
+  
 `;
 
 const HeroSubHeading = styled('h2')`

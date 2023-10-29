@@ -35,15 +35,21 @@ export default class CustomContent {
    * @param separator Separador de texto (caso array)
    * @param filterArray Remove ocorrências relacionadas
    */
-  public getContent = (keyName?: string, separator = ' ', filterArray: Array<string> = []): string | null => {
-    const filterExp = new RegExp(filterArray.join("|"), "g");
-  
-    if (!keyName || keyName.toLowerCase() === this.key.toLowerCase()) {
-      return this.content ? this.content.replace(filterExp, '') : null;
-    }
+  public getContent = (keyName?: string, separator = ' ', filterArray: Array<string> = []) => {
+    let targetContent: string | null = null;
+    
+    const contentFormat = (content?: string | null) => {
+      if (typeof content === 'string' && content?.length === 0) return content as string;
+      if (content === null || content === undefined) return null;
+      
+      const filterExp = new RegExp(filterArray.join("|"), "g");
+      
+      return content.replace(filterExp, '').replace('  ', ' ');
+    };
+    
+    if (!keyName || keyName.toLowerCase() === this.key.toLowerCase()) return contentFormat(this.content);
 
     let leveledChildren = this.children;
-    let targetContent: string | null = null;
 
     while (!targetContent && Array.isArray(leveledChildren) && leveledChildren.length > 0) {
       const deepArray: Array<CustomContent> = [];
@@ -75,12 +81,7 @@ export default class CustomContent {
       }
     }
 
-    if (targetContent && typeof targetContent === 'string') {
-      const content = targetContent as string;
-      return content.replace(filterExp, '');
-    }
-
-    return targetContent ?? null;
+    return contentFormat(targetContent);
   }
   
   /**
