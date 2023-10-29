@@ -2,6 +2,7 @@ import { Container, styled } from "@mui/material";
 
 const FooterWrapper = styled('footer')`
   display: flex;
+  flex-direction: column;
 `;
 
 const FooterContainer = styled(Container)`
@@ -35,7 +36,9 @@ const FooterRightSession = styled('div')`
 const FooterBottomSession = styled('div')`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 8px;
+  flex: 1;
 `;
 
 export default {

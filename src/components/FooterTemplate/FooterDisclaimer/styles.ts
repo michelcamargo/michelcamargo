@@ -7,28 +7,24 @@ export interface StyledProps {
 const Wrapper = styled(Box)<StyledProps>`
 	display: flex;
 	flex-direction: row;
-  flex: 1;
-  justify-content: flex-end;
+  flex: 1.4;
 `;
 
 const Content = styled(Box)<StyledProps>`
-	font-size: 12px;
 	display: flex;
 	flex-direction: column;
-	align-content: center;
-  justify-content: flex-end;
+  column-gap: 4px;
 `;
 
-const CopyrightText = styled(Typography)<StyledProps>`
+const DisclaimerText = styled(Typography)<StyledProps>`
 	font-size: 12px;
 	display: inline-block;
-	align-content: flex-end;
-  justify-content: flex-end;
-  text-align: end;
+	flex-direction: row;
+  align-content: flex-end;
 `;
 
 export default {
   Wrapper,
   Content,
-  CopyrightText,
+  DisclaimerText,
 };

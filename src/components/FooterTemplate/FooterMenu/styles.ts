@@ -20,7 +20,7 @@ const List = styled('ul')<StyledProps>`
 `;
 
 const ListItem = styled('li')<StyledProps>`
-
+  font-size: 14px;
 `;
 
 const ListItemLink = styled(Link)<StyledProps>`

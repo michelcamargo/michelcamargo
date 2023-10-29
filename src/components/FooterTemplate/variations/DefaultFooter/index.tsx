@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 
 import FooterCopyright from "@/components/FooterTemplate/FooterCopyright";
+import FooterDisclaimer from "@/components/FooterTemplate/FooterDisclaimer";
 import FooterMenu from "@/components/FooterTemplate/FooterMenu";
 import FooterPartners from "@/components/FooterTemplate/FooterPartners";
 import { FooterData } from "@/lib/datahooks";
@@ -27,10 +28,11 @@ export const DefaultFooter = forwardRef<HTMLDivElement, Props>((props, ref) => {
               <FooterPartners partnerList={dataHooks?.partners} />
             </Styled.FooterRightSession>
           </Styled.FooterSplitSessions>
-          <Styled.FooterBottomSession>
-            <FooterCopyright />
-          </Styled.FooterBottomSession>
         </Styled.FooterContent>
+        <Styled.FooterBottomSession>
+          <FooterDisclaimer />
+          <FooterCopyright />
+        </Styled.FooterBottomSession>
       </Styled.FooterContainer>
     </Styled.FooterWrapper>
   );
