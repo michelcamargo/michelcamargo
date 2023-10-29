@@ -18,8 +18,6 @@ const HeroComponent = ({ data }: Props) => {
   
   const authorName = author?.split(' ') ?? [''];
   
-  console.log('author', author, author?.length);
-  
   return (
     <Styled.HeroContainer>
       <Styled.HeroAuthor>
