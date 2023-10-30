@@ -1,4 +1,7 @@
 import villaMercatoBrandLogo from '@/assets/branding/villa-mercato/logo-color.png';
+import villaDesktop0 from '@/assets/branding/villa-mercato/villa-desktop-0.png';
+import villaDesktop1 from '@/assets/branding/villa-mercato/villa-desktop-1.png';
+import villaMobile0 from '@/assets/branding/villa-mercato/villa-mobile-0.png';
 import { CustomContentType } from "@/lib/content";
 
 export const STATIC_PORTFOLIO_CONTENT: Array<CustomContentType> = [
@@ -14,7 +17,15 @@ export const STATIC_PORTFOLIO_CONTENT: Array<CustomContentType> = [
           },
           {
             key: 'common-img-src',
-            content: ''
+            content: villaMobile0.src,
+          },
+          {
+            key: 'common-img-src',
+            content: villaDesktop0.src,
+          },
+          {
+            key: 'common-img-src',
+            content: villaDesktop1.src,
           }
         ]
       },

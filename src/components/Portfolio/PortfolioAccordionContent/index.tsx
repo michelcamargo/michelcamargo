@@ -11,7 +11,7 @@ interface Props {
 
 const PortfolioAccordionContent: FC<Props> = ({ data }: Props) => {
   const { images } = data;
-	
+  
   const renderImages = (targetImages: Array<CustomImageProps>, altText: string) => targetImages.map(imageInfo => {
     if (!imageInfo) return undefined;
     
@@ -28,9 +28,6 @@ const PortfolioAccordionContent: FC<Props> = ({ data }: Props) => {
 	
   return (
     <Styled.ContentWrapper>
-      <Styled.CoverImages>
-        {renderImages(images.cover, 'Cover image')}
-      </Styled.CoverImages>
       <Styled.CommonImages>
         {renderImages(images.common, 'Case image')}
       </Styled.CommonImages>

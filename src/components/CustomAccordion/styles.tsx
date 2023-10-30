@@ -17,7 +17,7 @@ export type StyledSummaryProps = AccordionSummaryProps & StyledCustomAccordionPr
 
 const AccordionItem = styled((props: StyledAccordionProps) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
+))(({ theme, noSpacing }) => ({
   border: `1px solid ${theme.palette.divider}`,
   '&:not(:last-child)': {
     borderBottom: 0,
@@ -25,6 +25,16 @@ const AccordionItem = styled((props: StyledAccordionProps) => (
   '&:before': {
     display: 'none',
   },
+  '& .MuiAccordionSummary-content': {
+    marginTop: noSpacing ? 0 : undefined,
+    marginBottom: noSpacing ? 0 : undefined,
+  },
+  '& .MuiAccordionSummary-expandIconWrapper': {
+    position: 'absolute',
+    left: 0,
+    padding: '0 8px',
+  },
+  // background: background ? background : 'inherit',
 }));
 
 const AccordionSummary = styled((props: StyledSummaryProps) => (
@@ -32,11 +42,10 @@ const AccordionSummary = styled((props: StyledSummaryProps) => (
     expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
     {...props}
   />
-))(({ theme, noSpacing, background, }) => ({
-  background:
-    theme.palette.mode === 'dark'
-      ? background ? background : 'inherit'
-      : background ? background : 'inherit',
+))(({ theme, noSpacing, }) => ({
+  // background: theme.palette.mode === 'dark'
+  //   ? background ? background : 'inherit'
+  //   : background ? background : 'inherit',
   flexDirection: 'row-reverse',
   '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
     transform: 'rotate(90deg)',
@@ -47,11 +56,16 @@ const AccordionSummary = styled((props: StyledSummaryProps) => (
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)<StyledCustomAccordionProps>
-(({ theme, noSpacing, contentDivisor }) => ({
+(({ theme, noSpacing, contentDivisor, background }) => ({
   padding: noSpacing ? 0 : theme.spacing(2),
   borderTop: contentDivisor ?? 'unset',
+  background: background ? background : 'inherit',
 }));
 
+const LeftOffset = styled('div')`
+  padding-left: 32px;
+`;
+
 export default {
-  AccordionItem, AccordionSummary, AccordionDetails,
+  AccordionItem, AccordionSummary, AccordionDetails, LeftOffset
 };

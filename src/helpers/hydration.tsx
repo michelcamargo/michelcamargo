@@ -38,8 +38,12 @@ const portfolioToAccordion = (
     );
   }
   
+  const brandLogoContent = rawCaseBrand?.getChild('case-brand-logo')?.getContent();
+  
+  const brandLogoSrc = brandLogoContent ?? '';
+  
   const caseBranding = {
-    logo: rawCaseBrand?.getChild('case-brand-logo')?.getContent() ?? '',
+    logo: brandLogoSrc.length > 0 ? brandLogoSrc : NO_IMAGE_SRC({ width: 24, height: 24 }),
     name: rawCaseBrand?.getChild('case-brand-name')?.getContent() ?? '',
     color: rawCaseBrand?.getChild('case-brand-color')?.getContent() ?? '',
   };
@@ -48,8 +52,10 @@ const portfolioToAccordion = (
   
   const coverImages = caseImages?.filter(item => item.key === 'cover-img-src');
   const coverParsedImages = coverImages?.map(image => {
+    const imageSrc = image.getContent() ?? '';
+    
     return {
-      src: image.getContent() ?? NO_IMAGE_SRC(coverImageDimensions),
+      src: imageSrc.length > 0 ? imageSrc : NO_IMAGE_SRC(coverImageDimensions),
       alt: 'cover-image',
       ...coverImageDimensions,
     } as CustomImageProps;
@@ -57,8 +63,10 @@ const portfolioToAccordion = (
   
   const commonImages = caseImages?.filter(item => item.key === 'common-img-src');
   const commonParsedImages = commonImages?.map(image => {
+    const imageSrc = image.getContent() ?? '';
+    
     return {
-      src: image.getContent() ?? NO_IMAGE_SRC(commonImageDimensions),
+      src: imageSrc.length > 0 ? imageSrc : NO_IMAGE_SRC(commonImageDimensions),
       alt: 'case-image',
       ...commonImageDimensions,
     } as CustomImageProps;

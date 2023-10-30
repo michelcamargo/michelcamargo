@@ -7,7 +7,6 @@ export interface StyledProps {
 const ContentWrapper = styled(Box)<StyledProps>`
 	display: flex;
 	flex-direction: column;
-	background: yellow;
 `;
 
 const CoverImages = styled(Box)<StyledProps>``;
