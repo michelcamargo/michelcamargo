@@ -10,13 +10,13 @@ interface Props {
 }
 
 const PortfolioAccordionHeading: FC<Props> = ({ data }: Props) => {
-  const { title, branding, highlighted, images } = data;
+  const { title, branding, highlighted } = data;
   
   const brandingLogoElement = <Image src={branding.logo} alt={`logo-${branding.name}`} width={24} height={24} />;
 	
   return (
     <Styled.AccordionSummary highlighted={highlighted}>
-      <Styled.CoverImageContainer cover={images.cover[0].src} />
+      {/*<Styled.CoverImageContainer cover={images.cover[0].src} />*/}
       <Styled.BrandingRow>
         <Styled.HeadingBrandLogoWrapper>{brandingLogoElement}</Styled.HeadingBrandLogoWrapper>
         <Styled.HeadingBrandName>{branding.name}</Styled.HeadingBrandName>

@@ -25,7 +25,7 @@ const CustomAccordion = <T,>({ items, noSpacing, background, contentDivisor }: P
         const { heading: HeadingComponent, content: ContentComponent, name } = accordion;
         const itemName = `panel_${name}${index}`;
         const accordionBackgroundString = accordion.backgroundImage
-          ? `url(${accordion.backgroundImage}) no-repeat 100%/center`
+          ? `url('${accordion.backgroundImage}') no-repeat center/100%`
           : undefined;
         
         return (
@@ -34,16 +34,17 @@ const CustomAccordion = <T,>({ items, noSpacing, background, contentDivisor }: P
             expanded={expanded === itemName}
             onChange={handleChange(itemName)}
             noSpacing={noSpacing}
-            background={background ? background : accordionBackgroundString }
+            // background={background ? background : accordionBackgroundString }
             sx={{ padding: noSpacing ? 0 : 'inherit' }}
           >
             <Styled.AccordionSummary
               aria-controls={`${itemName}d-content`}
               id={`${itemName}d-header`}
               sx={{ padding: noSpacing ? 0 : 'inherit' }}
-              background={background ? background : accordionBackgroundString }
+              // background={background ? background : accordionBackgroundString }
               noSpacing={noSpacing}
             >
+              { noSpacing && <Styled.LeftOffset /> }
               {HeadingComponent}
             </Styled.AccordionSummary>
             <Styled.AccordionDetails

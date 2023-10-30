@@ -17,10 +17,6 @@ const Anchor = styled(Link)<StyledProps>`
   color: ${({ color, theme }) => color ? color : theme.palette.primary.main[500]};
   opacity: 1;
   transition: opacity 300ms ease;
-
-  &:hover {
-    opacity: ${({ _underline }) => _underline === 'static' ? .8 : 'inherit'};
-  }
   
   &::after {
     content: "";
@@ -32,10 +28,15 @@ const Anchor = styled(Link)<StyledProps>`
     opacity: 0;
     transition: opacity 300ms ease;
   }
-  
-  &:hover::after {
-    opacity: ${({ _underline }) => _underline === 'ease' ? 1 : 0};
+
+  &:hover {
+    opacity: ${({ _underline }) => _underline === 'static' ? .8 : 'inherit'};
+    
+    &::after {
+      opacity: ${({ _underline }) => _underline === 'ease' ? 1 : 0};
+    }
   }
+  
 `;
 
 export default {
