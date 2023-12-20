@@ -4,6 +4,7 @@ import HeroComponent from "@/components/HeroComponent";
 import LoadingFeedback from "@/components/LoadingFeedback";
 // import PortfolioCarousel from "@/components/PortfolioCarousel";
 import SocialPresentation from "@/components/SocialPresentation";
+import TaskApp from "@/context/TaskApp";
 import CustomContent from "@/helpers/content";
 import Hydration from '@/helpers/hydration';
 import useDidMount from "@/hooks/useDidMount";
@@ -20,7 +21,7 @@ const HomePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
-    const { viewSessions: sessions } = Hydration.parseViewProps(serverViewData);
+    const { viewSessions: sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
     
     setViewSessions(sessions);
   }, [serverViewData]);
@@ -37,6 +38,7 @@ const HomePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
     <Styled.PageWrapper>
       <HeroComponent data={viewSessions.find(session => session.key === 'hero')} />
       <SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />
+      <TaskApp />
     </Styled.PageWrapper>
   );
 };

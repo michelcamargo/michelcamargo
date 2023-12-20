@@ -49,3 +49,9 @@ export type LinkTreeItem = {
   link: string,
   icon?: ReactElement,
 }
+
+export type SessionArticle = {
+  heading: string,
+  subHeading?: string,
+  body?: string,
+}

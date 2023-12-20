@@ -23,7 +23,7 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
-    const { viewTitle, viewSubtitle, viewSessions: sessions } = Hydration.parseViewProps(serverViewData);
+    const { viewTitle, viewSubtitle, viewSessions: sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
     
     setViewHead({ title: viewTitle, description: viewSubtitle });
     setViewSessions(sessions);

@@ -1,5 +1,5 @@
 import CustomContent from "@/helpers/content";
-import { CustomBannerData, CustomContentType } from "@/lib/content";
+import { CustomBannerData } from "@/lib/content";
 
 export type ViewMetadata = {
   path: string,
@@ -9,10 +9,10 @@ export type ViewMetadata = {
   keywords?: string,
 }
 
-export type ServerViewProps = {
+export type ServerViewProps<T = unknown> = {
   metadata: ViewMetadata,
   content: {
-    sessions: Array<CustomContentType>
+    sessions: Array<T>
   }
 };
 

@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from "react";
 
+import LocaleContextProvider from "@/context/locale/locale.context";
 import { AppPropsWithLayout } from "@/lib/layout";
 import muiTheme from "@/styles/themes";
 import { ThemeProvider } from '@mui/material/styles';
@@ -21,16 +22,18 @@ const AppProviders = ({
 }: Props) => {
   const { ...pageData } = pageProps;
   const [queryClient] = useState(() => new QueryClient());
+  const [isDarkMode] = useState(false);
   
-  const isDarkMode = false;
   const currentTheme = muiTheme(isDarkMode, availableFonts);
   
   return (
     <QueryClientProvider client={queryClient}>
       <NextDataHooksProvider {...pageData}>
         <ThemeProvider theme={currentTheme}>
-          {children}
-          <ReactQueryDevtools initialIsOpen={false} />
+          <LocaleContextProvider>
+            {children}
+            <ReactQueryDevtools initialIsOpen={false} />
+          </LocaleContextProvider>
         </ThemeProvider>
       </NextDataHooksProvider>
     </QueryClientProvider>

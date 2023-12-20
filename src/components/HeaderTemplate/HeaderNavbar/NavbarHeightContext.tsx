@@ -4,24 +4,19 @@ interface Props {
   children: ReactNode,
 }
 
-const NavbarHeightContext = createContext({
-  navbarHeight: 0,
-  // setNavbarHeight: () => void,
-});
+const NavbarHeightContext = createContext<number | null>(null);
 
 export const NavbarHeightContextProvider = ({ children }: Props) => {
-  const [navbarHeight, setNavbarHeight] = useState(0);
+  const [navbarHeight, setNavbarHeight] = useState<number>(0);
 
-  const value = useMemo(() => ({
+  const navbarHeightContext = useMemo(() => ({
     navbarHeight,
     setNavbarHeight,
   }), [navbarHeight]);
 
   return (
-    <NavbarHeightContext.Provider value={value}>
+    <NavbarHeightContext.Provider value={navbarHeightContext.navbarHeight}>
       {children}
     </NavbarHeightContext.Provider>
   );
 };
-
-// export default NavbarHeightContext;

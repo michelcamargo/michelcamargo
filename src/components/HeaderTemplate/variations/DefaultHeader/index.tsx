@@ -2,17 +2,23 @@ import { forwardRef } from 'react';
 
 import BrandLogo from "@/components/BrandLogo";
 import HeaderNavbar from '@/components/HeaderTemplate/HeaderNavbar';
+import HeaderToolbar from "@/components/HeaderToolbar";
 import { HeaderData } from "@/lib/datahooks";
 
 import HeaderTopBanner from "../../HeaderTopBanner";
 import Styled from './styles';
 
 interface Props {
-  dataHooks?: HeaderData
+  dataHooks?: HeaderData,
+  hideToolbar?: boolean,
 }
 
-const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { dataHooks } = props;
+const DefaultHeader = forwardRef<HTMLDivElement, Props>((
+  { dataHooks,
+    hideToolbar
+  },
+  ref
+) => {
   
   if (!dataHooks) {
     return (
@@ -31,8 +37,8 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
   
   return (
     <Styled.HeaderWrapper>
-      <Styled.HeaderOverlayBlur />
       {headerDisclaimer && <HeaderTopBanner data={headerDisclaimer} />}
+      {!hideToolbar && <HeaderToolbar />}
       <Styled.HeaderContainer>
         <Styled.MidContainer>
           <Styled.LeftContainer>
@@ -43,6 +49,7 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
           </Styled.RightContainer>
         </Styled.MidContainer>
       </Styled.HeaderContainer>
+      <Styled.HeaderOverlayBlur />
     </Styled.HeaderWrapper>
   );
 });

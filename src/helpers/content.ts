@@ -132,10 +132,9 @@ export default class CustomContent {
    * Busca um item no agrupamento interno
    * @param keyName
    */
-  public getChild = (keyName: string): CustomContent | null => {
-    if (!Array.isArray(this.children) || this.children.length === 0) {
-      return null;
-    }
+  public getChild = (keyName?: string): CustomContent | null => {
+    if (!Array.isArray(this.children) || this.children.length === 0) return null;
+    if (!keyName) return this.children[0];
     
     return this.children.find(item => item.key.toLowerCase() === keyName.toLowerCase()) ?? null;
   }
