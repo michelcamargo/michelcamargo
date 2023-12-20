@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
   });
   
   if (intercept) {
-    return NextResponse.rewrite(new URL('/', request.url));
+    return NextResponse.rewrite(new URL('/', request.nextUrl));
   }
   
   return NextResponse.next();

@@ -25,11 +25,9 @@ const HeroComponent = ({ data }: Props) => {
         {/*<Styled.HeroAuthorMiddlename>{author.midName + ' '}</Styled.HeroAuthorMiddlename>*/}
         <Styled.HeroAuthorLastname>{authorName[1]}</Styled.HeroAuthorLastname>
       </Styled.HeroAuthor>
-  
       <Styled.HeroSubHeading>
         <Styled.HeroSubHeadingText>{subHeading}</Styled.HeroSubHeadingText>
       </Styled.HeroSubHeading>
-  
       <Styled.HeroDescription>
         <Styled.HeroDescriptionText>{description}</Styled.HeroDescriptionText>
       </Styled.HeroDescription>

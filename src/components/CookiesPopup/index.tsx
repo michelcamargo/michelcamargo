@@ -67,7 +67,7 @@ const CookiesPopup = () => {
         <br />
         <Styled.DisclaimerFragment>
           <Styled.DisclaimerText>
-            {'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador.' +
+            {'Você pode desativar a personalização de experiência a qualquer momento nas configurações do navegador. ' +
               'note que essa ação pode comprometer sua navegação e o funcionamento do site.'}
           </Styled.DisclaimerText>
         </Styled.DisclaimerFragment>

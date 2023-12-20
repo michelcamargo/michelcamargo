@@ -33,7 +33,7 @@ const LinkTreePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
   const hydratePage = useCallback(() => {
-    const { viewSessions: sessions } = Hydration.parseViewProps(serverViewData);
+    const { viewSessions: sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
     
     setViewSessions(sessions);
   }, [serverViewData]);

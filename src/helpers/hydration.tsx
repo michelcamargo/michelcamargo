@@ -5,20 +5,18 @@ import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordion
 import CustomContent from "@/helpers/content";
 import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomAccordionItem } from "@/lib/accordion";
-import { PortfolioCase, CustomImageProps, ImageDimensions } from "@/lib/content";
+import { PortfolioCase, CustomImageProps, ImageDimensions, CustomContentType } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
 
-const parseViewProps = (viewProps: ServerViewProps) => {
+/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+const parseViewProps =  <T = CustomContentType>(viewProps: ServerViewProps<any>, generic?: boolean) => {
   const { metadata, content } = viewProps;
-  
-  // if (!body || !Array.isArray(body.sessions)) {
-  //   return viewProps as unknown as ViewData;
-  // }
   
   return {
     viewTitle: metadata.title,
     viewSubtitle: viewProps.metadata.description ?? undefined,
-    viewSessions: content.sessions?.map(session => new CustomContent(session)),
+    viewSessions: generic ? content.sessions as unknown as Array<T>
+      : content.sessions?.map(session => new CustomContent(session as CustomContentType)),
   };
 };
 

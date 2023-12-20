@@ -12,8 +12,8 @@ const FooterDisclaimer = () => {
           {'Todas as informações estão sujeitas à Lei Geral de Proteção de Dados,'}
         </Styled.DisclaimerText>
         <Styled.DisclaimerText>
-          {'Mais informações descritas em'}
-          <AppLink href={'/terms'} underline={'static'}>{' termos de política e privacidade'}</AppLink>{'.'}
+          {'Para mais informações, consulte os '}
+          <AppLink href={'/terms'} underline={'static'}>{'termos de política e privacidade'}</AppLink>{'.'}
         </Styled.DisclaimerText>
       </Styled.Content>
     </Styled.Wrapper>

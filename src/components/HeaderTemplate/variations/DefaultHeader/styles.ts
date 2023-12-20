@@ -11,7 +11,7 @@ const HeaderWrapper = styled('header')<StyledProps>`
   width: 100%;
 `;
 
-const HeaderOverlayBlur = styled('div')<StyledProps>`
+const HeaderOverlayBlur = styled('span')<StyledProps>`
   opacity: .25;
   width: 100%;
   height: 100%;

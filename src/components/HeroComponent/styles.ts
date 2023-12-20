@@ -1,15 +1,16 @@
 import { styled, Typography } from "@mui/material";
 
+const HeroContainer = styled('div')`
+  padding-top: 42px;
+  padding-bottom: 16px;
+`;
+
 const HeroAuthor = styled('h1')`
   display: flex;
   flex-direction: row;
   align-items: baseline;
   color: ${({ theme }) => theme && theme.palette.primary.main};
   column-gap: 8px;
-`;
-
-const HeroContainer = styled('div')`
-
 `;
 
 const HeroAuthorFirstname = styled(Typography)`
@@ -31,6 +32,7 @@ const HeroSubHeading = styled('h2')`
   display: flex;
   position: relative;
   font-size: 42px;
+  margin-bottom: 16px;
 `;
 
 const HeroSubHeadingText = styled('span')`

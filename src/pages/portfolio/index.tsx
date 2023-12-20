@@ -17,11 +17,11 @@ const fetchAboutContent = async (language?: string) => {
   try {
     return ContentService.fetchByKey_static('about-page', language);
   } catch(error) {
-    throw new Error(`Falha ao buscar informações da ABOUT-PAGE >> ${error}`);
+    throw new Error(`Falha ao buscar informações sobre o site >> ${error}`);
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const [portfolioPageData, aboutAuthorData] = await Promise.all([
     fetchPortfolioContent('pt-BR'),
