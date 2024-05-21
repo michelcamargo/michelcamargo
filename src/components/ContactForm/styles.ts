@@ -3,6 +3,7 @@ import { Box, styled, Typography } from "@mui/material";
 const Wrapper = styled(Box)`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 const FormHead = styled(Box)`

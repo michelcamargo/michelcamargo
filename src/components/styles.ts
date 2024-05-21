@@ -4,8 +4,12 @@ const PageLayout = styled(Box)`
   display: flex;
   position: relative;
   flex-direction: column;
+  height: 100%;
   min-height: 100vh;
-  background: var(--background-light);
+  background-image: var(--background-light);
+  //background-size: center/100%;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const Body = styled('main')`
