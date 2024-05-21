@@ -1,8 +1,8 @@
 import { styled, Typography } from "@mui/material";
 
 const HeroContainer = styled('div')`
-  padding-top: 42px;
-  padding-bottom: 16px;
+  padding-top: 32px;
+  //padding-bottom: 16px;
 `;
 
 const HeroAuthor = styled('h1')`

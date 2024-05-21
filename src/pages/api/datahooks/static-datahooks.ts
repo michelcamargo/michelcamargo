@@ -34,7 +34,7 @@ const footerStaticData: FooterData = {
   partners: [],
   disclaimer: [
     'Aplicação de cunho apresentativo sem fins lucrativos',
-    'Todos os direitos reservados - 2023',
+    'Todos os direitos reservados - 2024',
   ]
 };
 

@@ -1,6 +1,6 @@
 import { ServerViewProps } from "@/lib/datahooks";
 import STATIC_HERO_CONTENT from '@/static-data/hero-content';
-import { STATIC_PORTFOLIO_CONTENT } from '@/static-data/portfolio';
+import {STATIC_DEVSTACK_CONTENT, STATIC_PORTFOLIO_CONTENT} from '@/static-data/portfolio';
 import STATIC_SOCIAL_LINKS from '@/static-data/social-links';
 
 export default {
@@ -22,7 +22,11 @@ export default {
       {
         key: 'socialLinks',
         children: STATIC_SOCIAL_LINKS,
-      }
+      },
+      {
+        key: 'stack',
+        children: STATIC_DEVSTACK_CONTENT,
+      },
     ]
   },
 } as ServerViewProps;

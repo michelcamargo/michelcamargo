@@ -10,7 +10,6 @@ const SocialList = styled('div')<StyledProps>`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 16px;
 `;
 
 const SocialItem = styled(AppLink)<StyledProps>`

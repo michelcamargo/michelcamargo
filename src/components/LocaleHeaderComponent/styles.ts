@@ -33,7 +33,7 @@ const LocaleLangLabel = styled(MenuItem)<StyledProps>`
 
 const LocaleFlag = styled(MenuItem)<StyledProps>`
 	position: absolute;
-	background: red;
+	//background: red;
 	width: 100%;
 	height: 100%;
 `;
