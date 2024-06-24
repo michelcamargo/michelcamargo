@@ -3,46 +3,46 @@ import { ReactElement } from "react";
 import HydratedView from "@/components/HydratedView";
 import PortfolioPage from "@/domains/PortfolioPage";
 import ContentService from "@/services/content.service";
-import { GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext } from "next";
 
-const fetchPortfolioContent = async (language?: string) => {
-  try {
-    return ContentService.fetchByKey_static('portfolio-page', language);
-  } catch(error) {
-    throw new Error(`Falha ao buscar informações da PORTFOLIO-PAGE >> ${error}`);
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+  const { locale, defaultLocale = 'ptBR' } = context;
+  
+  const pageMeta = {
+    path: '/portfolio',
+    title: 'Apresentação',
+    description: 'Portfolio - Michel Camargo - web developer & UIUX designer',
+    ignoreTitlePostfix: false,
+    keywords: 'michelcamargo,portfolio,developer,freelancer,work,dev,tech',
   }
-};
-
-const fetchAboutContent = async (language?: string) => {
+  
   try {
-    return ContentService.fetchByKey_static('about-page', language);
-  } catch(error) {
-    throw new Error(`Falha ao buscar informações sobre o site >> ${error}`);
+    const sessions = await ContentService.fetchByKeys(['bio/bio', 'work/devstack', 'work/portfolio'], locale ?? defaultLocale);
+    
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions,
+          },
+        },
+        locale,
+      }
+    };
+  } catch (e) {
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions: [],
+          },
+        },
+        locale,
+      }
+    };
   }
-};
-
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const [portfolioPageData, aboutAuthorData] = await Promise.all([
-    fetchPortfolioContent('pt-BR'),
-    fetchAboutContent('pt-BR'),
-  ]);
-  
-  if (!portfolioPageData || !aboutAuthorData) return { props: {} };
-  
-  const serverViewData = {
-    metadata: portfolioPageData.metadata,
-    content: {
-      sessions: [
-        ...portfolioPageData.content.sessions,
-        ...aboutAuthorData.content.sessions,
-      ],
-    }
-  };
-  
-  return {
-    props: { serverViewData }
-  };
 };
 
 PortfolioPage.getLayout = function getLayout(page: ReactElement) {

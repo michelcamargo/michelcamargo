@@ -7,6 +7,7 @@ import { HeaderData } from "@/lib/datahooks";
 
 import HeaderTopBanner from "../../HeaderTopBanner";
 import Styled from './styles';
+import {useRouter} from "next/router";
 
 interface Props {
   dataHooks?: HeaderData,
@@ -19,6 +20,8 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
   },
   ref
 ) => {
+  const router = useRouter();
+  const { locale, defaultLocale = 'ptBR', locales = [] } = router;
   
   if (!dataHooks) {
     return (
@@ -38,7 +41,7 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
   return (
     <Styled.HeaderWrapper>
       {headerDisclaimer && <HeaderTopBanner data={headerDisclaimer} />}
-      {!hideToolbar && <HeaderToolbar />}
+      {!hideToolbar && <HeaderToolbar locale={locale ?? defaultLocale} availableLocales={locales} />}
       <Styled.HeaderContainer>
         <Styled.MidContainer>
           <Styled.LeftContainer>

@@ -1,55 +1,53 @@
-import React, {useCallback, useMemo, useState} from "react";
+import React, { useMemo } from "react";
 
-import HeroComponent from "@/components/HeroComponent";
 import LoadingFeedback from "@/components/LoadingFeedback";
-// import PortfolioCarousel from "@/components/PortfolioCarousel";
-import SocialPresentation from "@/components/SocialPresentation";
-// import TaskApp from "@/context/TaskApp";
 import CustomContent from "@/helpers/content";
 import Hydration from '@/helpers/hydration';
-import useDidMount from "@/hooks/useDidMount";
 import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
-import PortfolioComponent from "@/components/Portfolio";
 import BriefPresentation from "@/components/BriefPresentation";
 import ContactForm from "@/components/ContactForm";
 import CareerSkills from "@/components/CareerSkills";
+import HeroComponent from "@/components/HeroComponent";
 
 interface Props {
+  locale: string,
   serverViewData: ServerViewProps,
 }
 
-const HomePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
-  const portfolio = useMemo(() =>
-    viewSessions.find(item => item.key === 'portfolio')?.getChildren(), [viewSessions]);
+const HomePage: CustomNextPage<Props> = ({ locale, serverViewData }: Props) => {
+  const { sessions, bio, portfolio } = useMemo(() => {
+    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
+
+    const bio = _sessions.find(item => item.key === 'bio');
+    const portfolio = _sessions.find(item => item.key === 'portfolio');
+    return {
+      sessions: _sessions,
+      bio: bio?.toObject() ?? null,
+      portfolio: portfolio?.toObject() ?? null
+    };
+  }, [serverViewData])
   
-  const hydratePage = useCallback(() => {
-    const { viewSessions: sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-    setViewSessions(sessions);
-  }, [serverViewData]);
+  console.log('serverViewData', serverViewData)
   
-  useDidMount(() => {
-    if (serverViewData) {
-      hydratePage();
-    }
-  });
+  // if (!sessions) return <LoadingFeedback />;
   
-  if (!viewSessions) return <LoadingFeedback />;
+  // console.log('bio', bio);
+  // console.log('sessions', sessions[0].getChild('author'));
   
   return (
     <Styled.PageWrapper topSpacing={0} rowGap={42}>
       <Styled.SessionContainer topSpacing={0} rowGap={16}>
-        <HeroComponent data={viewSessions.find(session => session.key === 'hero')} />
-        <SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />
+        <HeroComponent data={bio} />
+        {/*<SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />*/}
       </Styled.SessionContainer>
       <Styled.SessionContainer>
         <CareerSkills />
       </Styled.SessionContainer>
       <Styled.SessionContainer>
-        <PortfolioComponent data={portfolio} />
+        {/*<PortfolioComponent data={portfolio} />*/}
       </Styled.SessionContainer>
       <Styled.SessionContainer>
         <Styled.Intro>

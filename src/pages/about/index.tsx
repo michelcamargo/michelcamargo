@@ -3,25 +3,47 @@ import { ReactElement } from "react";
 import HydratedView from "@/components/HydratedView";
 import AboutPage from "@/domains/AboutPage";
 import ContentService from "@/services/content.service";
-import { GetStaticPropsContext } from "next";
+import {GetServerSidePropsContext} from "next";
+import I8n from "@/config/i8n";
 
-const fetchAboutContent = async (language?: string) => {
-  try {
-    return ContentService.fetchByKey_static('about-page', language);
-  } catch(error) {
-    throw new Error(`Falha ao buscar informações da ABOUT-PAGE >> ${error}`);
-  }
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const serverViewData = await fetchAboutContent('pt-BR') ?? null;
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+  const { locale, defaultLocale = 'ptBR' } = context;
   
-  return {
-    props: {
-      serverViewData,
-    }
-  };
+  const pageMeta = {
+    path: '/about',
+    title: 'Sobre mim',
+    description: 'Michel Camargo - web developer & UIUX designer',
+    ignoreTitlePostfix: false,
+    keywords: 'michelcamargo,bio,developer,freelancer,work,dev,tech',
+  }
+  
+  try {
+    const sessions = await ContentService.fetchByKeys(['bio/bio', 'work/devstack'], locale ?? defaultLocale);
+    
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions,
+          },
+        },
+        locale,
+      }
+    };
+  } catch (e) {
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions: [],
+          },
+        },
+        locale,
+      }
+    };
+  }
 };
 
 AboutPage.getLayout = function getLayout(page: ReactElement) {

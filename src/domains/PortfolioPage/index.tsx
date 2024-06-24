@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import BriefPresentation from "@/components/BriefPresentation";
 import DefaultViewHeading from "@/components/CommonViewHeading";
@@ -13,6 +13,7 @@ import { CustomNextPage } from "@/lib/layout";
 import WorkIcon from '@mui/icons-material/Work';
 
 import Styled from "./styles";
+import useLocaleContext from "@/hooks/useLocaleContext";
 
 interface Props {
   serverViewData: ServerViewProps,
@@ -20,25 +21,20 @@ interface Props {
 
 const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewHead, setViewHead] = useState<Partial<ViewMetadata> | null>(null);
-  const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
   
-  const hydratePage = useCallback(() => {
-    const { viewTitle, viewSubtitle, viewSessions: sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
+  const { sessions, portfolio, authorInfo } = useMemo(() => {
+    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
     
-    setViewHead({ title: viewTitle, description: viewSubtitle });
-    setViewSessions(sessions);
-  }, [serverViewData]);
+    setViewHead({ title: 'Portfolio', description: 'Portfolio' })
+    
+    return {
+      sessions: _sessions,
+      portfolio: _sessions.find(item => item.key === 'portfolio')?.getChildren(),
+      authorInfo: _sessions.find(item => item.key === 'bio'),
+    };
+  }, [serverViewData])
   
-  useDidMount(() => {
-    if (serverViewData) {
-      hydratePage();
-    }
-  });
-  
-  if (!viewHead || !viewSessions) return <LoadingFeedback />;
-  
-  const portfolio = viewSessions.find(item => item.key === 'portfolio')?.getChildren();
-  const authorInfo = viewSessions.find(item => item.key === 'resume');
+  if (!viewHead || !sessions) return <LoadingFeedback />;
   
   return (
     <Styled.PageWrapper>
@@ -52,7 +48,7 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
         </Styled.LeftContainer>
         <Styled.GeneralContent>
           {viewHead?.title && <DefaultViewHeading title={viewHead.title} container Icon={WorkIcon} />}
-          <PortfolioComponent data={portfolio} />
+          { portfolio ? <PortfolioComponent data={portfolio} /> : null}
         </Styled.GeneralContent>
       </Styled.SplitRow>
     </Styled.PageWrapper>

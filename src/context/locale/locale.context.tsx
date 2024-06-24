@@ -1,11 +1,8 @@
-import { createContext, ReactNode, useMemo, useState } from 'react';
+import {createContext, ReactNode, useEffect, useMemo, useState} from 'react';
 
 import { CustomContext } from "@/lib/context";
 import { LocaleConfig } from "@/lib/locale";
-
-export const initLocaleValue: LocaleConfig = {
-  language: 'pt'
-};
+import {LocaleLanguages} from "@/helpers/locale";
 
 type LocaleContextProviderProps = {
   children: ReactNode
@@ -14,11 +11,33 @@ type LocaleContextProviderProps = {
 export const LocaleContext = createContext<CustomContext<LocaleConfig>>(null);
 
 const LocaleContextProvider = ({ children }: LocaleContextProviderProps) => {
-  const [currentLocale, setCurrentLocale] = useState<LocaleConfig>(initLocaleValue);
+  // const [currentLocale, setCurrentLanguage] = useState<LocaleConfig>(() => {
+  //   if (typeof window !== "undefined") {
+  //     const savedLocale = localStorage.getItem("locale");
+  //     return savedLocale ? JSON.parse(savedLocale) : LocaleLanguages.ptBR;
+  //   } else {
+  //     return LocaleLanguages.ptBR;
+  //   }
+  // });
+  
+  const [currentLanguage, setCurrentLanguage] = useState<LocaleConfig>(() => {
+    if (typeof window !== "undefined") {
+      const savedLocale = localStorage.getItem("locale");
+      return savedLocale ? JSON.parse(savedLocale) : LocaleLanguages.ptBR;
+    } else {
+      return LocaleLanguages.ptBR;
+    }
+  });
+  
+  
+  useEffect(() => {
+    localStorage.setItem("locale", JSON.stringify(currentLanguage));
+  }, [currentLanguage]);
+  
   
   const localeContext = useMemo<CustomContext<LocaleConfig>>(() => ({
-    value: currentLocale, setValue: setCurrentLocale
-  }), [currentLocale]);
+    value: currentLanguage, setValue: setCurrentLanguage
+  }), [currentLanguage]);
   
   return (
     <LocaleContext.Provider value={localeContext}>

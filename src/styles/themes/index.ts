@@ -7,7 +7,7 @@ import lightTheme from './light';
 export default function(isDarkMode = false, availableFonts: Array<{ id: string, font: NextFont }>) {
   const leadFont = availableFonts.find(item => item.id === 'lead');
   const rawLeadFont = leadFont?.font;
-  const fontFamily = rawLeadFont?.style?.fontFamily ?? 'Lexend';
+  const fontFamily = rawLeadFont?.style?.fontFamily ?? 'Titillium Web';
   
   const currentTheme = isDarkMode ? darkTheme(fontFamily) : lightTheme(fontFamily);
   

@@ -10,23 +10,23 @@ export default class CustomContent {
   /**
    * Conteúdo diretamente ligado à chave
    */
-  private content: string | null;
+  private value: string | null;
   
   /**
    * Agrupamento interno
    */
-  private children: Array<CustomContent>;
+  private children?: Array<CustomContent>;
   
   /**
    * Construtor
    * @param data Conteúdo a definir na estrutura
    */
   constructor(data: CustomContentType) {
-    const { key: inKey, content: inContent, children: inChildren } = data;
+    const { key, value, children } = data;
     
-    this.key = inKey ?? '';
-    this.content = inContent ?? null;
-    this.children = (inChildren && Array.isArray(inChildren)) ? inChildren.map(item => new CustomContent(item)) : [];
+    this.key = key ?? '';
+    this.value = value ?? null;
+    this.children = children?.length ? children.map(item => new CustomContent(item)) : []
   }
   
   /**
@@ -47,7 +47,7 @@ export default class CustomContent {
       return content.replace(filterExp, '').replace('  ', ' ');
     };
     
-    if (!keyName || keyName.toLowerCase() === this.key.toLowerCase()) return contentFormat(this.content);
+    if (!keyName || keyName.toLowerCase() === this.key.toLowerCase()) return contentFormat(this.value);
 
     let leveledChildren = this.children;
 
@@ -61,12 +61,12 @@ export default class CustomContent {
         }
       
         if (!found && childrenCustomContent.key.toLowerCase() === keyName.toLowerCase()) {
-          if (childrenCustomContent.content) {
-            targetContent = childrenCustomContent.content;
+          if (childrenCustomContent.value) {
+            targetContent = childrenCustomContent.value;
             found = true;
           } else if (Array.isArray(childrenCustomContent.children) && childrenCustomContent.children.length > 0) {
             const childrenContentArray: Array<string> = [];
-            childrenCustomContent.children.forEach(item => item.content && childrenContentArray.push(item.content));
+            childrenCustomContent.children.forEach(item => item.value && childrenContentArray.push(item.value));
           
             if (childrenContentArray.length > 0) {
               targetContent = childrenContentArray.join(separator);
@@ -88,14 +88,14 @@ export default class CustomContent {
    * Limpa o conteúdo
    */
   public clearContent = () => {
-    this.content = null;
+    this.value = null;
   }
   
   /**
    * Limpa o agrupamento de conteúdo
    */
-  public clearChildren = () => {
-    this.children = [];
+  public clearChildren = (setUndefined: boolean = false) => {
+    setUndefined ? this.children = undefined : this.children = [];
   }
   
   /**
@@ -103,11 +103,10 @@ export default class CustomContent {
    * @param child
    */
   public addChild = (child: CustomContent) => {
-    if (!child) {
-      return;
-    }
+    if (!child) return false;
   
-    this.children.push(child);
+    !this.children ? this.children = [child] : this.children.push(child);
+    return true;
   }
   
   /**
@@ -115,17 +114,20 @@ export default class CustomContent {
    * @param child
    */
   public removeChild = (child: CustomContent) => {
+    if (!this.children || !this.children.length) return false;
+    
     const index = this.children.indexOf(child);
     if (index !== -1) {
       this.children.splice(index, 1);
+      return true;
     }
   }
   
   /**
    * Retorna o conteúdo agrupado internamente
    */
-  public getChildren = (): Array<CustomContent> => {
-    return this.children;
+  public getChildren = (): Array<CustomContent> | null => {
+    return this.children ?? null;
   }
   
   /**
@@ -137,6 +139,22 @@ export default class CustomContent {
     if (!keyName) return this.children[0];
     
     return this.children.find(item => item.key.toLowerCase() === keyName.toLowerCase()) ?? null;
+  }
+  
+  public toObject(): object {
+    let result: any = {};
+    
+    if (this.children && this.children.length > 0) {
+      let childrenResult: any = {};
+      for (let child of this.children) {
+        Object.assign(childrenResult, child.toObject());
+      }
+      result[this.key] = childrenResult;
+    } else {
+      result[this.key] = this.value || '';
+    }
+    
+    return result;
   }
 
 }

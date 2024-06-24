@@ -1,6 +1,4 @@
-export type LocaleConfig = {
-  language: string
-};
+export type LocaleConfig = 'en' | 'ptBR';
 
 // export type LocaleReducerAction = {
 //

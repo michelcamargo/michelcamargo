@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import staticHomeContent from '@/domains/HomePage/static';
+// import staticHomeContent from '@/domains/HomePage/static';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default function handler(
@@ -12,7 +12,8 @@ export default function handler(
     console.log('queryString', queryString);
   
     try {
-      res.status(200).json(staticHomeContent);
+      res.status(200).json([]);
+      // res.status(200).json(staticHomeContent);
     } catch (error) {
       console.error('Error in server-side fetch:', error);
       res.status(500).json({ error: 'Internal Server Error' });
