@@ -1,5 +1,5 @@
 import { ServerViewProps } from "@/lib/datahooks";
-import STATIC_LINK_TREE from '@/static-data/link-tree';
+// import STATIC_LINK_TREE from '@/static/links/link-tree';
 
 export default {
   metadata: {
@@ -11,7 +11,7 @@ export default {
     sessions: [
       {
         key: 'link-tree',
-        children: STATIC_LINK_TREE,
+        // children: STATIC_LINK_TREE,
       },
     ]
   },

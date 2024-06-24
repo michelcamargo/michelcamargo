@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import {useCallback, useMemo, useState} from "react";
 
 import AppLink from "@/components/AppLink";
 import { MinimalHeader } from "@/components/HeaderTemplate";
@@ -30,31 +30,22 @@ const LinkTreeItem = ({ content, key }: { content: LinkTreeItem, key: number }) 
 );
 
 const LinkTreePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const [viewSessions, setViewSessions] = useState<Array<CustomContent>>([]);
+  const sessions = useMemo(() => {
+    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
+    return _sessions;
+  }, [serverViewData])
   
-  const hydratePage = useCallback(() => {
-    const { viewSessions: sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-    
-    setViewSessions(sessions);
-  }, [serverViewData]);
+  if (!sessions) return <LoadingFeedback />;
   
-  useDidMount(() => {
-    if (serverViewData) {
-      hydratePage();
-    }
-  });
-  
-  if (!viewSessions) return <LoadingFeedback />;
-  
-  const linkTreeContent = viewSessions.find(item => item.key === 'link-tree');
+  const linkTreeContent = sessions.find(item => item.key === 'link-tree');
   const linksContent = linkTreeContent ? linkTreeContent.getChildren() : [];
   
-  const linkArray: Array<LinkTreeItem> = linksContent.map(item => {
+  const linkArray: Array<LinkTreeItem> = linksContent?.length ? linksContent.map(item => {
     return {
       label: item.getContent('label') ?? '',
       link: item.getContent('link') ?? '',
     };
-  });
+  }) : [];
   
   return (
     <Styled.PageWrapper>

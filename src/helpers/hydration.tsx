@@ -7,15 +7,15 @@ import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomAccordionItem } from "@/lib/accordion";
 import { PortfolioCase, CustomImageProps, ImageDimensions, CustomContentType } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
+import I8n from "@/config/i8n";
 
-/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
-const parseViewProps =  <T = CustomContentType>(viewProps: ServerViewProps<any>, generic?: boolean) => {
+const parseViewProps =  <T = CustomContentType>(viewProps: ServerViewProps, generic?: boolean) => {
   const { metadata, content } = viewProps;
   
   return {
-    viewTitle: metadata.title,
-    viewSubtitle: viewProps.metadata.description ?? undefined,
-    viewSessions: generic ? content.sessions as unknown as Array<T>
+    title: metadata.title,
+    subtitle: metadata.description ?? undefined,
+    sessions: generic ? content.sessions as unknown as Array<T>
       : content.sessions?.map(session => new CustomContent(session as CustomContentType)),
   };
 };

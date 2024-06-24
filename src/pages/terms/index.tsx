@@ -2,27 +2,49 @@ import { ReactElement } from "react";
 
 import HydratedView from "@/components/HydratedView";
 import ContentService from "@/services/content.service";
-import { GetStaticPropsContext } from "next";
+import { GetServerSidePropsContext } from "next";
 
 import PrivacyTermsPage from "../../domains/TermsPage";
 
-const fetchPrivacyConditionTerms = async (language?: string) => {
-  try {
-    return ContentService.fetchByKey_static('terms-page', language);
-  } catch(error) {
-    throw new Error(`Falha ao buscar informações da privacy-terms-page >> ${error}`);
-  }
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const serverViewData = await fetchPrivacyConditionTerms('pt-BR') ?? null;
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+  const { locale, defaultLocale = 'ptBR' } = context;
   
-  return {
-    props: {
-      serverViewData,
-    }
-  };
+  const pageMeta = {
+    path: '/terms',
+    title: 'Termos de uso e políticas de privacidade',
+    description: 'Termos de uso e políticas de privacidade',
+    ignoreTitlePostfix: false,
+    keywords: 'terms,privacy,compliance',
+  }
+  
+  try {
+    const sessions = await ContentService.fetchByKeys(['legal/policies', 'legal/compliance'], locale ?? defaultLocale);
+
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions,
+          },
+        },
+        locale,
+      }
+    };
+    
+  } catch (error) {
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions: [],
+          },
+        },
+        locale,
+      }
+    };
+  }
 };
 
 PrivacyTermsPage.getLayout = function getLayout(page: ReactElement) {

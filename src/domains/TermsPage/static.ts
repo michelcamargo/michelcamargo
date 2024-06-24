@@ -1,6 +1,6 @@
 import { SessionArticle } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
-import { STATIC_PRIVACY_TERMS } from '@/static-data/terms';
+// import { STATIC_PRIVACY_TERMS } from '@/static/legal/terms';
 
 export default {
   metadata: {
@@ -9,6 +9,6 @@ export default {
     description: 'Políticas de privacidade e condições de uso da aplicação',
   },
   content: {
-    sessions: STATIC_PRIVACY_TERMS
+    // sessions: STATIC_PRIVACY_TERMS
   },
 } as ServerViewProps<SessionArticle>;

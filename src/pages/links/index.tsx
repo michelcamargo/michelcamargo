@@ -4,26 +4,51 @@ import HydratedView from "@/components/HydratedView";
 import LinkTreePage from "@/domains/LinkTreePage";
 import { ViewLayoutEnum } from "@/lib/layout";
 import ContentService from "@/services/content.service";
-import { GetStaticPropsContext } from "next";
+import {GetServerSidePropsContext} from "next";
 
-const fetchLinkTreeContent = async (language?: string) => {
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+  const { locale, defaultLocale = 'ptBR' } = context;
+  
+  const pageMeta = {
+    path: '/links',
+    title: 'Referências',
+    description: 'Referências e links - Michel Camargo - web developer & UIUX designer',
+    ignoreTitlePostfix: false,
+    keywords: 'michelcamargo,developer,links,social,freelancer,work,dev,tech',
+  }
+  
   try {
-    return ContentService.fetchByKey_static('links-page', language);
-  } catch(error) {
-    throw new Error(`Falha ao buscar informações da LINKTREE-PAGE >> ${error}`);
+    const sessions = await ContentService.fetchByKeys(['links/links', 'links/social'], locale ?? defaultLocale);
+    
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions,
+          },
+        },
+        locale,
+      }
+    };
+    
+  } catch (error) {
+    console.error('Falha ao buscar:', error);
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions: [],
+          },
+        },
+        locale,
+      }
+    };
   }
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const serverViewData = await fetchLinkTreeContent('pt-BR') ?? null;
-  
-  return {
-    props: {
-      serverViewData,
-    }
-  };
-};
+
 
 LinkTreePage.getLayout = function getLayout(page: ReactElement) {
   return <HydratedView viewElement={page} layout={ViewLayoutEnum.MINIMAL} />;

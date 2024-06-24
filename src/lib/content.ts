@@ -12,7 +12,7 @@ export type CustomImageProps = ImageDimensions & {
 
 export type CustomContentType = {
   key: string,
-  content?: string,
+  value?: string,
   children?: Array<CustomContentType>,
 }
 

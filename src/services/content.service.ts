@@ -1,23 +1,22 @@
-import AppConfig from "@/configs/next.env";
-import staticPageData from "@/helpers/static-content";
+import PBResourcesApi from "@/config/api/pb-resources";
+import CustomContent from "@/helpers/content";
 
 class ContentService {
   
-  private static contentURL = `${AppConfig.APP_URL}/api/content`;
-  
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  static fetchByKey_static(key: string, language?: string) {
-    // const langQuery = language ? `?lang=${language}` : '';
-    
-    return staticPageData[key];
-  }
-  
-  static async fetchByKey_client(key: string, language?: string) {
-    const langQuery = language ? `?lang=${language}` : '';
-    
-    return fetch(`${this.contentURL}/${key}${langQuery}`, {
-      method: 'GET',
-    });
+  static async fetchByKeys(keys: string[], language: string = 'ptBR'): Promise<CustomContent[]> {
+    try {
+      const langQuery = `?lang=${language.toLowerCase()}`;
+
+      const results = await Promise.all(keys.map(key =>
+        PBResourcesApi.getInstance().get(`/content/${key}${langQuery}`)
+      ));
+
+      return results.map(result => result.data as CustomContent);
+    } catch (error) {
+      console.error('Error fetching contents by keys:', error);
+      // handleRequestError(0, `Falha ao buscar conteúdo: ${error?.message}`);
+      return [];
+    }
   }
 
 }

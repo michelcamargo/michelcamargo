@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import LoadingFeedback from "@/components/LoadingFeedback";
@@ -9,6 +9,7 @@ import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
+import CustomContent from "@/helpers/content";
 
 interface Props {
   serverViewData: ServerViewProps<SessionArticle>
@@ -16,30 +17,30 @@ interface Props {
 
 const TermsPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const [viewHead, setViewHead] = useState<Partial<ViewMetadata> | null>(null);
-  const [viewSessions, setViewSessions] = useState<Array<SessionArticle>>([]);
+  // const [viewSessions, setViewSessions] = useState<Array<SessionArticle>>([]);
   
-  const hydratePage = useCallback(() => {
-    const {
-      viewTitle, viewSubtitle, viewSessions: sessions
-    } = Hydration.parseViewProps<SessionArticle>(serverViewData, true);
-    
-    setViewHead({ title: viewTitle, description: viewSubtitle });
-    setViewSessions(sessions as Array<SessionArticle>);
-  }, [serverViewData]);
+  const sessions = useMemo(() => {
+    return Hydration.parseViewProps<SessionArticle>(serverViewData) as unknown as Array<SessionArticle>;
+  }, [serverViewData])
   
-  useDidMount(() => {
-    if (serverViewData) {
-      hydratePage();
-    }
-  });
   
-  if (!viewHead || !viewSessions) return <LoadingFeedback />;
+  //
+  // const hydratePage = useCallback(() => {
+  //   const {
+  //     title, subtitle, sessions
+  //   } = Hydration.parseViewProps<SessionArticle>(serverViewData, true);
+  //
+  //   setViewHead({ title, description: subtitle });
+  //   setViewSessions(sessions as Array<SessionArticle>);
+  // }, [serverViewData]);
+  
+  if (!viewHead || !sessions) return <LoadingFeedback />;
   
   return (
     <Styled.PageWrapper>
       {viewHead?.title && <DefaultViewHeading title={viewHead.title} subtitle={viewHead.description} />}
       <Styled.TermsList>
-        { viewSessions.map((item, index) => {
+        { sessions.map((item, index) => {
           const { heading, body } = item;
           
           return (

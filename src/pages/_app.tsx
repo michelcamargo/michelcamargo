@@ -5,33 +5,33 @@ import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
 import CustomToastContainer from "@/components/Toast/CustomToastContainer";
 import { AppPropsWithLayout } from "@/lib/layout";
-import { Lexend } from 'next/font/google';
 import "@/styles/globals.css";
 import 'react-toastify/dist/ReactToastify.css';
+import { CustomFont } from "@/lib/fonts";
 
-const lexend = Lexend({ subsets: ['latin'] });
+// const lexend = Lexend({ subsets: ['latin'] });
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const { children, ...rest } = pageProps;
   
   const getLayout = Component.getLayout ?? (page => page);
   
-  const fonts = [
-    {
-      id: 'lead',
-      font: lexend,
-    },
-    {
-      id: 'highlight',
-      font: lexend,
-    }
+  const fonts: Array<CustomFont> = [
+    // {
+    //   id: 'lead',
+    //   font: lexend,
+    // },
+    // {
+    //   id: 'common',
+    //   font: lexend,
+    // }
   ];
   
   return (
     <AppProviders pageProps={pageProps} availableFonts={fonts}>
       <CustomAppRootHTML availableFonts={fonts} />
       <CustomToastContainer />
-      {/* eslint-disable-next-line react/no-unknown-property */}
+      { /** @ts-ignore-next-line **/ }
       { getLayout(<Component {...rest}>{children}</Component>) }
       <CookiesPopup />
     </AppProviders>

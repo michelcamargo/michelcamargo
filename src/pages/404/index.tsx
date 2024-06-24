@@ -6,23 +6,45 @@ import NotFoundPage from "@/domains/NotFoundPage";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
 
-const fetch404Content = async (language?: string) => {
-  try {
-    return ContentService.fetchByKey_static('404-page', language);
-  } catch(error) {
-    throw new Error(`Falha ao buscar informações da 404-PAGE >> ${error}`);
-  }
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const serverViewData = await fetch404Content('pt-BR') ?? null;
+  const { locale, defaultLocale = 'ptBR' } = context;
   
-  return {
-    props: {
-      serverViewData,
-    }
-  };
+  const pageMeta = {
+    path: '/404',
+    title: 'Página não encontrada',
+    description: 'Oops, a página não foi encontrada',
+    ignoreTitlePostfix: false,
+    keywords: '404,not-found,freelancer,work,dev',
+  }
+  
+  try {
+    const sessions = await ContentService.fetchByKeys(['general/fallback'], locale ?? defaultLocale);
+
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions,
+          },
+        },
+        locale,
+      }
+    };
+    
+  } catch (error) {
+    return {
+      props: {
+        serverViewData: {
+          metadata: pageMeta,
+          content: {
+            sessions: [],
+          },
+        },
+        locale,
+      }
+    };
+  }
 };
 
 NotFoundPage.getLayout = function getLayout(page: ReactElement) {

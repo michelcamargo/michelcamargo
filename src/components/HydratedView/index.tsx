@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 
 import ViewTemplateError from "@/components/HydratedView/ViewTemplateError";
 import Layout from "@/components/layout";
-import { AppConfig, MetaConfig } from "@/configs";
+import AppConfig from "@/config/next.config";
 import { ViewLayoutEnum } from "@/lib/layout";
 import HeadMetadata from "@/pages/_head";
 import { useRouter } from "next/router";
@@ -17,21 +17,23 @@ interface Props {
 const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
   const router = useRouter();
   const RenderLayout = layout === ViewLayoutEnum.MINIMAL ? Layout.Minimal : Layout.Common;
-  const serverData = viewElement.props.serverViewData;
+  
+  const { serverViewData, locale } = viewElement.props;
   
   if (!viewElement) {
     return <ViewTemplateError code={'A-0'} message={'Teste erro template'} />;
   }
   
-  if (bypassServerContent || !viewElement.props.serverViewData) {
+  if (bypassServerContent || !serverViewData) {
     return (
       <>
         <HeadMetadata
-          currentURL={`${AppConfig.APP_URL}${router.pathname}`}
-          title={`${router.pathname.replace('/', '')} | ${MetaConfig.VIEW_NAME}`}
-          description={MetaConfig.VIEW_DESCRIPTION}
-          keywords={MetaConfig.VIEW_KEYWORDS}
-          isProd={AppConfig.ENV === 'production'}
+          currentURL={`${AppConfig.appUrl}${router.pathname}`}
+          title={`${router.pathname.replace('/', '')} | ${'teste'}`}
+          description={'view description'}
+          keywords={'view keywords'}
+          isProd={AppConfig.environment === 'production'}
+          locale={locale}
         />
         <RenderLayout bypassServerContent>
           <ToastContainer
@@ -45,18 +47,19 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
     );
   }
   
-  const { metadata } = serverData;
+  const { metadata } = serverViewData;
   
   return (
     <>
       <HeadMetadata
-        currentURL={`${AppConfig.APP_URL}${metadata.path}`}
-        title={metadata.ignoreTitlePostfix ? metadata.title : `${metadata.title} | ${MetaConfig.VIEW_NAME}`}
-        description={metadata.description ?? MetaConfig.VIEW_DESCRIPTION}
-        keywords={metadata.keywords ?? MetaConfig.VIEW_KEYWORDS}
-        isProd={AppConfig.ENV === 'production'}
+        currentURL={`${AppConfig.appUrl}${metadata.path}`}
+        title={metadata.ignoreTitlePostfix ? metadata.title : `${metadata.title} | ${'view name'}`}
+        description={metadata.description ?? 'view description'}
+        keywords={metadata.keywords ?? 'view keywords'}
+        isProd={AppConfig.environment === 'production'}
+        locale={locale}
       />
-      <RenderLayout serverProps={serverData} bypassServerContent={bypassServerContent ?? false}>
+      <RenderLayout serverProps={serverViewData} bypassServerContent={bypassServerContent ?? false}>
         {viewElement}
       </RenderLayout>
     </>

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import AppConfig from '@/configs/next.env';
+import AppConfig from '@/config/next.config';
 import CookieConsent from 'react-cookie-consent';
 
 import UnicodeBg from '../../assets/img/disclaimer/unicodebg.jpg';
@@ -45,6 +45,7 @@ const CookiesPopup = () => {
   };
   
   /* eslint-disable */
+  // @ts-ignore
   return (
     <CookieConsent
       flipButtons
@@ -60,7 +61,7 @@ const CookiesPopup = () => {
             {'Esse site utiliza alguns cookies para fins de acessibilidade e personalização de conteúdo.'}
             {'Com o seu consentimento, sua experiência de navegação será aprimorada de acordo com as configurações do seu navegador'}
             {'de acordo com as '}
-            <AppLink color={'#FFFFFF'} underline={'static'} href={`${AppConfig.APP_URL}/terms`}>{'Políticas de Privacidade'}</AppLink>
+            <AppLink color={'#FFFFFF'} underline={'static'} href={`${AppConfig.appUrl}/terms`}>{'Políticas de Privacidade'}</AppLink>
             {'.'}
           </Styled.DisclaimerText>
         </Styled.DisclaimerFragment>

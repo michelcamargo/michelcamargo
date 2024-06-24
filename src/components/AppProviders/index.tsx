@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, {ReactNode, useMemo, useState} from "react";
 
 import LocaleContextProvider from "@/context/locale/locale.context";
 import { AppPropsWithLayout } from "@/lib/layout";
@@ -12,16 +12,16 @@ import { ReactQueryDevtools } from "react-query/devtools";
 interface Props {
   children: ReactNode,
   pageProps: AppPropsWithLayout,
-  availableFonts: Array<{ id: string, font: NextFont }>
+  availableFonts?: Array<{ id: string, font: NextFont }>
 }
 
 const AppProviders = ({
   children,
   pageProps,
-  availableFonts,
+  availableFonts = [],
 }: Props) => {
   const { ...pageData } = pageProps;
-  const [queryClient] = useState(() => new QueryClient());
+  const queryClient = useMemo(() => new QueryClient(), []);
   const [isDarkMode] = useState(false);
   
   const currentTheme = muiTheme(isDarkMode, availableFonts);

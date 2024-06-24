@@ -3,22 +3,23 @@ import useLocaleContext from "@/hooks/useLocaleContext";
 
 import Styled from './styles';
 
-// interface Props {
-// 	lang?: string,
-// }
+interface Props {
+	locale: string,
+  availableLocales: string[],
+}
 
-const HeaderToolbar = () => {
-	
-  const { locale } = useLocaleContext();
+const HeaderToolbar = ({ locale, availableLocales }: Props) => {
+  const { locale: contextLocale } = useLocaleContext();
   
   return (
     <Styled.ToolbarWrapper>
       <Styled.ToolbarContainer>
         <div>
-          {JSON.stringify(locale)}
+          {JSON.stringify({ locale })}
+          {JSON.stringify({ contextLocale })}
         </div>
         <div>
-          <LocaleHeaderComponent  />
+          <LocaleHeaderComponent locale={locale} availableLocales={availableLocales} />
         </div>
       </Styled.ToolbarContainer>
     </Styled.ToolbarWrapper>
