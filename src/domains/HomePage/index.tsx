@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 
-import LoadingFeedback from "@/components/LoadingFeedback";
 import CustomContent from "@/helpers/content";
 import Hydration from '@/helpers/hydration';
 import { ServerViewProps } from "@/lib/datahooks";
@@ -10,7 +9,6 @@ import Styled from './styles';
 import BriefPresentation from "@/components/BriefPresentation";
 import ContactForm from "@/components/ContactForm";
 import CareerSkills from "@/components/CareerSkills";
-import HeroComponent from "@/components/HeroComponent";
 
 interface Props {
   locale: string,
@@ -40,7 +38,7 @@ const HomePage: CustomNextPage<Props> = ({ locale, serverViewData }: Props) => {
   return (
     <Styled.PageWrapper topSpacing={0} rowGap={42}>
       <Styled.SessionContainer topSpacing={0} rowGap={16}>
-        <HeroComponent data={bio} />
+        {/*<HeroComponent data={bio} />*/}
         {/*<SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />*/}
       </Styled.SessionContainer>
       <Styled.SessionContainer>

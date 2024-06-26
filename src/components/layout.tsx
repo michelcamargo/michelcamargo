@@ -20,23 +20,30 @@ const Common = ({ children, serverProps, bypassServerContent }: Props) => {
   const { footerRef, contentRef } = useDynamicContentHeight();
   const headerRef = useRef<HTMLDivElement | null>(null);
   
+  console.log(useDataHooks())
+  
   if (dataHooksError) {
+    console.error('dataHooksError', dataHooksError);
     return (
-      <div>error {JSON.stringify(dataHooksError)}</div>
+      <div>dataHooksError {JSON.stringify(dataHooksError)}</div>
     );
   }
   
   if (isDataHooksLoading) {
+    console.error('isDataHooksLoading', isDataHooksLoading);
     return (
       <LoadingFeedback />
     );
   }
   
   if (!bypassServerContent && !serverProps) {
+    console.error('!bypassServerContent && !serverProps', bypassServerContent, serverProps);
     return (
       <LoadingFeedback />
     );
   }
+  
+  console.log('Datahooks!', dataHooks)
   
   return (
     <Styled.PageLayout>

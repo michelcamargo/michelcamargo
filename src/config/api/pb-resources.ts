@@ -2,6 +2,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 import ResourcesConfig from "../resources.config";
+import {handleRequestError} from "@/helpers/error";
 
 class PBResourcesApi {
 
@@ -43,7 +44,8 @@ class PBResourcesApi {
       const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
       return response as R;
     } catch (error) {
-      console.error('Erro na requisição POST:', error);
+      handleRequestError(error);
+      // console.error('Erro na requisição POST:', error);
       throw error;
     }
   }
@@ -53,7 +55,8 @@ class PBResourcesApi {
       const response: AxiosResponse<T> = await this.axiosInstance.get<T>(path, { params });
       return response as R;
     } catch (error) {
-      console.error('Erro na requisição GET:', error);
+      handleRequestError(error);
+      // console.error('Erro na requisição GET:', error);
       throw error;
     }
   }
@@ -63,7 +66,8 @@ class PBResourcesApi {
       const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(path, { params });
       return response as R;
     } catch (error) {
-      console.error('Erro na requisição DELETE:', error);
+      handleRequestError(error);
+      // console.error('Erro na requisição DELETE:', error);
       throw error;
     }
   }

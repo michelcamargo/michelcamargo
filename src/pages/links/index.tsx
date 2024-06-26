@@ -4,10 +4,15 @@ import HydratedView from "@/components/HydratedView";
 import LinkTreePage from "@/domains/LinkTreePage";
 import { ViewLayoutEnum } from "@/lib/layout";
 import ContentService from "@/services/content.service";
-import {GetServerSidePropsContext} from "next";
+import {GetServerSidePropsContext} from "next"
+import cookie from 'cookie';
+import { handleServerRequestError } from "@/helpers/error";
+
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const { locale, defaultLocale = 'ptBR' } = context;
+  const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
+  const cookies = cookie.parse(req.headers.cookie || '');
+  const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
   const pageMeta = {
     path: '/links',
@@ -15,11 +20,11 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     description: 'Referências e links - Michel Camargo - web developer & UIUX designer',
     ignoreTitlePostfix: false,
     keywords: 'michelcamargo,developer,links,social,freelancer,work,dev,tech',
+    locale,
   }
   
   try {
-    const sessions = await ContentService.fetchByKeys(['links/links', 'links/social'], locale ?? defaultLocale);
-    
+    const sessions = await ContentService.fetchByKeys(['links/links', 'links/social'], locale) ?? [];
     return {
       props: {
         serverViewData: {
@@ -30,10 +35,9 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
         },
         locale,
       }
-    };
-    
+    }
   } catch (error) {
-    console.error('Falha ao buscar:', error);
+    handleServerRequestError(error, context);
     return {
       props: {
         serverViewData: {

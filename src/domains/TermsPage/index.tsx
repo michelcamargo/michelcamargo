@@ -1,15 +1,13 @@
-import React, {useCallback, useMemo, useState} from 'react';
+import React, { useMemo, useState } from 'react';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import Hydration from "@/helpers/hydration";
-import useDidMount from "@/hooks/useDidMount";
 import { SessionArticle } from "@/lib/content";
 import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
-import CustomContent from "@/helpers/content";
 
 interface Props {
   serverViewData: ServerViewProps<SessionArticle>
@@ -23,7 +21,7 @@ const TermsPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
     return Hydration.parseViewProps<SessionArticle>(serverViewData) as unknown as Array<SessionArticle>;
   }, [serverViewData])
   
-  
+  console.log('>>> terms page')
   //
   // const hydratePage = useCallback(() => {
   //   const {

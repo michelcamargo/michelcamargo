@@ -1,8 +1,8 @@
-import AppConfig from "@/config/next.config";
+// import AppConfig from "@/config/next.config";
 import { handleRequestError } from "@/helpers/error";
 import { CustomerProfile, CustomerLead } from "@/lib/customer";
 import PBResourcesApi from "@/config/api/pb-resources";
-import { HTTP_METHOD } from "next/dist/server/web/http";
+// import { HTTP_METHOD } from "next/dist/server/web/http";
 
 class CustomerService {
   // private static contentURL = `${AppConfig.APP_URL}/api/content`;
@@ -14,8 +14,8 @@ class CustomerService {
         .post(`/customer/prospect`, customer);
       
       return data;
-    } catch (e) {
-      handleRequestError(0, `Falha ao enviar `);
+    } catch (error) {
+      handleRequestError(error, 'Falha ao enviar');
       return null;
     }
   }

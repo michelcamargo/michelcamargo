@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 // import staticAboutContent from '@/domains/AboutPage/static';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import {handleRequestError} from "@/helpers/error";
 
 export default function handler(
   req: NextApiRequest,
@@ -15,7 +16,8 @@ export default function handler(
       res.status(200).json([]);
       // res.status(200).json(staticAboutContent);
     } catch (error) {
-      console.error('Error in server-side fetch:', error);
+      handleRequestError(error);
+      // console.error('Error in server-side fetch:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }
