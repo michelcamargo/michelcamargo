@@ -5,9 +5,13 @@ import AuthPage from "@/domains/AuthPage";
 import { ViewLayoutEnum } from "@/lib/layout";
 import ContentService from "@/services/content.service";
 import { GetServerSidePropsContext } from "next";
+import cookie from "cookie";
+import {handleServerRequestError} from "@/helpers/error";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const { locale, defaultLocale } = context;
+  const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
+  const cookies = cookie.parse(req.headers.cookie || '');
+  const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
   const pageMeta = {
     path: '/auth',
@@ -18,7 +22,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   }
   
   try {
-    const sessions = await ContentService.fetchByKeys(['general/auth'], locale ?? defaultLocale);
+    const sessions = await ContentService.fetchByKeys(['general/auth'], locale) ?? [];
 
     return {
       props: {
@@ -30,12 +34,9 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
         },
         locale,
       }
-    };
-    
+    }
   } catch (error) {
-    
-    console.error('Falha ao buscar:', error);
-    
+    handleServerRequestError(error, context);
     return {
       props: {
         serverViewData: {

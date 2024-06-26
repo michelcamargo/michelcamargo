@@ -5,9 +5,11 @@ import HydratedView from "@/components/HydratedView";
 import NotFoundPage from "@/domains/NotFoundPage";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
+import { handleServerRequestError} from "@/helpers/error";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const { locale, defaultLocale = 'ptBR' } = context;
+  const { locale: contextLocale, defaultLocale = 'ptBR' } = context;
+  const locale = contextLocale || defaultLocale;
   
   const pageMeta = {
     path: '/404',
@@ -18,7 +20,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   }
   
   try {
-    const sessions = await ContentService.fetchByKeys(['general/fallback'], locale ?? defaultLocale);
+    const sessions = await ContentService.fetchByKeys(['general/fallback'], locale) ?? [];
 
     return {
       props: {
@@ -33,6 +35,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     };
     
   } catch (error) {
+    handleServerRequestError(error, context);
     return {
       props: {
         serverViewData: {

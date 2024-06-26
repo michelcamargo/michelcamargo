@@ -12,7 +12,7 @@ export function middleware(request: NextRequest) {
   ) return;
   
   if (request.nextUrl.locale === 'default') {
-    const locale = request.cookies.get('NEXT_LOCALE')?.value || 'en'
+    const locale = request.cookies.get('NEXT_LOCALE')?.value || 'ptBR'
  
     return NextResponse.redirect(
       new URL(`/${locale}${request.nextUrl.pathname}${request.nextUrl.search}`, request.url)

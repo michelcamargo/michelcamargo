@@ -6,6 +6,7 @@ import { SelectChangeEvent } from "@mui/material/Select";
 
 import Styled from "./styles";
 import {useRouter} from "next/router";
+import cookie from "js-cookie";
 
 interface Props {
   locale: string,
@@ -15,16 +16,16 @@ interface Props {
 const LocaleHeaderComponent = ({ locale }: Props) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
-  
   const { locale: language, setLocale: setContextLocale } = useLocaleContext();
   
   /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   const contextLocaleChangeHandler = useCallback(({ target }: SelectChangeEvent<any>) => {
     const { value } = target;
-    setContextLocale(value)
+    setContextLocale(value);
     
+    cookie.set('locale', value, { expires: 365 });
     router.push({ pathname, query }, asPath, { locale: value });
-  }, [setContextLocale]);
+  }, [setContextLocale, pathname, asPath, query, router]);
 	
   const LocaleLangFlag = useCallback(() => {
     return <Styled.LocaleFlag />;

@@ -4,9 +4,13 @@ import HydratedView from "@/components/HydratedView";
 import HomePage from "@/domains/HomePage";
 import ContentService from "@/services/content.service";
 import { GetServerSidePropsContext, } from "next";
+import cookie from "cookie";
+import {handleServerRequestError} from "@/helpers/error";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const { locale, defaultLocale = 'ptBR' } = context;
+  const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
+  const cookies = cookie.parse(req.headers.cookie || '');
+  const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
   const pageMeta = {
     path: '/',
@@ -22,7 +26,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
         serverViewData: {
           metadata: pageMeta,
           content: {
-            sessions: await ContentService.fetchByKeys(['bio/bio', 'work/devstack'], locale ?? defaultLocale) ?? [],
+            sessions: await ContentService.fetchByKeys(['bio/bio', 'work/devstack'], locale) ?? [],
           },
         },
         locale,
@@ -30,6 +34,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     };
     
   } catch (error) {
+    handleServerRequestError(error, context);
     return {
       props: {
         serverViewData: {

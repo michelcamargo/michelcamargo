@@ -2,6 +2,7 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
 
 import AuthConfig from "@/config/auth.config";
+import {handleRequestError} from "@/helpers/error";
 
 class PBAuthApi {
 
@@ -32,7 +33,8 @@ class PBAuthApi {
       const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
       return response as R;
     } catch (error) {
-      console.error('Erro na requisição POST:', error);
+      // console.error('Erro na requisição POST:', error);
+      handleRequestError(error)
       throw error;
     }
   }
@@ -42,7 +44,8 @@ class PBAuthApi {
       const response: AxiosResponse<T> = await this.axiosInstance.get<T>(path, { params });
       return response as R;
     } catch (error) {
-      console.error('Erro na requisição GET:', error);
+      handleRequestError(error);
+      // console.error('Erro na requisição GET:', error);
       throw error;
     }
   }
@@ -52,7 +55,8 @@ class PBAuthApi {
       const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(path, { params });
       return response as R;
     } catch (error) {
-      console.error('Erro na requisição DELETE:', error);
+      handleRequestError(error);
+      // console.error('Erro na requisição DELETE:', error);
       throw error;
     }
   }

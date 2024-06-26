@@ -13,8 +13,9 @@ class AuthService {
 
       return data;
     } catch (error) {
-      console.error('Falha ao realizar login:', error);
-      handleRequestError(0, `Falha ao realizar login`);
+      // console.error('Falha ao realizar login:', error);
+      // handleRequestError(0, `Falha ao realizar login`);
+      handleRequestError(error, 'Falha ao realizar login');
       return [];
     }
   }
@@ -28,8 +29,9 @@ class AuthService {
 
       return data;
     } catch (error) {
-      console.error('Error fetching contents by keys:', error);
-      handleRequestError(0, `Falha ao criar usuário`);
+      // console.error('Error post auth', error);
+      handleRequestError(error, 'Falha ao registrar usuário');
+      // handleRequestError(0, `Falha ao criar usuário`);
       return [];
     }
   }
@@ -38,8 +40,9 @@ class AuthService {
     try {
       this.api.get(`/auth/reset-pass?${email}`);
     } catch (error) {
-      console.error('Falha ao solicitar mudança de senha', error);
-      handleRequestError(0, `Falha ao solicitar mudança de senha`);
+      // console.error('Falha ao solicitar mudança de senha', error);
+      // handleRequestError(0, `Falha ao solicitar mudança de senha`);
+      handleRequestError(error, 'Falha ao solicitar mudança de senha');
       return [];
     }
   }

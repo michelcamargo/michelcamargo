@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-// import staticHomeContent from '@/domains/HomePage/static';
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { handleRequestError } from "@/helpers/error";
 
 export default function handler(
   req: NextApiRequest,
@@ -12,10 +12,9 @@ export default function handler(
     console.log('GET HOME', queryString);
     
     try {
-      // res.status(200).json(staticHomeContent);
       res.status(200).json([]);
     } catch (error) {
-      console.error('Error in server-side fetch:', error);
+      handleRequestError(error, 'FALHA AO BUSCAR EM SERVIDOR')
       res.status(500).json({ error: 'Internal Server Error' });
     }
   }

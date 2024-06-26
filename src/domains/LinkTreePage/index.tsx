@@ -1,11 +1,10 @@
-import {useCallback, useMemo, useState} from "react";
+import { useMemo } from "react";
 
 import AppLink from "@/components/AppLink";
 import { MinimalHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import CustomContent from "@/helpers/content";
 import Hydration from '@/helpers/hydration';
-import useDidMount from "@/hooks/useDidMount";
 import { LinkTreeItem } from "@/lib/content";
 import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";

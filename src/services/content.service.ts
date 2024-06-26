@@ -1,5 +1,6 @@
 import PBResourcesApi from "@/config/api/pb-resources";
 import CustomContent from "@/helpers/content";
+import {handleRequestError} from "@/helpers/error";
 
 class ContentService {
   
@@ -13,8 +14,7 @@ class ContentService {
 
       return results.map(result => result.data as CustomContent);
     } catch (error) {
-      console.error('Error fetching contents by keys:', error);
-      // handleRequestError(0, `Falha ao buscar conteúdo: ${error?.message}`);
+      handleRequestError(error, `Falha ao buscar conteúdo`);
       return [];
     }
   }
