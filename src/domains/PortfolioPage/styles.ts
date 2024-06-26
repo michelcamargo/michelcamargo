@@ -10,7 +10,7 @@ const PageWrapper = styled(Box)`
 const LeftContainer = styled(Box)`
   display: flex;
   flex-direction: column;
-  background-color: rbga(0,0,0, 0.1);
+  background-color: rgba(0,0,0, 0.1);
   padding: 16px;
   width: 620px !important;
 `;

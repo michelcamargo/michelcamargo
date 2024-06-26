@@ -106,11 +106,10 @@ export const handleServerRequestError = (
   if (axios.isAxiosError(error)) {
     handleRequestError(error);
   } else {
-    console.error("Erro durante server-side rendering:", error);
-    // Aqui você pode adicionar lógica para lidar com outros tipos de erros
+    console.error("Erro durante server-side rendering:", error)
+    // lidar com outros tipos de erros
   }
-
-  // Retorne uma estrutura vazia ou um objeto para `props` se necessário
+  
   return {
     props: {},
   };
