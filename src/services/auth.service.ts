@@ -1,8 +1,9 @@
 import I8n from "@/config/i8n";
 import PBAuthApi from "@/config/api/pb-auth";
-import { handleRequestError } from "@/helpers/error";
 import { SignInUserDto } from "@/lib/auth";
 import {AuthUser} from "@/lib/user";
+import Toast from "@/components/Toast";
+import { ApiException } from "@/lib/error";
 
 class AuthService {
  
@@ -12,8 +13,13 @@ class AuthService {
     try {
       const { data } = await this.api.get<boolean>(`/auth/handshake/${username}`);
       return data;
-    } catch (error) {
-      throw handleRequestError(error, 'Falha ao comunicar-se com servidor');
+    } catch (err) {
+      const error = err as ApiException<AuthUser>;
+      Toast.Error({
+        title: 'Falha comunicar-se com o servidor',
+        description: error.message,
+      })
+      throw error;
     }
   }
   
@@ -21,8 +27,13 @@ class AuthService {
     try {
       const { data } = await this.api.post<AuthUser>(`/auth/signin`, userDTO);
       return data;
-    } catch (error) {
-      throw handleRequestError(error, 'Falha ao realizar login');
+    } catch (err) {
+      const error = err as ApiException<AuthUser>;
+      Toast.Error({
+        title: 'Falha ao validar acesso',
+        description: error.message,
+      })
+      throw error;
     }
   }
 	
@@ -34,16 +45,26 @@ class AuthService {
       const { data } = await this.api.post<AuthUser>(`/users`)
 
       return data;
-    } catch (error) {
-      throw handleRequestError(error, 'Falha ao registrar usuário');
+    } catch (err) {
+      const error = err as ApiException<AuthUser>;
+      Toast.Error({
+        title: 'Falha ao registrar-se',
+        description: error!.message,
+      })
+      throw error;
     }
   }
 	
 	static requestPasswordReset(email: string) {
     try {
       this.api.get(`/auth/reset-pass?${email}`);
-    } catch (error) {
-      throw handleRequestError(error, 'Falha ao solicitar mudança de senha');
+    } catch (err) {
+      const error = err as ApiException<AuthUser>;
+      Toast.Error({
+        title: 'Falha ao solicitar mudança de senha',
+        description: error!.message,
+      })
+      throw error;
     }
   }
 

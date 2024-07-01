@@ -1,7 +1,7 @@
 import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
 
 import AuthConfig from "@/config/auth.config";
-import {handleRequestError} from "@/helpers/error";
+import ApiHelper from "@/helpers/api.helper";
 
 class PBAuthApi {
 
@@ -32,8 +32,9 @@ class PBAuthApi {
       const response: AxiosResponse<PbResponseType<T>> = await this.axiosInstance.post<PbResponseType<T>>(path, data);
       return { ...response, data: response.data?.data ? response.data.data : response.data } as R;
     } catch (error) {
-      handleRequestError(error)
-      throw error;
+      const exception = ApiHelper.handleException<PbResponseType<T>>(error);
+      console.error(exception);
+      throw exception;
     }
   }
 
@@ -44,8 +45,9 @@ class PBAuthApi {
       );
       return { ...response, data: response.data?.data ? response.data.data : response.data } as R;
     } catch (error) {
-      handleRequestError(error);
-      throw error;
+      const exception = ApiHelper.handleException<PbResponseType<T>>(error);
+      console.error(exception);
+      throw exception;
     }
   }
 
@@ -56,8 +58,9 @@ class PBAuthApi {
       );
       return { ...response, data: response.data?.data ? response.data.data : response.data } as R;
     } catch (error) {
-      handleRequestError(error);
-      throw error;
+      const exception = ApiHelper.handleException<PbResponseType<T>>(error);
+      console.error(exception);
+      throw exception;
     }
   }
   
@@ -66,8 +69,9 @@ class PBAuthApi {
       const response: AxiosResponse<PbResponseType<T>> = await this.axiosInstance.put<PbResponseType<T>>(path, data);
       return { ...response, data: response.data?.data ? response.data.data : response.data } as R;
     } catch (error) {
-      handleRequestError(error)
-      throw error;
+      const exception = ApiHelper.handleException<PbResponseType<T>>(error);
+      console.error(exception);
+      throw exception;
     }
   }
   
