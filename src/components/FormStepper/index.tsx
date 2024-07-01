@@ -1,35 +1,46 @@
-import React, { ReactNode } from 'react';
+import React, {ReactNode, useCallback} from 'react';
 
-import Styled from "@/components/ContactForm/styles";
+import Styled from "@/components/CustomForms/Contact/styles";
 import CustomButton from "@/components/CustomButton";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 interface Props<T> {
 	children: ReactNode,
-	currentStep: T,
-	stepChanger: (step: T) => void,
+	currentIndex: number,
+	stepChanger: (step: number) => void,
 	availableSteps: Array<T>
 }
 
-const FormStepper = <T,>({ children, currentStep, stepChanger, availableSteps }: Props<T>) => {
+const FormStepper = <T,>({ children, currentIndex, stepChanger, availableSteps }: Props<T>) => {
+	
+	const goFowardHandler = useCallback(() => {
+		// const nextStep = availableSteps[(Number(currentIndex) + 1)] as T;
+		stepChanger(currentIndex + 1)
+	}, [stepChanger, availableSteps, currentIndex])
+	
+	const goBackHandler = useCallback(() => {
+		// const previousStep = availableSteps[Number(currentIndex) - 1] as T;
+		stepChanger(currentIndex - 1)
+	}, [stepChanger, availableSteps, currentIndex])
+	
   return (
     <>
       {children}
       <Styled.FormActionPanel>
-        { currentStep !== availableSteps[0] && (
+        { currentIndex > 0 && (
           <CustomButton
-            callback={() => stepChanger(availableSteps[Number(currentStep) - 1] as T)}
+            callback={goBackHandler}
             beforeIcon={<ArrowBackIosIcon />}
           >
             Voltar
           </CustomButton>)
         }
-        { currentStep !== availableSteps[availableSteps.length - 1]
+        { currentIndex < availableSteps.length - 1
           ? (
             <CustomButton
               afterIcon={<ArrowForwardIosIcon />}
-              callback={() => stepChanger(availableSteps[(Number(currentStep) + 1)] as T)}
+              callback={goFowardHandler}
               bold
             >
               {'Continuar'}

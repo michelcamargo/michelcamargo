@@ -2,21 +2,20 @@ import {createContext, ReactNode, useEffect, useMemo, useState} from 'react';
 import cookie from 'js-cookie';
 
 import { CustomContext } from "@/lib/context";
-import { LocaleConfig } from "@/lib/locale";
+import {LanguageType, LocaleConfig} from "@/lib/locale";
 
 type LocaleContextProviderProps = {
   children: ReactNode
 }
 
-type Languages = 'ptBR' | 'en';
 const DEFAULT_LOCALE = 'ptBR';
 
 export const LocaleContext = createContext<CustomContext<LocaleConfig>>(null);
 
 const LocaleContextProvider = ({ children }: LocaleContextProviderProps) => {
-  const [currentLanguage, setCurrentLanguage] = useState<Languages>(() => {
+  const [currentLanguage, setCurrentLanguage] = useState<LanguageType>(() => {
     if (typeof window !== "undefined") {
-      const savedLocale = cookie.get('locale') as Languages || localStorage.getItem('locale') as Languages;
+      const savedLocale = cookie.get('locale') as LanguageType || localStorage.getItem('locale') as LanguageType;
       
       return savedLocale ? savedLocale : DEFAULT_LOCALE;
     } else {

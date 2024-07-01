@@ -1,6 +1,4 @@
 import React, { useCallback, useState } from 'react';
-
-import FormStepRender from "@/components/ContactForm/FormStepRender";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import SuccessFeedback from "@/components/SuccessFeedback";
 import { showErrorByCode } from "@/helpers/error";
@@ -10,7 +8,6 @@ import { Formik, FormikHelpers, FormikValues } from "formik";
 import { useMutation } from "react-query";
 import * as yup from "yup";
 
-import FormStepper from "../FormStepper";
 import Styled from './styles';
 
 export enum ContactFormStep {
@@ -119,13 +116,13 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
         { props => (
           <form onSubmit={props.handleSubmit}>
             <Styled.FormBody>
-              <FormStepper<ContactFormStep>
-                availableSteps={[ContactFormStep.intro, ContactFormStep.personal]}
-                currentStep={currentStep}
-                stepChanger={formStepHandler}
-              >
-                <FormStepRender step={currentStep} formProps={props} />
-              </FormStepper>
+              {/*<FormStepper<ContactFormStep>*/}
+              {/*  availableSteps={[ContactFormStep.intro, ContactFormStep.personal]}*/}
+              {/*  currentStep={currentStep}*/}
+              {/*  stepChanger={formStepHandler}*/}
+              {/*>*/}
+              {/*  <FormStepRender step={currentStep} formProps={props} />*/}
+              {/*</FormStepper>*/}
             </Styled.FormBody>
           </form>
         ) }

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
 import { MinimalHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
@@ -8,13 +8,14 @@ import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
+import AuthenticationForm from "../../components/CustomForms/Authentication";
 
 interface Props {
   locale: string,
   serverViewData: ServerViewProps,
 }
 
-const AuthPage: CustomNextPage<Props> = ({ serverViewData, locale }: Props) => {
+const AuthPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
   const sessions = useMemo(() => {
     const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
     return _sessions;
@@ -29,7 +30,8 @@ const AuthPage: CustomNextPage<Props> = ({ serverViewData, locale }: Props) => {
         <Styled.MainColumn>
           <h1>{sessions[0].getContent('title')}</h1>
           <h2>{sessions[0].getContent('description')}</h2>
-          <div>{JSON.stringify(sessions)}</div>
+          
+          <AuthenticationForm />
         </Styled.MainColumn>
       </Styled.Content>
     </Styled.PageWrapper>

@@ -1,11 +1,12 @@
 import { ReactElement } from "react";
 
 import HydratedView from "@/components/HydratedView";
-import HomePage from "@/domains/HomePage";
+import RedirectPage from "@/domains/RedirectPage";
+import { ViewLayoutEnum } from "@/lib/layout";
 import ContentService from "@/services/content.service";
-import { GetServerSidePropsContext, } from "next";
+import { GetServerSidePropsContext } from "next";
 import cookie from "cookie";
-import { handleServerRequestError } from "@/helpers/error";
+import {handleServerRequestError} from "@/helpers/error";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
@@ -13,27 +14,27 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
   const pageMeta = {
-    path: '/',
-    title: 'Início - Michel Camargo',
-    description: 'Michel Camargo - web developer & UIUX designer',
+    path: '/auth/redirect',
+    title: 'Autenticando',
+    description: 'Redirecionamento autenticação - Pixelbay',
     ignoreTitlePostfix: false,
-    keywords: 'michelcamargo,bio,developer,freelancer,work,dev,tech',
-    locale,
+    keywords: '',
   }
   
   try {
+    const sessions = await ContentService.fetchByKeys(['general/auth'], locale) ?? [];
+
     return {
       props: {
         serverViewData: {
           metadata: pageMeta,
           content: {
-            sessions: await ContentService.fetchByKeys(['bio/bio', 'work/devstack'], locale) ?? [],
+            sessions,
           },
         },
         locale,
       }
-    };
-    
+    }
   } catch (error) {
     handleServerRequestError(error, context);
     return {
@@ -50,8 +51,10 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   }
 };
 
-HomePage.getLayout = function getLayout(page: ReactElement) {
-  return <HydratedView viewElement={page} />;
+
+
+RedirectPage.getLayout = function getLayout(page: ReactElement) {
+  return <HydratedView viewElement={page} layout={ViewLayoutEnum.MINIMAL} />
 };
 
-export default HomePage;
+export default RedirectPage;
