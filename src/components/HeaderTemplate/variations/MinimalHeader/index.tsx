@@ -18,7 +18,7 @@ const MinimalHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
         <Styled.HeaderOverlayBlur />
         <Styled.HeaderContainer>
           <Styled.LeftContainer>
-            <BrandLogo />
+            <BrandLogo link={'/'} />
           </Styled.LeftContainer>
         </Styled.HeaderContainer>
       </Styled.HeaderWrapper>
@@ -31,7 +31,7 @@ const MinimalHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
       <Styled.HeaderContainer>
         <Styled.MidContainer>
           <Styled.LeftContainer>
-            <BrandLogo />
+            <BrandLogo link={'/'} />
           </Styled.LeftContainer>
           <Styled.RightContainer>
           

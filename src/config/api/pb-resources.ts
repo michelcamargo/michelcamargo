@@ -2,7 +2,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 import ResourcesConfig from "../resources.config";
-import {handleRequestError} from "@/helpers/error";
+import { handleRequestError } from "@/helpers/error";
 
 class PBResourcesApi {
 
@@ -45,29 +45,31 @@ class PBResourcesApi {
       return response as R;
     } catch (error) {
       handleRequestError(error);
-      // console.error('Erro na requisição POST:', error);
       throw error;
     }
   }
 
   async get<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
     try {
-      const response: AxiosResponse<T> = await this.axiosInstance.get<T>(path, { params });
+      const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
+        path, { params },
+      );
+      
       return response as R;
     } catch (error) {
       handleRequestError(error);
-      // console.error('Erro na requisição GET:', error);
       throw error;
     }
   }
 
   async delete<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
     try {
-      const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(path, { params });
+      const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(
+        path, { params },
+      );
       return response as R;
     } catch (error) {
       handleRequestError(error);
-      // console.error('Erro na requisição DELETE:', error);
       throw error;
     }
   }

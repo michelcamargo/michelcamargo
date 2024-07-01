@@ -8,6 +8,8 @@ interface Props {
 }
 
 const HeaderNavbar = ({ navbarItems }: Props) => {
+  console.log('navbar items::', navbarItems);
+  
   return (
     <Styled.Navbar>
       <Styled.NavList>

@@ -9,7 +9,7 @@ interface ToastProps {
   title?: string,
   message?: string,
   description?: string,
-  options: ToastOptions,
+  options?: ToastOptions,
 }
 
 const ErrorToast = ({ title, message, description, options }: ToastProps) => {

@@ -14,6 +14,7 @@ const Content = styled(Container)`
 const MainColumn = styled(Box)`
   display: flex;
   flex-direction: column;
+  align-items: center;
   row-gap: 16px;
 `;
 

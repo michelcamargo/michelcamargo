@@ -12,13 +12,12 @@ export function middleware(request: NextRequest) {
   ) return;
   
   if (request.nextUrl.locale === 'default') {
-    const locale = request.cookies.get('NEXT_LOCALE')?.value || 'ptBR'
+    const locale = request.cookies.get('NEXT_LOCALE')?.value || 'ptBR';
  
-    return NextResponse.redirect(
-      new URL(`/${locale}${request.nextUrl.pathname}${request.nextUrl.search}`, request.url)
-    )
+    const redirectUrl = `/${locale}${request.nextUrl.pathname}${request.nextUrl.search}`;
+    
+    return NextResponse.redirect(new URL(redirectUrl, request.url));
   }
-  
   
   let intercept = false;
   const { pathname } = request.nextUrl;

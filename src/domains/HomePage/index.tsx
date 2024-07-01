@@ -7,7 +7,7 @@ import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
 import BriefPresentation from "@/components/BriefPresentation";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "../../components/CustomForms/Contact";
 import CareerSkills from "@/components/CareerSkills";
 
 interface Props {

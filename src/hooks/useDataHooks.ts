@@ -1,13 +1,16 @@
-import fetcher from "@/helpers/fetcher";
-import useSWR from "swr";
+import ContentService from "@/services/content.service";
+import CustomContent from "@/helpers/content";
 
-export default function useDataHooks (key?: string) {
-  const fetchUrl = key ? `/api/datahooks/${key}` : '/api/datahooks';
-  const { data: dataHooks, error, isLoading } = useSWR(fetchUrl, fetcher);
+export default function useDataHooks (keys: string[] = ['header','footer']) {
+  const { data: header, error: errorHeader, isLoading: isFetchingHeader } = ContentService.fetchSWRTemplate(keys[0]);
+  const { data: footer, error: errorFooter, isLoading: isFetchingFooter } = ContentService.fetchSWRTemplate(keys[1]);
   
   return {
-    dataHooks,
-    isDataHooksLoading: isLoading,
-    dataHooksError: error
+    dataHooks: {
+      header: header ? new CustomContent(header) : undefined,
+      footer: footer ? new CustomContent(footer) : undefined,
+    },
+    isDataHooksLoading: Boolean(isFetchingHeader || isFetchingFooter),
+    dataHooksError: Boolean(errorHeader || errorFooter)
   };
 }

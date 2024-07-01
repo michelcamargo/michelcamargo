@@ -1,8 +1,8 @@
 import React from "react";
 
-import { ContactFormStep } from "@/components/ContactForm";
-import ProspectionIntroStep from "@/components/ContactForm/FormStepRender/ProspectionIntroStep";
-import ProspectionPersonalStep from "@/components/ContactForm/FormStepRender/ProspectionPersonalStep";
+import { ContactFormStep } from ".";
+import ProspectionIntroStep from "@/components/CustomForms/Contact/FormStepRender/ProspectionIntroStep";
+import ProspectionPersonalStep from "@/components/CustomForms/Contact/FormStepRender/ProspectionPersonalStep";
 import { CustomerLead } from "@/lib/customer";
 import { FormikProps } from "formik";
 

@@ -8,9 +8,10 @@ import Styled from './styles';
 interface Props {
   width?: number,
   height?: number,
+  link?: string,
 }
 
-const BrandLogo = ({ width = 52, height = 52 }: Props) => {
+const BrandLogo = ({ width = 52, height = width ? width : 52, link = undefined }: Props) => {
   const brandLogoImg = circleFillColorLogo;
   
   const [logoHueDegree, setLogoHueDegree] = useState(0);
@@ -35,14 +36,20 @@ const BrandLogo = ({ width = 52, height = 52 }: Props) => {
     setTimeout(rotateHue, randomXToY(100, 1000));
   }, [rainbow, rotateHue]);
   
+  if (link) {
+    return (
+      <Styled.LogoLink
+        href={link}
+        hue={logoHueDegree}
+        onMouseEnter={() => rainbowTrigger()}
+      >
+        <Styled.LogoImage src={brandLogoImg} alt={"Logo da marca"} width={width} height={height} hue={logoHueDegree} />
+      </Styled.LogoLink>
+    );
+  }
+  
   return (
-    <Styled.LogoLink
-      href={'/'}
-      hue={logoHueDegree}
-      onMouseEnter={() => rainbowTrigger()}
-    >
-      <Styled.LogoImage src={brandLogoImg} alt={"Logo da marca"} width={width} height={height} hue={logoHueDegree} />
-    </Styled.LogoLink>
+    <Styled.LogoImage src={brandLogoImg} alt={"Logo da marca"} width={width} height={height} hue={logoHueDegree} />
   );
 };
 

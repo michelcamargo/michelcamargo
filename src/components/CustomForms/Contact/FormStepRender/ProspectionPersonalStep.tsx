@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Styled from "@/components/ContactForm/styles";
+import Styled from "@/components/CustomForms/Contact/styles";
 import InputField from "@/components/InputField";
 import { CustomerLead } from "@/lib/customer";
 import { FormikProps } from "formik";

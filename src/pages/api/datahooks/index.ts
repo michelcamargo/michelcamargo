@@ -1,18 +1,17 @@
 /* eslint-disable no-console */
-import staticDatahooks from "@/pages/api/datahooks/static-datahooks";
 import { NextApiRequest, NextApiResponse } from "next";
 import errorHandler from '../error';
+import ContentService from "@/services/content.service";
+// import cookie from "cookie";
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse ) => {
   if (req.method === 'GET') {
-    // try {
-    //   res.status(200).json(staticDatahooks);
-    // } catch (error) {
-    //   console.error('Error in server-side fetch:', error);
-    //   res.status(500).json({ error: 'Internal Server Error' });
-    // }
+    const { locale } = req.cookies;
+    const dataHooks = await ContentService.fetchByKeys(['template/header', 'template/footer'], locale)
     
-    res.status(200).json(staticDatahooks);
+    console.log('dataHooks >>>>>', dataHooks);
+    
+    res.status(200).json(dataHooks);
   }
   
   const data = { message: 'Dados obtidos com sucesso' };

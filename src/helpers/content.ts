@@ -131,30 +131,53 @@ export default class CustomContent {
   }
   
   /**
+   * Retorna o conteúdo agrupado internamente
+   */
+  public getChildrenAsObjectArray = (skipRoot: boolean = false): Array<object> | null => {
+    return (this.children && this.children.length) ? this.children.map(item => item.toObject(skipRoot)) : null
+  }
+  
+  /**
    * Busca um item no agrupamento interno
    * @param keyName
+   * @param asObject
    */
-  public getChild = (keyName?: string): CustomContent | null => {
+  public getChild = (keyName?: string, asObject: boolean = false): CustomContent | null => {
     if (!Array.isArray(this.children) || this.children.length === 0) return null;
     if (!keyName) return this.children[0];
     
     return this.children.find(item => item.key.toLowerCase() === keyName.toLowerCase()) ?? null;
   }
   
-  public toObject(): object {
-    let result: any = {};
+  /**
+   * Retorna um objeto representando os itens internos
+   * @param keyName
+   */
+  public getChildAsObject = (keyName?: string): object | null => {
+    if (!Array.isArray(this.children) || this.children.length === 0) return null;
+    if (!keyName) return this.children[0].toObject();
     
+    const target = this.children.find(item => item.key.toLowerCase() === keyName.toLowerCase());
+    
+    return target ? target.toObject(true) : null;
+  }
+  
+  public toObject(skipRoot: boolean = false): object {
+    let result: any = {};
+  
     if (this.children && this.children.length > 0) {
-      let childrenResult: any = {};
       for (let child of this.children) {
-        Object.assign(childrenResult, child.toObject());
+        Object.assign(result, child.toObject(false));
       }
-      result[this.key] = childrenResult;
     } else {
       result[this.key] = this.value || '';
     }
-    
-    return result;
+  
+    if (skipRoot) {
+      return result;
+    }
+  
+    return { [this.key]: result };
   }
 
 }
