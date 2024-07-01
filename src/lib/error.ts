@@ -1,4 +1,5 @@
 import { ToastOptions } from "react-toastify/dist/types";
+import {AxiosRequestHeaders, AxiosResponse} from "axios";
 
 export type AppErrorInfo = {
 	code: number,
@@ -6,4 +7,16 @@ export type AppErrorInfo = {
   message: string,
   description?: string,
   options?: ToastOptions,
+}
+
+export type RawException<T> = {
+	code: number,
+	request?: AxiosRequestHeaders,
+	response?: AxiosResponse<T, any>,
+}
+
+export type ApiException<T> = RawException<T> & {
+	apiCode?: number,
+	message?: string,
+	description?: string
 }

@@ -1,7 +1,7 @@
 import Toast from "@/components/Toast";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { ToastOptions } from "react-toastify/dist/types";
-import {GetServerSidePropsContext, GetStaticPropsContext} from "next";
+import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 import APP_ERROR_MAPPINGS from "@/helpers/error/mappings";
 
 /**
@@ -15,6 +15,9 @@ export const showErrorByCode = (
   customMessage?: string,
   toastOptions?: ToastOptions
 ) => {
+   console.log({errorCode})
+   console.log({customMessage})
+  
   const appError =
     APP_ERROR_MAPPINGS.find((err) => err.code === errorCode) || APP_ERROR_MAPPINGS[0];
 
@@ -90,7 +93,7 @@ export const handleRequestError = (error: unknown, customMessage?: string) => {
   }
 
   console.log("thread error ->", errorCode); // Log do código de erro
-
+  
   return showErrorByCode(errorCode, customMessage); // Mostrar o toast com base no código de erro
 };
 
@@ -106,8 +109,7 @@ export const handleServerRequestError = (
   if (axios.isAxiosError(error)) {
     handleRequestError(error);
   } else {
-    console.error("Erro durante server-side rendering:", error)
-    // lidar com outros tipos de erros
+    console.error("Erro durante server-side rendering:", error);
   }
   
   return {
