@@ -4,7 +4,7 @@ import {ServerViewProps} from "@/lib/datahooks";
 import Styled, { StyledProps } from './styles';
 import BrandLogo from "@/components/BrandLogo";
 import CustomContent from "@/helpers/content";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 import Toast from "@/components/Toast";
 import ExternalConfig from "@/config/external.config";
 
@@ -25,8 +25,9 @@ const RedirectPage: CustomNextPage<Props> = () => {
 	}, []);
 	
 	const redirect = useMemo(() => () => {
+		const url = `${ExternalConfig.managerAppUrl}?token=${token}`;
 		setTimeout(() => {
-      window.location.href = `${ExternalConfig.managerAppUrl}/auth?token=${token}`;
+      window.location.href = url;
     }, 1500);
 	}, [token]);
 	
