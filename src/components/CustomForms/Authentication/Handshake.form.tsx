@@ -1,20 +1,10 @@
 import React from 'react';
 import FormWrapper from '../../FormWrapper';
-import * as Yup from 'yup';
-import {FormikHelpers} from "formik";
+import { FormikHelpers } from "formik";
 import AuthService from "@/services/auth.service";
-
-interface AuthFormValues {
-  username: string,
-}
-
-const validationSchema = Yup.object().shape({
-  username: Yup.string().required('Username é requerido'),
-});
-
-const fields: Array<{ name: keyof AuthFormValues; type: string; label: string; placeholder?: string }> = [
-  { name: 'username', type: 'text', label: 'Usuário ou email', placeholder: 'Informe um email ou nome de usuário' },
-];
+import { authHandshakeDtoSchema } from "@/schemas/auth.schema";
+import { authHandshakeFields } from "@/components/CustomForms/Authentication/fields";
+import { AuthHandshakeDto } from "@/lib/auth";
 
 type Props = {
   submitHandler: (isSignIn: boolean, username: string) => void | undefined
@@ -25,7 +15,7 @@ const AuthHandshakeForm = ({ submitHandler }: Props) => {
     username: '',
   };
   
-  const handleSubmit = async (values: AuthFormValues, _helpers: FormikHelpers<AuthFormValues>) => {
+  const handleSubmit = async (values: AuthHandshakeDto, _helpers: FormikHelpers<AuthHandshakeDto>) => {
     const isExistingUser = await AuthService.handshake(values.username);
     submitHandler(isExistingUser, values.username);
   };
@@ -33,9 +23,9 @@ const AuthHandshakeForm = ({ submitHandler }: Props) => {
   return (
     <FormWrapper
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={authHandshakeDtoSchema}
       onSubmit={handleSubmit}
-      fields={fields}
+      fields={authHandshakeFields}
     />
   );
 };

@@ -1,21 +1,10 @@
 import React from 'react';
 import FormWrapper from '../../FormWrapper';
-import * as Yup from 'yup';
 import { FormikHelpers } from "formik";
-import { SignInUserDto } from "@/lib/auth";
+import { AuthSignInDto } from "@/lib/auth";
 import AuthService from "@/services/auth.service";
-
-interface AuthFormValues extends SignInUserDto {}
-
-const validationSchema = Yup.object().shape({
-  username: Yup.string().required('Informe seu usuário ou email'),
-  secret: Yup.string().required('Informe sua senha'),
-});
-
-const fields: Array<{ name: keyof AuthFormValues; type: string; label: string; placeholder?: string }> = [
-  { name: 'username', type: 'text', label: 'Usuário ou email', placeholder: 'Informe seu email ou usuário' },
-  { name: 'secret', type: 'password', label: 'Senha', placeholder: 'Informe sua senha' },
-];
+import { authSignInFields } from "@/components/CustomForms/Authentication/fields";
+import { authSignInDtoSchema } from "@/schemas/auth.schema";
 
 type Props = {
   submitHandler: (values: any) => void | undefined,
@@ -28,7 +17,7 @@ const AuthSignInForm = ({ submitHandler, username }: Props) => {
     secret: '',
   };
 
-  const handleSubmit = async (values: AuthFormValues, formikHelpers: FormikHelpers<AuthFormValues>) => {
+  const handleSubmit = async (values: AuthSignInDto, _formikHelpers: FormikHelpers<AuthSignInDto>) => {
     const { access_token } = await AuthService.signIn(values);
     submitHandler(access_token);
   };
@@ -36,9 +25,9 @@ const AuthSignInForm = ({ submitHandler, username }: Props) => {
   return (
     <FormWrapper
       initialValues={initialValues}
-      validationSchema={validationSchema}
+      validationSchema={authSignInDtoSchema}
       onSubmit={handleSubmit}
-      fields={fields}
+      fields={authSignInFields}
     />
   );
 };
