@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ProfileAvatar from "@/components/PersonalPresentation/ProfileAvatar";
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 import Image from "next/image";
 
 import Styled from './styles';

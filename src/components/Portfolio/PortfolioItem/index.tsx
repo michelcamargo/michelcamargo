@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 import Image from 'next/image';
 
 import PortfolioImageGroup from './PortfolioImageGroup';

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement, useMemo} from 'react';
 
 import ViewTemplateError from "@/components/HydratedView/ViewTemplateError";
 import Layout from "@/components/layout";
@@ -6,7 +6,8 @@ import AppConfig from "@/config/next.config";
 import { ViewLayoutEnum } from "@/lib/layout";
 import HeadMetadata from "@/pages/_head";
 import { useRouter } from "next/router";
-import { ToastContainer } from "react-toastify";
+import CustomContent from "@/helpers/content.helper";
+import { CommonPageProps } from "@/lib/datahooks";
 
 interface Props {
   viewElement: ReactElement,
@@ -17,49 +18,56 @@ interface Props {
 const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
   const router = useRouter();
   const RenderLayout = layout === ViewLayoutEnum.MINIMAL ? Layout.Minimal : Layout.Common;
+  const { meta, data } = useMemo(() => viewElement.props, [viewElement.props]);
   
-  const { serverViewData, locale } = viewElement.props;
+  const hydratedProps: CommonPageProps = useMemo(() => {
+    const { sessions, ...customData } = data;
+    
+    return {
+      meta,
+      data: {
+        sessions: sessions.length ? new CustomContent({
+          key: 'sessions',
+          children: sessions,
+        }) : [],
+        ...customData,
+      }
+    }
+  }, [data]);
   
   if (!viewElement) {
-    return <ViewTemplateError code={'A-0'} message={'Teste erro template'} />;
+    return <ViewTemplateError code={'A-0'} message={'Falha ao carregar layout da página'} />;
   }
   
-  if (bypassServerContent || !serverViewData) {
+  if (bypassServerContent || !data) {
     return (
       <>
         <HeadMetadata
           currentURL={`${AppConfig.appUrl}${router.pathname}`}
-          title={`${router.pathname.replace('/', '')} | ${'teste'}`}
-          description={'view description'}
-          keywords={'view keywords'}
+          title={`${router.pathname.replace('/', '')}`}
+          description={meta.description}
+          keywords={meta.keywords}
           isProd={AppConfig.environment === 'production'}
-          locale={locale}
+          locale={meta.locale}
         />
         <RenderLayout bypassServerContent>
-          <ToastContainer
-            theme="colored"
-            hideProgressBar
-            position="top-center"
-          />
           {viewElement}
         </RenderLayout>
       </>
     );
   }
   
-  const { metadata } = serverViewData;
-  
   return (
     <>
       <HeadMetadata
-        currentURL={`${AppConfig.appUrl}${metadata.path}`}
-        title={metadata.ignoreTitlePostfix ? metadata.title : `${metadata.title} | ${'view name'}`}
-        description={metadata.description ?? 'view description'}
-        keywords={metadata.keywords ?? 'view keywords'}
+        currentURL={`${AppConfig.appUrl}${meta.path}`}
+        title={meta.ignoreTitlePostfix ? meta.title : `${meta.title} | ${router.pathname.replace('/', '')}`}
+        description={meta.description ?? ''}
+        keywords={meta.keywords ?? ''}
         isProd={AppConfig.environment === 'production'}
-        locale={locale}
+        locale={meta.locale}
       />
-      <RenderLayout serverProps={serverViewData} bypassServerContent={bypassServerContent ?? false}>
+      <RenderLayout hydratedProps={hydratedProps} bypassServerContent={bypassServerContent ?? false}>
         {viewElement}
       </RenderLayout>
     </>

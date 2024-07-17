@@ -1,27 +1,35 @@
-import CustomContent from "@/helpers/content";
-import { CustomBannerData } from "@/lib/content";
+import CustomContent from "@/helpers/content.helper";
+import {CustomBannerData, CustomContentType} from "@/lib/content";
 
-export type ViewMetadata = {
+export type PageMetadata = {
   path: string,
   title: string,
   description?: string,
   ignoreTitlePostfix?: boolean,
   keywords?: string,
+  locale: string,
 }
 
 export type ServerViewProps<T = unknown> = {
-  metadata: ViewMetadata,
+  metadata: PageMetadata,
   content: {
     sessions: Array<T>
   }
 };
 
-export type ViewData = {
-  head: ViewMetadata,
-  body: {
-    sessions: Array<CustomContent>
-  }
+export type CommonPageProps<T = Object> = {
+  [P in keyof T]: Object
+} & {
+  meta: PageMetadata,
+  data?: PageData<T>,
 };
+
+
+export type PageData<T = {}> = {
+  [P in keyof T]: Object
+} & {
+  sessions: CustomContent,
+} & T;
 
 export type CustomNavItem = {
   key: string,

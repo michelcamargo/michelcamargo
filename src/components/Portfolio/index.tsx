@@ -3,7 +3,7 @@ import React from 'react';
 import CustomAccordion from "@/components/CustomAccordion";
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 import hydration from "@/helpers/hydration";
 import { CustomAccordionItem } from "@/lib/accordion";
 

@@ -1,60 +1,50 @@
 import React, { useMemo } from "react";
-
-import CustomContent from "@/helpers/content";
-import Hydration from '@/helpers/hydration';
-import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
 import BriefPresentation from "@/components/BriefPresentation";
 import ContactForm from "../../components/CustomForms/Contact";
 import CareerSkills from "@/components/CareerSkills";
+import LoadingFeedback from "@/components/LoadingFeedback";
+import HeroComponent from "@/components/HeroComponent";
+import SocialPresentation from "@/components/SocialPresentation";
+// import PortfolioComponent from "@/components/Portfolio";
 
-interface Props {
-  locale: string,
-  serverViewData: ServerViewProps,
-}
-
-const HomePage: CustomNextPage<Props> = ({ locale, serverViewData }: Props) => {
-  const { sessions, bio, portfolio } = useMemo(() => {
-    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-
-    const bio = _sessions.find(item => item.key === 'bio');
-    const portfolio = _sessions.find(item => item.key === 'portfolio');
+const HomePage: CustomNextPage = ({ data }) => {
+  const sessions = useMemo(() => data?.sessions, [data]);
+  
+  const { bio, socialLinks, portfolio } = useMemo(() => {
     return {
-      sessions: _sessions,
-      bio: bio?.toObject() ?? null,
-      portfolio: portfolio?.toObject() ?? null
-    };
-  }, [serverViewData])
+      bio: sessions?.get('bio'),
+      socialLinks: sessions?.get('social'),
+      portfolio: sessions?.get('devstack')
+    }
+  }, [data?.sessions]);
   
-  console.log('serverViewData', serverViewData)
-  
-  // if (!sessions) return <LoadingFeedback />;
-  
-  // console.log('bio', bio);
-  // console.log('sessions', sessions[0].getChild('author'));
+  if (!sessions) return <LoadingFeedback />;
   
   return (
     <Styled.PageWrapper topSpacing={0} rowGap={42}>
       <Styled.SessionContainer topSpacing={0} rowGap={16}>
-        {/*<HeroComponent data={bio} />*/}
-        {/*<SocialPresentation socialData={viewSessions.find(session => session.key === 'socialLinks')} />*/}
+        <HeroComponent data={bio} />
+        <SocialPresentation socialData={socialLinks} />
       </Styled.SessionContainer>
       <Styled.SessionContainer>
-        <CareerSkills />
+        <Styled.Intro>
+          <BriefPresentation />
+        </Styled.Intro>
       </Styled.SessionContainer>
       <Styled.SessionContainer>
         {/*<PortfolioComponent data={portfolio} />*/}
       </Styled.SessionContainer>
       <Styled.SessionContainer>
-        <Styled.Intro>
-          <BriefPresentation />
-          <ContactForm
-            title={'Formulário'}
-            description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
-          />
-        </Styled.Intro>
+        <CareerSkills />
+      </Styled.SessionContainer>
+      <Styled.SessionContainer>
+        <ContactForm
+          title={'Formulário'}
+          description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
+        />
       </Styled.SessionContainer>
     </Styled.PageWrapper>
   );

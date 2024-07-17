@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CustomImage from "@/components/CustomImage";
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomImageProps, ImageDimensions } from "@/lib/content";
 

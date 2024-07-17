@@ -1,40 +1,23 @@
 import { ReactElement } from "react";
-
 import HydratedView from "@/components/HydratedView";
-// import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
-
-// import cookie from "cookie";
-import {handleServerRequestError} from "@/helpers/error";
 import UnavailablePage from "@/domains/UnavailablePage";
-import {ViewLayoutEnum} from "@/lib/layout";
+import { ViewLayoutEnum } from "@/lib/layout";
+import PagePropsHelper from "@/helpers/SSR.helper";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { locale, defaultLocale = 'ptBR' } = context;
-  // const cookies = cookie.parse(req.headers.cookie || '');
-  // const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
-  const pageMeta = {
+  const meta = {
     path: '/unavailable',
     title: 'Serviço indisponível',
     description: 'Página não disponível no momento, por favor aguarde ou solicite suporte',
     ignoreTitlePostfix: false,
     keywords: 'unavailable,error,failed,offine,unavailability,services,web',
+    locale: locale ?? defaultLocale
   }
   
-  try {
-    return {
-      props: {
-        serverViewData: {
-          metadata: pageMeta,
-        },
-        locale: locale ?? defaultLocale,
-      }
-    };
-  } catch (error) {
-    handleServerRequestError(error, context);
-    
-  }
+  return PagePropsHelper.handleStaticProps(meta, context)
 };
 
 UnavailablePage.getLayout = function getLayout(page: ReactElement) {

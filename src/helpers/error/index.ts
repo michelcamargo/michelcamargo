@@ -100,16 +100,18 @@ export const handleRequestError = (error: unknown, customMessage?: string) => {
 /**
  * Trata erros de requisição específicos durante server-side rendering.
  * @param error Erro capturado durante a execução de `getServerSideProps`.
- * @param context Contexto de `GetServerSidePropsContext`.
+ * @param _context Contexto de `GetServerSidePropsContext`.
+ * @param message
  */
 export const handleServerRequestError = (
   error: unknown,
-  context: GetServerSidePropsContext | GetStaticPropsContext,
+  _context: GetServerSidePropsContext | GetStaticPropsContext,
+  message?: string,
 ) => {
   if (axios.isAxiosError(error)) {
     handleRequestError(error);
   } else {
-    console.error("Erro durante server-side rendering:", error);
+    console.error(message ?? "Erro durante server-side rendering:", error);
   }
   
   return {

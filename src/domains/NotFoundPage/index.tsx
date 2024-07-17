@@ -1,29 +1,16 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
+import HomeIcon from '@mui/icons-material/Home';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import CustomButton from "@/components/CustomButton";
-import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
-import HomeIcon from '@mui/icons-material/Home';
-
 import Styled from './styles';
-import Hydration from "@/helpers/hydration";
-import CustomContent from "@/helpers/content";
 import LoadingFeedback from "@/components/LoadingFeedback";
 
-interface Props {
-  serverViewData: ServerViewProps
-}
-const NotFoundPage: CustomNextPage<Props> = ({ serverViewData }) => {
-  const { sessions, heading } = useMemo(() => {
-    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-    return {
-      sessions: _sessions,
-      heading: _sessions.find(item => item.key === 'heading') ?? null,
-    };
-  }, [serverViewData])
+const NotFoundPage: CustomNextPage = ({ data }) => {
+  const sessions = useMemo(() => data?.sessions, [data]);
   
-  console.log('serverViewData', serverViewData)
+  console.log('serverViewData', data)
   
   if (!sessions) return <LoadingFeedback />;
   

@@ -2,7 +2,7 @@ import React from 'react';
 
 // import CustomCarousel from "@/components/CustomCarousel";
 // import { getCustomContentByKey } from "@/helpers/content-handler";
-// import CustomContent from "@/helpers/content";
+// import CustomContent from "@/helpers/content.helper";
 // import { CustomContent } from "@/lib/custom-content";
 // import Image from "next/image";
 //

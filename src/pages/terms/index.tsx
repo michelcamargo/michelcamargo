@@ -7,46 +7,29 @@ import { GetServerSidePropsContext } from "next";
 import PrivacyTermsPage from "../../domains/TermsPage";
 import cookie from "cookie";
 import {handleServerRequestError} from "@/helpers/error";
+import PagePropsHelper from "@/helpers/SSR.helper";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
   const cookies = cookie.parse(req.headers.cookie || '');
   const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
-  const pageMeta = {
+  const meta = {
     path: '/terms',
     title: 'Termos de uso e políticas de privacidade',
     description: 'Termos de uso e políticas de privacidade',
     ignoreTitlePostfix: false,
     keywords: 'terms,privacy,compliance',
+    locale,
   }
   
   try {
-    const sessions = await ContentService.fetchByKeys(['legal/policies', 'legal/compliance'], locale) ?? [];
-    return {
-      props: {
-        serverViewData: {
-          metadata: pageMeta,
-          content: {
-            sessions,
-          },
-        },
-        locale,
-      }
-    };
+    return PagePropsHelper.handleServerProps(meta, context, {
+      sessions: await ContentService.SSRFetchByKeys(['legal/policies', 'legal/compliance'], locale)
+    })
   } catch (error) {
     handleServerRequestError(error, context);
-    return {
-      props: {
-        serverViewData: {
-          metadata: pageMeta,
-          content: {
-            sessions: [],
-          },
-        },
-        locale,
-      }
-    };
+    return PagePropsHelper.handleStaticProps(meta, context);
   }
 };
 

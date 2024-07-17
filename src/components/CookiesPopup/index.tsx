@@ -58,7 +58,7 @@ const CookiesPopup = () => {
       <Styled.DisclaimerContainer>
         <Styled.DisclaimerFragment>
           <Styled.DisclaimerText>
-            {'Esse site utiliza alguns cookies para fins de acessibilidade e personalização de conteúdo.'}
+            {'Esse site utiliza alguns cookies para fins de acessibilidade e personalização de conteúdo. '}
             {'Com o seu consentimento, sua experiência de navegação será aprimorada de acordo com as configurações do seu navegador'}
             {'de acordo com as '}
             <AppLink color={'#FFFFFF'} underline={'static'} href={`${AppConfig.appUrl}/terms`}>{'Políticas de Privacidade'}</AppLink>
