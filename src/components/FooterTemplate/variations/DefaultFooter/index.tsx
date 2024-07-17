@@ -7,7 +7,7 @@ import FooterDisclaimer from "@/components/FooterTemplate/FooterDisclaimer";
 // import { FooterData } from "@/lib/datahooks";
 
 import Styled from './styles';
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 
 interface Props {
   // dataHooks?: FooterData,

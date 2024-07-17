@@ -1,5 +1,5 @@
 import ContentService from "@/services/content.service";
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 
 export default function useDataHooks (keys: string[] = ['header','footer']) {
   const { data: header, error: errorHeader, isLoading: isFetchingHeader } = ContentService.fetchSWRTemplate(keys[0]);

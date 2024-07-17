@@ -2,24 +2,13 @@ import React, { useMemo } from "react";
 
 import { MinimalHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
-import CustomContent from "@/helpers/content";
-import Hydration from '@/helpers/hydration';
-import { ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
 import AuthenticationForm from "../../components/CustomForms/Authentication";
 
-interface Props {
-  locale: string,
-  serverViewData: ServerViewProps,
-}
-
-const AuthPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const sessions = useMemo(() => {
-    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-    return _sessions;
-  }, [serverViewData])
+const AuthPage: CustomNextPage = ({ data }) => {
+  const sessions = useMemo(() => data?.sessions, [data]);
   
   if (!sessions) return <LoadingFeedback />;
   
@@ -28,9 +17,8 @@ const AuthPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
       <MinimalHeader />
       <Styled.Content>
         <Styled.MainColumn>
-          <h1>{sessions[0].getContent('title')}</h1>
-          <h2>{sessions[0].getContent('description')}</h2>
-          
+          {/*<h1>{sessions[0].getContent('title')}</h1>*/}
+          {/*<h2>{sessions[0].getContent('description')}</h2>*/}
           <AuthenticationForm />
         </Styled.MainColumn>
       </Styled.Content>

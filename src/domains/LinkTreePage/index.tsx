@@ -1,19 +1,12 @@
-import { useMemo } from "react";
+import {useMemo} from "react";
 
 import AppLink from "@/components/AppLink";
-import { MinimalHeader } from "@/components/HeaderTemplate";
+import {MinimalHeader} from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
-import CustomContent from "@/helpers/content";
-import Hydration from '@/helpers/hydration';
-import { LinkTreeItem } from "@/lib/content";
-import { ServerViewProps } from "@/lib/datahooks";
-import { CustomNextPage } from "@/lib/layout";
+import {LinkTreeItem} from "@/lib/content";
+import {CustomNextPage} from "@/lib/layout";
 
 import Styled from './styles';
-
-interface Props {
-  serverViewData: ServerViewProps,
-}
 
 const LinkTreeItem = ({ content, key }: { content: LinkTreeItem, key: number }) => (
   <AppLink key={key} href={content.link}>
@@ -28,30 +21,32 @@ const LinkTreeItem = ({ content, key }: { content: LinkTreeItem, key: number }) 
   </AppLink>
 );
 
-const LinkTreePage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const sessions = useMemo(() => {
-    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-    return _sessions;
-  }, [serverViewData])
+const LinkTreePage: CustomNextPage = ({ data }) => {
+  const sessions = useMemo(() => data?.sessions, [data]);
+  
+  const linkArray = useMemo(() => {
+    const links = sessions?.getChildren('links') ?? [];
+    
+    return links?.map(item => {
+      const [ link, label, icon ] = [
+        item.getValue('link'), item.getValue('label'), item.getValue('icon')
+      ]
+      
+      if (!link || !label) return;
+      
+      return { link, label, icon }
+    }) ?? [];
+  }, [sessions]);
   
   if (!sessions) return <LoadingFeedback />;
-  
-  const linkTreeContent = sessions.find(item => item.key === 'link-tree');
-  const linksContent = linkTreeContent ? linkTreeContent.getChildren() : [];
-  
-  const linkArray: Array<LinkTreeItem> = linksContent?.length ? linksContent.map(item => {
-    return {
-      label: item.getContent('label') ?? '',
-      link: item.getContent('link') ?? '',
-    };
-  }) : [];
   
   return (
     <Styled.PageWrapper>
       <MinimalHeader />
       <Styled.Content>
         <Styled.MainColumn>
-          {linkArray.map((item, index) => (<LinkTreeItem content={item} key={index} />))}
+          {linkArray.map((item, index) =>
+            <LinkTreeItem content={item as LinkTreeItem} key={index} />)}
         </Styled.MainColumn>
       </Styled.Content>
     </Styled.PageWrapper>

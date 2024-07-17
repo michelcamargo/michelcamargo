@@ -1,16 +1,13 @@
-import { forwardRef } from 'react';
+import {forwardRef, useMemo} from 'react';
 
 import BrandLogo from "@/components/BrandLogo";
 import HeaderNavbar from '@/components/HeaderTemplate/HeaderNavbar';
 import HeaderToolbar from "@/components/HeaderToolbar";
-// import { HeaderData } from "@/lib/datahooks";
-
-// import HeaderTopBanner from "../../HeaderTopBanner";
+import HeaderTopBanner from "../../HeaderTopBanner";
 import Styled from './styles';
-import {useRouter} from "next/router";
-import CustomContent from "@/helpers/content";
-// import {CustomContentType} from "@/lib/content";
-// import CustomContent from "@/helpers/content";
+import { useRouter } from "next/router";
+import CustomContent from "@/helpers/content.helper";
+import {CustomBannerData} from "@/lib/content";
 
 interface Props {
   dataHooks?: CustomContent,
@@ -24,6 +21,34 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
 ) => {
   const router = useRouter();
   const { locale, defaultLocale = 'ptBR', locales = [] } = router;
+  
+  const { navigation, persistentBanner } = useMemo(() => {
+    const bannerInfo = dataHooks?.get('banner');
+    
+    bannerInfo && console.log('bannerInfo', bannerInfo);
+    
+    const banner: CustomBannerData | undefined = bannerInfo ? {
+      heading: '',
+      text: '',
+      href: '',
+      image: '',
+      background: '',
+    } : undefined;
+    
+    return {
+      navigation: dataHooks?.getChildren('nav'),
+      persistentBanner: banner,
+    }
+  }, [dataHooks]);
+  
+  const navigationItems = navigation?.map((item, index) => {
+    const navItem = item.toObject<{ label: string, link: string }>();
+    return {
+      key: `${index}-${navItem.label}`,
+      label: navItem.label,
+      href: navItem.link,
+    }
+  }) ?? []
   
   if (bypassServerContent) {
     return (
@@ -51,34 +76,17 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
     );
   }
   
-  const navigation: any[] = dataHooks.getChild('nav')?.getChildrenAsObjectArray() ?? [];
-  const navigationItems = navigation.map((item, index) => {
-    const key = Object.keys(item)[0];
-    
-    return {
-      key,
-      label: item[key].label.label,
-      href: item[key].link.link,
-    }
-  })
-  
-  console.log('NAV >>>', navigationItems)
-  
-  // const { navigationItems, headerDisclaimer } = dataHooks;
-  
-  
-  
   return (
     <Styled.HeaderWrapper>
-      {/*{headerDisclaimer && <HeaderTopBanner data={headerDisclaimer} />}*/}
-      {!hideToolbar && <HeaderToolbar locale={locale ?? defaultLocale} availableLocales={locales} />}
+      {persistentBanner ? <HeaderTopBanner data={persistentBanner} /> : undefined}
+      {!hideToolbar ? <HeaderToolbar locale={locale ?? defaultLocale} availableLocales={locales} /> : undefined}
       <Styled.HeaderContainer>
         <Styled.MidContainer>
           <Styled.LeftContainer>
             <BrandLogo link={'/'} />
           </Styled.LeftContainer>
           <Styled.RightContainer>
-            { navigation ? <HeaderNavbar navbarItems={navigationItems} /> : undefined }
+            <HeaderNavbar navbarItems={navigationItems} />
           </Styled.RightContainer>
         </Styled.MidContainer>
       </Styled.HeaderContainer>

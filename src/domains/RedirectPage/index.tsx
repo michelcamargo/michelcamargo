@@ -1,18 +1,12 @@
 import React, {useCallback, useEffect, useMemo} from 'react';
 import {CustomNextPage} from "@/lib/layout";
-import {ServerViewProps} from "@/lib/datahooks";
-import Styled, { StyledProps } from './styles';
+import Styled from './styles';
 import BrandLogo from "@/components/BrandLogo";
-import CustomContent from "@/helpers/content";
 import { useRouter } from "next/router";
 import Toast from "@/components/Toast";
 import ExternalConfig from "@/config/external.config";
 
-interface Props extends StyledProps {
-  serverViewData: ServerViewProps<CustomContent>
-}
-
-const RedirectPage: CustomNextPage<Props> = () => {
+const RedirectPage: CustomNextPage = () => {
 	const router = useRouter();
 	
 	const { token, key } = useMemo(() => {

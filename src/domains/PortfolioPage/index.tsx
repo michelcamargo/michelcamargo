@@ -1,38 +1,26 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 
 import BriefPresentation from "@/components/BriefPresentation";
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import ContactForm from "../../components/CustomForms/Contact";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PortfolioComponent from "@/components/Portfolio";
-import CustomContent from "@/helpers/content";
-import Hydration from "@/helpers/hydration";
-import { ViewMetadata, ServerViewProps } from "@/lib/datahooks";
 import { CustomNextPage } from "@/lib/layout";
 import WorkIcon from '@mui/icons-material/Work';
 
 import Styled from "./styles";
 
-interface Props {
-  serverViewData: ServerViewProps,
-}
-
-const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
-  const [viewHead, setViewHead] = useState<Partial<ViewMetadata> | null>(null);
+const PortfolioPage: CustomNextPage = ({ data, meta }) => {
+  const sessions = useMemo(() => data?.sessions, [data]);
   
-  const { sessions, portfolio, authorInfo } = useMemo(() => {
-    const { sessions: _sessions } = Hydration.parseViewProps<CustomContent>(serverViewData);
-    
-    setViewHead({ title: 'Portfolio', description: 'Portfolio' })
-    
+  const { portfolio, authorInfo } = useMemo(() => {
     return {
-      sessions: _sessions,
-      portfolio: _sessions.find(item => item.key === 'portfolio')?.getChildren(),
-      authorInfo: _sessions.find(item => item.key === 'bio'),
+      portfolio: sessions?.getChildren('portfolio'),
+      authorInfo: sessions?.getChildren('bio'),
     };
-  }, [serverViewData])
+  }, [data]);
   
-  if (!viewHead || !sessions) return <LoadingFeedback />;
+  if (!sessions) return <LoadingFeedback />;
   
   return (
     <Styled.PageWrapper>
@@ -40,12 +28,12 @@ const PortfolioPage: CustomNextPage<Props> = ({ serverViewData }: Props) => {
         <Styled.LeftContainer>
           { authorInfo && <BriefPresentation /> }
           <ContactForm
-            title={viewHead.description}
+            title={'Formulário'}
             description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
           />
         </Styled.LeftContainer>
         <Styled.GeneralContent>
-          {viewHead?.title && <DefaultViewHeading title={viewHead.title} container Icon={WorkIcon} />}
+          <DefaultViewHeading title={meta.title} container Icon={WorkIcon} />
           { portfolio ? <PortfolioComponent data={portfolio} /> : null}
         </Styled.GeneralContent>
       </Styled.SplitRow>

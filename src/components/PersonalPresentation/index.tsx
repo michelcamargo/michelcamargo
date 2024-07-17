@@ -1,7 +1,7 @@
 import React from 'react';
 
 import CareerOverview from "@/components/PersonalPresentation/CareerOverview";
-import CustomContent from "@/helpers/content";
+import CustomContent from "@/helpers/content.helper";
 
 import Styled from './styles';
 

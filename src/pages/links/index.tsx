@@ -7,6 +7,8 @@ import ContentService from "@/services/content.service";
 import {GetServerSidePropsContext} from "next"
 import cookie from 'cookie';
 import { handleServerRequestError } from "@/helpers/error";
+import PagePropsHelper from "@/helpers/SSR.helper";
+import {PageMetadata} from "@/lib/datahooks";
 
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
@@ -14,7 +16,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   const cookies = cookie.parse(req.headers.cookie || '');
   const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
-  const pageMeta = {
+  const meta: PageMetadata = {
     path: '/links',
     title: 'Referências',
     description: 'Referências e links - Michel Camargo - web developer & UIUX designer',
@@ -24,31 +26,12 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   }
   
   try {
-    const sessions = await ContentService.fetchByKeys(['links/links', 'links/social'], locale) ?? [];
-    return {
-      props: {
-        serverViewData: {
-          metadata: pageMeta,
-          content: {
-            sessions,
-          },
-        },
-        locale,
-      }
-    }
+    return PagePropsHelper.handleServerProps(meta, context, {
+      sessions: await ContentService.SSRFetchByKeys(['links/links', 'links/social'], locale)
+    })
   } catch (error) {
     handleServerRequestError(error, context);
-    return {
-      props: {
-        serverViewData: {
-          metadata: pageMeta,
-          content: {
-            sessions: [],
-          },
-        },
-        locale,
-      }
-    };
+    return PagePropsHelper.handleStaticProps(meta, context);
   }
 };
 

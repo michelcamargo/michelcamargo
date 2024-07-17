@@ -1,20 +1,9 @@
-import React, {useEffect} from 'react';
-import {CustomNextPage} from "@/lib/layout";
-import {ServerViewProps} from "@/lib/datahooks";
-import Styled, { StyledProps } from './styles';
+import React from 'react';
+import { CustomNextPage } from "@/lib/layout";
+import Styled from './styles';
 import BrandLogo from "@/components/BrandLogo";
-import CustomContent from "@/helpers/content";
 
-interface Props extends StyledProps {
-  serverViewData: ServerViewProps<CustomContent>
-}
-
-const UnavailablePage: CustomNextPage<Props> = () => {
-	
-	useEffect(() => {
-	
-	}, []);
-	
+const UnavailablePage: CustomNextPage = () => {
 	return (
 		<Styled.PageWrapper>
 			<Styled.PageContainer>
