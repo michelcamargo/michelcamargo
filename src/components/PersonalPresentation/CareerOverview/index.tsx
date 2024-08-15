@@ -7,11 +7,11 @@ import Image from "next/image";
 import Styled from './styles';
 
 interface Props {
-  data: CustomContent | null
+  data?: CustomContent
 }
 
 const CareerOverview = ({ data }: Props) => {
-  
+ 
 	if (!data) {
 		return (
 			<Styled.Wrapper>
@@ -33,7 +33,7 @@ const CareerOverview = ({ data }: Props) => {
 							<Styled.HighlightedText>
 								Mantido pela Vercel
 							</Styled.HighlightedText>
-              
+       
 						</Styled.RightArticleContent>
 					</Styled.SplittedArticle>
 					<Styled.SplittedArticle>
@@ -67,7 +67,7 @@ const CareerOverview = ({ data }: Props) => {
 			</Styled.Wrapper>
 		);
 	}
-  
+ 
 	return (
 		<div>
 			{JSON.stringify(data)}

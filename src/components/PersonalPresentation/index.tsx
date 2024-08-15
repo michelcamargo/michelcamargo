@@ -10,7 +10,7 @@ interface Props {
 }
 
 const PersonalPresentation = ({ serverContent }: Props) => {
-  
+ 
 	if (!serverContent) {
 		return (
 			<>
@@ -18,9 +18,9 @@ const PersonalPresentation = ({ serverContent }: Props) => {
 			</>
 		);
 	}
-  
-	const careerData = serverContent.getChild('career-overall');
-  
+ 
+	const careerData = serverContent.get('career-overall');
+ 
 	return (
 		<Styled.Wrapper>
 			<CareerOverview data={careerData} />

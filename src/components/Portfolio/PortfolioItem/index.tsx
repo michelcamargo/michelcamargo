@@ -11,35 +11,35 @@ interface Props {
 }
 
 const PortfolioItem = ({ data }: Props) => {
-	const rawCaseTitle = data.getChild('case-title');
-	const rawCaseDescription = data.getChild('case-description');
-	const rawCaseBrand = data.getChild('case-brand');
-	const rawCaseImages = data.getChild('case-images');
-  
+	const rawCaseTitle = data.get('case-title');
+	const rawCaseDescription = data.get('case-description');
+	const rawCaseBrand = data.get('case-brand');
+	const rawCaseImages = data.get('case-images');
+ 
 	if (!rawCaseTitle || !rawCaseDescription || !rawCaseBrand) {
 		return (
 			<>ITEM INCOMPLETO</>
 		);
 	}
-  
+ 
 	const caseBranding = {
-		logo: rawCaseBrand?.getChild('case-brand-logo')?.getContent(),
-		name: rawCaseBrand?.getChild('case-brand-name')?.getContent(),
-		color: rawCaseBrand?.getChild('case-brand-color')?.getContent(),
+		logo: rawCaseBrand?.get('case-brand-logo')?.getValue(),
+		name: rawCaseBrand?.get('case-brand-name')?.getValue(),
+		color: rawCaseBrand?.get('case-brand-color')?.getValue(),
 	};
-  
+ 
 	const caseImages = rawCaseImages?.getChildren();
-  
+ 
 	const portfolioCase = {
-		title: rawCaseTitle?.getContent() ?? '',
-		description: rawCaseDescription?.getContent() ?? '',
+		title: rawCaseTitle?.getValue() ?? '',
+		description: rawCaseDescription?.getValue() ?? '',
 		images: {
 			cover: caseImages?.filter(item => item.key === 'cover-img-src') ?? [],
 			common: caseImages?.filter(item => item.key === 'common-img-src') ?? [],
 		},
 		branding: caseBranding,
 	};
-  
+ 
 	return (
 		<Styled.Wrapper>
 			<Styled.CardOverlay background={portfolioCase.branding.color ?? '#FFFFFF79'} />
@@ -47,6 +47,7 @@ const PortfolioItem = ({ data }: Props) => {
 				<Styled.PortfolioHead>
 					<Styled.Branding>
 						{ portfolioCase.branding.logo
+							// eslint-disable-next-line max-len
 							? <Image src={portfolioCase.branding.logo ?? ''} alt={`Logotipo ${portfolioCase.branding.name}`} />
 							: <Styled.CaseBrandName>{portfolioCase.branding.name}</Styled.CaseBrandName>
 						}
