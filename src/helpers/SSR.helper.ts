@@ -20,9 +20,7 @@ class PagePropsHelper {
 		return {
 			props: {
 				meta,
-				data: data ? data : {
-					sessions: []
-				},
+				data,
 			}
 		};
 	}
