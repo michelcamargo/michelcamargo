@@ -36,8 +36,7 @@ next-env.d.ts
 
 # Variáveis de ambiente
 .env
+.env.production
 
 # JetBrains
 .idea
-
-
