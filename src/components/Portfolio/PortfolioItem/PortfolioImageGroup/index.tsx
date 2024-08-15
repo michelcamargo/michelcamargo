@@ -13,12 +13,12 @@ interface Props {
 
 const generateImageElements = (imagesData: Array<CustomContent>, dimensions: ImageDimensions) => {
 	return imagesData.map((imageData, index: number) => {
-    
-		const imageSrc = imageData?.getContent('src') ?? '';
-    
+  
+		const imageSrc = imageData?.getValue('src') ?? '';
+  
 		const image: CustomImageProps = {
 			src: imageSrc.length > 0 ? imageSrc : NO_IMAGE_SRC(dimensions),
-			alt: imageData.getChild('alt')?.getContent() ?? '',
+			alt: imageData.get('alt')?.getValue() ?? '',
 		};
 		
 		return (
@@ -48,7 +48,7 @@ const Cover = ({ items }: Props) => {
 	} else if (items.length <= 4) {
 		columns = 2; // Até 4 imagens, duas colunas
 	}
-  
+ 
 	const dimensions = { width: 420, height: 42 };
 	
 	return (
