@@ -13,11 +13,11 @@ import SocialPresentation from "@/components/SocialPresentation";
 const HomePage: CustomNextPage = ({ data }) => {
   const sessions = useMemo(() => data?.sessions, [data]);
   
-  const { bio, socialLinks, portfolio } = useMemo(() => {
+  const { bio, socialLinks} = useMemo(() => {
     return {
-      bio: sessions?.get('bio'),
-      socialLinks: sessions?.get('social'),
-      portfolio: sessions?.get('devstack')
+      bio: sessions?.get?.('bio'),
+      socialLinks: sessions?.get?.('social'),
+      portfolio: sessions?.get?.('devstack')
     }
   }, [data?.sessions]);
   

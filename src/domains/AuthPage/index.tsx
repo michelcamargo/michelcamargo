@@ -10,6 +10,14 @@ import AuthenticationForm from "../../components/CustomForms/Authentication";
 const AuthPage: CustomNextPage = ({ data }) => {
   const sessions = useMemo(() => data?.sessions, [data]);
   
+  const { heading, form, buttons } = useMemo(() => {
+    return {
+      heading: sessions?.get?.('heading'),
+      form: sessions?.get?.('form'),
+      buttons: sessions?.get?.('buttons')
+    }
+  }, [data?.sessions]);
+  
   if (!sessions) return <LoadingFeedback />;
   
   return (
