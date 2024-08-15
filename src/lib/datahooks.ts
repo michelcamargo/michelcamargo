@@ -1,4 +1,5 @@
-import { CustomBannerData } from "@/lib/content";
+import CustomContent from "@/helpers/content.helper";
+import { CustomBannerData, CustomContentType } from "@/lib/content";
 
 export type PageMetadata = {
   path: string,
@@ -9,7 +10,7 @@ export type PageMetadata = {
   locale: string,
 }
 
-export type ServerViewProps<T = NonNullable<unknown>> = {
+export type ServerViewProps<T = CustomContentType> = {
   metadata: PageMetadata,
   content: {
     sessions: Array<T>
@@ -24,7 +25,7 @@ export type CommonPageProps<T = NonNullable<unknown>> = {
   data?: PageData<T>,
 };
 
-export type PageData<T = NonNullable<unknown>> = {
+export type PageData<T = CustomContent> = {
   // eslint-disable-next-line no-unused-vars
   [P in keyof T]: NonNullable<unknown>
 } & {
