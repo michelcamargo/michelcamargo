@@ -23,6 +23,6 @@ const LogoImage = styled(Image)<StyledProps>`
 `;
 
 export default {
-  LogoLink,
-  LogoImage
+	LogoLink,
+	LogoImage
 };

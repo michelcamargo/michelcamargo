@@ -10,5 +10,5 @@ const SlideItem = styled(SwiperSlide)`
 `;
 
 export default {
-  SlideItem
+	SlideItem
 };

@@ -11,34 +11,34 @@ import ContactForm from "../../components/CustomForms/Contact";
 import Styled from "./styles";
 
 const PortfolioPage: CustomNextPage = ({ data, meta }) => {
-  const sessions = useMemo(() => data?.sessions, [data]);
+	const sessions = useMemo(() => data?.sessions, [data]);
   
-  const { portfolio, authorInfo } = useMemo(() => {
-    return {
-      portfolio: sessions?.getChildren('portfolio'),
-      authorInfo: sessions?.getChildren('bio'),
-    };
-  }, [data]);
+	const { portfolio, authorInfo } = useMemo(() => {
+		return {
+			portfolio: sessions?.getChildren('portfolio'),
+			authorInfo: sessions?.getChildren('bio'),
+		};
+	}, [data]);
   
-  if (!sessions) return <LoadingFeedback />;
+	if (!sessions) return <LoadingFeedback />;
   
-  return (
-    <Styled.PageWrapper>
-      <Styled.SplitRow>
-        <Styled.LeftContainer>
-          { authorInfo && <BriefPresentation /> }
-          <ContactForm
-            title={'Formulário'}
-            description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
-          />
-        </Styled.LeftContainer>
-        <Styled.GeneralContent>
-          <DefaultViewHeading title={meta.title} container Icon={WorkIcon} />
-          { portfolio ? <PortfolioComponent data={portfolio} /> : null}
-        </Styled.GeneralContent>
-      </Styled.SplitRow>
-    </Styled.PageWrapper>
-  );
+	return (
+		<Styled.PageWrapper>
+			<Styled.SplitRow>
+				<Styled.LeftContainer>
+					{ authorInfo && <BriefPresentation /> }
+					<ContactForm
+						title={'Formulário'}
+						description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
+					/>
+				</Styled.LeftContainer>
+				<Styled.GeneralContent>
+					<DefaultViewHeading title={meta.title} container Icon={WorkIcon} />
+					{ portfolio ? <PortfolioComponent data={portfolio} /> : null}
+				</Styled.GeneralContent>
+			</Styled.SplitRow>
+		</Styled.PageWrapper>
+	);
 };
 
 export default PortfolioPage;

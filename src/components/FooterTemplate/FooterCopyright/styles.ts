@@ -28,7 +28,7 @@ const CopyrightText = styled(Typography)<StyledProps>`
 `;
 
 export default {
-  Wrapper,
-  Content,
-  CopyrightText,
+	Wrapper,
+	Content,
+	CopyrightText,
 };

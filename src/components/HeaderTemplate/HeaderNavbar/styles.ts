@@ -27,5 +27,5 @@ const NavListItemLink = styled(Link)<StyledProps>`
 `;
 
 export default {
-  Navbar, NavList, NavListItem, NavListItemLink
+	Navbar, NavList, NavListItem, NavListItemLink
 };

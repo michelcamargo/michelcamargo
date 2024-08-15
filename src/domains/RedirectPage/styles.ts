@@ -1,9 +1,5 @@
 import { Container, styled, Typography } from "@mui/material";
 
-export type StyledProps = {
-
-}
-
 const PageWrapper = styled('div')`
 	display: flex;
 	flex-direction: column;
@@ -47,5 +43,5 @@ const HeadingDescription = styled(Typography)`
 `;
 
 export default {
-  PageWrapper, PageContainer, PageContent, Heading, HeadingTitle, HeadingDescription
+	PageWrapper, PageContainer, PageContent, Heading, HeadingTitle, HeadingDescription
 };

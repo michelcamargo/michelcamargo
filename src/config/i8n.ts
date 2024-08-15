@@ -1,8 +1,8 @@
 class I8n {
 
-  constructor(locale = 'ptBR') {
-    this.locale = locale;
-  }
+	constructor(locale = 'ptBR') {
+		this.locale = locale;
+	}
 	
 	private locale: string;
 	

@@ -50,13 +50,13 @@ const HeroDescriptionText = styled('span')`
 `;
 
 export default {
-  HeroAuthor,
-  HeroContainer,
-  HeroAuthorFirstname,
-  HeroAuthorMiddlename,
-  HeroAuthorLastname,
-  HeroSubHeading,
-  HeroSubHeadingText,
-  HeroDescription,
-  HeroDescriptionText,
+	HeroAuthor,
+	HeroContainer,
+	HeroAuthorFirstname,
+	HeroAuthorMiddlename,
+	HeroAuthorLastname,
+	HeroSubHeading,
+	HeroSubHeadingText,
+	HeroDescription,
+	HeroDescriptionText,
 };

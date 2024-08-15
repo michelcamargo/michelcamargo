@@ -14,57 +14,57 @@ import React from 'react';
 
 const PortfolioCarousel = () => {
   
-  // const portfolioData = new CustomContent('portfolio', 'CASOS DE TRABALHO', items);
+	// const portfolioData = new CustomContent('portfolio', 'CASOS DE TRABALHO', items);
   
-  // console.log('portfolio data >>>', portfolioData.getContent());
+	// console.log('portfolio data >>>', portfolioData.getContent());
   
-  // const portfolioElements: Array<ReactElement> = items.map((portfolioCase, index) => {
-  //
-  //   const { content: caseContent } = portfolioCase;
-  //
-  //   if (!caseContent || !Array.isArray(caseContent)) {
-  //     return;
-  //   }
-  //
-  //   const caseImages = getCustomContentByKey('case-images', caseContent);
-  //   const caseTitle = getCustomContentByKey('case-title', caseContent) ?? '';
-  //   const caseDescription = getCustomContentByKey('case-description', caseContent) ?? '';
-  //   const brandData = getCustomContentByKey('case-brand', caseContent);
-  //
-  //   let caseCover = null;
-  //   let brandName = null;
-  //   let brandLogo = null;
-  //
-  //   // const commonImages = [];
-  //
-  //   if (caseImages && Array.isArray(caseImages)) {
-  //     caseCover = getCustomContentByKey('case-cover', caseContent);
-  //   }
-  //
-  //   if (brandData && Array.isArray(brandData)) {
-  //     brandName = getCustomContentByKey('case-brand-name', brandData);
-  //     brandLogo = getCustomContentByKey('case-brand-logo', brandData);
-  //   }
-  //
-  //   return (
-  //     <Styled.PortfolioCaseWrapper key={index.toString(10)}>
-  //       { caseCover && <Image src={caseCover} alt={'Capa do caso de trabalho'} width={65} height={120} /> }
-  //       { brandLogo && <Image src={brandLogo} alt={'Logotipo do caso de trabalho'} width={65} height={65} /> }
-  //       <Styled.PortfolioCaseContent>
-  //         <Styled.CaseBrandName>{brandName}</Styled.CaseBrandName>
-  //         <Styled.CaseTitle>{caseTitle}</Styled.CaseTitle>
-  //         <Styled.CaseDescription>{caseDescription}</Styled.CaseDescription>
-  //       </Styled.PortfolioCaseContent>
-  //     </Styled.PortfolioCaseWrapper>
-  //   );
-  // });
+	// const portfolioElements: Array<ReactElement> = items.map((portfolioCase, index) => {
+	//
+	//   const { content: caseContent } = portfolioCase;
+	//
+	//   if (!caseContent || !Array.isArray(caseContent)) {
+	//     return;
+	//   }
+	//
+	//   const caseImages = getCustomContentByKey('case-images', caseContent);
+	//   const caseTitle = getCustomContentByKey('case-title', caseContent) ?? '';
+	//   const caseDescription = getCustomContentByKey('case-description', caseContent) ?? '';
+	//   const brandData = getCustomContentByKey('case-brand', caseContent);
+	//
+	//   let caseCover = null;
+	//   let brandName = null;
+	//   let brandLogo = null;
+	//
+	//   // const commonImages = [];
+	//
+	//   if (caseImages && Array.isArray(caseImages)) {
+	//     caseCover = getCustomContentByKey('case-cover', caseContent);
+	//   }
+	//
+	//   if (brandData && Array.isArray(brandData)) {
+	//     brandName = getCustomContentByKey('case-brand-name', brandData);
+	//     brandLogo = getCustomContentByKey('case-brand-logo', brandData);
+	//   }
+	//
+	//   return (
+	//     <Styled.PortfolioCaseWrapper key={index.toString(10)}>
+	//       { caseCover && <Image src={caseCover} alt={'Capa do caso de trabalho'} width={65} height={120} /> }
+	//       { brandLogo && <Image src={brandLogo} alt={'Logotipo do caso de trabalho'} width={65} height={65} /> }
+	//       <Styled.PortfolioCaseContent>
+	//         <Styled.CaseBrandName>{brandName}</Styled.CaseBrandName>
+	//         <Styled.CaseTitle>{caseTitle}</Styled.CaseTitle>
+	//         <Styled.CaseDescription>{caseDescription}</Styled.CaseDescription>
+	//       </Styled.PortfolioCaseContent>
+	//     </Styled.PortfolioCaseWrapper>
+	//   );
+	// });
   
-  return (
-    <div>
-      {/*<CustomCarousel items={portfolioElements} />*/}
+	return (
+		<div>
+			{/*<CustomCarousel items={portfolioElements} />*/}
       
-    </div>
-  );
+		</div>
+	);
 };
 
 export default PortfolioCarousel;

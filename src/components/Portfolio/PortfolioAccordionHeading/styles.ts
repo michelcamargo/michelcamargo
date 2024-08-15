@@ -49,6 +49,6 @@ const CoverImageContainer = styled(Box)<StyledProps>`
 `;
 
 export default {
-  CoverImageContainer, AccordionSummary, HeadingTitle, BrandingRow, HeadingBrandName,
-  HeadingBrandLogoWrapper, CommonImages
+	CoverImageContainer, AccordionSummary, HeadingTitle, BrandingRow, HeadingBrandName,
+	HeadingBrandLogoWrapper, CommonImages
 };

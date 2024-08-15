@@ -1,4 +1,4 @@
 export const LocaleLanguages = {
-  ptBR: 'ptBR',
-  en: 'en'
+	ptBR: 'ptBR',
+	en: 'en'
 };

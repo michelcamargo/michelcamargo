@@ -9,29 +9,31 @@ import { FormikHelpers } from "formik";
 import FormWrapper from '../../FormWrapper';
 
 type Props = {
+	// eslint-disable-next-line no-unused-vars
   submitHandler: (values: any) => void | undefined,
   username: string,
 }
 
 const AuthSignInForm = ({ submitHandler, username }: Props) => {
-  const initialValues = {
-    username: username,
-    secret: '',
-  };
+	const initialValues = {
+		username: username,
+		secret: '',
+	};
 
-  const handleSubmit = async (values: AuthSignInDto, _formikHelpers: FormikHelpers<AuthSignInDto>) => {
-    const { access_token } = await AuthService.signIn(values);
-    submitHandler(access_token);
-  };
+	// eslint-disable-next-line no-unused-vars
+	const handleSubmit = async (values: AuthSignInDto, _formikHelpers: FormikHelpers<AuthSignInDto>) => {
+		const { access_token } = await AuthService.signIn(values);
+		submitHandler(access_token);
+	};
 
-  return (
-    <FormWrapper
-      initialValues={initialValues}
-      validationSchema={authSignInDtoSchema}
-      onSubmit={handleSubmit}
-      fields={authSignInFields}
-    />
-  );
+	return (
+		<FormWrapper
+			initialValues={initialValues}
+			validationSchema={authSignInDtoSchema}
+			onSubmit={handleSubmit}
+			fields={authSignInFields}
+		/>
+	);
 };
 
 export default AuthSignInForm;

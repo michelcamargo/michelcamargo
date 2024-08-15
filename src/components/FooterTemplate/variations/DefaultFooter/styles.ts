@@ -42,11 +42,11 @@ const FooterBottomSession = styled('div')`
 `;
 
 export default {
-  FooterWrapper,
-  FooterContainer,
-  FooterContent,
-  FooterSplitSessions,
-  FooterLeftSession,
-  FooterRightSession,
-  FooterBottomSession
+	FooterWrapper,
+	FooterContainer,
+	FooterContent,
+	FooterSplitSessions,
+	FooterLeftSession,
+	FooterRightSession,
+	FooterBottomSession
 };

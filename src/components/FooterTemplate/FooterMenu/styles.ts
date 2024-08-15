@@ -28,8 +28,8 @@ const ListItemLink = styled(Link)<StyledProps>`
 `;
 
 export default {
-  Wrapper,
-  List,
-  ListItem,
-  ListItemLink,
+	Wrapper,
+	List,
+	ListItem,
+	ListItemLink,
 };

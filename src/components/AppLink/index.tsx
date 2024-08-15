@@ -11,17 +11,17 @@ interface Props extends StyledProps {
 
 const AppLink = ({ children, href, target, isdisabled, underline, color }: Props) => {
   
-  return (
-    <Styled.Anchor
-      href={href}
-      target={target}
-      isdisabled={isdisabled}
-      _underline={underline}
-      color={color}
-    >
-      {children}
-    </Styled.Anchor>
-  );
+	return (
+		<Styled.Anchor
+			href={href}
+			target={target}
+			isdisabled={isdisabled}
+			_underline={underline}
+			color={color}
+		>
+			{children}
+		</Styled.Anchor>
+	);
 };
 
 export default AppLink;

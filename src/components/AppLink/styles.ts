@@ -12,7 +12,7 @@ const Anchor = styled(Link)<StyledProps>`
   justify-content: center;
   align-items: center;
   text-decoration: ${({ theme, _underline, color }) =>
-    _underline === 'static' ? `underline ${color ? color : theme.palette.primary.main[500]}` : 'none'};
+		_underline === 'static' ? `underline ${color ? color : theme.palette.primary.main[500]}` : 'none'};
   padding: 0;
   color: ${({ color, theme }) => color ? color : theme.palette.primary.main[500]};
   opacity: 1;
@@ -40,5 +40,5 @@ const Anchor = styled(Link)<StyledProps>`
 `;
 
 export default {
-  Anchor
+	Anchor
 };

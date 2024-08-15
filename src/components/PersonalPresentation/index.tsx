@@ -11,21 +11,21 @@ interface Props {
 
 const PersonalPresentation = ({ serverContent }: Props) => {
   
-  if (!serverContent) {
-    return (
-      <>
-        {'NO PERSONAL PRESENTATION CONTENT'}
-      </>
-    );
-  }
+	if (!serverContent) {
+		return (
+			<>
+				{'NO PERSONAL PRESENTATION CONTENT'}
+			</>
+		);
+	}
   
-  const careerData = serverContent.getChild('career-overall');
+	const careerData = serverContent.getChild('career-overall');
   
-  return (
-    <Styled.Wrapper>
-      <CareerOverview data={careerData} />
-    </Styled.Wrapper>
-  );
+	return (
+		<Styled.Wrapper>
+			<CareerOverview data={careerData} />
+		</Styled.Wrapper>
+	);
 };
 
 export default PersonalPresentation;

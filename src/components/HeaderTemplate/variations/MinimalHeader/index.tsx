@@ -10,36 +10,36 @@ interface Props {
 }
 
 const MinimalHeader = forwardRef<HTMLDivElement, Props>((props, ref) => {
-  const { dataHooks } = props;
+	const { dataHooks } = props;
   
-  if (!dataHooks) {
-    return (
-      <Styled.HeaderWrapper ref={ref}>
-        <Styled.HeaderOverlayBlur />
-        <Styled.HeaderContainer>
-          <Styled.LeftContainer>
-            <BrandLogo link={'/'} />
-          </Styled.LeftContainer>
-        </Styled.HeaderContainer>
-      </Styled.HeaderWrapper>
-    );
-  }
+	if (!dataHooks) {
+		return (
+			<Styled.HeaderWrapper ref={ref}>
+				<Styled.HeaderOverlayBlur />
+				<Styled.HeaderContainer>
+					<Styled.LeftContainer>
+						<BrandLogo link={'/'} />
+					</Styled.LeftContainer>
+				</Styled.HeaderContainer>
+			</Styled.HeaderWrapper>
+		);
+	}
   
-  return (
-    <Styled.HeaderWrapper>
-      <Styled.HeaderOverlayBlur />
-      <Styled.HeaderContainer>
-        <Styled.MidContainer>
-          <Styled.LeftContainer>
-            <BrandLogo link={'/'} />
-          </Styled.LeftContainer>
-          <Styled.RightContainer>
+	return (
+		<Styled.HeaderWrapper>
+			<Styled.HeaderOverlayBlur />
+			<Styled.HeaderContainer>
+				<Styled.MidContainer>
+					<Styled.LeftContainer>
+						<BrandLogo link={'/'} />
+					</Styled.LeftContainer>
+					<Styled.RightContainer>
           
-          </Styled.RightContainer>
-        </Styled.MidContainer>
-      </Styled.HeaderContainer>
-    </Styled.HeaderWrapper>
-  );
+					</Styled.RightContainer>
+				</Styled.MidContainer>
+			</Styled.HeaderContainer>
+		</Styled.HeaderWrapper>
+	);
 });
 
 export default MinimalHeader;

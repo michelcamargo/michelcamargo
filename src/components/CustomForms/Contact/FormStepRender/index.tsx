@@ -12,16 +12,16 @@ interface Props {
 }
 
 const FormStepRender = ({ step, formProps }: Props) => {
-  switch (step) {
-    case ContactFormStep.intro:
-      return <ProspectionIntroStep formProps={formProps} />;
+	switch (step) {
+		case ContactFormStep.intro:
+			return <ProspectionIntroStep formProps={formProps} />;
       
-    case ContactFormStep.personal:
-      return <ProspectionPersonalStep formProps={formProps} />;
+		case ContactFormStep.personal:
+			return <ProspectionPersonalStep formProps={formProps} />;
       
-    default:
-      return (<ProspectionIntroStep formProps={formProps} />);
-  }
+		default:
+			return (<ProspectionIntroStep formProps={formProps} />);
+	}
 };
 
 export default FormStepRender;

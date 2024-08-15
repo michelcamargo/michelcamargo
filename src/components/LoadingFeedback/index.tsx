@@ -7,23 +7,23 @@ interface Props {
 }
 
 const LoadingFeedback = ({ minimal, heading, description }: Props) => {
-  if (minimal) {
-    return (
-      <div>
-        <h6>{heading}</h6>
-        <span>{description}</span>
-        <CircularProgress />
-      </div>
-    );
-  }
+	if (minimal) {
+		return (
+			<div>
+				<h6>{heading}</h6>
+				<span>{description}</span>
+				<CircularProgress />
+			</div>
+		);
+	}
   
-  return (
-    <div>
-      <h6>{heading}</h6>
-      <span>{description}</span>
-      <LinearProgress />
-    </div>
-  );
+	return (
+		<div>
+			<h6>{heading}</h6>
+			<span>{description}</span>
+			<LinearProgress />
+		</div>
+	);
 };
 
 export default LoadingFeedback;

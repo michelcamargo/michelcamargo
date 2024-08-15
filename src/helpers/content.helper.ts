@@ -26,10 +26,10 @@ export default class CustomContent {
    * @param data Conteúdo a definir na estrutura
    */
   constructor(data: CustomContentType) {
-    const { key, value, children } = data;
-    this.key = key ?? '';
-    this.value = value ?? undefined;
-    this.children = children?.length ? children.map(item => new CustomContent(item)) : [];
+  	const { key, value, children } = data;
+  	this.key = key ?? '';
+  	this.value = value ?? undefined;
+  	this.children = children?.length ? children.map(item => new CustomContent(item)) : [];
   }
 	
   /**
@@ -38,20 +38,20 @@ export default class CustomContent {
    * @returns O CustomContent correspondente ou undefined
    */
   public get(key?: string): CustomContent | undefined {
-    if (!key || this.key === key) {
-      return this;
-    }
+  	if (!key || this.key === key) {
+  		return this;
+  	}
 
-    if (this.children) {
-      for (const child of this.children) {
-        const result = child.get(key);
-        if (result) {
-          return result;
-        }
-      }
-    }
+  	if (this.children) {
+  		for (const child of this.children) {
+  			const result = child.get(key);
+  			if (result) {
+  				return result;
+  			}
+  		}
+  	}
 
-    return undefined;
+  	return undefined;
   }
 
   /**
@@ -60,8 +60,8 @@ export default class CustomContent {
    * @returns O valor correspondente ou undefined
    */
   public getValue(key?: string): string | undefined {
-    const content = this.get(key);
-    return content?.value;
+  	const content = this.get(key);
+  	return content?.value;
   }
 
   /**
@@ -70,8 +70,8 @@ export default class CustomContent {
    * @returns Os filhos correspondentes ou undefined
    */
   public getChildren(key?: string): Array<CustomContent> {
-    const content = this.get(key);
-    return content?.children ?? [];
+  	const content = this.get(key);
+  	return content?.children ?? [];
   }
 	
   /**

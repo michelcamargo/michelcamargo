@@ -1,5 +1,5 @@
 import CustomContent from "@/helpers/content.helper";
-import { CustomBannerData, CustomContentType } from "@/lib/content";
+import { CustomBannerData } from "@/lib/content";
 
 export type PageMetadata = {
   path: string,
@@ -17,15 +17,17 @@ export type ServerViewProps<T = unknown> = {
   }
 };
 
-export type CommonPageProps<T = Object> = {
-  [P in keyof T]: Object
+export type CommonPageProps<T = object> = {
+  // eslint-disable-next-line no-unused-vars
+  [P in keyof T]: object
 } & {
   meta: PageMetadata,
   data?: PageData<T>,
 };
 
-export type PageData<T = {}> = {
-  [P in keyof T]: Object
+export type PageData<T = object> = {
+  // eslint-disable-next-line no-unused-vars
+  [P in keyof T]: object
 } & {
   sessions: CustomContent,
 } & T;

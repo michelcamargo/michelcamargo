@@ -16,28 +16,28 @@ interface Props {
 }
 
 const AppProviders = ({
-  children,
-  pageProps,
-  availableFonts = [],
+	children,
+	pageProps,
+	availableFonts = [],
 }: Props) => {
-  const { ...pageData } = pageProps;
-  const queryClient = useMemo(() => new QueryClient(), []);
-  const [isDarkMode] = useState(false);
+	const { ...pageData } = pageProps;
+	const queryClient = useMemo(() => new QueryClient(), []);
+	const [isDarkMode] = useState(false);
   
-  const currentTheme = muiTheme(isDarkMode, availableFonts);
+	const currentTheme = muiTheme(isDarkMode, availableFonts);
   
-  return (
-    <QueryClientProvider client={queryClient}>
-      <NextDataHooksProvider {...pageData}>
-        <ThemeProvider theme={currentTheme}>
-          <LocaleContextProvider>
-            {children}
-            <ReactQueryDevtools initialIsOpen={false} />
-          </LocaleContextProvider>
-        </ThemeProvider>
-      </NextDataHooksProvider>
-    </QueryClientProvider>
-  );
+	return (
+		<QueryClientProvider client={queryClient}>
+			<NextDataHooksProvider {...pageData}>
+				<ThemeProvider theme={currentTheme}>
+					<LocaleContextProvider>
+						{children}
+						<ReactQueryDevtools initialIsOpen={false} />
+					</LocaleContextProvider>
+				</ThemeProvider>
+			</NextDataHooksProvider>
+		</QueryClientProvider>
+	);
 };
 
 export default AppProviders;

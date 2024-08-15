@@ -11,54 +11,54 @@ interface Props extends StyledProps {
 
 const DefaultViewHeading = ({ title, subtitle, container, Icon }: Props) => {
   
-  const TitleTemplate = () => {
-    if (!title) return <></>;
+	const TitleTemplate = () => {
+		if (!title) return <></>;
     
-    return (
-      <Styled.TopRow>
-        { Icon && (
-          <Icon />
-        )}
-        <Styled.HeadingText>
-          {title}
-        </Styled.HeadingText>
-      </Styled.TopRow>
-    );
-  };
+		return (
+			<Styled.TopRow>
+				{ Icon && (
+					<Icon />
+				)}
+				<Styled.HeadingText>
+					{title}
+				</Styled.HeadingText>
+			</Styled.TopRow>
+		);
+	};
   
-  const SubtitleTemplate = () => {
-    if (!subtitle) return <></>;
+	const SubtitleTemplate = () => {
+		if (!subtitle) return <></>;
     
-    return (
-      <Styled.BottomRow>
-        <Styled.SubtitleText>
-          {subtitle}
-        </Styled.SubtitleText>
-      </Styled.BottomRow>
-    );
-  };
+		return (
+			<Styled.BottomRow>
+				<Styled.SubtitleText>
+					{subtitle}
+				</Styled.SubtitleText>
+			</Styled.BottomRow>
+		);
+	};
   
-  if (container) {
-    return (
-      <Styled.Wrapper>
-        <Styled.Container>
-          <Styled.Content>
-            {TitleTemplate()}
-            {SubtitleTemplate()}
-          </Styled.Content>
-        </Styled.Container>
-      </Styled.Wrapper>
-    );
-  }
+	if (container) {
+		return (
+			<Styled.Wrapper>
+				<Styled.Container>
+					<Styled.Content>
+						{TitleTemplate()}
+						{SubtitleTemplate()}
+					</Styled.Content>
+				</Styled.Container>
+			</Styled.Wrapper>
+		);
+	}
 	
-  return (
-    <Styled.Wrapper>
-      <Styled.Content>
-        {TitleTemplate()}
-        {SubtitleTemplate()}
-      </Styled.Content>
-    </Styled.Wrapper>
-  );
+	return (
+		<Styled.Wrapper>
+			<Styled.Content>
+				{TitleTemplate()}
+				{SubtitleTemplate()}
+			</Styled.Content>
+		</Styled.Wrapper>
+	);
 };
 
 export default DefaultViewHeading;

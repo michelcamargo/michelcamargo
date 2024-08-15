@@ -9,5 +9,5 @@ const Wrapper = styled('div')<StyledProps>`
 `;
 
 export default {
-  Wrapper
+	Wrapper
 };

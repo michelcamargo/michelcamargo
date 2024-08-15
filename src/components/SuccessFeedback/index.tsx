@@ -9,16 +9,16 @@ interface Props {
 }
 
 const SuccessFeedback = ({ label }: Props) => {
-  return (
-    <Styled.FormSuccess>
-      <Styled.FormSuccessContent>
-        <ThumbUpIcon />
-        { label && <Styled.FormSuccessText>
-          {label}
-        </Styled.FormSuccessText>}
-      </Styled.FormSuccessContent>
-    </Styled.FormSuccess>
-  );
+	return (
+		<Styled.FormSuccess>
+			<Styled.FormSuccessContent>
+				<ThumbUpIcon />
+				{ label && <Styled.FormSuccessText>
+					{label}
+				</Styled.FormSuccessText>}
+			</Styled.FormSuccessContent>
+		</Styled.FormSuccess>
+	);
 };
 
 export default SuccessFeedback;

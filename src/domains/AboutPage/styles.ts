@@ -5,7 +5,7 @@ const PageContainer = styled(Container)``;
 const PageContent = styled('div')``;
 
 export default {
-  PageWrapper,
-  PageContainer,
-  PageContent,
+	PageWrapper,
+	PageContainer,
+	PageContent,
 };

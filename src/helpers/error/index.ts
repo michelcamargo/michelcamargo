@@ -11,29 +11,29 @@ import { ToastOptions } from "react-toastify/dist/types";
  * @param toastOptions Opções adicionais para o toast.
  */
 export const showErrorByCode = (
-  errorCode: number,
-  customMessage?: string,
-  toastOptions?: ToastOptions
+	errorCode: number,
+	customMessage?: string,
+	toastOptions?: ToastOptions
 ) => {
-  console.log({ errorCode });
-  console.log({ customMessage });
+	console.log({ errorCode });
+	console.log({ customMessage });
   
-  const appError =
+	const appError =
     APP_ERROR_MAPPINGS.find(err => err.code === errorCode) || APP_ERROR_MAPPINGS[0];
 
-  const { title, message, description, options: errorToastOptions } = appError;
+	const { title, message, description, options: errorToastOptions } = appError;
 
-  const toastElementOptions = {
-    ...errorToastOptions,
-    ...toastOptions,
-  };
+	const toastElementOptions = {
+		...errorToastOptions,
+		...toastOptions,
+	};
 
-  return Toast.Error({
-    title,
-    message: customMessage || message,
-    description,
-    options: toastElementOptions,
-  });
+	return Toast.Error({
+		title,
+		message: customMessage || message,
+		description,
+		options: toastElementOptions,
+	});
 };
 
 /**
@@ -42,21 +42,21 @@ export const showErrorByCode = (
  * @returns Mensagem de erro apropriada com base no status da resposta.
  */
 const defaultErrorMessage = (response: AxiosResponse) => {
-  const { status } = response;
+	const { status } = response;
 
-  if ([412, 422].includes(status)) {
-    return showErrorByCode(0); // Mapear para o código de erro desejado
-  }
+	if ([412, 422].includes(status)) {
+		return showErrorByCode(0); // Mapear para o código de erro desejado
+	}
 
-  if (status === 403) {
-    return showErrorByCode(0); // Mapear para o código de erro desejado
-  }
+	if (status === 403) {
+		return showErrorByCode(0); // Mapear para o código de erro desejado
+	}
 
-  if (status === 404) {
-    return showErrorByCode(0); // Mapear para o código de erro desejado
-  }
+	if (status === 404) {
+		return showErrorByCode(0); // Mapear para o código de erro desejado
+	}
 
-  return showErrorByCode(0); // Mapear para o código de erro desejado
+	return showErrorByCode(0); // Mapear para o código de erro desejado
 };
 
 /**
@@ -66,35 +66,35 @@ const defaultErrorMessage = (response: AxiosResponse) => {
  * @param customMessage Mensagem de erro personalizada para substituir a padrão.
  */
 export const handleRequestError = (error: unknown, customMessage?: string) => {
-  let errorCode = 101; // Código de erro padrão
+	let errorCode = 101; // Código de erro padrão
 
-  if (!error) return showErrorByCode(errorCode, customMessage);
+	if (!error) return showErrorByCode(errorCode, customMessage);
 
-  if (typeof error === "number") {
-    errorCode = error;
-    return showErrorByCode(errorCode, customMessage);
-  }
+	if (typeof error === "number") {
+		errorCode = error;
+		return showErrorByCode(errorCode, customMessage);
+	}
 
-  if (axios.isAxiosError(error)) {
-    const axiosError = error as AxiosError;
-    const { response, request } = axiosError;
+	if (axios.isAxiosError(error)) {
+		const axiosError = error as AxiosError;
+		const { response, request } = axiosError;
 
-    if (!response) {
-      if (request) {
-        return showErrorByCode(2, customMessage); // Erro de requisição não concluída
-      }
+		if (!response) {
+			if (request) {
+				return showErrorByCode(2, customMessage); // Erro de requisição não concluída
+			}
 
-      return showErrorByCode(3, customMessage); // Erro de configuração de requisição
-    }
+			return showErrorByCode(3, customMessage); // Erro de configuração de requisição
+		}
 
-    errorCode = 1001; // Código de erro específico para erros de resposta
+		errorCode = 1001; // Código de erro específico para erros de resposta
 
-    return defaultErrorMessage(response); // Tratamento de erro padrão
-  }
+		return defaultErrorMessage(response); // Tratamento de erro padrão
+	}
 
-  console.log("thread error ->", errorCode); // Log do código de erro
+	console.log("thread error ->", errorCode); // Log do código de erro
   
-  return showErrorByCode(errorCode, customMessage); // Mostrar o toast com base no código de erro
+	return showErrorByCode(errorCode, customMessage); // Mostrar o toast com base no código de erro
 };
 
 /**
@@ -104,17 +104,17 @@ export const handleRequestError = (error: unknown, customMessage?: string) => {
  * @param message
  */
 export const handleServerRequestError = (
-  error: unknown,
-  _context: GetServerSidePropsContext | GetStaticPropsContext,
-  message?: string,
+	error: unknown,
+	_context: GetServerSidePropsContext | GetStaticPropsContext,
+	message?: string,
 ) => {
-  if (axios.isAxiosError(error)) {
-    handleRequestError(error);
-  } else {
-    console.error(message ?? "Erro durante server-side rendering:", error);
-  }
+	if (axios.isAxiosError(error)) {
+		handleRequestError(error);
+	} else {
+		console.error(message ?? "Erro durante server-side rendering:", error);
+	}
   
-  return {
-    props: {},
-  };
+	return {
+		props: {},
+	};
 };

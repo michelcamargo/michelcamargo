@@ -7,25 +7,25 @@ interface IPageProps {
 
 class PagePropsHelper {
 
-  public static handleServerProps(meta: PageMetadata, context: GetServerSidePropsContext, data?: PageData): IPageProps {
-    return {
-      props: {
-        meta,
-	      data,
-      }
-    };
-  }
+	public static handleServerProps(meta: PageMetadata, context: GetServerSidePropsContext, data?: PageData): IPageProps {
+		return {
+			props: {
+				meta,
+				data,
+			}
+		};
+	}
 	
-  public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, data?: PageData): IPageProps {
-    return {
-      props: {
-        meta,
-	      data: data ? data : {
-          sessions: []
-	      },
-      }
-    };
-  }
+	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, data?: PageData): IPageProps {
+		return {
+			props: {
+				meta,
+				data: data ? data : {
+					sessions: []
+				},
+			}
+		};
+	}
 	
 }
 

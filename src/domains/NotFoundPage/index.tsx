@@ -9,21 +9,21 @@ import HomeIcon from '@mui/icons-material/Home';
 import Styled from './styles';
 
 const NotFoundPage: CustomNextPage = ({ data }) => {
-  const sessions = useMemo(() => data?.sessions, [data]);
+	const sessions = useMemo(() => data?.sessions, [data]);
   
-  console.log('serverViewData', data);
+	console.log('serverViewData', data);
   
-  if (!sessions) return <LoadingFeedback />;
+	if (!sessions) return <LoadingFeedback />;
   
-  return (
-    <Styled.PageWrapper>
-      <DefaultViewHeading title={'404 Página não encontrada'} />
-      <div>{JSON.stringify(sessions)}</div>
-      <CustomButton anchor={'/'} beforeIcon={<HomeIcon />}>
-        Voltar ao ínicio
-      </CustomButton>
-    </Styled.PageWrapper>
-  );
+	return (
+		<Styled.PageWrapper>
+			<DefaultViewHeading title={'404 Página não encontrada'} />
+			<div>{JSON.stringify(sessions)}</div>
+			<CustomButton anchor={'/'} beforeIcon={<HomeIcon />}>
+				Voltar ao ínicio
+			</CustomButton>
+		</Styled.PageWrapper>
+	);
 };
 
 export default NotFoundPage;

@@ -11,6 +11,6 @@ const MainMessage = styled(Typography)`
 `;
 
 export default {
-  PageWrapper,
-  MainMessage,
+	PageWrapper,
+	MainMessage,
 };

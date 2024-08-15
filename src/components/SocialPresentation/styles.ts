@@ -35,7 +35,7 @@ const SocialItemLabel = styled('p')<StyledProps>`
 `;
 
 export default {
-  SocialItem,
-  SocialItemLabel,
-  SocialList,
+	SocialItem,
+	SocialItemLabel,
+	SocialList,
 };

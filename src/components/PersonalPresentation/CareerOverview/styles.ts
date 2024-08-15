@@ -62,6 +62,6 @@ const CommonText = styled(Typography)<StyledProps>`
 `;
 
 export default {
-  Wrapper, Session, SessionHeading, Article, SplittedArticle, LeftArticleContent, RightArticleContent,
-  SessionTitle, SessionDescription, HighlightedText, CommonText,
+	Wrapper, Session, SessionHeading, Article, SplittedArticle, LeftArticleContent, RightArticleContent,
+	SessionTitle, SessionDescription, HighlightedText, CommonText,
 };

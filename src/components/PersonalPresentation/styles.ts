@@ -5,5 +5,5 @@ const Wrapper = styled(Container)`
 `;
 
 export default {
-  Wrapper
+	Wrapper
 };

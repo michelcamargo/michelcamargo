@@ -17,5 +17,5 @@ const Avatar = styled(Image)<StyledProps>`
 `;
 
 export default {
-  Wrapper, Avatar
+	Wrapper, Avatar
 };

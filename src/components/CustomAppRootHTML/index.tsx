@@ -5,22 +5,22 @@ interface Props {
 }
 
 const CustomAppRootHTML = ({ availableFonts = [] }: Props) => {
-  const { font: localFont } = {
-    font: { lead: 'Titillium Web', common: 'Titillium Web',  }
-  };
+	const { font: localFont } = {
+		font: { lead: 'Titillium Web', common: 'Titillium Web',  }
+	};
   
-  const { lead: cloudLeadFont, common: cloudCommonFont } = {
-    lead: availableFonts?.find(font => font.id === 'lead') ?? null,
-    common: availableFonts?.find(font => font.id === 'common') ?? null,
-  };
+	const { lead: cloudLeadFont, common: cloudCommonFont } = {
+		lead: availableFonts?.find(font => font.id === 'lead') ?? null,
+		common: availableFonts?.find(font => font.id === 'common') ?? null,
+	};
   
-  const appLeadFont = cloudLeadFont?.font.style.fontFamily ?? localFont.lead;
-  const appCommonFont = cloudCommonFont?.font.style.fontFamily ?? localFont.common;
+	const appLeadFont = cloudLeadFont?.font.style.fontFamily ?? localFont.lead;
+	const appCommonFont = cloudCommonFont?.font.style.fontFamily ?? localFont.common;
   
-  return (
-    // eslint-disable-next-line react/no-unknown-property
-    <style jsx global>
-      {`
+	return (
+	// eslint-disable-next-line react/no-unknown-property
+		<style jsx global>
+			{`
       html {
           font-family: ${appCommonFont ? appCommonFont : 'unherit'};
         
@@ -29,8 +29,8 @@ const CustomAppRootHTML = ({ availableFonts = [] }: Props) => {
           }
       }
     `}
-    </style>
-  );
+		</style>
+	);
 };
 
 export default CustomAppRootHTML;

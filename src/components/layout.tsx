@@ -19,56 +19,56 @@ interface Props {
 }
 
 const Common = ({ children, hydratedProps, bypassServerContent = false }: Props) => {
-  const { dataHooks, isDataHooksLoading, dataHooksError } = useDataHooks();
-  const { footerRef, contentRef } = useDynamicContentHeight();
-  const headerRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
+	const { dataHooks, isDataHooksLoading, dataHooksError } = useDataHooks();
+	const { footerRef, contentRef } = useDynamicContentHeight();
+	const headerRef = useRef<HTMLDivElement | null>(null);
+	const router = useRouter();
   
-  return useMemo(() => {
-    if (isDataHooksLoading) return <LoadingFeedback />;
-    if (dataHooksError) router.push('/unavailable');
-    if ((!bypassServerContent && !hydratedProps) || !children) return <LoadingFeedback />;
+	return useMemo(() => {
+		if (isDataHooksLoading) return <LoadingFeedback />;
+		if (dataHooksError) router.push('/unavailable');
+		if ((!bypassServerContent && !hydratedProps) || !children) return <LoadingFeedback />;
     
-    return (
-      <Styled.PageLayout>
-        <ToastContainer
-          theme="colored"
-          hideProgressBar
-          position="top-center"
-        />
-        <DefaultHeader dataHooks={dataHooks.header} ref={headerRef} bypassServerContent={bypassServerContent} />
-        <Styled.Body ref={contentRef}>
-          {HydrationHelper.getHydratedPageElement(children, hydratedProps)}
-        </Styled.Body>
-        <DefaultFooter dataHooks={dataHooks.footer} ref={footerRef} bypassServerContent={bypassServerContent} />
-      </Styled.PageLayout>
-    );
-  }, [router.pathname, isDataHooksLoading, dataHooksError, bypassServerContent, hydratedProps]);
+		return (
+			<Styled.PageLayout>
+				<ToastContainer
+					theme="colored"
+					hideProgressBar
+					position="top-center"
+				/>
+				<DefaultHeader dataHooks={dataHooks.header} ref={headerRef} bypassServerContent={bypassServerContent} />
+				<Styled.Body ref={contentRef}>
+					{HydrationHelper.getHydratedPageElement(children, hydratedProps)}
+				</Styled.Body>
+				<DefaultFooter dataHooks={dataHooks.footer} ref={footerRef} bypassServerContent={bypassServerContent} />
+			</Styled.PageLayout>
+		);
+	}, [router.pathname, isDataHooksLoading, dataHooksError, bypassServerContent, hydratedProps]);
 };
 
 const Minimal = ({ children, hydratedProps }: Props) => {
-  const { contentRef } = useDynamicContentHeight();
+	const { contentRef } = useDynamicContentHeight();
   
-  return (
-    <Styled.PageLayout>
-      <ToastContainer
-        theme="colored"
-        hideProgressBar
-        position="top-center"
-      />
-      <Styled.Body ref={contentRef}>
-        {HydrationHelper.getHydratedPageElement(children, hydratedProps)}
-      </Styled.Body>
-    </Styled.PageLayout>
-  );
+	return (
+		<Styled.PageLayout>
+			<ToastContainer
+				theme="colored"
+				hideProgressBar
+				position="top-center"
+			/>
+			<Styled.Body ref={contentRef}>
+				{HydrationHelper.getHydratedPageElement(children, hydratedProps)}
+			</Styled.Body>
+		</Styled.PageLayout>
+	);
 };
 
 export {
-  DEFAULT_HEIGHT_HEADER,
-  DEFAULT_HEIGHT_FOOTER
+	DEFAULT_HEIGHT_HEADER,
+	DEFAULT_HEIGHT_FOOTER
 };
 
 export default {
-  Common,
-  Minimal,
+	Common,
+	Minimal,
 };

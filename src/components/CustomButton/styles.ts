@@ -11,5 +11,5 @@ const Btn = styled(Button)<StyledProps>`
 `;
 
 export default {
-  Btn,
+	Btn,
 };

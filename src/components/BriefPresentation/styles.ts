@@ -38,5 +38,5 @@ const BriefDescription = styled(Typography)`
 `;
 
 export default {
-  Wrapper, PresentationColumn, AuthorName, AuthorDescription, BriefDescription, PresentationSummary, AuthorTitle
+	Wrapper, PresentationColumn, AuthorName, AuthorDescription, BriefDescription, PresentationSummary, AuthorTitle
 };

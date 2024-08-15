@@ -39,7 +39,7 @@ const CardOverlay = styled(Box)<StyledProps>`
 	height: 100%;
 	transition: ease-in .3s;
 	background: ${({ theme, background }) =>
-    background ? lighten(background, -.7) : lighten(theme.palette.background.default, -.7)};
+		background ? lighten(background, -.7) : lighten(theme.palette.background.default, -.7)};
 	opacity: .5;
 	filter: blur(10px);
 `;
@@ -90,6 +90,6 @@ const CaseBrandName = styled(Typography)<StyledProps>`
 `;
 
 export default {
-  Wrapper, CardOverlay, CardContent, PortfolioHead, PortfolioHeading, PortfolioContent,
-  CaseTitle, CaseDescription, CaseCoverImageGroup, CaseCommonImageGroup, Branding, CaseBrandName
+	Wrapper, CardOverlay, CardContent, PortfolioHead, PortfolioHeading, PortfolioContent,
+	CaseTitle, CaseDescription, CaseCoverImageGroup, CaseCommonImageGroup, Branding, CaseBrandName
 };

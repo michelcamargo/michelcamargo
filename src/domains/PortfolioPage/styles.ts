@@ -30,8 +30,8 @@ const SplitRow = styled(Box)`
 `;
 
 export default {
-  LeftContainer,
-  PageWrapper,
-  SplitRow,
-  GeneralContent,
+	LeftContainer,
+	PageWrapper,
+	SplitRow,
+	GeneralContent,
 };

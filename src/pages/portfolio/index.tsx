@@ -9,31 +9,31 @@ import cookie from "cookie";
 import { GetServerSidePropsContext } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
-  const cookies = cookie.parse(req.headers.cookie || '');
-  const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
+	const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
+	const cookies = cookie.parse(req.headers.cookie || '');
+	const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
   
-  const meta = {
-    path: '/portfolio',
-    title: 'Apresentação',
-    description: 'Portfolio - Michel Camargo - web developer & UIUX designer',
-    ignoreTitlePostfix: false,
-    keywords: 'michelcamargo,portfolio,developer,freelancer,work,dev,tech',
-    locale,
-  };
+	const meta = {
+		path: '/portfolio',
+		title: 'Apresentação',
+		description: 'Portfolio - Michel Camargo - web developer & UIUX designer',
+		ignoreTitlePostfix: false,
+		keywords: 'michelcamargo,portfolio,developer,freelancer,work,dev,tech',
+		locale,
+	};
   
-  try {
-    return PagePropsHelper.handleServerProps(meta, context, {
-      sessions: await ContentService.SSRFetchByKeys(['bio/bio', 'work/devstack', 'work/portfolio'], locale)
-    });
-  } catch (error) {
-    handleServerRequestError(error, context);
-    return PagePropsHelper.handleStaticProps(meta, context);
-  }
+	try {
+		return PagePropsHelper.handleServerProps(meta, context, {
+			sessions: await ContentService.SSRFetchByKeys(['bio/bio', 'work/devstack', 'work/portfolio'], locale)
+		});
+	} catch (error) {
+		handleServerRequestError(error, context);
+		return PagePropsHelper.handleStaticProps(meta, context);
+	}
 };
 
 PortfolioPage.getLayout = function getLayout(page: ReactElement) {
-  return <HydratedView viewElement={page} />;
+	return <HydratedView viewElement={page} />;
 };
 
 export default PortfolioPage;
