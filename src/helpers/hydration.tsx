@@ -1,13 +1,13 @@
-import React, {cloneElement, ReactElement} from "react";
+import React, { cloneElement, ReactElement } from "react";
 
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
+import I8n from "@/config/i8n";
 import CustomContent from "@/helpers/content.helper";
 import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomAccordionItem } from "@/lib/accordion";
 import { PortfolioCase, CustomImageProps, ImageDimensions, CustomContentType } from "@/lib/content";
-import {CommonPageProps, ServerViewProps} from "@/lib/datahooks";
-import I8n from "@/config/i8n";
+import { CommonPageProps, ServerViewProps } from "@/lib/datahooks";
 import merge from "lodash.merge";
 
 const parseViewProps =  <T = CustomContentType>(viewProps: ServerViewProps, generic?: boolean) => {
@@ -19,18 +19,18 @@ const parseViewProps =  <T = CustomContentType>(viewProps: ServerViewProps, gene
     sessions: generic ? content.sessions as unknown as Array<T>
       : content.sessions?.map(session => new CustomContent(session as CustomContentType)),
   };
-}
+};
 
 const getHydratedPageElement = (element: ReactElement, hydratedProps?: CommonPageProps) => {
   if (!hydratedProps) return element;
   
   const mergedProps = merge({}, element.props, hydratedProps);
-    if (hydratedProps?.data?.sessions) {
-      mergedProps.data.sessions = hydratedProps.data.sessions;
-    }
+  if (hydratedProps?.data?.sessions) {
+    mergedProps.data.sessions = hydratedProps.data.sessions;
+  }
 
-    return cloneElement(element, mergedProps);
-}
+  return cloneElement(element, mergedProps);
+};
 
 const portfolioToAccordion = (
   portfolio: CustomContent,

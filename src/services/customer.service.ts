@@ -1,10 +1,11 @@
 // import AppConfig from "@/config/next.config";
+import PBResourcesApi from "@/config/api/pb-resources";
 import { handleRequestError } from "@/helpers/error";
 import { CustomerProfile, CustomerLead } from "@/lib/customer";
-import PBResourcesApi from "@/config/api/pb-resources";
 // import { HTTP_METHOD } from "next/dist/server/web/http";
 
 class CustomerService {
+
   // private static contentURL = `${AppConfig.APP_URL}/api/content`;
   // private static contentURL = `${AppConfig.APP_URL}/api/content`;
   

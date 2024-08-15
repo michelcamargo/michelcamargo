@@ -1,4 +1,4 @@
-import {Container, styled, Typography} from "@mui/material";
+import { Container, styled, Typography } from "@mui/material";
 
 export type StyledProps = {
 
@@ -46,7 +46,6 @@ const HeadingDescription = styled(Typography)`
 	white-space: break-spaces;
 `;
 
-
 export default {
-	PageWrapper, PageContainer, PageContent, Heading, HeadingTitle, HeadingDescription
-}
+  PageWrapper, PageContainer, PageContent, Heading, HeadingTitle, HeadingDescription
+};

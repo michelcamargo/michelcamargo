@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 // import staticAboutContent from '@/domains/AboutPage/static';
+import { handleRequestError } from "@/helpers/error";
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {handleRequestError} from "@/helpers/error";
 
 export default function handler(
   req: NextApiRequest,

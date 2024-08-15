@@ -4,8 +4,8 @@ import { MinimalHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import { CustomNextPage } from "@/lib/layout";
 
-import Styled from './styles';
 import AuthenticationForm from "../../components/CustomForms/Authentication";
+import Styled from './styles';
 
 const AuthPage: CustomNextPage = ({ data }) => {
   const sessions = useMemo(() => data?.sessions, [data]);
@@ -15,7 +15,7 @@ const AuthPage: CustomNextPage = ({ data }) => {
       heading: sessions?.get?.('heading'),
       form: sessions?.get?.('form'),
       buttons: sessions?.get?.('buttons')
-    }
+    };
   }, [data?.sessions]);
   
   if (!sessions) return <LoadingFeedback />;

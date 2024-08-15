@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
+import { handleRequestError } from "@/helpers/error";
 import type { NextApiRequest, NextApiResponse } from 'next';
-import {handleRequestError} from "@/helpers/error";
 
 export default function handler(
   req: NextApiRequest,

@@ -1,4 +1,4 @@
-import {Link, List, ListItem, styled} from "@mui/material";
+import { Link, List, ListItem, styled } from "@mui/material";
 
 export type StyledProps = {
 
@@ -10,7 +10,6 @@ const CustomListItem = styled(ListItem)``;
 
 const ListInnerItem = styled(Link)``;
 
-
 export default {
-	ListWrapper, ListItem: CustomListItem, ListInnerItem
-}
+  ListWrapper, ListItem: CustomListItem, ListInnerItem
+};

@@ -1,13 +1,14 @@
-import {forwardRef, useMemo} from 'react';
+import { forwardRef, useMemo } from 'react';
 
 import BrandLogo from "@/components/BrandLogo";
 import HeaderNavbar from '@/components/HeaderTemplate/HeaderNavbar';
 import HeaderToolbar from "@/components/HeaderToolbar";
+import CustomContent from "@/helpers/content.helper";
+import { CustomBannerData } from "@/lib/content";
+import { useRouter } from "next/router";
+
 import HeaderTopBanner from "../../HeaderTopBanner";
 import Styled from './styles';
-import { useRouter } from "next/router";
-import CustomContent from "@/helpers/content.helper";
-import {CustomBannerData} from "@/lib/content";
 
 interface Props {
   dataHooks?: CustomContent,
@@ -16,7 +17,7 @@ interface Props {
 }
 
 const DefaultHeader = forwardRef<HTMLDivElement, Props>((
-  { dataHooks, hideToolbar = false, bypassServerContent = false},
+  { dataHooks, hideToolbar = false, bypassServerContent = false },
   ref
 ) => {
   const router = useRouter();
@@ -38,7 +39,7 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
     return {
       navigation: dataHooks?.getChildren('nav'),
       persistentBanner: banner,
-    }
+    };
   }, [dataHooks]);
   
   const navigationItems = navigation?.map((item, index) => {
@@ -47,8 +48,8 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
       key: `${index}-${navItem.label}`,
       label: navItem.label,
       href: navItem.link,
-    }
-  }) ?? []
+    };
+  }) ?? [];
   
   if (bypassServerContent) {
     return (

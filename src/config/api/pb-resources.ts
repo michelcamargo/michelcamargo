@@ -1,8 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
+import { handleRequestError } from "@/helpers/error";
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 import ResourcesConfig from "../resources.config";
-import { handleRequestError } from "@/helpers/error";
 
 class PBResourcesApi {
 

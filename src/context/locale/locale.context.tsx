@@ -1,8 +1,8 @@
-import {createContext, ReactNode, useEffect, useMemo, useState} from 'react';
-import cookie from 'js-cookie';
+import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import { CustomContext } from "@/lib/context";
-import {LanguageType, LocaleConfig} from "@/lib/locale";
+import { LanguageType, LocaleConfig } from "@/lib/locale";
+import cookie from 'js-cookie';
 
 type LocaleContextProviderProps = {
   children: ReactNode
@@ -23,12 +23,10 @@ const LocaleContextProvider = ({ children }: LocaleContextProviderProps) => {
     }
   });
   
-  
   useEffect(() => {
     localStorage.setItem("locale", JSON.stringify(currentLanguage));
     cookie.set('locale', currentLanguage, { expires: 365 });
   }, [currentLanguage]);
-  
   
   const localeContext = useMemo<CustomContext<LocaleConfig>>(() => ({
     value: currentLanguage, setValue: setCurrentLanguage

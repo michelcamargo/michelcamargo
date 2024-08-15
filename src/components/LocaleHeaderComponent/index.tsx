@@ -3,10 +3,10 @@ import React, { useCallback } from 'react';
 import { LocaleLanguages } from "@/helpers/locale";
 import useLocaleContext from "@/hooks/useLocaleContext";
 import { SelectChangeEvent } from "@mui/material/Select";
+import cookie from "js-cookie";
+import { useRouter } from "next/router";
 
 import Styled from "./styles";
-import {useRouter} from "next/router";
-import cookie from "js-cookie";
 
 interface Props {
   locale: string,

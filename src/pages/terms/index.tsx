@@ -1,13 +1,13 @@
 import { ReactElement } from "react";
 
 import HydratedView from "@/components/HydratedView";
+import { handleServerRequestError } from "@/helpers/error";
+import PagePropsHelper from "@/helpers/SSR.helper";
 import ContentService from "@/services/content.service";
+import cookie from "cookie";
 import { GetServerSidePropsContext } from "next";
 
 import PrivacyTermsPage from "../../domains/TermsPage";
-import cookie from "cookie";
-import {handleServerRequestError} from "@/helpers/error";
-import PagePropsHelper from "@/helpers/SSR.helper";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
@@ -21,12 +21,12 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     ignoreTitlePostfix: false,
     keywords: 'terms,privacy,compliance',
     locale,
-  }
+  };
   
   try {
     return PagePropsHelper.handleServerProps(meta, context, {
       sessions: await ContentService.SSRFetchByKeys(['legal/policies', 'legal/compliance'], locale)
-    })
+    });
   } catch (error) {
     handleServerRequestError(error, context);
     return PagePropsHelper.handleStaticProps(meta, context);

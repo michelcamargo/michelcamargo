@@ -1,10 +1,10 @@
-import {useMemo} from "react";
+import { useMemo } from "react";
 
 import AppLink from "@/components/AppLink";
-import {MinimalHeader} from "@/components/HeaderTemplate";
+import { MinimalHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
-import {LinkTreeItem} from "@/lib/content";
-import {CustomNextPage} from "@/lib/layout";
+import { LinkTreeItem } from "@/lib/content";
+import { CustomNextPage } from "@/lib/layout";
 
 import Styled from './styles';
 
@@ -30,11 +30,11 @@ const LinkTreePage: CustomNextPage = ({ data }) => {
     return links?.map(item => {
       const [ link, label, icon ] = [
         item.getValue('link'), item.getValue('label'), item.getValue('icon')
-      ]
+      ];
       
       if (!link || !label) return;
       
-      return { link, label, icon }
+      return { link, label, icon };
     }) ?? [];
   }, [sessions]);
   

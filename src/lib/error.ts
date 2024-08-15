@@ -1,5 +1,5 @@
+import { AxiosRequestHeaders, AxiosResponse } from "axios";
 import { ToastOptions } from "react-toastify/dist/types";
-import {AxiosRequestHeaders, AxiosResponse} from "axios";
 
 export type AppErrorInfo = {
 	code: number,

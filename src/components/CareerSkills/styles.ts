@@ -1,4 +1,4 @@
-import {styled} from "@mui/material";
+import { styled } from "@mui/material";
 
 export type StyledProps = {
   callback?: () => void,
@@ -23,5 +23,5 @@ const ListContainer = styled('div')`
 `;
 
 export default {
-	Wrapper, Content, Heading, ListContainer
-}
+  Wrapper, Content, Heading, ListContainer
+};

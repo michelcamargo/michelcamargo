@@ -1,8 +1,8 @@
 import Toast from "@/components/Toast";
-import axios, { AxiosError, AxiosResponse } from "axios";
-import { ToastOptions } from "react-toastify/dist/types";
-import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 import APP_ERROR_MAPPINGS from "@/helpers/error/mappings";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
+import { ToastOptions } from "react-toastify/dist/types";
 
 /**
  * Mostra um toast de erro baseado no código de erro mapeado.
@@ -15,11 +15,11 @@ export const showErrorByCode = (
   customMessage?: string,
   toastOptions?: ToastOptions
 ) => {
-   console.log({errorCode})
-   console.log({customMessage})
+  console.log({ errorCode });
+  console.log({ customMessage });
   
   const appError =
-    APP_ERROR_MAPPINGS.find((err) => err.code === errorCode) || APP_ERROR_MAPPINGS[0];
+    APP_ERROR_MAPPINGS.find(err => err.code === errorCode) || APP_ERROR_MAPPINGS[0];
 
   const { title, message, description, options: errorToastOptions } = appError;
 
