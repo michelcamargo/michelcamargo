@@ -2,7 +2,6 @@ import React, { cloneElement, ReactElement } from "react";
 
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
-// import I8n from "@/config/i8n";
 import CustomContent from "@/helpers/content.helper";
 import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomAccordionItem } from "@/lib/accordion";
@@ -25,8 +24,8 @@ const getHydratedPageElement = (element: ReactElement, hydratedProps?: CommonPag
 	if (!hydratedProps) return element;
  
 	const mergedProps = merge({}, element.props, hydratedProps);
-	if (hydratedProps?.data?.sessions) {
-		mergedProps.data.sessions = hydratedProps.data.sessions;
+	if (hydratedProps?.data) {
+		mergedProps.data.sessions = hydratedProps.data.sessions ? hydratedProps.data.sessions : [];
 	}
 
 	return cloneElement(element, mergedProps);

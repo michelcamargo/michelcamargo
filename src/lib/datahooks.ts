@@ -1,4 +1,4 @@
-import CustomContent from "@/helpers/content.helper";
+// import CustomContent from "@/helpers/content.helper";
 import { CustomBannerData } from "@/lib/content";
 
 export type PageMetadata = {
@@ -29,7 +29,7 @@ export type PageData<T = object> = {
   // eslint-disable-next-line no-unused-vars
   [P in keyof T]: object
 } & {
-  sessions: CustomContent,
+  sessions: T,
 } & T;
 
 export type CustomNavItem = {
