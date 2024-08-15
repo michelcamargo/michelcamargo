@@ -17,7 +17,7 @@ const FormWrapper = <T extends {}>({ initialValues, validationSchema, onSubmit, 
     >
       {(formikProps: FormikProps<T>) => (
         <Form>
-          {fields.map((field) => (
+          {fields.map(field => (
             <div key={String(field.name)}>
               <label htmlFor={String(field.name)}>{field.label}</label>
               <Field

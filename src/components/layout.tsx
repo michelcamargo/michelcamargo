@@ -3,13 +3,14 @@ import React, { ReactElement, useMemo, useRef } from "react";
 import { DEFAULT_HEIGHT_FOOTER, DefaultFooter } from "@/components/FooterTemplate";
 import { DEFAULT_HEIGHT_HEADER, DefaultHeader } from "@/components/HeaderTemplate";
 import LoadingFeedback from "@/components/LoadingFeedback";
+import HydrationHelper from '@/helpers/hydration';
 import useDataHooks from "@/hooks/useDataHooks";
 import useDynamicContentHeight from "@/hooks/useDynamicContentHeight";
 import { CommonPageProps } from "@/lib/datahooks";
-import HydrationHelper from '@/helpers/hydration';
-import Styled from './styles';
 import { useRouter } from "next/router";
-import {ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
+
+import Styled from './styles';
 
 interface Props {
   children: ReactElement,
@@ -41,7 +42,7 @@ const Common = ({ children, hydratedProps, bypassServerContent = false }: Props)
         </Styled.Body>
         <DefaultFooter dataHooks={dataHooks.footer} ref={footerRef} bypassServerContent={bypassServerContent} />
       </Styled.PageLayout>
-    )
+    );
   }, [router.pathname, isDataHooksLoading, dataHooksError, bypassServerContent, hydratedProps]);
 };
 

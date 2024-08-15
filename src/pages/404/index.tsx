@@ -3,10 +3,10 @@ import { ReactElement } from "react";
 
 import HydratedView from "@/components/HydratedView";
 import NotFoundPage from "@/domains/NotFoundPage";
+import { handleServerRequestError } from "@/helpers/error";
+import PagePropsHelper from "@/helpers/SSR.helper";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
-import { handleServerRequestError} from "@/helpers/error";
-import PagePropsHelper from "@/helpers/SSR.helper";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { locale: contextLocale, defaultLocale = 'ptBR' } = context;
@@ -19,12 +19,12 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     ignoreTitlePostfix: false,
     keywords: '404,not-found,freelancer,work,dev',
     locale,
-  }
+  };
   
   try {
     return PagePropsHelper.handleStaticProps(meta, context, {
       sessions: await ContentService.SSRFetchByKeys(['general/fallback'], locale)
-    })
+    });
   } catch (error) {
     handleServerRequestError(error, context);
     return PagePropsHelper.handleStaticProps(meta, context);

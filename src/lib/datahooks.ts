@@ -1,5 +1,5 @@
 import CustomContent from "@/helpers/content.helper";
-import {CustomBannerData, CustomContentType} from "@/lib/content";
+import { CustomBannerData, CustomContentType } from "@/lib/content";
 
 export type PageMetadata = {
   path: string,
@@ -23,7 +23,6 @@ export type CommonPageProps<T = Object> = {
   meta: PageMetadata,
   data?: PageData<T>,
 };
-
 
 export type PageData<T = {}> = {
   [P in keyof T]: Object

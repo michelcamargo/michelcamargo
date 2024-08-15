@@ -1,16 +1,17 @@
 import React, { useMemo } from 'react';
-import HomeIcon from '@mui/icons-material/Home';
 
 import DefaultViewHeading from "@/components/CommonViewHeading";
 import CustomButton from "@/components/CustomButton";
-import { CustomNextPage } from "@/lib/layout";
-import Styled from './styles';
 import LoadingFeedback from "@/components/LoadingFeedback";
+import { CustomNextPage } from "@/lib/layout";
+import HomeIcon from '@mui/icons-material/Home';
+
+import Styled from './styles';
 
 const NotFoundPage: CustomNextPage = ({ data }) => {
   const sessions = useMemo(() => data?.sessions, [data]);
   
-  console.log('serverViewData', data)
+  console.log('serverViewData', data);
   
   if (!sessions) return <LoadingFeedback />;
   

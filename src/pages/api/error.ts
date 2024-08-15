@@ -8,7 +8,7 @@ const errorHandler = (handler: NextApiHandler): NextApiHandler => async (req, re
   } catch (error) {
     console.error('Falha ao solicitar:', error);
 		
-		// Genérico
+    // Genérico
     res.status(500).json({ error: 'Erro interno do servidor' });
   }
 };

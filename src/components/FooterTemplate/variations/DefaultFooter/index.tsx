@@ -6,8 +6,9 @@ import FooterDisclaimer from "@/components/FooterTemplate/FooterDisclaimer";
 // import FooterPartners from "@/components/FooterTemplate/FooterPartners";
 // import { FooterData } from "@/lib/datahooks";
 
-import Styled from './styles';
 import CustomContent from "@/helpers/content.helper";
+
+import Styled from './styles';
 
 interface Props {
   // dataHooks?: FooterData,
@@ -40,7 +41,7 @@ export const DefaultFooter = forwardRef<HTMLDivElement, Props>((
           </Styled.FooterBottomSession>
         </Styled.FooterContainer>
       </Styled.FooterWrapper>
-    )
+    );
   }
   
   return (

@@ -2,11 +2,11 @@ import { ReactElement } from "react";
 
 import HydratedView from "@/components/HydratedView";
 import RedirectPage from "@/domains/RedirectPage";
+import { handleServerRequestError } from "@/helpers/error";
 import { ViewLayoutEnum } from "@/lib/layout";
 import ContentService from "@/services/content.service";
-import { GetServerSidePropsContext } from "next";
 import cookie from "cookie";
-import {handleServerRequestError} from "@/helpers/error";
+import { GetServerSidePropsContext } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
   const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
@@ -19,7 +19,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     description: 'Redirecionamento autenticação - Pixelbay',
     ignoreTitlePostfix: false,
     keywords: '',
-  }
+  };
   
   try {
     const sessions = await ContentService.fetchByKeys(['general/auth'], locale) ?? [];
@@ -34,7 +34,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
         },
         locale,
       }
-    }
+    };
   } catch (error) {
     handleServerRequestError(error, context);
     return {
@@ -51,10 +51,8 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   }
 };
 
-
-
 RedirectPage.getLayout = function getLayout(page: ReactElement) {
-  return <HydratedView viewElement={page} layout={ViewLayoutEnum.MINIMAL} />
+  return <HydratedView viewElement={page} layout={ViewLayoutEnum.MINIMAL} />;
 };
 
 export default RedirectPage;

@@ -1,24 +1,25 @@
 import React, { useMemo } from "react";
+
+import BriefPresentation from "@/components/BriefPresentation";
+import CareerSkills from "@/components/CareerSkills";
+import HeroComponent from "@/components/HeroComponent";
+import LoadingFeedback from "@/components/LoadingFeedback";
+import SocialPresentation from "@/components/SocialPresentation";
 import { CustomNextPage } from "@/lib/layout";
 
-import Styled from './styles';
-import BriefPresentation from "@/components/BriefPresentation";
 import ContactForm from "../../components/CustomForms/Contact";
-import CareerSkills from "@/components/CareerSkills";
-import LoadingFeedback from "@/components/LoadingFeedback";
-import HeroComponent from "@/components/HeroComponent";
-import SocialPresentation from "@/components/SocialPresentation";
+import Styled from './styles';
 // import PortfolioComponent from "@/components/Portfolio";
 
 const HomePage: CustomNextPage = ({ data }) => {
   const sessions = useMemo(() => data?.sessions, [data]);
   
-  const { bio, socialLinks} = useMemo(() => {
+  const { bio, socialLinks } = useMemo(() => {
     return {
       bio: sessions?.get?.('bio'),
       socialLinks: sessions?.get?.('social'),
       portfolio: sessions?.get?.('devstack')
-    }
+    };
   }, [data?.sessions]);
   
   if (!sessions) return <LoadingFeedback />;

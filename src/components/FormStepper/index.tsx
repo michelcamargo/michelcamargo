@@ -1,7 +1,7 @@
-import React, {ReactNode, useCallback} from 'react';
+import React, { ReactNode, useCallback } from 'react';
 
-import Styled from "@/components/CustomForms/Contact/styles";
 import CustomButton from "@/components/CustomButton";
+import Styled from "@/components/CustomForms/Contact/styles";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -14,15 +14,15 @@ interface Props<T> {
 
 const FormStepper = <T,>({ children, currentIndex, stepChanger, availableSteps }: Props<T>) => {
 	
-	const goFowardHandler = useCallback(() => {
-		// const nextStep = availableSteps[(Number(currentIndex) + 1)] as T;
-		stepChanger(currentIndex + 1)
-	}, [stepChanger, availableSteps, currentIndex])
+  const goFowardHandler = useCallback(() => {
+    // const nextStep = availableSteps[(Number(currentIndex) + 1)] as T;
+    stepChanger(currentIndex + 1);
+  }, [stepChanger, availableSteps, currentIndex]);
 	
-	const goBackHandler = useCallback(() => {
-		// const previousStep = availableSteps[Number(currentIndex) - 1] as T;
-		stepChanger(currentIndex - 1)
-	}, [stepChanger, availableSteps, currentIndex])
+  const goBackHandler = useCallback(() => {
+    // const previousStep = availableSteps[Number(currentIndex) - 1] as T;
+    stepChanger(currentIndex - 1);
+  }, [stepChanger, availableSteps, currentIndex]);
 	
   return (
     <>

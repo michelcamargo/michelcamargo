@@ -1,9 +1,9 @@
 import React from 'react';
 
 import LoadingFeedback from "@/components/LoadingFeedback";
+import CustomContent from "@/helpers/content.helper";
 
 import Styled from "./styles";
-import CustomContent from "@/helpers/content.helper";
 
 interface Props {
   data?: CustomContent
@@ -14,12 +14,11 @@ const HeroComponent = ({ data }: Props) => {
   
   const [about, author, heading] = [
     data.get('author'), data.get('heading'), data.get('about')
-  ]
+  ];
   
   console.log(about);
   console.log(author);
   console.log(heading);
-
 
   // const [name, middlename, lastname] = [
   //   author.firstname.split(' ') ?? [''],

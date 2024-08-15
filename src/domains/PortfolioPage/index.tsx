@@ -2,12 +2,12 @@ import React, { useMemo } from 'react';
 
 import BriefPresentation from "@/components/BriefPresentation";
 import DefaultViewHeading from "@/components/CommonViewHeading";
-import ContactForm from "../../components/CustomForms/Contact";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PortfolioComponent from "@/components/Portfolio";
 import { CustomNextPage } from "@/lib/layout";
 import WorkIcon from '@mui/icons-material/Work';
 
+import ContactForm from "../../components/CustomForms/Contact";
 import Styled from "./styles";
 
 const PortfolioPage: CustomNextPage = ({ data, meta }) => {

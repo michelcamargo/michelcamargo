@@ -1,13 +1,13 @@
-import React, {ReactElement, useMemo} from 'react';
+import React, { ReactElement, useMemo } from 'react';
 
 import ViewTemplateError from "@/components/HydratedView/ViewTemplateError";
 import Layout from "@/components/layout";
 import AppConfig from "@/config/next.config";
+import CustomContent from "@/helpers/content.helper";
+import { CommonPageProps } from "@/lib/datahooks";
 import { ViewLayoutEnum } from "@/lib/layout";
 import HeadMetadata from "@/pages/_head";
 import { useRouter } from "next/router";
-import CustomContent from "@/helpers/content.helper";
-import { CommonPageProps } from "@/lib/datahooks";
 
 interface Props {
   viewElement: ReactElement,
@@ -32,7 +32,7 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
         }) : [],
         ...customData,
       }
-    }
+    };
   }, [data]);
   
   if (!viewElement) {

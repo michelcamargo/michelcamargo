@@ -1,4 +1,4 @@
-import React, {ReactNode, useMemo, useState} from "react";
+import React, { ReactNode, useMemo, useState } from "react";
 
 import LocaleContextProvider from "@/context/locale/locale.context";
 import { AppPropsWithLayout } from "@/lib/layout";

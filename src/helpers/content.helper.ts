@@ -32,12 +32,12 @@ export default class CustomContent {
     this.children = children?.length ? children.map(item => new CustomContent(item)) : [];
   }
 	
-	/**
+  /**
    * Busca um CustomContent correspondente à chave fornecida, considerando a recursividade da propriedade children.
    * @param key A chave a ser buscada
    * @returns O CustomContent correspondente ou undefined
    */
-	public get(key?: string): CustomContent | undefined {
+  public get(key?: string): CustomContent | undefined {
     if (!key || this.key === key) {
       return this;
     }
@@ -74,12 +74,12 @@ export default class CustomContent {
     return content?.children ?? [];
   }
 	
-	/**
+  /**
    * Converte a instância de CustomContent em um objeto
    * @param deep Indica a conversão de todos os itens internos recursivamente
    * @returns Objeto correspondente à estrutura de CustomContent
    */
-  public toObject<T = object>(deep: boolean = false): T {
+  public toObject<T = object>(deep = false): T {
 	  const result: any = {};
 	
 	  if (deep) {
@@ -98,5 +98,6 @@ export default class CustomContent {
 	  }
 	
 	  return result as T;
-	}
+  }
+
 }

@@ -1,10 +1,12 @@
 import React from 'react';
-import FormWrapper from '../../FormWrapper';
-import { useRouter } from 'next/router';
-import { FormikHelpers } from "formik";
+
 import { authSignUpFields } from "@/components/CustomForms/Authentication/fields";
-import { authSignUpDtoSchema } from "@/schemas/auth.schema";
 import { AuthSignUpDto } from "@/lib/auth";
+import { authSignUpDtoSchema } from "@/schemas/auth.schema";
+import { FormikHelpers } from "formik";
+import { useRouter } from 'next/router';
+
+import FormWrapper from '../../FormWrapper';
 
 type Props = {
   submitHandler: (values: any) => void | undefined

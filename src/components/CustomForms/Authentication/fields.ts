@@ -3,7 +3,7 @@ import { FormFieldSet } from "@/lib/form";
 
 export const authHandshakeFields: Array<FormFieldSet<AuthHandshakeDto>> = [
   {
-		name: 'username',
+    name: 'username',
 	  type: 'text',
 	  label: 'Usuário ou email',
 	  placeholder: 'Informe um email ou nome de usuário',
@@ -13,14 +13,14 @@ export const authHandshakeFields: Array<FormFieldSet<AuthHandshakeDto>> = [
 
 export const authSignInFields: Array<FormFieldSet<AuthSignInDto>> = [
   {
-		name: 'username',
+    name: 'username',
 	  type: 'text',
 	  label: 'Usuário ou email',
 	  placeholder: 'Informe seu email ou usuário',
 	  initialValue: '',
   },
   {
-		name: 'secret',
+    name: 'secret',
 	  type: 'password',
 	  label: 'Senha',
 	  placeholder: 'Informe sua senha',
@@ -30,35 +30,35 @@ export const authSignInFields: Array<FormFieldSet<AuthSignInDto>> = [
 
 export const authSignUpFields: Array<FormFieldSet<AuthSignUpDto>> = [
   {
-		name: 'fullname',
+    name: 'fullname',
 	  type: 'text',
 	  label: 'Nome',
 	  placeholder: 'Informe seu nome',
 	  initialValue: '',
   },
   {
-		name: 'email',
+    name: 'email',
 	  type: 'email',
 	  label: 'Email',
 	  placeholder: 'Informe um email válido',
 	  initialValue: '',
   },
   {
-		name: 'username',
+    name: 'username',
 	  type: 'text',
 	  label: 'Nome de usuário',
 	  placeholder: 'Informe um nome de usuário',
 	  initialValue: '',
   },
   {
-		name: 'secret',
+    name: 'secret',
 	  type: 'password',
 	  label: 'Senha',
 	  placeholder: 'Informe sua senha',
 	  initialValue: '',
   },
   {
-		name: 'secretAnsure',
+    name: 'secretAnsure',
 	  type: 'password',
 	  label: 'Repita a senha',
 	  placeholder: 'Informe a mesma senha',

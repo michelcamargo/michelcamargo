@@ -1,7 +1,7 @@
-import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
 
 import AuthConfig from "@/config/auth.config";
 import ApiHelper from "@/helpers/api.helper";
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
 class PBAuthApi {
 

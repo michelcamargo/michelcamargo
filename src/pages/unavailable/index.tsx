@@ -1,9 +1,10 @@
 import { ReactElement } from "react";
+
 import HydratedView from "@/components/HydratedView";
-import { GetStaticPropsContext } from "next";
 import UnavailablePage from "@/domains/UnavailablePage";
-import { ViewLayoutEnum } from "@/lib/layout";
 import PagePropsHelper from "@/helpers/SSR.helper";
+import { ViewLayoutEnum } from "@/lib/layout";
+import { GetStaticPropsContext } from "next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { locale, defaultLocale = 'ptBR' } = context;
@@ -15,9 +16,9 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     ignoreTitlePostfix: false,
     keywords: 'unavailable,error,failed,offine,unavailability,services,web',
     locale: locale ?? defaultLocale
-  }
+  };
   
-  return PagePropsHelper.handleStaticProps(meta, context)
+  return PagePropsHelper.handleStaticProps(meta, context);
 };
 
 UnavailablePage.getLayout = function getLayout(page: ReactElement) {

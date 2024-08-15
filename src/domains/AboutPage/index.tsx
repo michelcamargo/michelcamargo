@@ -15,7 +15,7 @@ const AboutPage: CustomNextPage = ({ data }) => {
       bio: sessions?.get?.('bio'),
       social: sessions?.get?.('social'),
       about: sessions?.get?.('about')
-    }
+    };
   }, [sessions]);
   
   if (!sessions) return <LoadingFeedback />;
