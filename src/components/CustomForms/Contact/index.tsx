@@ -1,21 +1,14 @@
-import React, { useCallback, useState } from 'react';
 import LoadingFeedback from "@/components/LoadingFeedback";
 import SuccessFeedback from "@/components/SuccessFeedback";
 import { showErrorByCode } from "@/helpers/error";
 import { CustomerProfile, CustomerLead } from "@/lib/customer";
+// import { ContactFormStep } from "@/lib/form";
 import CustomerService from "@/services/customer.service";
 import { Formik, FormikHelpers, FormikValues } from "formik";
 import { useMutation } from "react-query";
 import * as yup from "yup";
 
 import Styled from './styles';
-
-export enum ContactFormStep {
-  // eslint-disable-next-line no-unused-vars
-  intro = 0,
-  // eslint-disable-next-line no-unused-vars
-  personal = 1,
-}
 
 interface Props {
   id?: number,
@@ -27,7 +20,7 @@ interface Props {
 const ContactForm = ({ callbackHandler, title, description }: Props) => {
   
   // const queryClient = useQueryClient();
-  const [currentStep, setCurrentStep] = useState<ContactFormStep>(ContactFormStep.intro);
+  // const [currentStep, setCurrentStep] = useState<ContactFormStep>(ContactFormStep.intro);
   
   const initialValues: CustomerLead = {
     name: '',
@@ -88,9 +81,10 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
     });
   };
   
-  const formStepHandler = useCallback((step: ContactFormStep) => {
-    setCurrentStep(step);
-  }, []);
+  // const formStepHandler = useCallback((step: ContactFormStep) => {
+  //   console.log({ currentStep });
+  //   setCurrentStep(step);
+  // }, []);
   
   if (isSendingContact) return <LoadingFeedback heading={'Enviando formulário'} minimal />;
   if (isContactSent) return <SuccessFeedback label={'Obrigado pelo contato, nos vemos em breve!'} />;
