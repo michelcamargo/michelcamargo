@@ -1,7 +1,7 @@
 import React from "react";
 
 import AppProviders from "@/components/AppProviders";
-import CookiesPopup from "@/components/CookiesPopup";
+// import CookiesPopup from "@/components/CookiesPopup";
 import CustomAppRootHTML from "@/components/CustomAppRootHTML";
 import CustomToastContainer from "@/components/Toast/CustomToastContainer";
 import { AppPropsWithLayout } from "@/lib/layout";
@@ -31,9 +31,10 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
     <AppProviders pageProps={pageProps} availableFonts={fonts}>
       <CustomAppRootHTML availableFonts={fonts} />
       <CustomToastContainer />
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
       { /** @ts-ignore-next-line **/ }
       { getLayout(<Component {...rest}>{children}</Component>) }
-      <CookiesPopup />
+      {/*<CookiesPopup />*/}
     </AppProviders>
   );
 };
