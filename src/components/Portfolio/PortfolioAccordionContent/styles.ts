@@ -16,5 +16,5 @@ const CommonImages = styled(Box)<StyledProps>`
 	flex: 1;
 `;
 export default {
-  ContentWrapper, CoverImages, CommonImages
+	ContentWrapper, CoverImages, CommonImages
 };

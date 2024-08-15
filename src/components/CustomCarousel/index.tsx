@@ -15,38 +15,38 @@ interface Props {
 }
 
 const DEFAULT_CFG: CarouselConfig = {
-  spaceBetween: 16,
-  slidesPerView: 3,
+	spaceBetween: 16,
+	slidesPerView: 3,
 };
 
 const CustomCarousel = ({ items, config = DEFAULT_CFG }: Props) => {
-  const {
-    spaceBetween, slidesPerView, onSlideChange, onSwiper, onSelect
-  } = config;
+	const {
+		spaceBetween, slidesPerView, onSlideChange, onSwiper, onSelect
+	} = config;
   
-  return (
-    <Swiper
-      style={{ display: 'flex' }}
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={spaceBetween}
-      slidesPerView={slidesPerView}
-      onSlideChange={onSlideChange}
-      onSwiper={onSwiper}
-      navigation
-      pagination={{ clickable: true, type: 'bullets' }}
-      scrollbar={{ draggable: true }}
-    >
-      {items.map((item, index) => (
-        <SwiperSlide key={index}
-          style={{ border: '1px solid grey', display: 'flex', justifyContent: 'center' }}
-          title={'teste'}
-          onSelect={onSelect}
-        >
-          {item}
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
+	return (
+		<Swiper
+			style={{ display: 'flex' }}
+			modules={[Navigation, Pagination, Scrollbar, A11y]}
+			spaceBetween={spaceBetween}
+			slidesPerView={slidesPerView}
+			onSlideChange={onSlideChange}
+			onSwiper={onSwiper}
+			navigation
+			pagination={{ clickable: true, type: 'bullets' }}
+			scrollbar={{ draggable: true }}
+		>
+			{items.map((item, index) => (
+				<SwiperSlide key={index}
+					style={{ border: '1px solid grey', display: 'flex', justifyContent: 'center' }}
+					title={'teste'}
+					onSelect={onSelect}
+				>
+					{item}
+				</SwiperSlide>
+			))}
+		</Swiper>
+	);
 };
 
 export default CustomCarousel;

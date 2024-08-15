@@ -14,7 +14,7 @@ const TopBannerContent = styled('div')`
 `;
 
 export default {
-  HeaderTopBannerWrapper,
-  HeaderTopBannerContainer,
-  TopBannerContent,
+	HeaderTopBannerWrapper,
+	HeaderTopBannerContainer,
+	TopBannerContent,
 };

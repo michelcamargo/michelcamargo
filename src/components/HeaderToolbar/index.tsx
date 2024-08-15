@@ -9,21 +9,21 @@ interface Props {
 }
 
 const HeaderToolbar = ({ locale, availableLocales }: Props) => {
-  const { locale: contextLocale } = useLocaleContext();
+	const { locale: contextLocale } = useLocaleContext();
   
-  return (
-    <Styled.ToolbarWrapper>
-      <Styled.ToolbarContainer>
-        <div>
-          {JSON.stringify({ locale })}
-          {JSON.stringify({ contextLocale })}
-        </div>
-        <div>
-          <LocaleHeaderComponent locale={locale} availableLocales={availableLocales} />
-        </div>
-      </Styled.ToolbarContainer>
-    </Styled.ToolbarWrapper>
-  );
+	return (
+		<Styled.ToolbarWrapper>
+			<Styled.ToolbarContainer>
+				<div>
+					{JSON.stringify({ locale })}
+					{JSON.stringify({ contextLocale })}
+				</div>
+				<div>
+					<LocaleHeaderComponent locale={locale} availableLocales={availableLocales} />
+				</div>
+			</Styled.ToolbarContainer>
+		</Styled.ToolbarWrapper>
+	);
 };
 
 export default HeaderToolbar;

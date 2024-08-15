@@ -38,11 +38,11 @@ const SubtitleText = styled(Typography)`
 `;
 
 export default {
-  Wrapper,
-  Container,
-  Content,
-  TopRow,
-  BottomRow,
-  HeadingText,
-  SubtitleText,
+	Wrapper,
+	Container,
+	Content,
+	TopRow,
+	BottomRow,
+	HeadingText,
+	SubtitleText,
 };

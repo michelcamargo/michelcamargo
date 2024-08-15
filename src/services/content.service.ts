@@ -1,39 +1,28 @@
 import PBResourcesApi from "@/config/api/pb-resources";
-import ResourcesConfig from "@/config/resources.config";
+// import ResourcesConfig from "@/config/resources.config";
 import CustomContent from "@/helpers/content.helper";
-import fetcher from "@/helpers/fetcher";
+// import fetcher from "@/helpers/fetcher";
 import { CustomContentType } from "@/lib/content";
-import { SWRFetchType } from "@/lib/swr";
-import useSWR from "swr";
+// import { SWRFetchType } from "@/lib/swr";
+// import useSWR from "swr";
 
 class ContentService {
+ 
+	static async fetchByKeys(keys: string[], language = 'ptBR'): Promise<CustomContent[]> {
+		const results = await Promise.all(keys.map(key =>
+			PBResourcesApi.getInstance().get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`)
+		));
   
-  static async fetchByKeys(keys: string[], language = 'ptBR'): Promise<CustomContent[]> {
-    const results = await Promise.all(keys.map(key =>
-      PBResourcesApi.getInstance().get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`)
-    ));
-    
-    return results.map(result => new CustomContent(result.data));
-  }
+		return results.map(result => new CustomContent(result.data));
+	}
+ 
+	static async SSRFetchByKeys(keys: string[], language = 'ptBR'): Promise<CustomContentType[]> {
+		const results = await Promise.all(keys.map(key =>
+			PBResourcesApi.getInstance().get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`)
+		));
   
-  static async SSRFetchByKeys(keys: string[], language = 'ptBR'): Promise<CustomContentType[]> {
-    const results = await Promise.all(keys.map(key =>
-      PBResourcesApi.getInstance().get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`)
-    ));
-    
-    return results.map(result => result.data);
-  }
-  
-  static fetchSWRTemplate(key: string, language = 'ptBR'): SWRFetchType {
-    const { apiUrl } = ResourcesConfig;
-    const { data, error, isLoading } = useSWR(`${apiUrl}/content/template/${key}?lang=${language}`, fetcher);
-    
-    return {
-      data,
-      error,
-      isLoading,
-    };
-  }
+		return results.map(result => result.data);
+	}
 
 }
 

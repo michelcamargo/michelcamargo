@@ -61,6 +61,6 @@ const FormFieldBox = styled(Box)`
 `;
 
 export default {
-  Wrapper, FormHead, FormHeading, FormSubtitle, FormBody, FormActionPanel,
-  InputField, FormFieldBox, FormHeader,
+	Wrapper, FormHead, FormHeading, FormSubtitle, FormBody, FormActionPanel,
+	InputField, FormFieldBox, FormHeader,
 };

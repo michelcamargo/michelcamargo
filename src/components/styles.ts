@@ -19,6 +19,6 @@ const Body = styled('main')`
 `;
 
 export default {
-  PageLayout,
-  Body,
+	PageLayout,
+	Body,
 };

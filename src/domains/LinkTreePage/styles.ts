@@ -48,5 +48,5 @@ const LinkLabel = styled(Typography)`
 `;
 
 export default {
-  PageWrapper, Content, MainColumn, LinkRow, LinkContent, LinkIcon, LinkLabel
+	PageWrapper, Content, MainColumn, LinkRow, LinkContent, LinkIcon, LinkLabel
 };

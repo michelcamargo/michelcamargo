@@ -7,14 +7,14 @@ interface Props {
 }
 
 const CustomToastContainer = ({ theme }: Props) => {
-  return (
-    <ToastContainer
-      position="top-center"
-      draggable
-      pauseOnHover
-      theme={theme ?? 'light'}
-    />
-  );
+	return (
+		<ToastContainer
+			position="top-center"
+			draggable
+			pauseOnHover
+			theme={theme ?? 'light'}
+		/>
+	);
 };
 
 export default CustomToastContainer;

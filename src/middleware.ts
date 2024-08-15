@@ -5,31 +5,31 @@ const toIntercept = ['/teste'];
 const PUBLIC_FILE = /\.(.*)$/;
 
 export function middleware(request: NextRequest) {
-  if (
-    request.nextUrl.pathname.startsWith('/_next') ||
+	if (
+		request.nextUrl.pathname.startsWith('/_next') ||
     request.nextUrl.pathname.includes('/api/') ||
     PUBLIC_FILE.test(request.nextUrl.pathname)
-  ) return;
+	) return;
   
-  if (request.nextUrl.locale === 'default') {
-    const locale = request.cookies.get('NEXT_LOCALE')?.value || 'ptBR';
-    const redirectUrl = `/${locale}${request.nextUrl.pathname}${request.nextUrl.search}`;
+	if (request.nextUrl.locale === 'default') {
+		const locale = request.cookies.get('NEXT_LOCALE')?.value || 'ptBR';
+		const redirectUrl = `/${locale}${request.nextUrl.pathname}${request.nextUrl.search}`;
     
-    return NextResponse.redirect(new URL(redirectUrl, request.url));
-  }
+		return NextResponse.redirect(new URL(redirectUrl, request.url));
+	}
   
-  let intercept = false;
-  const { pathname } = request.nextUrl;
+	let intercept = false;
+	const { pathname } = request.nextUrl;
   
-  toIntercept.forEach(path => {
-    if (pathname.startsWith(path)) {
-      intercept = true;
-    }
-  });
+	toIntercept.forEach(path => {
+		if (pathname.startsWith(path)) {
+			intercept = true;
+		}
+	});
   
-  if (intercept) {
-    return NextResponse.rewrite(new URL('/', request.nextUrl));
-  }
+	if (intercept) {
+		return NextResponse.rewrite(new URL('/', request.nextUrl));
+	}
   
-  return NextResponse.next();
+	return NextResponse.next();
 }

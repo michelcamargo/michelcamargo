@@ -16,7 +16,7 @@ const GridItem = styled(Grid)`
 `;
 
 export default {
-  CommonGrid,
-  CoverGrid,
-  GridItem,
+	CommonGrid,
+	CoverGrid,
+	GridItem,
 };

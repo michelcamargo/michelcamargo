@@ -17,5 +17,5 @@ const ToolbarContainer = styled(Container)<StyledProps>`
 `;
 
 export default {
-  ToolbarWrapper, ToolbarContainer
+	ToolbarWrapper, ToolbarContainer
 };

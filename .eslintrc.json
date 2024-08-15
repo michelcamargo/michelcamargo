@@ -30,9 +30,10 @@
     "react-perf"
   ],
   "rules": {
+    "no-mixed-spaces-and-tabs": 0,
     "indent": [
       "error",
-      2,
+      "tab",
       {
         "SwitchCase": 1
       }
@@ -47,7 +48,7 @@
     ],
     "max-len": [
       "warn",
-      120
+      126
     ],
     "padded-blocks": [
       "error",
@@ -63,12 +64,7 @@
     "no-underscore-dangle": "off",
     "no-nested-ternary": "off",
     "operator-linebreak": "warn",
-    "no-unused-vars": [
-      "error",
-      {
-        "args": "none"
-      }
-    ],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }],
     "no-console": [
       "warn",
       {
@@ -128,12 +124,12 @@
     "react/prop-types": "off",
     "react/no-string-refs": "warn",
     "react/jsx-indent": [
-      "error",
-      2
+      "off",
+      "tab"
     ],
     "react/jsx-indent-props": [
-      "error",
-      2
+      "off",
+      "tab"
     ],
     "react/no-unused-state": "warn",
     "react/jsx-props-no-spreading": "off",

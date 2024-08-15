@@ -39,5 +39,5 @@ const LocaleFlag = styled(MenuItem)<StyledProps>`
 `;
 
 export default {
-  LocaleFormControl, LocaleSelect, LocaleOptionItem, LocaleLangLabel, LocaleFlag
+	LocaleFormControl, LocaleSelect, LocaleOptionItem, LocaleLangLabel, LocaleFlag
 };

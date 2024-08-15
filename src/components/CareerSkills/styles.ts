@@ -23,5 +23,5 @@ const ListContainer = styled('div')`
 `;
 
 export default {
-  Wrapper, Content, Heading, ListContainer
+	Wrapper, Content, Heading, ListContainer
 };

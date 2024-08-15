@@ -17,30 +17,30 @@ interface Props extends StyledProps {
 }
 
 const CustomButton = ({
-  children, type, anchor, target, isloading, isdisabled, callback, beforeIcon, afterIcon, bold
+	children, type, anchor, target, isloading, isdisabled, callback, beforeIcon, afterIcon, bold
 }: Props) => {
   
-  const ButtonComponent = (
-    <Styled.Btn
-      type={type ?? 'button'}
-      isloading={isloading}
-      isdisabled={isdisabled}
-      onClick={callback}
-      startIcon={beforeIcon}
-      endIcon={afterIcon}
-      bold={bold}
-    >
-      {children}
-    </Styled.Btn>
-  );
+	const ButtonComponent = (
+		<Styled.Btn
+			type={type ?? 'button'}
+			isloading={isloading}
+			isdisabled={isdisabled}
+			onClick={callback}
+			startIcon={beforeIcon}
+			endIcon={afterIcon}
+			bold={bold}
+		>
+			{children}
+		</Styled.Btn>
+	);
   
-  if (!anchor) return ButtonComponent;
+	if (!anchor) return ButtonComponent;
   
-  return (
-    <AppLink href={anchor} target={target}>
-      {ButtonComponent}
-    </AppLink>
-  );
+	return (
+		<AppLink href={anchor} target={target}>
+			{ButtonComponent}
+		</AppLink>
+	);
 };
 
 export default CustomButton;

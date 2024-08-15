@@ -7,13 +7,13 @@ interface Props {
 }
 
 const HeaderTopBanner = ({ data }: Props) => {
-  return (
-    <Styled.HeaderTopBannerWrapper>
-      <Styled.HeaderTopBannerContainer>
-        <Styled.TopBannerContent>{data.text}</Styled.TopBannerContent>
-      </Styled.HeaderTopBannerContainer>
-    </Styled.HeaderTopBannerWrapper>
-  );
+	return (
+		<Styled.HeaderTopBannerWrapper>
+			<Styled.HeaderTopBannerContainer>
+				<Styled.TopBannerContent>{data.text}</Styled.TopBannerContent>
+			</Styled.HeaderTopBannerContainer>
+		</Styled.HeaderTopBannerWrapper>
+	);
 };
 
 export default HeaderTopBanner;

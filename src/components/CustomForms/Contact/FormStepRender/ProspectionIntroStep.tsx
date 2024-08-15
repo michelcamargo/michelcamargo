@@ -9,19 +9,19 @@ interface Props {
 }
 
 const ProspectionIntroStep = ({ formProps }: Props) => {
-  return (
-    <InputField.FieldTextArea
-      id="message"
-      key="message"
-      name="message"
-      value={formProps.values.message}
-      onBlur={formProps.handleBlur}
-      errors={formProps.errors.message}
-      height={80}
-      fullWidth
-      onChange={formProps.handleChange}
-    />
-  );
+	return (
+		<InputField.FieldTextArea
+			id="message"
+			key="message"
+			name="message"
+			value={formProps.values.message}
+			onBlur={formProps.handleBlur}
+			errors={formProps.errors.message}
+			height={80}
+			fullWidth
+			onChange={formProps.handleChange}
+		/>
+	);
 };
 
 export default ProspectionIntroStep;

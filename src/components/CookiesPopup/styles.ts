@@ -26,44 +26,44 @@ const DisclaimerText = styled(Typography)<StyledProps>`
 `;
 
 export const generalStyle = {
-  display: 'block',
-  right: 0,
-  height: 'auto',
-  backgroundColor: 'transparent',
-  backgroundImage: `url(${UnicodeBg.src})`,
-  backgroundSize: 'cover',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center center',
-  color: '#FFFFFF',
-  width: '512px',
-  marginLeft: 'auto',
-  padding: '16px',
+	display: 'block',
+	right: 0,
+	height: 'auto',
+	backgroundColor: 'transparent',
+	backgroundImage: `url(${UnicodeBg.src})`,
+	backgroundSize: 'cover',
+	backgroundRepeat: 'no-repeat',
+	backgroundPosition: 'center center',
+	color: '#FFFFFF',
+	width: '512px',
+	marginLeft: 'auto',
+	padding: '16px',
 };
 
 export const contentStyle = {
-  display: 'block',
-  padding: 0,
-  height: 'auto',
-  flex: 1,
+	display: 'block',
+	padding: 0,
+	height: 'auto',
+	flex: 1,
 };
 
 export const acceptBtnStyle = {
-  borderRadius: '4px',
-  background: 'none',
-  color: 'white',
-  fontWeight: 'bold',
-  padding: 0,
-  textDecoration: 'underline white'
+	borderRadius: '4px',
+	background: 'none',
+	color: 'white',
+	fontWeight: 'bold',
+	padding: 0,
+	textDecoration: 'underline white'
 };
 
 export const refuseBtnStyle = {
-  background: 'black',
-  borderRadius: '4px',
-  fontWeight: 'bold',
+	background: 'black',
+	borderRadius: '4px',
+	fontWeight: 'bold',
 };
 
 export default {
-  DisclaimerText,
-  DisclaimerContainer,
-  DisclaimerFragment
+	DisclaimerText,
+	DisclaimerContainer,
+	DisclaimerFragment
 };

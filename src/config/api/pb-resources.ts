@@ -11,69 +11,70 @@ class PBResourcesApi {
   private axiosInstance: AxiosInstance;
   
   constructor(options?: AxiosRequestConfig) {
-    this.axiosInstance = axios.create({
-      baseURL: `${this.apiUrl}/`,
-      responseType: "json",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      ...options,
-    });
-    
-    this.axiosInstance.interceptors.request.use(
-      config => {
-        const token = typeof window !== 'undefined' ? localStorage.getItem("APP_USER_SESSION_KEY") : null;
-        if (token) {
-          config.headers["Authorization"] = `Bearer ${token}`;
-        }
-        return config;
-      },
-      error => Promise.reject(error)
-    );
+  	this.axiosInstance = axios.create({
+  		baseURL: `${this.apiUrl}/`,
+  		responseType: "json",
+  		headers: {
+			  "Content-Type": "application/json",
+  		},
+  		...options,
+  	});
+   
+  	this.axiosInstance.interceptors.request.use(
+  		config => {
+  			const token = typeof window !== 'undefined' ? localStorage.getItem("APP_USER_SESSION_KEY") : null;
+  			if (token) {
+  				config.headers["Authorization"] = `Bearer ${token}`;
+  			}
+  			return config;
+  		},
+  		error => Promise.reject(error)
+  	);
   }
   
   static getInstance(options?: AxiosRequestConfig) {
-    if (!PBResourcesApi.instance) {
-      PBResourcesApi.instance = new PBResourcesApi(options);
-    }
-    return PBResourcesApi.instance;
+  	if (!PBResourcesApi.instance) {
+  		PBResourcesApi.instance = new PBResourcesApi(options);
+  	}
+  	return PBResourcesApi.instance;
   }
   
   async post<T = any, R = AxiosResponse<T>>(path: string, data?: any): Promise<R> {
-    try {
-      const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
-      return response as R;
-    } catch (error) {
-      handleRequestError(error);
-      throw error;
-    }
+  	try {
+  		const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
+  		return response as R;
+  	} catch (error) {
+  		handleRequestError(error);
+  		throw error;
+  	}
   }
+	
+	 async get<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
+  	try {
+  		const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
+  			path,
+			  { params },
+  		);
+    
+  		return response as R;
+  	} catch (error) {
+  		handleRequestError(error);
+  		throw error;
+  	}
+  }
+	
+	// async delete<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
+	// 	try {
+	// 		const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(
+	// 			path, { params },
+	// 		);
+	// 		return response as R;
+	// 	} catch (error) {
+	// 		handleRequestError(error);
+	// 		throw error;
+	// 	}
+	// }
 
-  async get<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
-    try {
-      const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
-        path, { params },
-      );
-      
-      return response as R;
-    } catch (error) {
-      handleRequestError(error);
-      throw error;
-    }
-  }
-
-  async delete<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
-    try {
-      const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(
-        path, { params },
-      );
-      return response as R;
-    } catch (error) {
-      handleRequestError(error);
-      throw error;
-    }
-  }
-  
 }
 
 export default PBResourcesApi;

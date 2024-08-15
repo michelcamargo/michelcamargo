@@ -24,7 +24,7 @@ const DisclaimerText = styled(Typography)<StyledProps>`
 `;
 
 export default {
-  Wrapper,
-  Content,
-  DisclaimerText,
+	Wrapper,
+	Content,
+	DisclaimerText,
 };

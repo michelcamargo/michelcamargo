@@ -6,8 +6,8 @@ import { useEffect } from 'react';
  */
 /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
 const useDidUpdate = (callback: () => void, inputs: any[]) => {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(callback, inputs);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	useEffect(callback, inputs);
 };
 
 export default useDidUpdate;

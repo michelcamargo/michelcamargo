@@ -58,12 +58,12 @@ const RightContainer = styled('div')<StyledProps>`
 `;
 
 export default {
-  HeaderWrapper,
-  HeaderOverlayBlur,
-  HeaderContainer,
-  TopContainer,
-  MidContainer,
-  BottomContainer,
-  LeftContainer,
-  RightContainer,
+	HeaderWrapper,
+	HeaderOverlayBlur,
+	HeaderContainer,
+	TopContainer,
+	MidContainer,
+	BottomContainer,
+	LeftContainer,
+	RightContainer,
 };

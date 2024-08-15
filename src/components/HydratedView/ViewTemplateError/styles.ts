@@ -9,11 +9,11 @@ const DisclaimerMessage = styled(Typography)``;
 const UserActionPanel = styled(Box)``;
 
 export default {
-  Wrapper,
-  TopRow,
-  BottomRow,
-  DefaultMessage,
-  ErrorLabelMessage,
-  DisclaimerMessage,
-  UserActionPanel,
+	Wrapper,
+	TopRow,
+	BottomRow,
+	DefaultMessage,
+	ErrorLabelMessage,
+	DisclaimerMessage,
+	UserActionPanel,
 };

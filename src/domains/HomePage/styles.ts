@@ -36,8 +36,8 @@ const Intro = styled("div")<StyledProps>`
 `;
 
 export default {
-  ActionPanel,
-  PageWrapper,
-  SessionContainer,
-  Intro
+	ActionPanel,
+	PageWrapper,
+	SessionContainer,
+	Intro
 };

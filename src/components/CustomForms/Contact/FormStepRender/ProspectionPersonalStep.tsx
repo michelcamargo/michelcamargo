@@ -10,31 +10,31 @@ interface Props {
 }
 
 const ProspectionPersonalStep = ({ formProps }: Props) => {
-  return (
-    <Styled.InputField key={'personal'}>
-      <InputField.FieldText
-        id="Nome"
-        label="Nome"
-        key="name"
-        name="name"
-        fullWidth
-        value={formProps.values.name}
-        onChange={formProps.handleChange}
-        errors={formProps.errors.name}
-      />
-      <InputField.FieldText
-        id="Email"
-        label="Email"
-        key="email"
-        type="email"
-        name="email"
-        fullWidth
-        value={formProps.values.email}
-        onChange={formProps.handleChange}
-        errors={formProps.errors.email}
-      />
-    </Styled.InputField>
-  );
+	return (
+		<Styled.InputField key={'personal'}>
+			<InputField.FieldText
+				id="Nome"
+				label="Nome"
+				key="name"
+				name="name"
+				fullWidth
+				value={formProps.values.name}
+				onChange={formProps.handleChange}
+				errors={formProps.errors.name}
+			/>
+			<InputField.FieldText
+				id="Email"
+				label="Email"
+				key="email"
+				type="email"
+				name="email"
+				fullWidth
+				value={formProps.values.email}
+				onChange={formProps.handleChange}
+				errors={formProps.errors.email}
+			/>
+		</Styled.InputField>
+	);
 };
 
 export default ProspectionPersonalStep;

@@ -1,16 +1,25 @@
+import ResourcesConfig from "@/config/resources.config";
 import CustomContent from "@/helpers/content.helper";
-import ContentService from "@/services/content.service";
+import fetcher from "@/helpers/fetcher";
+import { LocaleLanguages } from "@/helpers/locale";
+import useSWR from "swr";
 
-export default function useDataHooks (keys: string[] = ['header','footer']) {
-  const { data: header, error: errorHeader, isLoading: isFetchingHeader } = ContentService.fetchSWRTemplate(keys[0]);
-  const { data: footer, error: errorFooter, isLoading: isFetchingFooter } = ContentService.fetchSWRTemplate(keys[1]);
+export default function useDataHooks (language = LocaleLanguages.en) {
+	const { apiUrl } = ResourcesConfig;
   
-  return {
-    dataHooks: {
-      header: header ? new CustomContent(header) : undefined,
-      footer: footer ? new CustomContent(footer) : undefined,
-    },
-    isDataHooksLoading: Boolean(isFetchingHeader || isFetchingFooter),
-    dataHooksError: Boolean(errorHeader || errorFooter)
-  };
+	const {
+		data: header, error: headerError, isLoading: isHeaderFetching
+	} = useSWR(`${apiUrl}/content/template/${'header'}?lang=${language}`, fetcher);
+	const {
+		data: footer, error: footerError, isLoading: isFooterFetching
+	} = useSWR(`${apiUrl}/content/template/${'footer'}?lang=${language}`, fetcher);
+  
+	return {
+		dataHooks: {
+			header: header ? new CustomContent(header) : undefined,
+			footer: footer ? new CustomContent(footer) : undefined,
+		},
+		isDataHooksLoading: Boolean(isHeaderFetching || isFooterFetching),
+		dataHooksError: Boolean(headerError || footerError)
+	};
 }

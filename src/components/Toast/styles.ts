@@ -41,8 +41,8 @@ const InfoHeader = styled(Box)`
 `;
 
 export default {
-  HeadingMessage, HeadingSubtitle, BodyDescription,
-  ErrorWrapper, ErrorHeader,
-  SuccessWrapper, SuccessHeader,
-  InfoWrapper, InfoHeader,
+	HeadingMessage, HeadingSubtitle, BodyDescription,
+	ErrorWrapper, ErrorHeader,
+	SuccessWrapper, SuccessHeader,
+	InfoWrapper, InfoHeader,
 };

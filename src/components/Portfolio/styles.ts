@@ -13,5 +13,5 @@ const PortfolioList = styled(Box)<StyledProps>`
 `;
 
 export default {
-  PortfolioList,
+	PortfolioList,
 };

@@ -25,9 +25,9 @@ const CaseDescription = styled('p')<Props>`
 `;
 
 export default {
-  PortfolioCaseWrapper,
-  PortfolioCaseContent,
-  CaseBrandName,
-  CaseTitle,
-  CaseDescription,
+	PortfolioCaseWrapper,
+	PortfolioCaseContent,
+	CaseBrandName,
+	CaseTitle,
+	CaseDescription,
 };

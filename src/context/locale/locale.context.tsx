@@ -13,30 +13,30 @@ const DEFAULT_LOCALE = 'ptBR';
 export const LocaleContext = createContext<CustomContext<LocaleConfig>>(null);
 
 const LocaleContextProvider = ({ children }: LocaleContextProviderProps) => {
-  const [currentLanguage, setCurrentLanguage] = useState<LanguageType>(() => {
-    if (typeof window !== "undefined") {
-      const savedLocale = cookie.get('locale') as LanguageType || localStorage.getItem('locale') as LanguageType;
+	const [currentLanguage, setCurrentLanguage] = useState<LanguageType>(() => {
+		if (typeof window !== "undefined") {
+			const savedLocale = cookie.get('locale') as LanguageType || localStorage.getItem('locale') as LanguageType;
       
-      return savedLocale ? savedLocale : DEFAULT_LOCALE;
-    } else {
-      return DEFAULT_LOCALE;
-    }
-  });
+			return savedLocale ? savedLocale : DEFAULT_LOCALE;
+		} else {
+			return DEFAULT_LOCALE;
+		}
+	});
   
-  useEffect(() => {
-    localStorage.setItem("locale", JSON.stringify(currentLanguage));
-    cookie.set('locale', currentLanguage, { expires: 365 });
-  }, [currentLanguage]);
+	useEffect(() => {
+		localStorage.setItem("locale", JSON.stringify(currentLanguage));
+		cookie.set('locale', currentLanguage, { expires: 365 });
+	}, [currentLanguage]);
   
-  const localeContext = useMemo<CustomContext<LocaleConfig>>(() => ({
-    value: currentLanguage, setValue: setCurrentLanguage
-  }), [currentLanguage]);
+	const localeContext = useMemo<CustomContext<LocaleConfig>>(() => ({
+		value: currentLanguage, setValue: setCurrentLanguage
+	}), [currentLanguage]);
   
-  return (
-    <LocaleContext.Provider value={localeContext}>
-      {children}
-    </LocaleContext.Provider>
-  );
+	return (
+		<LocaleContext.Provider value={localeContext}>
+			{children}
+		</LocaleContext.Provider>
+	);
 };
 
 export default LocaleContextProvider;

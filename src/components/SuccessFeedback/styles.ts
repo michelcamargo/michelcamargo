@@ -18,5 +18,5 @@ const FormSuccessText = styled(Typography)`
 `;
 
 export default {
-  FormSuccess, FormSuccessContent, FormSuccessText
+	FormSuccess, FormSuccessContent, FormSuccessText
 };
