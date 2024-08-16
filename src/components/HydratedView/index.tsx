@@ -26,6 +26,7 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
 		if (!data) {
 			return {
 				meta,
+				data: null
 			};
 		}
 		
