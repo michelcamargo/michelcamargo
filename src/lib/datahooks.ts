@@ -13,7 +13,7 @@ export type PageMetadata = {
 export type ServerViewProps<T = CustomContentType> = {
   meta: PageMetadata,
   content: {
-    sessions: T
+    sessions: T | null
   }
 };
 
