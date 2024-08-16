@@ -1,10 +1,10 @@
 import React, { useMemo } from "react";
 
 import BriefPresentation from "@/components/BriefPresentation";
-import CareerSkills from "@/components/CareerSkills";
-// import HeroComponent from "@/components/HeroComponent";
+// import CareerSkills from "@/components/CareerSkills";
+import HeroComponent from "@/components/HeroComponent";
 import LoadingFeedback from "@/components/LoadingFeedback";
-// import SocialPresentation from "@/components/SocialPresentation";
+import SocialPresentation from "@/components/SocialPresentation";
 import { CustomNextPage } from "@/lib/layout";
 
 import ContactForm from "../../components/CustomForms/Contact";
@@ -29,25 +29,25 @@ const HomePage: CustomNextPage = ({ data }) => {
 	return (
 		<Styled.PageWrapper topSpacing={0} rowGap={42}>
 			<Styled.SessionContainer topSpacing={0} rowGap={16}>
-				{/*<HeroComponent data={bio} />*/}
-				{/*<SocialPresentation socialData={socialLinks} />*/}
-			</Styled.SessionContainer>
-			<Styled.SessionContainer>
-				<Styled.Intro>
-					<BriefPresentation />
-				</Styled.Intro>
+				<HeroComponent data={bio} />
+				<SocialPresentation socialData={socialLinks} />
 			</Styled.SessionContainer>
 			<Styled.SessionContainer>
 				{/*<PortfolioComponent data={portfolio} />*/}
 			</Styled.SessionContainer>
 			<Styled.SessionContainer>
-				<CareerSkills />
+				{/*<CareerSkills />*/}
 			</Styled.SessionContainer>
 			<Styled.SessionContainer>
 				<ContactForm
-					title={'Formulário'}
-					description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
+					title={'Envie uma mensagem!'}
+					description={'Será um prazer conhecê-lo!'}
 				/>
+			</Styled.SessionContainer>
+			<Styled.SessionContainer>
+				<Styled.Intro>
+					<BriefPresentation />
+				</Styled.Intro>
 			</Styled.SessionContainer>
 		</Styled.PageWrapper>
 	);
