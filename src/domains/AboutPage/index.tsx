@@ -9,7 +9,9 @@ import Styled from './styles';
 
 const AboutPage: CustomNextPage = ({ data }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
-  
+ 
+	console.log('about page sessions >>', sessions);
+	
 	const { social, about } = useMemo(() => {
 		return {
 			bio: sessions?.get?.('bio'),
@@ -17,9 +19,9 @@ const AboutPage: CustomNextPage = ({ data }) => {
 			about: sessions?.get?.('about')
 		};
 	}, [sessions]);
-  
+ 
 	if (!sessions) return <LoadingFeedback />;
-  
+ 
 	return (
 		<Styled.PageWrapper>
 			<Styled.PageContainer>

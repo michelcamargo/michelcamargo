@@ -19,26 +19,34 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
 	const router = useRouter();
 	const RenderLayout = layout === ViewLayoutEnum.MINIMAL ? Layout.Minimal : Layout.Common;
 	const { meta, data } = useMemo(() => viewElement.props, [viewElement.props]);
-  
+ 
+	console.log('META >>', meta);
+	
 	const hydratedProps: CommonPageProps = useMemo(() => {
+		if (!data) {
+			return {
+				meta,
+			};
+		}
+		
 		const { sessions, ...customData } = data;
-    
+  
 		return {
 			meta,
 			data: {
 				sessions: sessions.length ? new CustomContent({
 					key: 'sessions',
 					children: sessions,
-				}) : [],
+				}) : null,
 				...customData,
 			}
 		};
-	}, [data]);
-  
+	}, [data, meta]);
+ 
 	if (!viewElement) {
 		return <ViewTemplateError code={'A-0'} message={'Falha ao carregar layout da página'} />;
 	}
-  
+ 
 	if (bypassServerContent || !data) {
 		return (
 			<>
@@ -56,7 +64,7 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
 			</>
 		);
 	}
-  
+ 
 	return (
 		<>
 			<HeadMetadata
