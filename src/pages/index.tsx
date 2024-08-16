@@ -12,7 +12,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
 	const cookies = cookie.parse(req.headers.cookie || '');
 	const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
-  
+ 
 	const meta = {
 		path: '/',
 		title: 'Início - Michel Camargo',
@@ -21,11 +21,16 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 		keywords: 'michelcamargo,bio,developer,freelancer,work,dev,tech',
 		locale,
 	};
-  
+ 
 	try {
+		const sessions = await ContentService.SSRFetchByKeys(['bio/bio', 'work/devstack'], locale);
+		console.log('sessions on server >>', sessions);
+		
 		return PagePropsHelper.handleServerProps(meta, context, {
-			sessions: await ContentService.SSRFetchByKeys(['bio/bio', 'work/devstack'], locale),
+			sessions
 		});
+		
+		// return PagePropsHelper.handleStaticProps(meta, context);
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

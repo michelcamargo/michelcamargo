@@ -13,7 +13,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
 	const cookies = cookie.parse(req.headers.cookie || '');
 	const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
-  
+ 
 	const meta = {
 		path: '/terms',
 		title: 'Termos de uso e políticas de privacidade',
@@ -22,11 +22,16 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 		keywords: 'terms,privacy,compliance',
 		locale,
 	};
-  
+ 
 	try {
-		return PagePropsHelper.handleServerProps(meta, context, {
-			sessions: await ContentService.SSRFetchByKeys(['legal/policies', 'legal/compliance'], locale)
-		});
+		const sessions = await ContentService.SSRFetchByKeys(['legal/policies', 'legal/compliance'], locale);
+		console.log({ sessions });
+		
+		// return PagePropsHelper.handleServerProps(meta, context, {
+		// 	sessions: await ContentService.SSRFetchByKeys(['legal/policies', 'legal/compliance'], locale)
+		// });
+		
+		return PagePropsHelper.handleStaticProps(meta, context);
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

@@ -48,7 +48,7 @@
     ],
     "max-len": [
       "warn",
-      126
+      128
     ],
     "padded-blocks": [
       "error",

@@ -11,7 +11,7 @@ import { GetStaticPropsContext } from "next";
 export const getStaticProps = async (context: GetStaticPropsContext) => {
 	const { locale: contextLocale, defaultLocale = 'ptBR' } = context;
 	const locale = contextLocale || defaultLocale;
-  
+ 
 	const meta = {
 		path: '/404',
 		title: 'Página não encontrada',
@@ -20,11 +20,16 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 		keywords: '404,not-found,freelancer,work,dev',
 		locale,
 	};
-  
+ 
 	try {
-		return PagePropsHelper.handleStaticProps(meta, context, {
-			sessions: await ContentService.SSRFetchByKeys(['general/fallback'], locale)
-		});
+		const sessions = await ContentService.SSRFetchByKeys(['general/fallback'], locale);
+		console.log({ sessions });
+		
+		// return PagePropsHelper.handleServerProps(meta, context, {
+		// 	sessions: sessions.map(item => CustomContentHelper.parseContent(item)),
+		// });
+		
+		return PagePropsHelper.handleStaticProps(meta, context);
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

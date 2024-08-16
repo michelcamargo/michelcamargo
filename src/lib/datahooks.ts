@@ -11,26 +11,31 @@ export type PageMetadata = {
 }
 
 export type ServerViewProps<T = CustomContentType> = {
-  metadata: PageMetadata,
+  meta: PageMetadata,
   content: {
-    sessions: Array<T>
+    sessions: T
   }
 };
 
-export type CommonPageProps<T = NonNullable<unknown>> = {
-  // eslint-disable-next-line no-unused-vars
-  [P in keyof T]: NonNullable<unknown>
-} & {
+// export type CommonPageProps<T = CustomContent> = {
+//   // eslint-disable-next-line no-unused-vars
+//   [P in keyof T]: CustomContent
+// } & {
+//   meta: PageMetadata,
+//   data?: PageData<T>,
+// };
+
+export type CommonPageProps<T = CustomContent> = {
   meta: PageMetadata,
-  data?: PageData<T>,
+  data: PageData<T> | null,
 };
 
-export type PageData<T = CustomContent> = {
-  // eslint-disable-next-line no-unused-vars
-  [P in keyof T]: NonNullable<unknown>
-} & {
-  sessions: T,
-} & T;
+export type PageData<T = CustomContentType> = {
+//   // eslint-disable-next-line no-unused-vars
+//   [P in keyof T]: T
+// } & {
+  sessions?: T,
+} | null;
 
 export type CustomNavItem = {
   key: string,

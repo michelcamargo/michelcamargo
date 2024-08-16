@@ -12,16 +12,16 @@ import Styled from "./styles";
 
 const PortfolioPage: CustomNextPage = ({ data, meta }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
-  
+ 
 	const { portfolio, authorInfo } = useMemo(() => {
 		return {
 			portfolio: sessions?.getChildren('portfolio'),
 			authorInfo: sessions?.getChildren('bio'),
 		};
 	}, [data]);
-  
+ 
 	if (!sessions) return <LoadingFeedback />;
-  
+ 
 	return (
 		<Styled.PageWrapper>
 			<Styled.SplitRow>

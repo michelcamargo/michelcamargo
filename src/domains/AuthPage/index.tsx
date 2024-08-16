@@ -10,15 +10,17 @@ import Styled from './styles';
 const AuthPage: CustomNextPage = ({ data }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
  
-	const {
-		heading: _heading, form: _form, buttons: _buttons
-	} = useMemo(() => {
-		return {
-			heading: sessions?.get?.('heading'),
-			form: sessions?.get?.('form'),
-			buttons: sessions?.get?.('buttons')
-		};
-	}, [sessions]);
+	console.log('auth-page sessions >>', sessions);
+	
+	// const {
+	// 	heading: _heading, form: _form, buttons: _buttons
+	// } = useMemo(() => {
+	// 	return {
+	// 		heading: sessions?.get?.('heading'),
+	// 		form: sessions?.get?.('form'),
+	// 		buttons: sessions?.get?.('buttons')
+	// 	};
+	// }, [sessions]);
  
 	if (!sessions) return <LoadingFeedback />;
  
