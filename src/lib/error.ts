@@ -20,3 +20,8 @@ export type ApiException<T> = RawException<T> & {
 	message?: string,
 	description?: string
 }
+
+export type RawErrorResponse = {
+  statusCode?: number;
+  message?: string;
+}
