@@ -3,20 +3,27 @@ import React, { cloneElement, ReactElement } from "react";
 import PortfolioAccordionContent from "@/components/Portfolio/PortfolioAccordionContent";
 import PortfolioAccordionHeading from "@/components/Portfolio/PortfolioAccordionHeading";
 import CustomContent from "@/helpers/content.helper";
+import CustomContentHelper from "@/helpers/custom-content.helper";
 import { NO_IMAGE_SRC } from "@/helpers/skeleton";
 import { CustomAccordionItem } from "@/lib/accordion";
-import { PortfolioCase, CustomImageProps, ImageDimensions, CustomContentType } from "@/lib/content";
+import { PortfolioCase, CustomImageProps, ImageDimensions } from "@/lib/content";
 import { CommonPageProps, ServerViewProps } from "@/lib/datahooks";
 import merge from "lodash.merge";
 
-const parseViewProps =  <T = CustomContentType>(viewProps: ServerViewProps, generic?: boolean) => {
-	const { metadata, content } = viewProps;
+const parseViewProps = (viewProps: ServerViewProps) => {
+	const { meta, content } = viewProps;
  
+	let sessions: Array<CustomContent> = [];
+	
+	if (content && content.sessions && content?.sessions?.children?.length) {
+		const items = content.sessions.children;
+		sessions = items.map(item => CustomContentHelper.parseContent(item));
+	}
+	
 	return {
-		title: metadata.title,
-		subtitle: metadata.description ?? undefined,
-		sessions: generic ? content.sessions as unknown as Array<T>
-			: content.sessions?.map(session => new CustomContent(session as CustomContentType)),
+		title: meta.title,
+		subtitle: meta.description ?? undefined,
+		sessions,
 	};
 };
 
