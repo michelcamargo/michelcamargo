@@ -1,5 +1,4 @@
-// import CustomContent from "@/helpers/content.helper";
-import { CommonPageProps, PageData, PageMetadata } from "@/lib/datahooks";
+import { CommonPageProps, PageMetadata } from "@/lib/datahooks";
 import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 
 interface IPageProps {
@@ -21,7 +20,7 @@ class PagePropsHelper {
 		};
 	}
 	
-	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, data?: PageData): IPageProps {
+	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, data?: object): IPageProps {
 		console.log('meta????', meta);
 		
 		return {
