@@ -1,4 +1,4 @@
-import { ApiException } from "@/lib/error";
+import { ApiException, RawErrorResponse } from "@/lib/error";
 import axios, { AxiosError, AxiosResponse } from 'axios';
 
 class ApiHelper {
@@ -38,10 +38,13 @@ class ApiHelper {
 	}
 	
 	public static handleExceptionResponseData<T>(data: T): Partial<ApiException<T>> {
-		 return {
-			 apiCode: (data && data?.statusCode) ? Number(data.statusCode) : undefined,
-			 message: (data && data?.message) ? data.message.toString() : undefined,
-		 };
+		const statusCode = (data as RawErrorResponse).statusCode;
+		const message = (data as RawErrorResponse).message;
+
+		return {
+			apiCode: statusCode ? Number(statusCode) : undefined,
+			message: message ? message.toString() : undefined,
+		};
 	}
 
 }
