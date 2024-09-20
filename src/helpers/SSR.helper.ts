@@ -10,7 +10,7 @@ class PagePropsHelper {
 	public static handleServerProps(
 		meta: PageMetadata, context: GetServerSidePropsContext, data?: object
 	): IPageProps {
-		console.log('meta????', meta);
+		console.log('SERVER:', { meta, data });
 		
 		return {
 			props: {
@@ -21,7 +21,7 @@ class PagePropsHelper {
 	}
 	
 	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, data?: object): IPageProps {
-		console.log('meta????', meta);
+		console.log('STATIC Props meta:', { meta, data });
 		
 		return {
 			props: {

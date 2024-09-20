@@ -4,13 +4,13 @@ import { ReactElement } from "react";
 import HydratedView from "@/components/HydratedView";
 import NotFoundPage from "@/domains/NotFoundPage";
 import { handleServerRequestError } from "@/helpers/error";
+import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-	const { locale: contextLocale, defaultLocale = 'ptBR' } = context;
-	const locale = contextLocale || defaultLocale;
+	const locale = LocaleHelper.getProperlyPageLocale(context);
  
 	const meta = {
 		path: '/404',
@@ -22,14 +22,14 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 	};
  
 	try {
-		const sessions = await ContentService.SSRFetchByKeys(['general/fallback'], locale);
-		console.log({ sessions });
+		const sessions = await ContentService.fetchByKeys(['general/fallback'], locale);
+		console.log('sessions', sessions);
 		
 		// return PagePropsHelper.handleServerProps(meta, context, {
 		// 	sessions: sessions.map(item => CustomContentHelper.parseContent(item)),
 		// });
 		
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleStaticProps(meta, context, { sessions });
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

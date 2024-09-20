@@ -1,27 +1,33 @@
 import PBResourcesApi from "@/config/api/pb-resources";
-// import ResourcesConfig from "@/config/resources.config";
 import CustomContent from "@/helpers/content.helper";
-// import fetcher from "@/helpers/fetcher";
 import { CustomContentType } from "@/lib/content";
-// import { SWRFetchType } from "@/lib/swr";
-// import useSWR from "swr";
+import { LanguageType } from "@/lib/locale";
 
 class ContentService {
- 
-	static async fetchByKeys(keys: string[], language = 'ptBR'): Promise<CustomContent[]> {
-		const results = await Promise.all(keys.map(key =>
-			PBResourcesApi.getInstance().get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`)
-		));
-  
-		return results.map(result => new CustomContent(result.data));
+	
+	private static async fetchContentByTag(tag: string, language: LanguageType): Promise<CustomContent | null> {
+		try {
+			const fetched = await PBResourcesApi.getInstance().get<CustomContentType>(
+				`/content/${tag}?lang=${language.toLowerCase()}`
+			);
+			
+			if (!fetched || !fetched.data) return null;
+			
+			return new CustomContent(fetched.data);
+		} catch(error) {
+			throw Error(`Não foi possível obter conteúdo pela tag ${tag}, idioma: ${language}\n ` + error);
+		}
 	}
  
-	static async SSRFetchByKeys(keys: string[], language = 'ptBR'): Promise<CustomContentType[]> {
-		const results = await Promise.all(keys.map(key =>
-			PBResourcesApi.getInstance().get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`)
-		));
-  
-		return results.map(result => result.data);
+	static async fetchByKeys(keys: string[], language: LanguageType = 'ptBR'): Promise<CustomContent[]> {
+		const contentArray: CustomContent[] = [];
+		
+		for (const tag of keys) {
+			const content = await this.fetchContentByTag(tag, language);
+			if (content) contentArray.push(content);
+		}
+		
+		return contentArray;
 	}
 
 }

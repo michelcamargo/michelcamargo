@@ -27,8 +27,8 @@ const HomePage: CustomNextPage = ({ data }) => {
 	if (!sessions) return <LoadingFeedback />;
  
 	return (
-		<Styled.PageWrapper topSpacing={0} rowGap={42}>
-			<Styled.SessionContainer topSpacing={0} rowGap={16}>
+		<Styled.PageWrapper top_spacing={0} row_gap={42}>
+			<Styled.SessionContainer top_spacing={0} row_gap={16}>
 				<HeroComponent data={bio} />
 				<SocialPresentation socialData={socialLinks} />
 			</Styled.SessionContainer>

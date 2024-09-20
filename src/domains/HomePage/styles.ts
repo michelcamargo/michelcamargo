@@ -1,9 +1,9 @@
 import { Container, styled } from "@mui/material";
 
 export type StyledProps = {
-  topSpacing?: number,
-  bottomSpacing?: number,
-  rowGap?: number,
+  top_spacing?: number,
+  bottom_spacing?: number,
+  row_gap?: number,
 }
 
 const ActionPanel = styled('div')`
@@ -14,17 +14,17 @@ const ActionPanel = styled('div')`
 const PageWrapper = styled(Container)<StyledProps>`
     display: flex;
     flex-direction: column;
-    margin-top: ${({ topSpacing }) => topSpacing ? `${topSpacing}px` : undefined};
-    margin-bottom: ${({ bottomSpacing }) => bottomSpacing ? `${bottomSpacing}px` : undefined};
-    row-gap: ${({ rowGap }) => rowGap ? `${rowGap}px` : undefined};
+    margin-top: ${({ top_spacing }) => top_spacing ? `${top_spacing}px` : undefined};
+    margin-bottom: ${({ bottom_spacing }) => bottom_spacing ? `${bottom_spacing}px` : undefined};
+    row-gap: ${({ row_gap }) => row_gap ? `${row_gap}px` : undefined};
 `;
 
 const SessionContainer = styled("div")<StyledProps>`
     display: flex;
     flex-direction: column;
-    margin-top: ${({ topSpacing }) => topSpacing ? `${topSpacing}px` : undefined};
-    margin-bottom: ${({ bottomSpacing }) => bottomSpacing ? `${bottomSpacing}px` : undefined};
-    row-gap: ${({ rowGap }) => rowGap ? `${rowGap}px` : undefined};
+    margin-top: ${({ top_spacing }) => top_spacing ? `${top_spacing}px` : undefined};
+    margin-bottom: ${({ bottom_spacing }) => bottom_spacing ? `${bottom_spacing}px` : undefined};
+    row-gap: ${({ row_gap }) => row_gap ? `${row_gap}px` : undefined};
   
 `;
 

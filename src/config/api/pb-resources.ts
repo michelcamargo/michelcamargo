@@ -11,14 +11,16 @@ class PBResourcesApi {
   private axiosInstance: AxiosInstance;
   
   constructor(options?: AxiosRequestConfig) {
-  	this.axiosInstance = axios.create({
-  		baseURL: `${this.apiUrl}/`,
-  		responseType: "json",
+  	const config = {
+  		baseURL: options?.baseURL ? options?.baseURL : `${this.apiUrl}/`,
+  		// responseType: "json",
   		headers: {
 			  "Content-Type": "application/json",
   		},
   		...options,
-  	});
+  	};
+		
+  	this.axiosInstance = axios.create(config);
    
   	this.axiosInstance.interceptors.request.use(
   		config => {
@@ -39,24 +41,24 @@ class PBResourcesApi {
   	return PBResourcesApi.instance;
   }
   
-  async post<T = any, R = AxiosResponse<T>>(path: string, data?: any): Promise<R> {
+  async post<T = any, R = AxiosResponse<T>>(path: string, data?: any): Promise<R | undefined> {
   	try {
   		const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
-  		return response as R;
+  		return response?.data ? response.data as R : undefined;
   	} catch (error) {
   		handleRequestError(error);
   		throw error;
   	}
   }
 	
-	 async get<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
+	 async get<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R | undefined> {
   	try {
   		const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
   			path,
 			  { params },
   		);
     
-  		return response as R;
+  		return response?.data ? response.data as R : undefined;
   	} catch (error) {
   		handleRequestError(error);
   		throw error;

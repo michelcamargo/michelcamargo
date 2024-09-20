@@ -2,17 +2,14 @@ import { ReactElement } from "react";
 
 import HydratedView from "@/components/HydratedView";
 import AboutPage from "@/domains/AboutPage";
-import CustomContentHelper from "@/helpers/custom-content.helper";
 import { handleServerRequestError } from "@/helpers/error";
+import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
 import ContentService from "@/services/content.service";
-import cookie from "cookie";
 import { GetServerSidePropsContext } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-	const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
-	const cookies = cookie.parse(req.headers.cookie || '');
-	const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
+	const locale = LocaleHelper.getProperlyPageLocale(context);
  
 	const meta = {
 		path: '/about',
@@ -24,12 +21,9 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		const sessions = await ContentService.SSRFetchByKeys(['bio/bio', 'work/devstack'], locale);
-		console.log({ sessions });
+		const sessions = await ContentService.fetchByKeys(['bio/bio', 'work/devstack'], locale);
 		
-		return PagePropsHelper.handleServerProps(meta, context, {
-			sessions: sessions.map(item => CustomContentHelper.parseContent(item)),
-		});
+		return PagePropsHelper.handleServerProps(meta, context, { sessions });
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

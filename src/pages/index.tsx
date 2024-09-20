@@ -3,15 +3,13 @@ import { ReactElement } from "react";
 import HydratedView from "@/components/HydratedView";
 import HomePage from "@/domains/HomePage";
 import { handleServerRequestError } from "@/helpers/error";
+import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
 import ContentService from "@/services/content.service";
-import cookie from "cookie";
 import { GetServerSidePropsContext, } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-	const { req, locale: contextLocale, defaultLocale = 'ptBR' } = context;
-	const cookies = cookie.parse(req.headers.cookie || '');
-	const locale = cookies?.locale ? decodeURIComponent(cookies.locale) : (contextLocale || defaultLocale);
+	const locale = LocaleHelper.getProperlyPageLocale(context);
  
 	const meta = {
 		path: '/',
@@ -23,7 +21,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		const sessions = await ContentService.SSRFetchByKeys(['bio/bio', 'work/devstack'], locale);
+		const sessions = await ContentService.fetchByKeys(['bio/bio', 'work/devstack'], locale);
 		console.log('sessions on server >>', sessions);
 		
 		return PagePropsHelper.handleServerProps(meta, context, {

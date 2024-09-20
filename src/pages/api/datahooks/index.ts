@@ -10,8 +10,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse ) => {
 		const { locale } = req.cookies;
 		const dataHooks = await ContentService.fetchByKeys(['template/header', 'template/footer'], locale);
     
-		console.log('dataHooks >>>>>', dataHooks);
-    
 		res.status(200).json(dataHooks);
 	}
   

@@ -19,8 +19,6 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
 	const router = useRouter();
 	const RenderLayout = layout === ViewLayoutEnum.MINIMAL ? Layout.Minimal : Layout.Common;
 	const { meta, data } = useMemo(() => viewElement.props, [viewElement.props]);
- 
-	console.log('META >>', meta);
 	
 	const hydratedProps: CommonPageProps = useMemo(() => {
 		if (!data) {
