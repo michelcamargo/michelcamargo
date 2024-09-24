@@ -6,13 +6,13 @@ import NotFoundPage from "@/domains/NotFoundPage";
 import { handleServerRequestError } from "@/helpers/error";
 import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
+import { PageMetadata } from "@/lib/datahooks";
 import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
 	const locale = LocaleHelper.getProperlyPageLocale(context);
- 
-	const meta = {
+	const meta: PageMetadata = {
 		path: '/404',
 		title: 'Página não encontrada',
 		description: 'Oops, a página não foi encontrada',
@@ -22,13 +22,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 	};
  
 	try {
-		const sessions = await ContentService.getByKeys(['general/fallback'], locale);
-		console.log('sessions', sessions);
-		
-		// return PagePropsHelper.handleServerProps(meta, context, {
-		// 	sessions: sessions.map(item => CustomContentHelper.parseContent(item)),
-		// });
-		
+		const sessions = await ContentService.getRawByKeys(['general/fallback'], locale);
 		return PagePropsHelper.handleStaticProps(meta, context, { sessions });
 	} catch (error) {
 		handleServerRequestError(error, context);

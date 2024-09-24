@@ -4,13 +4,13 @@ import HydratedView from "@/components/HydratedView";
 import UnavailablePage from "@/domains/UnavailablePage";
 import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
+import { PageMetadata } from "@/lib/datahooks";
 import { ViewLayoutEnum } from "@/lib/layout";
 import { GetStaticPropsContext } from "next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
 	const locale = LocaleHelper.getProperlyPageLocale(context);
-  
-	const meta = {
+	const meta: PageMetadata = {
 		path: '/unavailable',
 		title: 'Serviço indisponível',
 		description: 'Página não disponível no momento, por favor aguarde ou solicite suporte',

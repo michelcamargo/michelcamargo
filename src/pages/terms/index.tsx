@@ -4,15 +4,14 @@ import HydratedView from "@/components/HydratedView";
 import { handleServerRequestError } from "@/helpers/error";
 import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
-import ContentService from "@/services/content.service";
+import { PageMetadata } from "@/lib/datahooks";
 import { GetServerSidePropsContext } from "next";
 
 import PrivacyTermsPage from "../../domains/TermsPage";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
 	const locale = LocaleHelper.getProperlyPageLocale(context);
- 
-	const meta = {
+	const meta: PageMetadata = {
 		path: '/terms',
 		title: 'Termos de uso e políticas de privacidade',
 		description: 'Termos de uso e políticas de privacidade',
@@ -22,14 +21,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		const sessions = await ContentService.getByKeys(['legal/policies', 'legal/compliance'], locale);
-		console.log({ sessions });
-		
-		// return PagePropsHelper.handleServerProps(meta, context, {
-		// 	sessions: await ContentService.fetchByKeys(['legal/policies', 'legal/compliance'], locale)
-		// });
-		
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleServerProps(meta, context, ['legal/policies', 'legal/compliance']);
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

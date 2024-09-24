@@ -5,11 +5,12 @@ import HomePage from "@/domains/HomePage";
 import { handleServerRequestError } from "@/helpers/error";
 import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
+import { PageMetadata } from "@/lib/datahooks";
 import { GetServerSidePropsContext, } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
 	const locale = LocaleHelper.getProperlyPageLocale(context);
-	const meta = {
+	const meta: PageMetadata = {
 		path: '/',
 		title: 'Início - Michel Camargo',
 		description: 'Michel Camargo - web developer & UIUX designer',
