@@ -1,5 +1,6 @@
 import CustomContent from "@/helpers/content.helper";
 import { CustomBannerData, CustomContentType } from "@/lib/content";
+import { LanguageType } from "@/lib/locale";
 
 export type PageMetadata = {
   path: string,
@@ -7,7 +8,7 @@ export type PageMetadata = {
   description?: string,
   ignoreTitlePostfix?: boolean,
   keywords?: string,
-  locale: string,
+  locale: LanguageType,
 }
 
 export type ServerViewProps<T = CustomContentType> = {
@@ -17,24 +18,13 @@ export type ServerViewProps<T = CustomContentType> = {
   }
 };
 
-// export type CommonPageProps<T = CustomContent> = {
-//   // eslint-disable-next-line no-unused-vars
-//   [P in keyof T]: CustomContent
-// } & {
-//   meta: PageMetadata,
-//   data?: PageData<T>,
-// };
-
 export type CommonPageProps<T = CustomContent> = {
   meta: PageMetadata,
   data: PageData<T> | null,
 };
 
 export type PageData<T = CustomContentType> = {
-//   // eslint-disable-next-line no-unused-vars
-//   [P in keyof T]: T
-// } & {
-  sessions?: T,
+  sessions?: T[],
 } | null;
 
 export type CustomNavItem = {

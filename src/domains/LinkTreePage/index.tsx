@@ -23,11 +23,12 @@ const LinkTreeItem = ({ content, key }: { content: LinkTreeItem, key: number }) 
 
 const LinkTreePage: CustomNextPage = ({ data }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
-  
+	
 	const linkArray = useMemo(() => {
-		const links = sessions?.getChildren('links') ?? [];
-    
-		return links?.map(item => {
+		const linksA = sessions?.find?.(item => item.key === 'links');
+		const links = linksA?.getChildren() ?? [];
+		
+		return links.map(item => {
 			const [ link, label, icon ] = [
 				item.getValue('link'), item.getValue('label'), item.getValue('icon')
 			];

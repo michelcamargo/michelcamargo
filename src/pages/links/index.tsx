@@ -7,7 +7,6 @@ import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
 import { PageMetadata } from "@/lib/datahooks";
 import { ViewLayoutEnum } from "@/lib/layout";
-import ContentService from "@/services/content.service";
 import { GetServerSidePropsContext } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
@@ -22,14 +21,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		const sessions = await ContentService.fetchByKeys(['links/links', 'links/social'], locale);
-		console.log({ sessions });
-		
-		// return PagePropsHelper.handleServerProps(meta, context, {
-		// 	sessions: await ContentService.fetchByKeys(['links/links', 'links/social'], locale)
-		// });
-		
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleServerProps(meta, context, ['links/links', 'links/social']);
 	} catch (error) {
 		handleServerRequestError(error, context);
 		return PagePropsHelper.handleStaticProps(meta, context);

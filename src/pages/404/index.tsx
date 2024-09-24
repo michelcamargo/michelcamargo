@@ -22,7 +22,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 	};
  
 	try {
-		const sessions = await ContentService.fetchByKeys(['general/fallback'], locale);
+		const sessions = await ContentService.getByKeys(['general/fallback'], locale);
 		console.log('sessions', sessions);
 		
 		// return PagePropsHelper.handleServerProps(meta, context, {

@@ -26,7 +26,7 @@ const DefaultHeader = forwardRef<HTMLDivElement, Props>((
 	const { navigation, persistentBanner } = useMemo(() => {
 		const bannerInfo = dataHooks?.get('banner');
     
-		bannerInfo && console.log('bannerInfo', bannerInfo);
+		// bannerInfo && console.log('bannerInfo', bannerInfo);
     
 		const banner: CustomBannerData | undefined = bannerInfo ? {
 			heading: '',

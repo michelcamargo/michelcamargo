@@ -9,14 +9,12 @@ import Styled from './styles';
 
 const AboutPage: CustomNextPage = ({ data }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
- 
-	console.log('about page sessions >>', sessions);
 	
 	const { social, about } = useMemo(() => {
 		return {
-			bio: sessions?.get?.('bio'),
-			social: sessions?.get?.('social'),
-			about: sessions?.get?.('about')
+			bio: sessions?.find(item => item.key === 'bio'),
+			social: sessions?.find(item => item.key === 'social'),
+			about: sessions?.find(item => item.key === 'about')
 		};
 	}, [sessions]);
  

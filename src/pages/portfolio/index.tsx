@@ -21,7 +21,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		const sessions = await ContentService.fetchByKeys(
+		const sessions = await ContentService.getByKeys(
 			['bio/bio', 'work/devstack', 'work/portfolio'], locale
 		);
 		console.log({ sessions });

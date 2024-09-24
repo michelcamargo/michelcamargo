@@ -12,13 +12,13 @@ interface Props {
 const HeroComponent = ({ data }: Props) => {
 	if (!data) return <LoadingFeedback minimal />;
   
-	const [about, author, heading] = [
-		data.get('author'), data.get('heading'), data.get('about')
-	];
-  
-	console.log(about);
-	console.log(author);
-	console.log(heading);
+	// const [about, author, heading] = [
+	// 	data.get('author'), data.get('heading'), data.get('about')
+	// ];
+	//
+	// console.log(about);
+	// console.log(author);
+	// console.log(heading);
 
 	// const [name, middlename, lastname] = [
 	//   author.firstname.split(' ') ?? [''],

@@ -22,7 +22,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		const sessions = await ContentService.fetchByKeys(['general/auth'], locale);
+		const sessions = await ContentService.getByKeys(['general/auth'], locale);
 		console.log({ sessions });
 		
 		// return PagePropsHelper.handleServerProps(meta, context, {

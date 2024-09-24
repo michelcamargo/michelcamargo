@@ -1,6 +1,6 @@
 interface CustomContentType {
-  key: string;
-  value?: string | undefined;
+  key?: string;
+  value?: string;
   children?: Array<CustomContentType>;
 }
 
@@ -14,7 +14,7 @@ export default class CustomContent {
   /**
    * Conteúdo diretamente ligado à chave
    */
-  private readonly value: string | undefined;
+  private readonly value?: string;
   
   /**
    * Agrupamento interno

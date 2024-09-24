@@ -41,24 +41,24 @@ class PBResourcesApi {
   	return PBResourcesApi.instance;
   }
   
-  async post<T = any, R = AxiosResponse<T>>(path: string, data?: any): Promise<R | undefined> {
+  async post<T = any, R = T>(path: string, data?: any): Promise<R> {
   	try {
   		const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
-  		return response?.data ? response.data as R : undefined;
+  		return response.data as unknown as R;
   	} catch (error) {
   		handleRequestError(error);
   		throw error;
   	}
   }
 	
-	 async get<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R | undefined> {
+	 async get<T = any, R = T>(path: string, params?: any): Promise<R> {
   	try {
   		const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
   			path,
 			  { params },
   		);
     
-  		return response?.data ? response.data as R : undefined;
+  		return response.data as unknown as R;
   	} catch (error) {
   		handleRequestError(error);
   		throw error;
@@ -66,6 +66,7 @@ class PBResourcesApi {
   }
 	
 	// async delete<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
+	// async delete<T = any, R = T>(path: string, params?: any): Promise<R> {
 	// 	try {
 	// 		const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(
 	// 			path, { params },

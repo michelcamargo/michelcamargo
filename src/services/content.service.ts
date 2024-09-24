@@ -5,28 +5,31 @@ import { LanguageType } from "@/lib/locale";
 
 class ContentService {
 	
-	private static async fetchContentByTag(tag: string, language: LanguageType): Promise<CustomContent | null> {
-		try {
-			const fetched = await PBResourcesApi.getInstance().get<CustomContentType>(
-				`/content/${tag}?lang=${language.toLowerCase()}`
-			);
-			
-			if (!fetched || !fetched.data) return null;
-			
-			return new CustomContent(fetched.data);
-		} catch(error) {
-			throw Error(`Não foi possível obter conteúdo pela tag ${tag}, idioma: ${language}\n ` + error);
-		}
+	private static async fetchFromKey(key: string, language: LanguageType): Promise<CustomContentType> {
+		return await PBResourcesApi.getInstance().get<CustomContentType>(
+			`/content/${key}?lang=${language.toLowerCase()}`
+		);
 	}
- 
-	static async fetchByKeys(keys: string[], language: LanguageType = 'ptBR'): Promise<CustomContent[]> {
-		const contentArray: CustomContent[] = [];
-		
-		for (const tag of keys) {
-			const content = await this.fetchContentByTag(tag, language);
+	
+	static async getRawByKeys(tags: string[], language: LanguageType): Promise<CustomContentType[]> {
+		const contentArray: CustomContentType[] = [];
+  
+		for (const tag of tags) {
+			const content = await this.fetchFromKey(tag, language);
 			if (content) contentArray.push(content);
 		}
-		
+  
+		return contentArray;
+	}
+ 
+	static async getByKeys(tags: string[], language: LanguageType = 'ptBR'): Promise<CustomContent[]> {
+		const contentArray: CustomContent[] = [];
+    
+		for (const tag of tags) {
+			const content = await this.fetchFromKey(tag, language);
+			if (content) contentArray.push(new CustomContent(content));
+		}
+    
 		return contentArray;
 	}
 

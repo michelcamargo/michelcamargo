@@ -8,7 +8,7 @@ import errorHandler from '../error';
 const handler = async (req: NextApiRequest, res: NextApiResponse ) => {
 	if (req.method === 'GET') {
 		const { locale } = req.cookies;
-		const dataHooks = await ContentService.fetchByKeys(['template/header', 'template/footer'], locale);
+		const dataHooks = await ContentService.getByKeys(['template/header', 'template/footer'], locale);
     
 		res.status(200).json(dataHooks);
 	}
