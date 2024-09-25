@@ -6,9 +6,9 @@ export type FormFieldSet<T> = {
 	placeholder?: string
 }
 
-export enum ContactFormStep {
-	// eslint-disable-next-line no-unused-vars
-  intro = 0,
-  // eslint-disable-next-line no-unused-vars
-  personal = 1,
-}
+// export enum ContactFormStep {
+// 	// eslint-disable-next-line no-unused-vars
+//   intro = 0,
+//   // eslint-disable-next-line no-unused-vars
+//   personal = 1,
+// }

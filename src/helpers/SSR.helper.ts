@@ -12,24 +12,27 @@ class PagePropsHelper {
 	public static async handleServerProps(
 		meta: PageMetadata, context: GetServerSidePropsContext, fetchTags: string[] = []
 	): Promise<IPageProps> {
+		console.warn({ context });
+		
+		const sessions = await ContentService.getRawByKeys(fetchTags, meta.locale) ?? [];
 		
 		return {
 			props: {
 				meta,
 				data: {
-					sessions: await ContentService.getRawByKeys(fetchTags, meta.locale) ?? []
+					sessions,
 				},
 			}
 		};
 	}
 	
-	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, data?: object): IPageProps {
+	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext): IPageProps {
+		console.warn({ context });
+		
 		return {
 			props: {
 				meta,
-				data: data ?? {
-					sessions: []
-				},
+				data: {},
 			}
 		};
 	}

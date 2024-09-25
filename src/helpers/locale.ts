@@ -1,4 +1,12 @@
 export const LocaleLanguages = {
-	ptBR: 'ptBR',
-	en: 'en'
+	ptBR: {
+		label: 'Brazilian-Portuguese',
+		localeLanguage: 'Português',
+		value: 'ptBR'
+	},
+	en: {
+		label: 'English',
+		localeLanguage: 'English',
+		value: 'en'
+	},
 };

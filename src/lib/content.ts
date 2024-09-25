@@ -14,6 +14,9 @@ export type CustomContentType = {
   key: string,
   value?: string,
   children?: Array<CustomContentType>,
+  details?: string,
+  created_at?: string,
+  updated_at?: string,
 }
 
 export type CustomIcon = {

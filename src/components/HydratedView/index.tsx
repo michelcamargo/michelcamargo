@@ -3,7 +3,7 @@ import React, { ReactElement, useMemo } from 'react';
 import ViewTemplateError from "@/components/HydratedView/ViewTemplateError";
 import Layout from "@/components/layout";
 import AppConfig from "@/config/next.config";
-import CustomContent from "@/helpers/content.helper";
+import CustomContentHelper from "@/helpers/custom-content.helper";
 import { CommonPageProps } from "@/lib/datahooks";
 import { ViewLayoutEnum } from "@/lib/layout";
 import HeadMetadata from "@/pages/_head";
@@ -33,10 +33,7 @@ const HydratedView = ({ viewElement, layout, bypassServerContent }: Props) => {
 		return {
 			meta,
 			data: {
-				sessions: sessions.length ? new CustomContent({
-					key: 'sessions',
-					children: sessions,
-				}) : null,
+				sessions: CustomContentHelper.parseContent(sessions),
 				...customData,
 			}
 		};

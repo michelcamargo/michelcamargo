@@ -11,7 +11,9 @@ class ContentService {
 		);
 	}
 	
-	static async getRawByKeys(tags: string[], language: LanguageType): Promise<CustomContentType[]> {
+	static async getRawByKeys(
+		tags: string[], groupName = tags.join('--'), language: LanguageType = 'ptBR'
+	): Promise<CustomContentType> {
 		const contentArray: CustomContentType[] = [];
   
 		for (const tag of tags) {
@@ -19,18 +21,32 @@ class ContentService {
 			if (content) contentArray.push(content);
 		}
   
-		return contentArray;
+		return {
+			key: groupName,
+			children: contentArray,
+			details: `tags:${groupName}`,
+			created_at: new Date().toUTCString(),
+			updated_at: new Date().toUTCString(),
+		};
 	}
  
-	static async getByKeys(tags: string[], language: LanguageType = 'ptBR'): Promise<CustomContent[]> {
+	static async getByKeys(
+		tags: string[], groupName = tags.join('--'), language: LanguageType = 'ptBR'
+	): Promise<CustomContent> {
 		const contentArray: CustomContent[] = [];
-    
+  
 		for (const tag of tags) {
 			const content = await this.fetchFromKey(tag, language);
 			if (content) contentArray.push(new CustomContent(content));
 		}
-    
-		return contentArray;
+		
+		return new CustomContent({
+			key: groupName,
+			children: contentArray,
+			details: `keys:${groupName}`,
+			created_at: new Date().toUTCString(),
+			updated_at: new Date().toUTCString(),
+		});
 	}
 
 }

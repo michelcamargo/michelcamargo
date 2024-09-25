@@ -1,7 +1,11 @@
+import { useCallback, useState } from "react";
+
+import FormStepRender from "@/components/CustomForms/Contact/FormStepRender";
+import FormStepper from "@/components/FormStepper";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import SuccessFeedback from "@/components/SuccessFeedback";
 import { showErrorByCode } from "@/helpers/error";
-import { CustomerProfile, CustomerLead } from "@/lib/customer";
+import { CustomerLead, CustomerProfile } from "@/lib/customer";
 // import { ContactFormStep } from "@/lib/form";
 import CustomerService from "@/services/customer.service";
 import { Formik, FormikHelpers, FormikValues } from "formik";
@@ -19,10 +23,11 @@ interface Props {
 }
 
 const ContactForm = ({ callbackHandler, title, description }: Props) => {
- 
 	// const queryClient = useQueryClient();
 	// const [currentStep, setCurrentStep] = useState<ContactFormStep>(ContactFormStep.intro);
  
+	const [currentStep, setCurrentStep] = useState<number>(0);
+	
 	const initialValues: CustomerLead = {
 		name: '',
 		email: '',
@@ -61,11 +66,8 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
 		}
   
 		const prospectedCustomer = values as CustomerLead;
-  
 		mutateProspection(prospectedCustomer);
-  
 		actions.resetForm();
-  
 		return;
 	};
  
@@ -82,10 +84,10 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
 		});
 	};
  
-	// const formStepHandler = useCallback((step: ContactFormStep) => {
-	//   console.log({ currentStep });
-	//   setCurrentStep(step);
-	// }, []);
+	const formStepHandler = useCallback((step: number) => {
+	  // console.log({ currentStep });
+	  setCurrentStep(step);
+	}, []);
  
 	if (isSendingContact) return <LoadingFeedback heading={'Enviando formulário'} minimal />;
 	if (isContactSent) return <SuccessFeedback label={'Obrigado pelo contato, nos vemos em breve!'} />;
@@ -111,13 +113,13 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
 				{ props => (
 					<form onSubmit={props.handleSubmit}>
 						<Styled.FormBody>
-							{/*<FormStepper<ContactFormStep>*/}
-							{/*  availableSteps={[ContactFormStep.intro, ContactFormStep.personal]}*/}
-							{/*  currentStep={currentStep}*/}
-							{/*  stepChanger={formStepHandler}*/}
-							{/*>*/}
-							{/*  <FormStepRender step={currentStep} formProps={props} />*/}
-							{/*</FormStepper>*/}
+							<FormStepper<number>
+							  availableSteps={[0, 1]}
+							  stepChanger={formStepHandler}
+							  currentIndex={currentStep}
+							>
+							  <FormStepRender step={currentStep} formProps={props} />
+							</FormStepper>
 						</Styled.FormBody>
 					</form>
 				) }

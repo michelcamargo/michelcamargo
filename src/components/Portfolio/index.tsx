@@ -8,15 +8,15 @@ import hydration from "@/helpers/hydration";
 import { CustomAccordionItem } from "@/lib/accordion";
 
 interface Props {
-	data?: Array<CustomContent>
+	data?: CustomContent
 }
 
 const PortfolioComponent = ({ data }: Props) => {
-	if (!data || !data?.length) {
-		return <p>NO PORTFOLIO ITEMS</p>;
+	if (!data) {
+		return <></>;
 	}
   
-	const accordionPortfolio = data.map(
+	const accordionPortfolio = data.getChildren().map(
 		caseItem => hydration.portfolioToAccordion(
 			caseItem,
 			{ width: 240, height: 42 },

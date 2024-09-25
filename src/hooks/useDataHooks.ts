@@ -4,7 +4,7 @@ import fetcher from "@/helpers/fetcher";
 import { LocaleLanguages } from "@/helpers/locale";
 import useSWR from "swr";
 
-export default function useDataHooks (language = LocaleLanguages.en) {
+export default function useDataHooks (language = LocaleLanguages.en.value) {
 	const { apiUrl } = ResourcesConfig;
   
 	const {

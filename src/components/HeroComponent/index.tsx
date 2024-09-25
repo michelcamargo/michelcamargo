@@ -2,6 +2,7 @@ import React from 'react';
 
 import LoadingFeedback from "@/components/LoadingFeedback";
 import CustomContent from "@/helpers/content.helper";
+// import CustomContentHelper from "@/helpers/custom-content.helper";
 
 import Styled from "./styles";
 
@@ -10,18 +11,20 @@ interface Props {
 }
 
 const HeroComponent = ({ data }: Props) => {
-	if (!data) return <LoadingFeedback minimal />;
-  
-	// const [about, author, heading] = [
-	// 	data.get('author'), data.get('heading'), data.get('about')
-	// ];
+	// const { about, author, heading } = useMemo(() => {
+	// 	if (!data) return { about: undefined, author: undefined, heading: undefined };
 	//
-	// console.log(about);
-	// console.log(author);
-	// console.log(heading);
+	// 	return {
+	// 		author: data.get('author'),
+	// 		heading: data.get('heading'),
+	// 		about: data.get('about')
+	// 	};
+	// }, [data]);
+	
+	if (!data) return <LoadingFeedback minimal />;
 
 	// const [name, middlename, lastname] = [
-	//   author.firstname.split(' ') ?? [''],
+	//   CustomContentHelper.parseToObject(author).firstName.split(' ') ?? [''],
 	//   author.middlename.split(' ') ?? [''],
 	//   author.lastname.split(' ') ?? ['']
 	// ];
@@ -31,14 +34,21 @@ const HeroComponent = ({ data }: Props) => {
 	return (
 		<Styled.HeroContainer>
 			<Styled.HeroAuthor>
+				<Styled.HeroAuthorFirstname>{'Michel'}</Styled.HeroAuthorFirstname>
 				{/*<Styled.HeroAuthorFirstname>{name}</Styled.HeroAuthorFirstname>*/}
+				<Styled.HeroAuthorMiddlename>{'de Souza' + ' '}</Styled.HeroAuthorMiddlename>
 				{/*<Styled.HeroAuthorMiddlename>{middlename + ' '}</Styled.HeroAuthorMiddlename>*/}
+				<Styled.HeroAuthorLastname>{'Camargo'}</Styled.HeroAuthorLastname>
 				{/*<Styled.HeroAuthorLastname>{lastname}</Styled.HeroAuthorLastname>*/}
 			</Styled.HeroAuthor>
 			<Styled.HeroSubHeading>
+				<Styled.HeroSubHeadingText>{'Prazer em apresentar interfaces'}</Styled.HeroSubHeadingText>
 				{/*<Styled.HeroSubHeadingText>{subHeading}</Styled.HeroSubHeadingText>*/}
 			</Styled.HeroSubHeading>
 			<Styled.HeroDescription>
+				<Styled.HeroDescriptionText>
+					{'Minha missão é aprimorar a experiência das pessoas em contato com a tecnologia do dia-a-dia'}
+				</Styled.HeroDescriptionText>
 				{/*<Styled.HeroDescriptionText>{description}</Styled.HeroDescriptionText>*/}
 			</Styled.HeroDescription>
 		</Styled.HeroContainer>

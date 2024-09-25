@@ -18,7 +18,7 @@ const PortfolioPage: CustomNextPage = ({ data, meta }) => {
 			portfolio: sessions?.getChildren('portfolio'),
 			authorInfo: sessions?.getChildren('bio'),
 		};
-	}, [data]);
+	}, [sessions]);
  
 	if (!sessions) return <LoadingFeedback />;
  

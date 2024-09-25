@@ -14,16 +14,17 @@ interface Props<T> {
 }
 
 const FormStepper = <T,>({ children, currentIndex, stepChanger, availableSteps }: Props<T>) => {
-	
 	const goFowardHandler = useCallback(() => {
 		// const nextStep = availableSteps[(Number(currentIndex) + 1)] as T;
 		stepChanger(currentIndex + 1);
-	}, [stepChanger, availableSteps, currentIndex]);
+	// }, [stepChanger, availableSteps, currentIndex]);
+	}, [stepChanger, currentIndex]);
 	
 	const goBackHandler = useCallback(() => {
 		// const previousStep = availableSteps[Number(currentIndex) - 1] as T;
 		stepChanger(currentIndex - 1);
-	}, [stepChanger, availableSteps, currentIndex]);
+	// }, [stepChanger, availableSteps, currentIndex]);
+	}, [stepChanger, currentIndex]);
 	
 	return (
 		<>

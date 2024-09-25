@@ -18,14 +18,14 @@ export type ServerViewProps<T = CustomContentType> = {
   }
 };
 
+export type PageData<T = CustomContent> = {
+  sessions?: T,
+};
+
 export type CommonPageProps<T = CustomContent> = {
   meta: PageMetadata,
   data: PageData<T> | null,
 };
-
-export type PageData<T = CustomContentType> = {
-  sessions?: T[],
-} | null;
 
 export type CustomNavItem = {
   key: string,

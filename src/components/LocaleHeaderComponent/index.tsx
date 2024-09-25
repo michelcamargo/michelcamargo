@@ -16,6 +16,7 @@ interface Props {
 const LocaleHeaderComponent = ({ locale }: Props) => {
 	const router = useRouter();
 	const { pathname, asPath, query } = router;
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { locale: _language, setLocale: setContextLocale } = useLocaleContext();
  
 	/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
@@ -39,13 +40,13 @@ const LocaleHeaderComponent = ({ locale }: Props) => {
 				value={locale}
 				onChange={contextLocaleChangeHandler}
 			>
-				<Styled.LocaleOptionItem value={LocaleLanguages.en}>
+				<Styled.LocaleOptionItem value={LocaleLanguages.en.value}>
 					<LocaleLangFlag />
-					<Styled.LocaleLangLabel>English</Styled.LocaleLangLabel>
+					<Styled.LocaleLangLabel>{LocaleLanguages.en.label}</Styled.LocaleLangLabel>
 				</Styled.LocaleOptionItem>
-				<Styled.LocaleOptionItem value={LocaleLanguages.ptBR}>
+				<Styled.LocaleOptionItem value={LocaleLanguages.ptBR.value}>
 					<LocaleLangFlag />
-					<Styled.LocaleLangLabel>Português</Styled.LocaleLangLabel>
+					<Styled.LocaleLangLabel>{LocaleLanguages.ptBR.label}</Styled.LocaleLangLabel>
 				</Styled.LocaleOptionItem>
 			</Styled.LocaleSelect>
 		</Styled.LocaleFormControl>
