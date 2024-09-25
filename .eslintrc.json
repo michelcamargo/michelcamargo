@@ -64,7 +64,7 @@
     "no-underscore-dangle": "off",
     "no-nested-ternary": "off",
     "operator-linebreak": "warn",
-    "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
     "no-console": [
       "warn",
       {

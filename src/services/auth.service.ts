@@ -1,7 +1,7 @@
 import Toast from "@/components/Toast";
 import PBAuthApi from "@/config/api/pb-auth";
 import I8n from "@/config/i8n";
-import { AuthCredentials, AuthSignInDto } from "@/lib/auth";
+import { AuthCredentials, AuthenticatedProfile, AuthSignInDto } from "@/lib/auth";
 import { ApiException } from "@/lib/error";
 import { AuthUser } from "@/lib/user";
 
@@ -23,14 +23,12 @@ class AuthService {
 		}
 	}
  
-	static async signIn(userDTO: AuthSignInDto): Promise<AuthCredentials> {
+	static async signIn(userDTO: AuthSignInDto): Promise<AuthenticatedProfile> {
 		try {
-			const { data } = await this.api.post<AuthCredentials>(`/auth/signin`, userDTO);
-			
-			console.warn('RESPONSE SIGN IN:', data);
+			const { data } = await this.api.post<AuthenticatedProfile>(`/auth/signin`, userDTO);
 			return data;
 		} catch (err) {
-			const error = err as ApiException<AuthCredentials>;
+			const error = err as ApiException<AuthenticatedProfile>;
 			Toast.Error({
 				title: 'Falha ao validar acesso',
 				description: error.message,

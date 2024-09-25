@@ -27,6 +27,7 @@ const AuthenticationForm = () => {
 		router.push(`/auth/redirect?key=pb-dashboard&token=${token}`);
 	}, [router]);
 	
+	/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
 	const signUpHandler = useCallback((response: any) => {
 		console.warn({ response });
 	}, []);

@@ -10,7 +10,7 @@ import FormWrapper from '../../FormWrapper';
 
 type Props = {
 	// eslint-disable-next-line no-unused-vars
-  submitHandler: (values: any) => void | undefined,
+  submitHandler: (token: string) => void | undefined,
   username: string,
 }
 
@@ -19,11 +19,11 @@ const AuthSignInForm = ({ submitHandler, username }: Props) => {
 		username: username,
 		secret: '',
 	};
-
-	// eslint-disable-next-line no-unused-vars
+  
+	// eslint-disable-next-line no-unused-vars,@typescript-eslint/no-unused-vars
 	const handleSubmit = async (values: AuthSignInDto, _formikHelpers: FormikHelpers<AuthSignInDto>) => {
-		const { access_token } = await AuthService.signIn(values);
-		submitHandler(access_token);
+		const { auth } = await AuthService.signIn(values);
+		submitHandler(auth.token);
 	};
 
 	return (

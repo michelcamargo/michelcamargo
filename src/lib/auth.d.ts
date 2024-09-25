@@ -21,3 +21,13 @@ export type AuthCredentials = {
   client_id: number,
   access_token: string
 }
+
+export type AuthenticatedProfile = {
+	auth: { token: string },
+  profile: {
+    customer_id: number,
+    firstname?: string,
+    fullname: string,
+    lastname?: string,
+  }
+}
