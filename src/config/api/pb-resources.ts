@@ -8,7 +8,7 @@ class PBResourcesApi {
 
   private apiUrl = ResourcesConfig.apiUrl;
   private static instance: PBResourcesApi;
-  private axiosInstance: AxiosInstance;
+  private http: AxiosInstance;
   
   constructor(options?: AxiosRequestConfig) {
   	const config = {
@@ -20,9 +20,9 @@ class PBResourcesApi {
   		...options,
   	};
 		
-  	this.axiosInstance = axios.create(config);
+  	this.http = axios.create(config);
    
-  	this.axiosInstance.interceptors.request.use(
+  	this.http.interceptors.request.use(
   		config => {
   			const token = typeof window !== 'undefined' ? localStorage.getItem("APP_USER_SESSION_KEY") : null;
   			if (token) {
@@ -43,7 +43,7 @@ class PBResourcesApi {
   
   async post<T = any, R = T>(path: string, data?: any): Promise<R> {
   	try {
-  		const response: AxiosResponse<T> = await this.axiosInstance.post<T>(path, data);
+  		const response: AxiosResponse<T> = await this.http.post<T>(path, data);
   		return response.data as unknown as R;
   	} catch (error) {
   		handleRequestError(error);
@@ -52,23 +52,40 @@ class PBResourcesApi {
   }
 	
 	 async get<T = any, R = T>(path: string, params?: any): Promise<R> {
-  	try {
-  		const response: AxiosResponse<T> = await this.axiosInstance.get<T>(
-  			path,
-			  { params },
-  		);
-    
-  		return response.data as unknown as R;
-  	} catch (error) {
-  		handleRequestError(error);
-  		throw error;
-  	}
-  }
+	   return this.http.get<T>(path, { params }).then(
+		 fullFilled => {
+		   return fullFilled.data as unknown as R;
+		 }, error => {
+		   console.log('error tratado no then', error);
+		   throw error;
+		 }
+	   ).catch(err => {
+		 console.log('err fora do then', err);
+		 throw err;
+	   });
+	 }
+	
+  	// try {
+  	// 	// const response: AxiosResponse<T> = await this.http.get<T>(
+  	// 	// 	path,
+  	// 	//   { params },
+  	// 	// );
+	  //
+  	// 	// return response.data as unknown as R;
+	  //
+	  //  
+	  //
+  	// } catch (error) {
+  	// 	console.log('catch mais de fora ainda', error);
+  	// 	handleRequestError(error);
+  	// 	throw error;
+  	// }
+	// }
 	
 	// async delete<T = any, R = AxiosResponse<T>>(path: string, params?: any): Promise<R> {
 	// async delete<T = any, R = T>(path: string, params?: any): Promise<R> {
 	// 	try {
-	// 		const response: AxiosResponse<T> = await this.axiosInstance.delete<T>(
+	// 		const response: AxiosResponse<T> = await this.http.delete<T>(
 	// 			path, { params },
 	// 		);
 	// 		return response as R;

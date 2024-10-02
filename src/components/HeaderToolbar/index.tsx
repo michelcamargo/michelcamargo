@@ -1,5 +1,5 @@
-import LocaleHeaderComponent from "@/components/LocaleHeaderComponent";
-import useLocaleContext from "@/hooks/useLocaleContext";
+// import LocaleHeaderComponent from "@/components/LocaleHeaderComponent";
+// import useLocaleContext from "@/hooks/useLocaleContext";
 
 import Styled from './styles';
 
@@ -8,19 +8,19 @@ interface Props {
   availableLocales: string[],
 }
 
-const HeaderToolbar = ({ locale, availableLocales }: Props) => {
-	const { locale: contextLocale } = useLocaleContext();
+const HeaderToolbar = ({ locale: _locale, availableLocales: _availableLocales }: Props) => {
+	// const { locale: contextLocale } = useLocaleContext();
   
 	return (
 		<Styled.ToolbarWrapper>
 			<Styled.ToolbarContainer>
-				<div>
-					{JSON.stringify({ locale })}
-					{JSON.stringify({ contextLocale })}
-				</div>
-				<div>
-					<LocaleHeaderComponent locale={locale} availableLocales={availableLocales} />
-				</div>
+				{/*<div>*/}
+				{/*	{JSON.stringify({ locale })}*/}
+				{/*	{JSON.stringify({ contextLocale })}*/}
+				{/*</div>*/}
+				{/*<div>*/}
+				{/*	<LocaleHeaderComponent locale={locale} availableLocales={availableLocales} />*/}
+				{/*</div>*/}
 			</Styled.ToolbarContainer>
 		</Styled.ToolbarWrapper>
 	);

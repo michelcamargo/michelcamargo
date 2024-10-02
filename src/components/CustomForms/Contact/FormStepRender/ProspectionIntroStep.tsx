@@ -18,7 +18,7 @@ const ProspectionIntroStep = ({ formProps }: Props) => {
 			onBlur={formProps.handleBlur}
 			errors={formProps.errors.message}
 			height={80}
-			fullWidth
+			full_width="true"
 			onChange={formProps.handleChange}
 		/>
 	);

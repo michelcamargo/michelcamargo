@@ -5,9 +5,9 @@ import { LanguageType } from "@/lib/locale";
 export type PageMetadata = {
   path: string,
   title: string,
-  description?: string,
+  description: string,
   ignoreTitlePostfix?: boolean,
-  keywords?: string,
+  keywords: string,
   locale: LanguageType,
 }
 

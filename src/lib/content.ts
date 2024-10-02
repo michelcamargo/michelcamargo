@@ -47,7 +47,7 @@ export type PortfolioCase = {
   highlighted?: boolean,
 }
 
-export type LinkTreeItem = {
+export type LinkItemType = {
   label: string,
   link: string,
   icon?: ReactElement,

@@ -15,8 +15,8 @@ const PortfolioPage: CustomNextPage = ({ data, meta }) => {
  
 	const { portfolio, authorInfo } = useMemo(() => {
 		return {
-			portfolio: sessions?.getChildren('portfolio'),
-			authorInfo: sessions?.getChildren('bio'),
+			portfolio: sessions?.get('portfolio'),
+			authorInfo: sessions?.get('bio'),
 		};
 	}, [sessions]);
  

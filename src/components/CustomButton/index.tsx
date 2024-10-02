@@ -13,11 +13,11 @@ interface Props extends StyledProps {
   callback?: () => void,
   beforeIcon?: ReactNode,
   afterIcon?: ReactNode,
-  bold?: boolean,
+  bold?: string,
 }
 
 const CustomButton = ({
-	children, type, anchor, target, isloading, isdisabled, callback, beforeIcon, afterIcon, bold
+	children, type, anchor, target, isloading, isdisabled, callback, beforeIcon, afterIcon, bold = 'false'
 }: Props) => {
   
 	const ButtonComponent = (

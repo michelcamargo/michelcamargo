@@ -11,7 +11,7 @@ interface Props<T> extends StyledCustomAccordionProps {
   contentComponent: FC<T>,
 }
 
-const CustomAccordion = <T,>({ items, noSpacing, background, contentDivisor }: Props<T>) => {
+const CustomAccordion = <T,>({ items, no_spacing, background, content_divisor }: Props<T>) => {
 	const [expanded, setExpanded] = useState<string | false>('panel1');
 
 	const handleChange =
@@ -33,24 +33,24 @@ const CustomAccordion = <T,>({ items, noSpacing, background, contentDivisor }: P
 						key={itemName}
 						expanded={expanded === itemName}
 						onChange={handleChange(itemName)}
-						noSpacing={noSpacing}
+						no_spacing={no_spacing}
 						// background={background ? background : accordionBackgroundString }
-						sx={{ padding: noSpacing ? 0 : 'inherit' }}
+						sx={{ padding: no_spacing === 'true' ? 0 : 'inherit' }}
 					>
 						<Styled.AccordionSummary
 							aria-controls={`${itemName}d-content`}
 							id={`${itemName}d-header`}
-							sx={{ padding: noSpacing ? 0 : 'inherit' }}
+							sx={{ padding: no_spacing === 'true' ? 0 : 'inherit' }}
 							// background={background ? background : accordionBackgroundString }
-							noSpacing={noSpacing}
+							no_spacing={no_spacing}
 						>
-							{ noSpacing && <Styled.LeftOffset /> }
+							{ no_spacing === 'true' && <Styled.LeftOffset /> }
 							{HeadingComponent}
 						</Styled.AccordionSummary>
 						<Styled.AccordionDetails
-							contentDivisor={contentDivisor}
-							sx={{ padding: noSpacing ? 0 : 'inherit' }}
-							noSpacing={noSpacing}
+							content_divisor={content_divisor}
+							sx={{ padding: no_spacing === 'true' ? 0 : 'inherit' }}
+							no_spacing={no_spacing}
 							background={background ? background : accordionBackgroundString }
 						>
 							{ContentComponent}

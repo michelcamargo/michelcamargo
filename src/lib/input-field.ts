@@ -13,6 +13,6 @@ export type CommonInputProps = {
   height?: number,
   onBlur?: FocusEventHandler,
   width?: number,
-  fullWidth?: boolean,
+  full_width?: string,
   value?: string | number,
 }

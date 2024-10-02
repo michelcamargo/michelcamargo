@@ -37,13 +37,12 @@ export default class CustomContent {
    * @param data Conteúdo a definir na estrutura
    */
   constructor(data: CustomContentType) {
-  	const { key, value, children, details, created_at, updated_at } = data;
-  	this._key = key ?? '';
-  	this._value = value ?? undefined;
-  	this._children = children?.length ? children.map(item => new CustomContent(item)) : [];
-  	this._details = details ?? '';
-  	this._created_at = created_at ? new Date(created_at) : new Date();
-  	this._updated_at = updated_at ? new Date(updated_at) : new Date();
+  	this._key = data?.key ?? 'unknown';
+  	this._value = data?.value ?? undefined;
+  	this._children = data?.children?.length ? data?.children.map(item => new CustomContent(item)) : [];
+  	this._details = data?.details ?? '';
+  	this._created_at = data?.created_at ? new Date(data?.created_at) : new Date();
+  	this._updated_at = data?.updated_at ? new Date(data?.updated_at) : new Date();
   }
   
   /**
@@ -142,7 +141,22 @@ export default class CustomContent {
    * @returns O CustomContent correspondente ou undefined
    */
   public get(key?: string): CustomContent | undefined {
-  	if (!key || this._key === key) {
+  	if (!key) {
+  		return this;
+  	}
+
+  	const keyFragments = key.split(' ');
+
+  	// Função auxiliar para verificar se um key faz match com as partes
+  	const matches = (contentKey: string, searchParts: string[]) => {
+  		return searchParts.every(part => {
+  			// Verifica se a parte atual é encontrada na chave
+  			return contentKey.includes(part);
+  		});
+  	};
+
+  	// Verificação na própria instância
+  	if (matches(this._key, keyFragments)) {
   		return this;
   	}
 
@@ -203,6 +217,36 @@ export default class CustomContent {
   	}
     
   	return result as T;
+  }
+  
+  /**
+   * Converte CustomContent ou CustomContentType em um objeto de formato específico
+   * @param content Instância de CustomContent ou CustomContentType
+   * @returns Objeto com chave, valor e filhos no formato definido
+   */
+  public static toCustomContentObject<T extends CustomContent | CustomContentType>(content: T): Record<string, unknown> {
+  	const result: Record<string, unknown> = {
+  		key: content instanceof CustomContent ? content.key : content.key,
+  		value: content instanceof CustomContent ? content.value : content.value,
+  		children: []
+  	};
+
+  	// Se o conteúdo possuir filhos, processa recursivamente
+  	const children = content instanceof CustomContent ? content.children : content.children;
+  	if (children && children.length > 0) {
+  		result.children = children.map(child => CustomContent.toCustomContentObject(child));
+  	}
+
+  	return result;
+  }
+
+  /**
+   * Verifica se um valor do tipo unknown é um objeto
+   * @param value Valor a ser verificado
+   * @returns true se for um objeto, false caso contrário
+   */
+  public static isObject(value: unknown): value is Record<string, unknown> {
+  	return typeof value === 'object' && value !== null && !Array.isArray(value);
   }
 
 }

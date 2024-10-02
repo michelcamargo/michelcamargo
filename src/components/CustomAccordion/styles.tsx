@@ -5,9 +5,9 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import MuiAccordionSummary, { AccordionSummaryProps } from "@mui/material/AccordionSummary";
 
 export type StyledCustomAccordionProps = {
-  noSpacing?: boolean,
+  no_spacing?: string,
   background?: string,
-  contentDivisor?: string,
+  content_divisor?: string,
   border?: string,
 }
 
@@ -17,7 +17,7 @@ export type StyledSummaryProps = AccordionSummaryProps & StyledCustomAccordionPr
 
 const AccordionItem = styled((props: StyledAccordionProps) => (
 	<MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme, noSpacing }) => ({
+))(({ theme, no_spacing }) => ({
 	border: `1px solid ${theme.palette.divider}`,
 	'&:not(:last-child)': {
 		borderBottom: 0,
@@ -26,8 +26,8 @@ const AccordionItem = styled((props: StyledAccordionProps) => (
 		display: 'none',
 	},
 	'& .MuiAccordionSummary-content': {
-		marginTop: noSpacing ? 0 : undefined,
-		marginBottom: noSpacing ? 0 : undefined,
+		marginTop: no_spacing === 'true' ? 0 : undefined,
+		marginBottom: no_spacing === 'true' ? 0 : undefined,
 	},
 	'& .MuiAccordionSummary-expandIconWrapper': {
 		position: 'absolute',
@@ -42,7 +42,7 @@ const AccordionSummary = styled((props: StyledSummaryProps) => (
 		expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
 		{...props}
 	/>
-))(({ theme, noSpacing, }) => ({
+))(({ theme, no_spacing, }) => ({
 	// background: theme.palette.mode === 'dark'
 	//   ? background ? background : 'inherit'
 	//   : background ? background : 'inherit',
@@ -51,14 +51,14 @@ const AccordionSummary = styled((props: StyledSummaryProps) => (
 		transform: 'rotate(90deg)',
 	},
 	'& .MuiAccordionSummary-content': {
-		marginLeft: noSpacing ? 0 : theme.spacing( 1),
+		marginLeft: no_spacing === 'true' ? 0 : theme.spacing( 1),
 	},
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)<StyledCustomAccordionProps>
-(({ theme, noSpacing, contentDivisor, background }) => ({
-	padding: noSpacing ? 0 : theme.spacing(2),
-	borderTop: contentDivisor ?? 'unset',
+(({ theme, no_spacing, content_divisor, background }) => ({
+	padding: no_spacing === 'true' ? 0 : theme.spacing(2),
+	borderTop: content_divisor ?? 'unset',
 	background: background ? background : 'inherit',
 }));
 

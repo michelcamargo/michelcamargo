@@ -43,7 +43,7 @@ const FormStepper = <T,>({ children, currentIndex, stepChanger, availableSteps }
 						<CustomButton
 							afterIcon={<ArrowForwardIosIcon />}
 							callback={goFowardHandler}
-							bold
+							bold="true"
 						>
 							{'Continuar'}
 						</CustomButton>
@@ -51,7 +51,7 @@ const FormStepper = <T,>({ children, currentIndex, stepChanger, availableSteps }
 						<>
 							<CustomButton
 								type="submit"
-								bold
+								bold="true"
 							>
 								{'Enviar'}
 							</CustomButton>

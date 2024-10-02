@@ -12,9 +12,9 @@ const AboutPage: CustomNextPage = ({ data }) => {
 	
 	const { social, about } = useMemo(() => {
 		return {
-			bio: sessions?.find(item => item.key === 'bio'),
-			social: sessions?.find(item => item.key === 'social'),
-			about: sessions?.find(item => item.key === 'about')
+			bio: sessions?.get('bio'),
+			social: sessions?.get('social'),
+			about: sessions?.get('about')
 		};
 	}, [sessions]);
  
@@ -24,8 +24,8 @@ const AboutPage: CustomNextPage = ({ data }) => {
 		<Styled.PageWrapper>
 			<Styled.PageContainer>
 				<Styled.PageContent>
-					{about ? <PersonalPresentation serverContent={about} /> : undefined }
-					{social ? <SocialPresentation socialData={social} /> : undefined}
+					{about && <PersonalPresentation serverContent={about} />}
+					{social && <SocialPresentation socialData={social} />}
 				</Styled.PageContent>
 			</Styled.PageContainer>
 		</Styled.PageWrapper>

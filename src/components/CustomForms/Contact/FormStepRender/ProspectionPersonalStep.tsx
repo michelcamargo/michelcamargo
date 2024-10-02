@@ -17,7 +17,7 @@ const ProspectionPersonalStep = ({ formProps }: Props) => {
 				label="Nome"
 				key="name"
 				name="name"
-				fullWidth
+				full_width="true"
 				value={formProps.values.name}
 				onChange={formProps.handleChange}
 				errors={formProps.errors.name}
@@ -28,7 +28,7 @@ const ProspectionPersonalStep = ({ formProps }: Props) => {
 				key="email"
 				type="email"
 				name="email"
-				fullWidth
+				full_width="true"
 				value={formProps.values.email}
 				onChange={formProps.handleChange}
 				errors={formProps.errors.email}

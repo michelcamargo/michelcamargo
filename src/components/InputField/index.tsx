@@ -8,7 +8,7 @@ interface Props extends CommonInputProps {
 }
 
 const FieldText = ({
-	name, type = 'text', label, fullWidth, errors, onChange, value,
+	name, type = 'text', label, full_width, errors, onChange, value,
 	width, height, id, isDisabled, onBlur, placeholder,
 }: Props) => {
   
@@ -18,7 +18,7 @@ const FieldText = ({
 				id={id}
 				name={name}
 				type={type}
-				fullWidth={fullWidth}
+				full_width={full_width}
 				onChange={onChange}
 				value={value}
 				width={width}
@@ -46,7 +46,7 @@ const FieldText = ({
 
 const FieldTextArea = ({
 	id, name, label, placeholder, isDisabled, maxLength, errors,
-	height, width, fullWidth, onChange, onBlur, value, minRows,
+	height, width, full_width, onChange, onBlur, value, minRows,
 }: Props) => {
   
 	const TextAreaComponent = (
@@ -57,7 +57,7 @@ const FieldTextArea = ({
 				placeholder={placeholder}
 				height={height}
 				width={width}
-				fullWidth={fullWidth}
+				full_width={full_width}
 				onChange={onChange}
 				disabled={isDisabled}
 				onBlur={onBlur}

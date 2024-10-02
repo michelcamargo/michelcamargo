@@ -10,8 +10,6 @@ import Styled from './styles';
 
 const NotFoundPage: CustomNextPage = ({ data }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
- 
-	console.log('serverViewData', data);
 	console.log('sessions', sessions);
  
 	if (!sessions) return <LoadingFeedback />;

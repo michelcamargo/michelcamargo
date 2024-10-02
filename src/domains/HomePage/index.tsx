@@ -13,7 +13,6 @@ import Styled from './styles';
 const HomePage: CustomNextPage = ({ data }) => {
 	
 	const sessions = useMemo(() => data?.sessions, [data]);
-	// console.log({ sessions });
 	
 	const { bio, socialLinks, portfolio } = useMemo(() => {
 

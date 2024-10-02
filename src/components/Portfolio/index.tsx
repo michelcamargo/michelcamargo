@@ -30,7 +30,7 @@ const PortfolioComponent = ({ data }: Props) => {
 				items={accordionPortfolio}
 				summaryComponent={PortfolioAccordionHeading}
 				contentComponent={PortfolioAccordionContent}
-				noSpacing
+				no_spacing="true"
 			/>
 		</>
 	);
