@@ -28,9 +28,14 @@ const ContactForm = ({ callbackHandler, data }: Props) => {
 	
 	const [ heading, description ] = data.getChildren('content').map(item => item.toObject());
  
+	// const fields = useMemo(() => {
+	// 	const content = data.getChildren('fields').map(item => item.toObject());
+	//
+	// 	return content;
+	// }, [data]);
+	
 	const fields = useMemo(() => {
-		const content = data.getChildren('fields').map(item => item.toObject());
-		
+		const content = data.getChildren('fields').map(item => item.toObject() as { key: string });
 		return content;
 	}, [data]);
 	
@@ -38,12 +43,12 @@ const ContactForm = ({ callbackHandler, data }: Props) => {
 	
 	const initialValues = () => {
 	// const initialValues = (): CustomerLead => {
-		const items = fields.reduce((acc, field) => {
+		const items = fields.reduce((acc, field: { key: string }) => {
 			console.log({ acc, fields });
 			
-		  acc[field.key] = ''; // Cria uma chave no objeto com o nome da key e valor vazio
+		  acc[field.key] = '';
 		  return acc;
-		}, {} as Record<string, string>); // Inicializa o acumulador como um objeto vazio
+		}, {} as Record<string, string>);
 		
 		console.log({ items });
 		
