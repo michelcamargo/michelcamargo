@@ -26,7 +26,7 @@ const ContactForm = ({ callbackHandler, data }: Props) => {
 	// const queryClient = useQueryClient();
 	// const [currentStep, setCurrentStep] = useState<ContactFormStep>(ContactFormStep.intro);
 	
-	const [ heading, description ] = data.getChildren('content').map(item => item.toObject());
+	const [ heading, _description ] = data.getChildren('content').map(item => item.toObject());
  
 	// const fields = useMemo(() => {
 	// 	const content = data.getChildren('fields').map(item => item.toObject());
