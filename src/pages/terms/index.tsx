@@ -24,7 +24,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 		return PagePropsHelper.handleServerProps(meta, context, ['legal/policies', 'legal/compliance']);
 	} catch (error) {
 		handleServerRequestError(error, context);
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleStaticProps(meta, context, '/unavailable');
 	}
 };
 

@@ -20,10 +20,10 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 	};
  
 	try {
-		return PagePropsHelper.handleServerProps(meta, context, ['bio/bio', 'work/devstack']);
+		return PagePropsHelper.handleServerProps(meta, context, ['bio/bio', 'links/social', 'marketing/subscription']);
 	} catch (error) {
 		handleServerRequestError(error, context);
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleStaticProps(meta, context, '/unavailable');
 	}
 };
 

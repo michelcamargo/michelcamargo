@@ -7,7 +7,7 @@ import { handleServerRequestError } from "@/helpers/error";
 import LocaleHelper from "@/helpers/LocaleHelper.helper";
 import PagePropsHelper from "@/helpers/SSR.helper";
 import { PageMetadata } from "@/lib/datahooks";
-import ContentService from "@/services/content.service";
+// import ContentService from "@/services/content.service";
 import { GetStaticPropsContext } from "next";
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
@@ -22,11 +22,11 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 	};
  
 	try {
-		const sessions = await ContentService.getRawByKeys(['general/fallback'], locale);
-		return PagePropsHelper.handleStaticProps(meta, context, { sessions });
+		// const sessions = await ContentService.getRawByKeys(['general/fallback'], locale);
+		return PagePropsHelper.handleStaticProps(meta, context);
 	} catch (error) {
 		handleServerRequestError(error, context);
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleStaticProps(meta, context, '/unavailable');
 	}
 };
 

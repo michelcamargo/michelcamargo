@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "engines": {
-    "node": "18.x"
+    "node": "22.x"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -20,13 +20,13 @@
     "@types/node": "20.2.1",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
-    "axios": "^1.4.0",
+    "axios": "1.7.4",
     "classnames": "^2.3.2",
-    "cookie": "^0.6.0",
+    "cookie": "0.7.0",
     "formik": "^2.4.5",
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
-    "next": "^13.5.4",
+    "next": "14.3.0-canary.0",
     "next-data-hooks": "^0.5.2",
     "react": "18.2.0",
     "react-cookie-consent": "9.0.0",

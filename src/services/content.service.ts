@@ -7,15 +7,15 @@ class ContentService {
 
   private static api = PBResourcesApi.getInstance();
 
-  private static async fetchFromKey(key: string, language: LanguageType): Promise<CustomContentType> {
-  	try {
-  		return this.api.get<CustomContentType>(
-  			`/content/${key}?lang=${language.toLowerCase()}`
-  		);
-  	} catch (e) {
+  private static async fetchFromKey(key: string, language: LanguageType): Promise<CustomContentType | null> {
+  	const content = this.api.get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`);
+	  
+  	if (!content) {
   		console.log('FALHA AO BUSCAR CONTEÚDO PELA KEY ', key);
-  		throw e;
-  	} 
+  		return null;
+	  }
+		
+  	return content;
   }
 
   static async getRawByKeys(
@@ -38,13 +38,19 @@ class ContentService {
   }
 
   static async getByKeys(
-  	tags: string[], groupName = tags.join('--'), language: LanguageType = 'ptBR'
+  	tags: string[],
+	  groupName = tags.join('--'),
+	  language: LanguageType = 'ptBR'
   ): Promise<CustomContent> {
   	const contentArray: CustomContent[] = [];
 
   	for (const tag of tags) {
-  		const content = await this.fetchFromKey(tag, language);
-  		if (content) contentArray.push(new CustomContent(content));
+  		try {
+  			const content = await this.fetchFromKey(tag, language);
+  			if (content) contentArray.push(new CustomContent(content));
+  		} catch (error) {
+  			console.warn(`Erro ao buscar conteúdo para a chave: ${tag}`, error);
+  		}
   	}
 	
   	return new CustomContent({

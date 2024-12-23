@@ -1,56 +1,38 @@
-import CareerSkillList from "@/components/CareerSkills/CareerSkillList";
+import { useMemo } from "react";
+
+import CareerSkillCard from "@/components/CareerSkills/CareerSkillCard";
+import LoadingFeedback from "@/components/LoadingFeedback";
+import CustomContent from "@/helpers/content.helper";
+import { ISkill, ISkillData } from "@/lib/content";
 
 import Styled from './styles';
 
-// type Props = StyledProps;
+interface Props {
+	summary?: string[]
+	data?: CustomContent
+}
 
-const HARD_SKILLS_MOCK = [
-	{
-		key: 0,
-		label: 'A',
-	},
-	{
-		key: 1,
-		label: 'B',
-	},
-	{
-		key: 2,
-		label: 'C',
-	},
-	{
-		key: 3,
-		label: 'D',
-	}
-];
-
-const SOFT_SKILLS_MOCK = [
-	{
-		key: 0,
-		label: 'E',
-	},
-	{
-		key: 1,
-		label: 'F',
-	},
-	{
-		key: 2,
-		label: 'G',
-	},
-	{
-		key: 3,
-		label: 'H',
-	}
-];
-
-const CareerSkills = () => {
+const CareerSkills = ({ summary = ['frontend', 'backend', 'infrastructure'], data }: Props) => {
+	
+	const skills: ISkill[] = useMemo(() => {
+		return summary?.map((key, _index) => {
+			const info: CustomContent[] = data?.getChildren(key) ?? [];
+			
+			return { title: key, description: '', stack: info.map(item => item?.toObject<ISkillData>() ?? []) };
+		});
+		
+	}, [data, summary]);
+	
+	if (!data) return <LoadingFeedback />;
 	
 	return (
 		<Styled.Wrapper>
 			<Styled.Content>
 				<Styled.Heading>Habilidades</Styled.Heading>
 				<Styled.ListContainer>
-					<CareerSkillList title={'HardSkills'} items={HARD_SKILLS_MOCK} />
-					<CareerSkillList title={'SoftSkills'} items={SOFT_SKILLS_MOCK} />
+					{skills.map((skill, index) => (
+						<CareerSkillCard key={index} info={skill} />
+					))}
 				</Styled.ListContainer>
 			</Styled.Content>
 		</Styled.Wrapper>

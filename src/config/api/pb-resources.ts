@@ -51,19 +51,30 @@ class PBResourcesApi {
   	}
   }
 	
-	 async get<T = any, R = T>(path: string, params?: any): Promise<R> {
-	   return this.http.get<T>(path, { params }).then(
-		 fullFilled => {
-		   return fullFilled.data as unknown as R;
-		 }, error => {
-		   console.log('error tratado no then', error);
-		   throw error;
-		 }
-	   ).catch(err => {
-		 console.log('err fora do then', err);
-		 throw err;
-	   });
-	 }
+	 // async get<T = any, R = T>(path: string, params?: any): Promise<R> {
+	 //   return this.http.get<T>(path, { params }).then(
+  //  fullFilled => {
+  //    return fullFilled.data as unknown as R;
+  //  }, error => {
+  //    console.log('error tratado no then', error);
+  //    throw error;
+  //  }
+	 //   ).catch(err => {
+  //  console.log('err fora do then', err);
+  //  throw err;
+	 //   });
+	 // }
+	
+  async get<T = any, R = T>(path: string, params?: any): Promise<R | void> {
+  	try {
+  		const response: AxiosResponse<T> = await this.http.get<T>(path, { params });
+  		return response.data as unknown as R;
+  	} catch (error) {
+  		console.error(`GET Error on ${path}`, { params, error });
+  		handleRequestError(error);
+  		return;
+  	}
+  }
 	
   	// try {
   	// 	// const response: AxiosResponse<T> = await this.http.get<T>(
@@ -73,7 +84,7 @@ class PBResourcesApi {
 	  //
   	// 	// return response.data as unknown as R;
 	  //
-	  //  
+	  //
 	  //
   	// } catch (error) {
   	// 	console.log('catch mais de fora ainda', error);

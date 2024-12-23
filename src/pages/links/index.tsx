@@ -24,7 +24,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 		return PagePropsHelper.handleServerProps(meta, context, ['links/links', 'links/social']);
 	} catch (error) {
 		handleServerRequestError(error, context);
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleStaticProps(meta, context, '/unavailable');
 	}
 };
 

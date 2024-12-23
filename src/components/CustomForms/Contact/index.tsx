@@ -1,9 +1,10 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import FormStepRender from "@/components/CustomForms/Contact/FormStepRender";
 import FormStepper from "@/components/FormStepper";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import SuccessFeedback from "@/components/SuccessFeedback";
+import CustomContent from "@/helpers/content.helper";
 import { showErrorByCode } from "@/helpers/error";
 import { CustomerLead, CustomerProfile } from "@/lib/customer";
 // import { ContactFormStep } from "@/lib/form";
@@ -16,22 +17,37 @@ import Styled from './styles';
 
 interface Props {
   id?: number,
+	data: CustomContent,
 	// eslint-disable-next-line no-unused-vars
   callbackHandler?: (response?: CustomerProfile) => void,
-  title?: string,
-  description?: string,
 }
 
-const ContactForm = ({ callbackHandler, title, description }: Props) => {
+const ContactForm = ({ callbackHandler, data }: Props) => {
 	// const queryClient = useQueryClient();
 	// const [currentStep, setCurrentStep] = useState<ContactFormStep>(ContactFormStep.intro);
+	
+	const [ heading, description ] = data.getChildren('content').map(item => item.toObject());
  
+	const fields = useMemo(() => {
+		const content = data.getChildren('fields').map(item => item.toObject());
+		
+		return content;
+	}, [data]);
+	
 	const [currentStep, setCurrentStep] = useState<number>(0);
 	
-	const initialValues: CustomerLead = {
-		name: '',
-		email: '',
-		message: '',
+	const initialValues = () => {
+	// const initialValues = (): CustomerLead => {
+		const items = fields.reduce((acc, field) => {
+			console.log({ acc, fields });
+			
+		  acc[field.key] = ''; // Cria uma chave no objeto com o nome da key e valor vazio
+		  return acc;
+		}, {} as Record<string, string>); // Inicializa o acumulador como um objeto vazio
+		
+		console.log({ items });
+		
+		return items;
 	};
  
 	const handleReset = () => {
@@ -59,7 +75,8 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
 		}
 	);
  
-	const handleSubmit = (values: FormikValues, actions: FormikHelpers<CustomerLead>)  => {
+	const handleSubmit = (values: FormikValues, actions: FormikHelpers<any>)  => {
+	// const handleSubmit = (values: FormikValues, actions: FormikHelpers<CustomerLead>)  => {
 		if (!values) {
 			showErrorByCode(2);
 			return;
@@ -96,16 +113,17 @@ const ContactForm = ({ callbackHandler, title, description }: Props) => {
 		<Styled.Wrapper>
 			<Styled.FormHead>
 				<Styled.FormHeading>
-					{title ? title : 'Entre em contato'}
+					{heading ? heading.toString() : 'Entre em contato'}
 				</Styled.FormHeading>
-				{ description &&
-				<Styled.FormSubtitle>
-					{description}
-				</Styled.FormSubtitle>
-				}
+				{/*{ description &&*/}
+				{/*<Styled.FormSubtitle>*/}
+				{/*	{description}*/}
+				{/*</Styled.FormSubtitle>*/}
+				{/*}*/}
 			</Styled.FormHead>
-			<Formik<CustomerLead>
-				initialValues={initialValues}
+			{/*<Formik<CustomerLead>*/}
+			<Formik
+				initialValues={initialValues()}
 				validationSchema={validationSchema}
 				onSubmit={handleSubmit}
 				onReset={handleReset}

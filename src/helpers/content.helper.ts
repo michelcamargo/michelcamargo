@@ -39,7 +39,7 @@ export default class CustomContent {
   constructor(data: CustomContentType) {
   	this._key = data?.key ?? 'unknown';
   	this._value = data?.value ?? undefined;
-  	this._children = data?.children?.length ? data?.children.map(item => new CustomContent(item)) : [];
+  	this._children = data?.children?.length ? data?.children.map(item => CustomContent.create(item)) : [];
   	this._details = data?.details ?? '';
   	this._created_at = data?.created_at ? new Date(data?.created_at) : new Date();
   	this._updated_at = data?.updated_at ? new Date(data?.updated_at) : new Date();
@@ -173,6 +173,14 @@ export default class CustomContent {
   }
 
   /**
+   * Converte um objeto CustomContentType para CustomContent.
+   * @returns O CustomContent correspondente ou undefined
+   */
+  public static create(customContentData: CustomContentType) {
+  	return new CustomContent(customContentData);
+  }
+	
+  /**
    * Busca o valor correspondente à chave fornecida
    * @param key A chave a ser buscada
    * @returns O valor correspondente ou undefined
@@ -201,6 +209,9 @@ export default class CustomContent {
   	/* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
   	const result: Record<string, any> = {};
     
+  	this._key.replaceAll('-', '_');
+  	this._key.replaceAll(' ', '_');
+		
   	if (deep) {
   		result[this._key] = {
   			value: this._value,

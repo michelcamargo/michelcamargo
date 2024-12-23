@@ -2,14 +2,15 @@ import React from "react";
 
 import ProspectionIntroStep from "@/components/CustomForms/Contact/FormStepRender/ProspectionIntroStep";
 import ProspectionPersonalStep from "@/components/CustomForms/Contact/FormStepRender/ProspectionPersonalStep";
-import { CustomerLead } from "@/lib/customer";
+// import { CustomerLead } from "@/lib/customer";
 // import { ContactFormStep } from "@/lib/form";
 import { FormikProps } from "formik";
 
 interface Props {
 	// step: ContactFormStep,
 	step: number,
-	formProps: FormikProps<CustomerLead>,
+	// formProps: FormikProps<CustomerLead>,
+	formProps: FormikProps<any>,
 }
 
 const FormStepRender = ({ step, formProps }: Props) => {

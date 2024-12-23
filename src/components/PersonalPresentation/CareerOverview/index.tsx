@@ -60,7 +60,7 @@ const CareerOverview = ({ data }: Props) => {
               'Amet eget non risus in mauris id fermentum nunc.'}
 						</Styled.LeftArticleContent>
 						<Styled.RightArticleContent>
-							<Image src={''} alt={'sports-image'} />
+							<Image src={''} alt={'imagem-teste'} />
 						</Styled.RightArticleContent>
 					</Styled.SplittedArticle>
 				</Styled.Session>

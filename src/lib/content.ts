@@ -58,3 +58,7 @@ export type SessionArticle = {
   subHeading?: string,
   body?: string,
 }
+
+export interface ISkillData { description: string, label: string, 'stack-img': string }
+
+export interface ISkill { title: string, description: string, stack: ISkillData[] }

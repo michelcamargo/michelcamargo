@@ -4,7 +4,8 @@ import ContentService from "@/services/content.service";
 import { GetServerSidePropsContext, GetStaticPropsContext } from "next";
 
 interface IPageProps {
-	props: CommonPageProps<CustomContentType>
+	props?: CommonPageProps<CustomContentType>,
+	redirect?: { destination: string; permanent?: boolean }
 }
 
 class PagePropsHelper {
@@ -26,8 +27,19 @@ class PagePropsHelper {
 		};
 	}
 	
-	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext): IPageProps {
-		console.warn({ context });
+	public static handleStaticProps(meta: PageMetadata, context: GetStaticPropsContext, redirectUrl?: string): IPageProps {
+		const { locale } = meta;
+		
+		console.warn({ context, locale });
+		
+		if (redirectUrl) {
+			return {
+				redirect: {
+					destination: '/unavailable',
+					permanent: false,
+				},
+			};
+		}
 		
 		return {
 			props: {

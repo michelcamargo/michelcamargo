@@ -25,7 +25,6 @@ const SessionContainer = styled("div")<StyledProps>`
     margin-top: ${({ top_spacing }) => top_spacing ? `${top_spacing}px` : undefined};
     margin-bottom: ${({ bottom_spacing }) => bottom_spacing ? `${bottom_spacing}px` : undefined};
     row-gap: ${({ row_gap }) => row_gap ? `${row_gap}px` : undefined};
-  
 `;
 
 const Intro = styled("div")<StyledProps>`

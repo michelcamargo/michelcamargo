@@ -1,5 +1,6 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
+import ContactForm from "@/components/CustomForms/Contact";
 import LoadingFeedback from "@/components/LoadingFeedback";
 import PersonalPresentation from "@/components/PersonalPresentation";
 import SocialPresentation from "@/components/SocialPresentation";
@@ -10,13 +11,15 @@ import Styled from './styles';
 const AboutPage: CustomNextPage = ({ data }) => {
 	const sessions = useMemo(() => data?.sessions, [data]);
 	
-	const { social, about } = useMemo(() => {
+	const { social, about, form } = useMemo(() => {
 		return {
-			bio: sessions?.get('bio'),
 			social: sessions?.get('social'),
-			about: sessions?.get('about')
+			about: sessions?.get('about'),
+			form: sessions?.get('subscription')
 		};
 	}, [sessions]);
+	
+	console.log({ social, about, form });
  
 	if (!sessions) return <LoadingFeedback />;
  
@@ -24,8 +27,15 @@ const AboutPage: CustomNextPage = ({ data }) => {
 		<Styled.PageWrapper>
 			<Styled.PageContainer>
 				<Styled.PageContent>
-					{about && <PersonalPresentation serverContent={about} />}
-					{social && <SocialPresentation socialData={social} />}
+					{about && <Styled.SessionContainer>
+						<PersonalPresentation serverContent={about} />
+					</Styled.SessionContainer>}
+					{social && <Styled.SessionContainer>
+						 <SocialPresentation socialData={social} />
+					</Styled.SessionContainer>}
+					{form && <Styled.SessionContainer>
+						<ContactForm data={form} />
+					</Styled.SessionContainer>}
 				</Styled.PageContent>
 			</Styled.PageContainer>
 		</Styled.PageWrapper>

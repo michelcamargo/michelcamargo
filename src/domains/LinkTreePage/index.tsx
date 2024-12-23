@@ -32,7 +32,9 @@ const LinkTreePage: CustomNextPage = ({ data }) => {
 			<MinimalHeader />
 			<Styled.Content>
 				<Styled.MainColumn>
-					{linkArray.map((item, index) => (item && <LinkTreeItem content={item} key={index} />))})
+					{linkArray.map((item, index) => (
+						item && <LinkTreeItem content={item} key={index} />
+					))}
 				</Styled.MainColumn>
 			</Styled.Content>
 		</Styled.PageWrapper>

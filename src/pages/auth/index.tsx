@@ -25,7 +25,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
 		return PagePropsHelper.handleServerProps(meta, context, ['general/auth']);
 	} catch (error) {
 		handleServerRequestError(error, context);
-		return PagePropsHelper.handleStaticProps(meta, context);
+		return PagePropsHelper.handleStaticProps(meta, context, '/unavailable');
 	}
 };
 
