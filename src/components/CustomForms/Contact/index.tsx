@@ -20,7 +20,7 @@ interface Props {
 	data: CustomContent,
 	// eslint-disable-next-line no-unused-vars
   callbackHandler?: (response?: CustomerProfile) => void,
-	title: string
+	title?: string
 	description?: string
 }
 
