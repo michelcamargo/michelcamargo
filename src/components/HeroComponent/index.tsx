@@ -5,7 +5,6 @@ import CustomContent from "@/helpers/content.helper";
 // import CustomContentHelper from "@/helpers/custom-content.helper";
 
 import Styled from "./styles";
-import { getValue } from "@mui/system";
 
 interface Props {
   data?: CustomContent
@@ -13,9 +12,9 @@ interface Props {
 
 const HeroComponent = ({ data }: Props) => {
 	
-	console.log({ heroData: data });
+	// console.log({ heroData: data });
 	
-	const { author, heading, about } = useMemo(() => {
+	const { author, heading, about: _about } = useMemo(() => {
 		if (!data) return { author: undefined, heading: undefined, about: undefined };
 
 		return {
