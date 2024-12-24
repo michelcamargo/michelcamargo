@@ -7,7 +7,7 @@ import PortfolioComponent from "@/components/Portfolio";
 import { CustomNextPage } from "@/lib/layout";
 import WorkIcon from '@mui/icons-material/Work';
 
-import ContactForm from "../../components/CustomForms/Contact";
+// import ContactForm from "../../components/CustomForms/Contact";
 import Styled from "./styles";
 
 const PortfolioPage: CustomNextPage = ({ data, meta }) => {
@@ -27,10 +27,11 @@ const PortfolioPage: CustomNextPage = ({ data, meta }) => {
 			<Styled.SplitRow>
 				<Styled.LeftContainer>
 					{ authorInfo && <BriefPresentation /> }
-					<ContactForm
-						title={'Formulário'}
-						description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}
-					/>
+					{/*<ContactForm*/}
+					{/*	title={'Formulário'}*/}
+					{/*	description={'Identifique-se e envie uma mensagem\nSerá um prazer conhecê-lo!'}*/}
+					{/*	data={}*/}
+					{/*/>*/}
 				</Styled.LeftContainer>
 				<Styled.GeneralContent>
 					<DefaultViewHeading title={meta.title} container Icon={WorkIcon} />

@@ -20,6 +20,8 @@ interface Props {
 	data: CustomContent,
 	// eslint-disable-next-line no-unused-vars
   callbackHandler?: (response?: CustomerProfile) => void,
+	title: string
+	description?: string
 }
 
 const ContactForm = ({ callbackHandler, data }: Props) => {
