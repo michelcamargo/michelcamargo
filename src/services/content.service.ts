@@ -7,12 +7,12 @@ class ContentService {
 
   private static api = PBResourcesApi.getInstance();
 
-  private static async fetchFromKey(key: string, language: LanguageType): Promise<CustomContentType | null> {
+  private static async fetchFromKey(key: string, language: LanguageType): Promise<CustomContentType | void> {
   	const content = this.api.get<CustomContentType>(`/content/${key}?lang=${language.toLowerCase()}`);
 	  
   	if (!content) {
   		console.log('FALHA AO BUSCAR CONTEÚDO PELA KEY ', key);
-  		return null;
+  		return;
 	  }
 		
   	return content;
