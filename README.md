@@ -13,7 +13,7 @@ Meu dever é desenvolver soluções que facilitem o dia a dia das pessoas de for
 
 ---
 
-## Habilidades e Proficiências
+## Proficiência
 
 - **Front‑end**: JavaScript, TypeScript, React, Next.js, Angular, Vue, React Native, Expo 
 - **Back‑end**: Node.js, NestJS, Knex, Redis, Docker, AWS (RDS, S3, EC2)
@@ -23,7 +23,7 @@ Meu dever é desenvolver soluções que facilitem o dia a dia das pessoas de for
 - **Design de Interfaces**: heurísticas, prototipação, BEM SCSS, styled-components
 - **Marketing**: tráfego pago, SEO, GTM, otimização de checkout
 - **Soft Skills**: comunicação, organização, parceria, disposição para aprender e compartilhar
-- **Idiomas**: inglês (leitura, escrita, compreensão)
+- **Idiomas**: Português, Inglês
 
 ---
 
