@@ -1,6 +1,6 @@
 # Michel Camargo
 
-### Desenvolvedor Fullstack | UI/UX Designer | Especialista TypeScript
+### Desenvolvedor Fullstack | UI/UX Designer
 
 Sou um desenvolvedor apaixonado por criar soluções digitais escaláveis e de alta performance. Com 29 anos e residente em Campo Mourão/PR, atuo estrategicamente entre a engenharia de software e o design de interface, focando sempre na melhor experiência para o usuário final.
 
