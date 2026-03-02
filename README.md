@@ -1,22 +1,22 @@
 # Michel Camargo
 
-### Desenvolvedor Fullstack | UI/UX Designer
+### Desenvolvedor Frontend | UI/UX Designer
 
-Sou um desenvolvedor apaixonado por criar soluções digitais escaláveis e de alta performance. Com 29 anos e residente em Campo Mourão/PR, atuo estrategicamente entre a engenharia de software e o design de interface, focando sempre na melhor experiência para o usuário final.
+Sou um desenvolvedor especialista na criação de soluções digitais escaláveis e de alta performance. Atuo estrategicamente entre a engenharia de software e o design de interface, priorizando a melhor experiência para o usuário final.
 
 ---
 
-### 🚀 Sobre Mim
+### 🚀 Sobre mim
 
 - 🏗️ **Arquitetura de Software:** Especialista no ecossistema **TypeScript**, com domínio avançado em **Next.js**, **NestJS** e **Node.js**.
-- 📦 **Infraestrutura:** Amplo conhecimento em arquitetura de **Monorepos**, gestão de pacotes e automação de pipelines **CI/CD**.
+- 📦 **Infraestrutura:** Implementação de arquiteturas **Monorepo**, gestão de pacotes e automação de pipelines **CI/CD**.
 - ☁️ **Cloud & DevOps:** Experiência com **AWS** (S3, EC2, RDS), deploy e containerização com **Docker**.
 - 🎨 **UI/UX & IHC:** Sólido embasamento em **Interação Humano-Computador (IHC)** e **UX Research**, transformando requisitos complexos em **Design Systems** resilientes e interfaces de alta performance.
 - 📱 **Mobile:** Desenvolvimento transversal utilizando **React Native**, **Expo** e **Capacitor**.
 
 ---
 
-### 🛠️ Tecnologias e Ferramentas
+### 🛠️ Tecnologias e ferramentas
 
 <div align="left">
   <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -33,14 +33,14 @@ Sou um desenvolvedor apaixonado por criar soluções digitais escaláveis e de a
 
 ---
 
-### 💼 Experiência em Destaque
+### 💼 Experiências em destaque
 
 - **Desenvolvedor Fullstack Pleno (Grupo Integrado)**: Referência técnica na modernização de plataformas educacionais (SuperProfessor/SPRMED), implementando sistemas de checkout, gestão de conteúdo e arquiteturas baseadas em eventos (Redis/WebSockets).
 - **Desenvolvedor Frontend Pleno (Wing Corp / PZ Commerce)**: Arquitetura de lojas e-commerce customizadas (VTEX) e otimização focada em Core Web Vitals e UX.
 
 ---
 
-### 📫 Conecte-se comigo
+### 📫 Minhas redes
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/michelscamargo)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5544988463903)
