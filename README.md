@@ -6,7 +6,7 @@ Sou um desenvolvedor especialista na criação de soluções digitais escalávei
 
 ---
 
-### 🚀 Sobre mim
+### Sobre mim
 
 - 🏗️ **Arquitetura de Software:** Especialista no ecossistema **TypeScript**, com domínio avançado em **Next.js**, **NestJS** e **Node.js**.
 - 📦 **Infraestrutura:** Implementação de arquiteturas **Monorepo**, gestão de pacotes e automação de pipelines **CI/CD**.
@@ -16,7 +16,7 @@ Sou um desenvolvedor especialista na criação de soluções digitais escalávei
 
 ---
 
-### 🛠️ Tecnologias e ferramentas
+### Tecnologias e ferramentas
 
 <div align="left">
   <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -33,14 +33,14 @@ Sou um desenvolvedor especialista na criação de soluções digitais escalávei
 
 ---
 
-### 💼 Experiências em destaque
+### Experiências em destaque
 
-- **Desenvolvedor Fullstack Pleno (Grupo Integrado)**: Referência técnica na modernização de plataformas educacionais (SuperProfessor/SPRMED), implementando sistemas de checkout, gestão de conteúdo e arquiteturas baseadas em eventos (Redis/WebSockets).
+- **Desenvolvedor Fullstack Pleno (Grupo Integrado)**: Referência técnica na modernização de plataformas educacionais (SuperProfessor/SPRMED/Pazzei), implementando sistemas de checkout, integrações com gateways de pagamento, gestão de conteúdo e arquiteturas baseadas em eventos (Redis/WebSockets).
 - **Desenvolvedor Frontend Pleno (Wing Corp / PZ Commerce)**: Arquitetura de lojas e-commerce customizadas (VTEX) e otimização focada em Core Web Vitals e UX.
 
 ---
 
-### 📫 Minhas redes
+### Minhas redes
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/michelscamargo)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5544988463903)
@@ -50,5 +50,5 @@ Sou um desenvolvedor especialista na criação de soluções digitais escalávei
 ---
 
 <p>
-  🚀 Criando experiências digitais que importam.
+  Criando experiências digitais que importam.
 </p>
