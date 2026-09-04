@@ -2,7 +2,7 @@
 
 ### Desenvolvedor Frontend | UI/UX Designer
 
-Sou um desenvolvedor especialista na criação de soluções digitais escaláveis e de alta performance. Atuo estrategicamente entre a engenharia de software e o design de interface, priorizando a melhor experiência para o usuário final.
+Especialista na criação de soluções digitais escaláveis e de alta performance. Atuo estrategicamente entre a engenharia de software e o design de interface, priorizando a melhor experiência para o usuário final.
 
 ---
 
